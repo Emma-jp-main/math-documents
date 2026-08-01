@@ -1,0 +1,992 @@
+% This LaTeX document needs to be compiled with XeLaTeX.
+\documentclass[10pt]{article}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp}
+
+\begin{document}
+「常微分方程式論 1 」 前期中間テストに代えるレポート課題
+
+$[1]$ 次の微分方程式を解け.
+
+
+\begin{equation*}
+y^{2}+1+x^{2} y \frac{d y}{d x}=0 \tag{1}
+\end{equation*}
+
+
+$[2]$ 次の微分方程式を解け.
+
+
+\begin{equation*}
+y^{2}-3 x^{2}+2 x y \frac{d y}{d x}=0 \tag{2}
+\end{equation*}
+
+
+$[3]$ 次の微分方程式を解け.
+
+
+\begin{equation*}
+x-2 y+5+(2 x-y+4) \frac{d y}{d x}=0 \tag{3}
+\end{equation*}
+
+
+(ヒント) $X=x+1, Y=y-2$ と変数変換して, $X, Y$ の方程式に書き換え, 同次形の 微分方程式
+
+
+\begin{equation*}
+\frac{d Y}{d X}=F\left(\frac{Y}{X}\right) \tag{4}
+\end{equation*}
+
+
+を導くことによって解け.
+
+[4] 次の微分方程式を解け.
+
+
+\begin{equation*}
+x \frac{d y}{d x}+(1-x) y=1 \tag{5}
+\end{equation*}
+
+
+$[5]$ 次の微分方程式を解け.
+
+
+\begin{equation*}
+\frac{d y}{d x}+2 x y=2 x^{3} y^{3} \tag{6}
+\end{equation*}
+
+
+[6] 次の微分方程式は $\frac{a}{x}$ の形の特殊解をもつという.このとき,この方程式の一般解を求 めよ.
+
+
+\begin{equation*}
+\frac{d y}{d x}+y^{2}=\frac{2}{x^{2}} \tag{7}
+\end{equation*}
+
+
+$[7]$ 次の微分方程式の一般解を求めよ.
+
+
+\begin{align*}
+& \text { (1) } y^{\prime \prime}+y^{\prime}-2 y=0  \tag{8}\\
+& \text { (2) } y^{\prime \prime}+2 y^{\prime}+2 y=0  \tag{9}\\
+& \text { (3) } y^{\prime \prime}+2 y^{\prime}+y=0 \tag{10}
+\end{align*}
+
+
+$[8]$ 次の微分方程式の一般解を求めよ.
+
+
+\begin{equation*}
+y^{\prime \prime}-2 y^{\prime}+y=\sin x \tag{11}
+\end{equation*}
+
+
+[9] $\left\{f_{n}(x)\right\}_{n}$ を区間 $I=[a, b]$ 上で定義された連続関数列とする. この $\left\{f_{n}(x)\right\}_{n}$ がある 関数 $f(x)$ に $I$ 上で一様収束するとき,
+
+
+\begin{equation*}
+\lim _{n \rightarrow \infty} \int_{a}^{b} f_{n}(x) d x=\int_{a}^{b} f(x) d x \tag{12}
+\end{equation*}
+
+
+が成り立つことを示せ.
+
+[10] $I=[a, b] \subset \mathbb{R}$ とする. $\mathbb{R}^{2}$ 内の有界閉集合 $D=I \times E$ 上で定義された関数 $f(x, y)$ は連続であり, その導関数 $\frac{\partial f}{\partial y}$ も $D$ で連続であるとする.このとき, 任意の $\left(x_{0}, c\right) \in D$ において, 初期値問題
+
+\[
+\left\{\begin{array}{l}
+\frac{d y}{d x}=f(x, y)  \tag{13}\\
+y\left(x_{0}\right)=c
+\end{array}\right.
+\]
+
+をみたす解 $y \equiv y(x)$ が $x=x_{0}$ の近傍 $U$ でただ1つ存在することを示せ.\\
+「常微分方程式論 1 」 前期中間テストに代えるレポート課題・解答例のプリント
+
+$[1]$ 次の微分方程式を解け.
+
+
+\begin{equation*}
+y^{2}+1+x^{2} y \frac{d y}{d x}=0 \tag{1}
+\end{equation*}
+
+
+$[1]$ の解答例
+
+$x=0$ なら $y^{2}+1=0$ となり矛盾. ゆえに $x \neq 0$ である. (1) は変数分離形であるから,与式を変形して
+
+$$
+x^{2} y \frac{d y}{d x}=-\left(y^{2}+1\right), \quad \frac{y}{y^{2}+1} \frac{d y}{d x}=-\frac{1}{x^{2}}
+$$
+
+ここで両辺を $x$ について積分して
+
+
+\begin{equation*}
+\int \frac{y}{y^{2}+1} d y=-\int \frac{1}{x^{2}} d x+C_{0} \tag{*1}
+\end{equation*}
+
+
+このとき
+
+$$
+\begin{gathered}
+\int \frac{y}{y^{2}+1} d y=\frac{1}{2} \int \frac{2 y}{y^{2}+1} d y=\frac{1}{2} \int \frac{\left(y^{2}+1\right)^{\prime}}{y^{2}+1} d y=\frac{1}{2} \log \left(y^{2}+1\right) \\
+\int \frac{1}{x^{2}} d x=\frac{1}{-2+1} x^{-2+1}=-\frac{1}{x}
+\end{gathered}
+$$
+
+であることに注意して, $(* 1)$ 式を書き換えると
+
+$\frac{1}{2} \log \left(y^{2}+1\right)=\frac{1}{x}+C_{0}, \quad$ さらに変形して $\quad \log \left(y^{2}+1\right)=\frac{2}{x}+C_{1}, \quad$ with $C_{1}=2 C_{0}$
+
+となる. ゆえに $y^{2}+1=\exp \left\{\frac{2}{x}+C_{1}\right\}=e^{C_{1}} e^{2 / x}=C_{2} e^{2 / x},\left(C_{2}=e^{C_{1}}\right)$ となるから, $y^{2}=C_{2} e^{2 / x}-1$ と書き直して, 最終的に
+
+$$
+y= \pm \sqrt{C e^{2 / x}-1}= \pm \sqrt{C \exp \left\{\frac{2}{x}\right\}-1} \quad \text { を得る. }
+$$
+
+$[2]$ 次の微分方程式を解け.
+
+
+\begin{equation*}
+y^{2}-3 x^{2}+2 x y \frac{d y}{d x}=0 \tag{2}
+\end{equation*}
+
+
+$[2]$ の解答例
+
+与式 (2) において $x=0$ のケースを考えると, $y^{2}=0$ より $y=0$ (ゼロ解) が従う.ゼ 口解は trivial でほとんど意味がないから $x \neq 0$ としてよい.
+
+ゆえに (2) の両辺に $\times \frac{1}{x^{2}}$ をかけて変形して
+
+
+\begin{equation*}
+\left(\frac{y}{x}\right)^{2}-3+2\left(\frac{y}{x}\right) \frac{d y}{d x}=0 \tag{*0}
+\end{equation*}
+
+
+を得る．そこで $(* 0)$ 式をさらに変形して
+
+
+\begin{equation*}
+2\left(\frac{y}{x}\right) \frac{d y}{d x}=3-\left(\frac{y}{x}\right)^{2}, \quad \frac{d y}{d x}=\frac{3-\left(\frac{y}{x}\right)^{2}}{2\left(\frac{y}{x}\right)}=F\left(\frac{y}{x}\right) \text { 形となる. } \tag{*1}
+\end{equation*}
+
+
+ここで $X$ の関数 $F(X)$ を $F(X)=\frac{3-X^{2}}{2 X}$ と定義する. すなわち, $(* 1)$ より微分方程式 $(* 0)$ は同次形である. 同次形の場合は $y / x=u$ とおいて, $u$ に関する微分方程式に直す と必ず変数分離形に帰着できることが知られている. ここで
+
+
+\begin{equation*}
+\frac{y}{x}=u \quad \text { とおいて }, \quad y=x u, \quad y^{\prime}=u+x u^{\prime} \tag{*2}
+\end{equation*}
+
+
+であるから,これにより方程式 $(* 0)$ を書き直して
+
+$$
+u^{2}-3+2 u \frac{d y}{d x}=0, \quad u^{2}-3+2 u\left(u+x u^{\prime}\right)=0
+$$
+
+を得る. さらにこれを整理して
+
+$$
+\begin{gathered}
+2 x u \cdot u^{\prime}=3\left(1-u^{2}\right) \quad \text { となるので，これは } \\
+\frac{u}{1-u^{2}} \cdot \frac{d u}{d x}=\frac{3}{2} \cdot \frac{1}{x} \quad \text { と変形して,変数分離形である. } \\
+-\frac{1}{2} \int \frac{-2 u}{1-u^{2}} d u=\frac{3}{2} \int \frac{1}{x} d x+C_{0}=\frac{3}{2} \log |x|+C_{0}
+\end{gathered}
+$$
+
+したがって, $-\frac{1}{2} \log \left|1-u^{2}\right|=\frac{3}{2} \log |x|+C_{0}$ を得る.ここで両辺を 2 倍して
+
+$-\log \left|1-u^{2}\right|=3 \log |x|+2 C_{0}=\log |x|^{3}+\log e^{2 C_{0}}=\log C_{1} x^{3} \quad$ with $\quad C_{1}= \pm e^{2 C_{0}}$ $\log \left|1-u^{2}\right|=-\log C_{1} x^{3}=\log \frac{1}{C_{1} x^{3}}, \quad 1-u^{2}=\frac{1}{C_{2} x^{3}} \quad$ with $\quad C_{2}= \pm C_{1}$
+
+ゆえに
+
+
+\begin{equation*}
+u^{2}=1-\frac{1}{C_{2} x^{3}} \text { を得る. } \tag{*3}
+\end{equation*}
+
+
+ここで $u=y / x$ を代入して $, x, y$ の式に戻して
+
+$$
+\left(\frac{y}{x}\right)^{2}=\frac{y^{2}}{x^{2}}=1-\frac{1}{C_{2} x^{3}} \quad y^{2}=x^{2}-\frac{1}{C_{2} x}=x^{2}+\frac{C}{x} \quad \text { with } \quad C=-\frac{1}{C_{2}}
+$$
+
+かくして方程式 $(2)$ の解
+
+$$
+y^{2}=x^{2}+\frac{C}{x}, \quad \text { or } \quad y= \pm \sqrt{\frac{x^{3}+C}{x}}= \pm x \sqrt{1+\frac{C}{x^{3}}}
+$$
+
+を得る。
+
+$[3]$ 次の微分方程式を解け.
+
+
+\begin{equation*}
+x-2 y+5+(2 x-y+4) \frac{d y}{d x}=0 \tag{3}
+\end{equation*}
+
+
+(ヒント) $X=x+1, Y=y-2$ と変数変換して, $X, Y$ の方程式に書き換え, 同次形の 微分方程式
+
+
+\begin{equation*}
+\frac{d Y}{d X}=F\left(\frac{Y}{X}\right) \tag{4}
+\end{equation*}
+
+
+を導くことによって解け.
+
+[3] の解答例（同次形の一般化問題である.）
+
+元の方程式 $(3)$ を書き換えて
+
+
+\begin{equation*}
+(2 x-y+4) \frac{d y}{d x}=-(x-2 y+5), \quad \frac{d y}{d x}=-\frac{x-2 y+5}{2 x-y+4} \tag{*1}
+\end{equation*}
+
+
+を得る.ここで
+
+\[
+\left\{\begin{array}{l}
+x-2 y+5=0  \tag{*2}\\
+2 x-y+4=0
+\end{array}\right.
+\]
+
+を連立させて解いて, $x=-1, y=2$ を得る.したがって，
+
+\[
+\left\{\begin{array}{l}
+X=x+1  \tag{*3}\\
+Y=y-2
+\end{array}\right.
+\]
+
+と変数変換して, 与えられた微分方程式 $(3)$ 或いは $(* 1)$ を書き直して, $(X, Y)$ に関す る微分方程式を導く. 実際, $X-2 Y=x-2 y+5,2 X-Y=2 x-y+4$ であること,お よび $d Y=d y$ かつ $d X=d x$ であることに注意すれば, 新しい $(X, Y)$ に関する方程式
+
+
+\begin{equation*}
+\frac{d Y}{d X}=-\frac{X-2 Y}{2 X-Y} \tag{*4}
+\end{equation*}
+
+
+を得る.この $(* 4)$ 式を少し変形すると
+
+
+\begin{equation*}
+\frac{d Y}{d X}=-\frac{X-2 Y}{2 X-Y}=-\frac{1-2 \frac{Y}{X}}{2-\frac{Y}{X}}=F\left(\frac{Y}{X}\right) \tag{*5}
+\end{equation*}
+
+
+ここで $F(Z)=\frac{1-2 Z}{Z-2}$ である. この微分方程式 $(* 5)$ は同次形であるから, $Z=Y / X$ とお くことで変数分離形に帰着できる.
+
+$$
+Y=X Z, \quad \frac{d Y}{d X}=Z+X \frac{d Z}{d X}
+$$
+
+に注意して, $(* 5)$ から直ちに $Z$ に関する微分方程式
+
+
+\begin{equation*}
+Z+X \frac{d Z}{d X}=-\frac{1-2 Z}{2-Z} \tag{*6}
+\end{equation*}
+
+
+を得る、これを整理して $X Z^{\prime}=\left(Z^{2}-1\right) /(2-Z)$ となるから, 変数分離形である.した がって, 変形して
+
+
+\begin{equation*}
+\frac{2-Z}{Z^{2}-1} \cdot \frac{d Z}{d X}=\frac{1}{X}, \quad \text { 両辺を } X \text { について積分すると } \quad \int \frac{2-Z}{Z^{2}-1} d Z=\int \frac{1}{X} d X+C_{0} \tag{*7}
+\end{equation*}
+
+
+を得る.一方，
+
+
+\begin{equation*}
+I_{1}:=\int \frac{2-Z}{Z^{2}-1} d Z=2 \int \frac{d Z}{Z^{2}-1}-\int \frac{Z}{Z^{2}-1} d Z=: 2 J_{1}-J_{2} \quad \text { とおく. } \tag{*8}
+\end{equation*}
+
+
+$$
+\begin{aligned}
+& J_{1}=\int \frac{d Z}{Z^{2}-1}=\int \frac{d Z}{(Z+1)(Z-1)}=-\frac{1}{2} \int \frac{d Z}{Z+1}+\frac{1}{2} \int \frac{d Z}{Z-1}=\frac{1}{2} \log \left|\frac{Z-1}{Z+1}\right| \\
+& J_{2}=\int \frac{Z}{Z^{2}-1} d Z=\frac{1}{2} \int \frac{2 Z}{Z^{2}-1} d Z=\frac{1}{2} \int \frac{\left(Z^{2}-1\right)^{\prime}}{Z^{2}-1} d Z=\frac{1}{2} \log \left|Z^{2}-1\right| \\
+& I_{2}:=\int \frac{1}{X} d X+C_{0}=\log |X|+C_{0}
+\end{aligned}
+$$
+
+であることに注意すれば, $(* 7)$ および $(* 8)$ から関係式
+
+
+\begin{equation*}
+2 \times \frac{1}{2} \log \left|\frac{Z-1}{Z+1}\right|-\frac{1}{2} \log \left|Z^{2}-1\right|=\log |X|+C_{0} \tag{*9}
+\end{equation*}
+
+
+を得る. これを整理してまとめると
+
+$$
+\log \frac{(Z-1)^{2}}{\left(Z^{2}-1\right)(Z+1)^{2}}=\log C_{1} X^{2}, \quad C_{1}=e^{2 C_{0}}
+$$
+
+さらに対数関数の一意性より
+
+
+\begin{equation*}
+\frac{Z-1}{(Z+1)^{3}}=C X^{2} \tag{*10}
+\end{equation*}
+
+
+を得る.ここで $Z=Y / X$ を用いて, 元の変数に戻して
+
+$$
+\frac{\frac{Y}{X}-1}{\left(\frac{Y}{X}+1\right)^{3}}=C X^{2}, \quad \Longrightarrow \quad \frac{Y-X}{(Y+X)^{3}}=C, \quad\left\{\begin{array}{l}
+X=x+1 \\
+Y=y-2
+\end{array}\right. \text { を代入して }
+$$
+
+さらに $Y-X=y-x-3$, かつ $Y+X=y+x-1$ に注意して, 元の方程式 (3) の解
+
+$$
+\frac{y-x-3}{(y+x-1)^{3}}=c \quad \text { を得る. }
+$$
+
+一方, 符号を変えて, 任意定数に $(-1)$ を繰り込むと
+
+$$
+\frac{X-Y}{(X+Y)^{3}}=C \quad \text { とできるから }, \quad \frac{x-y+3}{(x+y-1)^{3}}=c
+$$
+
+としてもよい.
+
+[4] 次の微分方程式を解け.
+
+
+\begin{equation*}
+x \frac{d y}{d x}+(1-x) y=1 \tag{5}
+\end{equation*}
+
+
+$[4]$ の解答例
+
+(5) は 1 階線形微分方程式であるから, 定数変化法により解く.
+
+(Part I) まず (5) の斉次微分方程式: $x \frac{d z}{d x}+(1-x) z=0 \quad \cdots \cdots(* 1)$ を解く.
+
+移行して $x \frac{d z}{d x}=(x-1) z, \quad$ これは 変数分離形であるから, 変形して $\frac{1}{z} \frac{d z}{d x}=1-\frac{1}{x}$ さらに両辺を $x$ について積分して
+
+$$
+\int \frac{1}{z} d z=\int\left(1-\frac{1}{x}\right) d x+C_{0}=\int d x-\int \frac{1}{x} d x+C_{0}
+$$
+
+不定積分を実行して $\quad \log |z|=x-\log |x|+C_{0}=\log e^{x}-\log |x|+\log e^{C_{0}}=\log \frac{C_{1} e^{x}}{|x|}$ ここで $C_{1}=e^{C_{0}}$ と置いた. 対数関数の 1 対 1 対応性から
+
+$$
+z=C \frac{e^{x}}{x} \cdots \cdots(* 2) \quad \text { を得る. } \quad\left(C= \pm C_{1}\right)
+$$
+
+(Part II) 次に元々の非斉次方程式 (5) の一般解を求める. $(* 2)$ に対して, 定数変化法を 用いて (5) の解を
+
+
+\begin{equation*}
+y \equiv y(x)=f(x) \cdot \frac{e^{x}}{x} \tag{*3}
+\end{equation*}
+
+
+として求める. $(* 3)$ を微分して
+
+
+\begin{equation*}
+y^{\prime}(x)=f^{\prime}(x) \cdot \frac{e^{x}}{x}+f(x)\left\{\frac{e^{x}}{x}\right\}^{\prime}=f^{\prime}(x) \cdot \frac{e^{x}}{x}+f(x) \cdot \frac{e^{x}}{x}-f(x) \cdot \frac{e^{x}}{x^{2}} \tag{*4}
+\end{equation*}
+
+
+を得る. よって元の方程式 (5) に代入して
+
+$$
+x\left\{f^{\prime}(x) \cdot \frac{e^{x}}{x}+f(x) \cdot \frac{e^{x}}{x}-f(x) \cdot \frac{e^{x}}{x^{2}}\right\}+(1-x) f(x) \cdot \frac{e^{x}}{x}=1, \quad f^{\prime}(x) e^{x}=1
+$$
+
+を得るから $, f^{\prime}(x)=e^{-x}, \cdots \cdots(* 5)$ を積分して
+
+
+\begin{equation*}
+f(x)=\int e^{-x} d x+C_{2}=-e^{-x}+C_{2} \tag{*6}
+\end{equation*}
+
+
+を得る. ゆえに $(* 6)$ を $(* 3)$ に代入して
+
+
+\begin{equation*}
+y=f(x) \cdot \frac{e^{x}}{x}=\left(-e^{-x}+C_{2}\right) \frac{e^{x}}{x}=-\frac{1}{x}+C_{2} \frac{e^{x}}{x} \tag{*7}
+\end{equation*}
+
+
+となる.したがって, 求める非斉次方程式 (5) の一般解は
+
+
+\begin{equation*}
+y(x)=-\frac{1}{x}+C \frac{e^{x}}{x} \tag{*8}
+\end{equation*}
+
+
+で与えられる.
+
+$[5]$ 次の微分方程式を解け.
+
+
+\begin{equation*}
+\frac{d y}{d x}+2 x y=2 x^{3} y^{3} \tag{6}
+\end{equation*}
+
+
+[5] の解答例 (ベルヌーイ (Bernoulli) 型微分方程式の解法)
+
+(6) 式の両辺に $\times \frac{1}{y^{3}}$ を掛けて,
+
+
+\begin{equation*}
+\frac{y^{\prime}}{y^{3}}+\frac{2 x}{y^{2}}=2 x^{3} \tag{*1}
+\end{equation*}
+
+
+となる.ここで $z=1 / y^{2}$ と置いて, 方程式 $(* 1)$ を $z$ に関する微分方程式に書き直す.
+
+$$
+y^{2}=\frac{1}{z}=z^{-1}, \text { 微分して } 2 y \frac{d y}{d x}=(-1) z^{-2} \frac{d z}{d x}
+$$
+
+直ちに $y^{\prime}=\frac{1}{2 y} \cdot(-1) \frac{1}{z^{2}} z^{\prime}, \quad$ さらに整理して,$\quad \Longrightarrow \quad \frac{y^{\prime}}{y^{3}}=-\frac{1}{2} z^{\prime}$
+
+を得る. したがって,これらを $(* 1)$ に代入して
+
+
+\begin{equation*}
+-\frac{1}{2} z^{\prime}+2 x z=2 x^{3}, \quad \Longrightarrow \quad z^{\prime}-4 x z=-4 x^{3} \tag{*3}
+\end{equation*}
+
+
+を得る.この $(* 3)$ 式は $z$ に関する 1 階線形微分方程式に他ならない. したがって定数変化法により解くことができる.
+
+(Part I) まず次の斉次方程式を解く. $w^{\prime}-4 x w=0$. ここで $w^{\prime}=4 x w$ は変数分離形 であるから, 変形して
+
+$$
+\frac{1}{w} \frac{d w}{d x}=4 x, \quad \text { 両辺を } x \text { について積分すると } \quad \int \frac{1}{w} d w=4 \int x d x+C_{0}
+$$
+
+であるから,
+
+$$
+\log |w|=4 \cdot \frac{x^{2}}{2}+C_{0}=2 x^{2}+C_{0}=\log \exp \left\{2 x^{2}+C_{0}\right\}=\log e^{C_{0}} e^{2 x^{2}}=\log C_{1} \cdot e^{2 x^{2}}
+$$
+
+ここで $C_{1}:=e^{C_{0}}$ と置いた. これより直ちに斉次方程式の解
+
+
+\begin{equation*}
+w(x)= \pm C_{1} e^{2 x^{2}}=C_{2} e^{2 x^{2}}, \quad C_{2}= \pm C_{1} \tag{*4}
+\end{equation*}
+
+
+が得られる.
+
+（Part II） 次に定数変化法を用いて非斉次方程式の一般解を求める. 上記の結果 $(* 4)$ を 受けて, 非斉次方程式 $(* 3)$ の解を
+
+
+\begin{equation*}
+z(x)=f(x) e^{2 x^{2}} \tag{*5}
+\end{equation*}
+
+
+とする. 微分して $z^{\prime}=f^{\prime} e^{2 x^{2}}+f \cdot e^{2 x^{2}} \times(4 x)=f^{\prime} e^{2 x^{2}}+4 x z$. この式を上の $(* 3)$ 式に 代入すれば, 直ちに $f^{\prime} e^{2 x^{2}}=-4 x^{3}$ を得る. 結局, $f^{\prime}=-4 x^{3} e^{-2 x^{2}}$ であるから, 積分して $f(x)$ を求める. 実際,
+
+$$
+f(x)=-4 \int x^{3} e^{-2 x^{2}} d x+C
+$$
+
+であるから, 求める非斉次方程式 $(* 3)$ の解は
+
+
+\begin{equation*}
+z(x)=e^{2 x^{2}}\left(-4 \int x^{3} e^{-2 x^{2}} d x+C\right) \tag{*6}
+\end{equation*}
+
+
+で与えられる. あとは上述の $(* 6)$ 内の不定積分 $I=\int x^{3} e^{-2 x^{2}} d x$ を具体的に求めさ亢す ればよい.
+
+(Part III) 上述の不定積分 $I$ を求めること.
+
+$$
+\left(e^{-2 x^{2}}\right)^{\prime}=-4 x \cdot e^{-2 x^{2}}
+$$
+
+に注意して, 部分積分法を用いると
+
+
+\begin{align*}
+I & =\int x^{3} e^{-2 x^{2}} d x=\int x^{2} \cdot x e^{-2 x^{2}} d x=\frac{-1}{4} \int x^{2} \cdot(-4 x) e^{-2 x^{2}} d x \\
+& =\frac{-1}{4} \int x^{2} \cdot\left(e^{-2 x^{2}}\right)^{\prime} d x=\frac{-1}{4}\left\{x^{2} e^{-2 x^{2}}-\int 2 x e^{-2 x^{2}} d x\right\} \\
+& =\frac{-1}{4} x^{2} e^{-2 x^{2}}+\frac{1}{2} \int x e^{-2 x^{2}} d x  \tag{*7}\\
+J & :=\int x e^{-2 x^{2}} d x=\frac{-1}{4} \int(-4) x \cdot e^{-2 x^{2}} d x=\frac{-1}{4} \int\left(e^{-2 x^{2}}\right)^{\prime} d x \\
+& =\frac{-1}{4} e^{-2 x^{2}}+C \tag{*8}
+\end{align*}
+
+
+ゆえに, $(* 7)$ と $(* 8)$ の結果を合わせて
+
+$$
+I=\int x^{3} e^{-2 x^{2}} d x=\frac{-1}{4} x^{2} e^{-2 x^{2}}+\frac{1}{2} \times \frac{-1}{4} e^{-2 x^{2}}+C
+$$
+
+であるから, $(* 6)$ 式に代入して, 求める非斉次方程式 $(* 3)$ の一般解は
+
+
+\begin{equation*}
+z=e^{2 x^{2}}\left(x^{2} e^{-2 x^{2}}+\frac{1}{2} e^{-2 x^{2}}+C\right)=x^{2}+\frac{1}{2}+C e^{2 x^{2}} \tag{*9}
+\end{equation*}
+
+
+を得る。
+
+(Part IV) 元々 Bernoulli 型微分方程式 (6) を考えていたので式 $z=1 / y^{2}$ を考慮して
+
+
+\begin{equation*}
+y^{2}=\frac{1}{z}=\frac{1}{x^{2}+\frac{1}{2}+C e^{2 x^{2}}} \tag{*10}
+\end{equation*}
+
+
+である. あるいは, 求める一般解は
+
+
+\begin{equation*}
+y(x)=\frac{1}{ \pm \sqrt{x^{2}+\frac{1}{2}+C e^{2 x^{2}}}} \tag{*11}
+\end{equation*}
+
+
+となる.
+
+[6] 次の微分方程式は $\frac{a}{x}$ の形の特殊解をもつという.このとき,この方程式の一般解を求
+
+めよ.
+
+
+\begin{equation*}
+\frac{d y}{d x}+y^{2}=\frac{2}{x^{2}} \tag{7}
+\end{equation*}
+
+
+[6] の解答例（リッカチ (Riccati) 型微分方程式の解法）
+
+特殊解 $y=a / x$ は微分方程式 (7) をみたすから, パラメータ $a$ を決めよう.
+
+
+\begin{equation*}
+y^{\prime}=\left(\frac{a}{x}\right)^{\prime}=\left(a x^{-1}\right)^{\prime}=-a \cdot x^{-2}=-\frac{a}{x^{2}} \tag{*1}
+\end{equation*}
+
+
+この $(* 1)$ を方程式 $(7)$ に代入して
+
+$$
+-\frac{a}{x^{2}}+\left(\frac{a}{x}\right)^{2}=\frac{2}{x^{2}} \quad \Longrightarrow \quad-\frac{a}{x^{2}}+\frac{a^{2}}{x^{2}}=\frac{-a+a^{2}}{x^{2}}=\frac{2}{x^{2}}
+$$
+
+これより $a$ は関係式 $a^{2}-a=2$ をみたすことがわかる. 方程式 $a^{2}-a-2=0$ を解い $\tau,(a+1)(a-2)=0$, したがって, $a=-1$ あるいは $a=2$ である. ここでは,
+
+
+\begin{equation*}
+a=2 \tag{*2}
+\end{equation*}
+
+
+を採用して話を進めることにする. (7) はリッカチ型微分方程式であるから, 特殊解が既知の元での解法の処方箋に従って
+
+
+\begin{equation*}
+y=\frac{2}{x}+u \tag{*3}
+\end{equation*}
+
+
+と置いて, 未知関数を $u$ に変換して, $u$ がみたすべき方程式を導き出す. そこで $(* 3)$ を元 の方程式 $(7)$ に代入して
+
+
+\begin{align*}
+& y^{\prime}=\left(\frac{2}{x}\right)^{\prime}+u^{\prime}=-\frac{2}{x^{2}}+u^{\prime}, \quad-\frac{2}{x^{2}}+u^{\prime}+\left(\frac{2}{x}+u\right)^{2}=\frac{2}{x^{2}} \\
+& \left(\frac{2}{x}\right)^{\prime}+u^{\prime}+\left(\frac{2}{x}\right)^{2}+4 \frac{u}{x}+u^{2}=\frac{2}{x^{2}} \tag{*4}
+\end{align*}
+
+
+となる. ここで $y=2 / x$ が特殊解であったことを思い起こそう. 特殊解 $y=2 / x$ は元の 微分方程式 (7) $y^{\prime}+y^{2}=2 / x^{2}$ をみたすから, 上の式 $(* 4)$ で
+
+$$
+\left(\frac{2}{x}\right)^{\prime}+\left(\frac{2}{x}\right)^{2}=\frac{2}{x^{2}}
+$$
+
+なる関係をみたすから, 結局,$(* 4)$ 式から
+
+
+\begin{equation*}
+u^{\prime}+4 \frac{u}{x}+u^{2}=0 \tag{*5}
+\end{equation*}
+
+
+という $u$ に関する新しい微分方程式が導き出される。これはベルヌーイ (Bernoulli) 型微分方程式に他ならない.したがって, 適当な変換により1階線形微分方程式に帰着で きる.
+
+実際, 方程式 $(* 5)$ の両辺に $\times \frac{1}{u^{2}}$ を掛けて変形すると
+
+$$
+\frac{u^{\prime}}{u^{2}}+\frac{4}{x} \cdot \frac{1}{u}+1=0
+$$
+
+を得る.ここで $(1 / u)^{\prime}=\left(u^{-1}\right)^{\prime}=(d / d x)\left(u^{-1}\right)=(-1) u^{-2} \cdot(d u / d x)$ であることに注意 して, 少し見方を変えて, 上の式から微分関係式
+
+$$
+-\left(\frac{1}{u}\right)^{\prime}+\frac{4}{x}\left(\frac{1}{u}\right)=-1
+$$
+
+が成立していることがわかる. すなわち，
+
+
+\begin{equation*}
+\left(\frac{1}{u}\right)^{\prime}-\frac{4}{x}\left(\frac{1}{u}\right)=1 \tag{*6}
+\end{equation*}
+
+
+を得る. つまり, 変換 $z=1 / u, \cdots \cdots(* 7)$ を考えれば,
+
+
+\begin{equation*}
+z^{\prime}-\frac{4}{x} z=1 \tag{*8}
+\end{equation*}
+
+
+という 1 階線形微分方程式に帰着された.これは定数変化法により解くことができる.
+
+(Part I) $\quad((* 8)$ の斎次方程式を解くこと)
+
+$$
+w^{\prime}-\frac{4}{x} w=0, \quad \Longrightarrow \quad \frac{d w}{d x}=\frac{4}{x} w
+$$
+
+これは変数分離形であるから, 変形して, 両辺を $x$ について積分して
+
+$$
+\begin{aligned}
+& \frac{1}{w} \frac{d w}{d x}=\frac{4}{x}, \quad \int \frac{d w}{w}=\int \frac{4}{x} d x+C_{0} \\
+& \log |w|=4 \log |x|+C_{0}=\log x^{4}+\log e^{C_{0}}=\log C_{1} x^{4}, \quad\left(C_{1}=e^{C_{0}}\right) \\
+& \Longrightarrow \quad w \equiv w(x)= \pm C_{1} x^{4}=C_{2} x^{4} . \quad \text { を得る. }
+\end{aligned}
+$$
+
+（Part II）（定数変化法により非斉次方程式の一般解を求めること）
+
+非斉次方程式 $(* 8) z^{\prime}-(4 / x) z=1$ の解を定数変化法により
+
+
+\begin{equation*}
+z \equiv z(x)=f(x) x^{4} \tag{*9}
+\end{equation*}
+
+
+として, この $f(x)$ を定める. 実際, $z^{\prime}=f^{\prime} x^{4}+4 x^{3} \cdot f$ であるから, これらを元の方程式 $(* 8)$ に代入して
+
+$$
+f^{\prime} x^{4}+4 x^{3} \cdot f-\frac{4}{x} \cdot f x^{4}=1, \quad \text { キャンセルにより } \quad f^{\prime} x^{4}=1
+$$
+
+これより $f^{\prime}(x)=1 / x^{4}, \cdots \cdots(* 10)$ を得る.この $(* 10)$ を $x$ について積分して
+
+
+\begin{align*}
+f(x) & =\int \frac{1}{x^{4}} d x+C=\int x^{-4} d x+C=\frac{1}{-4+1} x^{-4+1}+C=\frac{1}{-3} x^{-3}+C=\frac{-1}{3 x^{3}}+C \\
+z & =x^{4}\left(\frac{-1}{3 x^{3}}+C\right)=-\frac{x}{3}+C x^{4}=C x^{4}-\frac{x}{3} \quad(* 11) \tag{*11}
+\end{align*}
+
+
+この $(* 11)$ は非斉次方程式 $(* 8)$ の解を与える.
+
+(Part III)
+
+
+\begin{equation*}
+z=\frac{1}{u} \tag{*7}
+\end{equation*}
+
+
+と置いたことを思い起こそう. 上の $(* 11)$ の結果より
+
+
+\begin{equation*}
+u=\frac{1}{z}=\frac{1}{C x^{4}-\frac{x}{3}} \tag{*12}
+\end{equation*}
+
+
+である. ゆえに求めるリッカチ (Riccati) 型微分方程式 (7)
+
+$$
+\frac{d y}{d x}+y^{2}=\frac{2}{x^{2}}
+$$
+
+の一般解は
+
+$$
+\begin{aligned}
+y & =\frac{2}{x}+u=\frac{2}{x}+\frac{1}{C x^{4}-\frac{x}{3}}=\frac{2 C x^{4}-\frac{2}{3} x+x}{x\left(C x^{4}-\frac{x}{3}\right)} \\
+& =\frac{2 C x^{4}+\frac{x}{3}}{C x^{5}-\frac{x^{2}}{3}}=\frac{6 C x^{4}+x}{3 C x^{5}-x^{2}}=\frac{6 C x^{3}+1}{3 C x^{4}-x}=\frac{2 c x^{3}+1}{c x^{4}-x}
+\end{aligned}
+$$
+
+ただし,ここで $c=3 C$ と置いた. かくして求めるリッカチ型方程式 (7) の解は
+
+
+\begin{equation*}
+y=\frac{2 c x^{3}+1}{c x^{4}-x} \tag{*13}
+\end{equation*}
+
+
+で与えられる.
+
+Remark 1. 特殊解は $a=2$ と $a=-1$ の 2 通りの $a / x$ 型関数であった. 最初に求めた特殊解 $\frac{2}{x}$ の他方, $a=-1$ のケースの $-\frac{1}{x}$ の方は, 上述の解 $(* 13)$ で $c=0$ とおけば得ら れる。
+
+Remark 2. ではもう一方の $a=2$ のケースに対応する特殊解 $\frac{2}{x}$ については, どうなって いるのか? 実は上の解法で求積に用いた $\frac{2}{x}$ の方は, 先の議論で最終的に得られた一般解 の具体的表現 $(* 13)$ において, $c \rightarrow \infty$ なる極限 (limit)に対応している. 実際,
+
+$$
+\lim _{c \rightarrow \infty} y(x)=\lim _{c \rightarrow \infty} \frac{2 c x^{3}+1}{c x^{4}-x}=\lim _{c \rightarrow \infty} \frac{2 x^{3}+\frac{1}{c}}{x^{4}-\frac{x}{c}}=\frac{2 x^{3}}{x^{4}}=\frac{2}{x}
+$$
+
+Remark 3. リッカチ (Riccati) 型方程式の求積で現れる Bernoulli 型方程式の指数は決 まっているのだから, 最初から
+
+$$
+y=\frac{2}{x}+\frac{1}{u}
+$$
+
+と変換して,$u$ に関する 1 階線形微分方程式を直接導いても解を得ることが可能である.
+
+$[7]$ 次の微分方程式の一般解を求めよ.
+
+
+\begin{align*}
+& \text { (1) } y^{\prime \prime}+y^{\prime}-2 y=0  \tag{8}\\
+& \text { (2) } y^{\prime \prime}+2 y^{\prime}+2 y=0  \tag{9}\\
+& \text { (3) } y^{\prime \prime}+2 y^{\prime}+y=0 \tag{10}
+\end{align*}
+
+
+[7] の解答例
+
+(1) $y^{\prime \prime}+y^{\prime}-2 y=0$ で $y=e^{\alpha x}$ と置くと, $y^{\prime}=\alpha e^{\alpha x}, y^{\prime \prime}=\alpha^{2} e^{\alpha x}$ より上方程式に代入して
+
+$$
+\left(\alpha^{2}+\alpha-2\right) e^{\alpha x}=0, \quad e^{\alpha x}>0 \text { より } \quad \alpha^{2}+\alpha-2=0 \text { (特性方程式) }
+$$
+
+を得る.この特性方程式を解いて, $(\alpha-1)(\alpha+2)=0$ より直ちに $\alpha=1$ あるいは $\alpha=-2$ を得る.このとき, $e^{x}$ と $e^{-2 x}$ は互いに独立な解であるから, 方程式 (1) の一般解はこれ らの 1 次結合で与えられる. すなわち,
+
+$$
+y=c_{1} e^{x}+c_{2} e^{-2 x}, \quad\left(c_{1}, c_{2}: \text { 任意定数 }\right)
+$$
+
+である.
+
+(2) $y^{\prime \prime}+2 y^{\prime}+2 y=0$ で $y=e^{\alpha x}$ と置いて, $y^{\prime}=\alpha e^{\alpha x}, y^{\prime \prime}=\alpha^{2} e^{\alpha x}$ より, 特性方程式 $\alpha^{2}+2 \alpha+2=0$ を得る. 2 次方程式 $a x^{2}+2 b^{\prime} x+c=0$ の解の公式より
+
+$$
+x=\frac{-b^{\prime} \pm \sqrt{b^{\prime 2}-a c}}{a}
+$$
+
+であるから， $2$ 複素数解 $\alpha=-1 \pm \sqrt{1-2}=-1 \pm i$, （ $i$ は虚数単位 $\sqrt{-1}$ ) を得る. ここで $e^{(-1+i) x}$ と $e^{(-1-i) x}$ が互いに独立な解であるから, 求める一般解は, $c_{1}, c_{2}$ を任意定数として
+
+$$
+\begin{aligned}
+y & =c_{1} e^{(-1+i) x}+c_{2} e^{(-1-i) x} \\
+& \Longleftarrow \text { オイラー (Euler)の公式より } \\
+& =c_{1} e^{-x}(\cos x+i \sin x)+C_{2} e^{-x}(\cos x-i \sin x) \\
+& =e^{-x}\left(K_{1} \cos x+K_{2} \sin x\right)
+\end{aligned}
+$$
+
+を得る. ただし, $K_{1}, K_{2}$ は任意定数である. また $K_{1}:=c_{1}+c_{2}$, および $K_{2}:=\left(c_{1}-c_{2}\right) i$ と置いた。
+
+(3) $y^{\prime \prime}+2 y^{\prime}+1=0$ で $y=e^{\alpha x}$ と置いて, 特性方程式 $\alpha^{2}+2 \alpha+1=0$ を得る. これを 解いて $(\alpha+1)^{2}=0$ より, 重解 $\alpha=-1$ をもつ. このときは, $y=e^{\alpha x}$ 以外に $y=x e^{\alpha x}$ も独立な解となる. ゆえに, 求める一般解は
+
+$$
+y=c_{1} e^{-x}+c_{2} x e^{-x}=\left(c_{1}+c_{2} x\right) e^{-x}
+$$
+
+で与えられる. ただし, $c_{1}, c_{2}$ は任意定数である.
+
+$[8]$ 次の微分方程式の一般解を求めよ.
+
+
+\begin{equation*}
+y^{\prime \prime}-2 y^{\prime}+y=\sin x \tag{11}
+\end{equation*}
+
+
+$[8]$ の解答例
+
+まず斉次方程式の一般解を求める. $y=e^{\alpha x}$ として, 特性方程式 $\alpha^{2}-2 \alpha+1=0$ を得る. これを解いて $(\alpha-1)^{2}=0$ であるから, 重解 $\alpha=1$ をもつ. このとき, $e^{x}$ と $x e^{x}$ が独立 な 2 解を与える. ゆえに, 斉次方程式 $y^{\prime \prime}-2 y^{\prime}+y=0$ の一般解は
+
+$$
+y=\left(c_{1}+c_{2} x\right) e^{x}
+$$
+
+で与えられる. ただし $, c_{1}, c_{2}$ は任意定数である.
+
+次に与式 $(11)$ の特別解 $y$ を求める. そのため,
+
+
+\begin{equation*}
+y=A \sin x+B \cos x \tag{*1}
+\end{equation*}
+
+
+と置いて, $y^{\prime}=A \cos x-B \sin x, y^{\prime \prime}=-A \sin x-B \cos x$ となる. これらを元の方程式 に代入して
+
+$$
+\begin{aligned}
+y^{\prime \prime}-2 y^{\prime}+y & =(-A \sin x-B \cos x)-2 A \cos x+2 B \sin x+(A \sin x+B \cos x) \\
+& =2 B \sin x-2 A \cos x=\sin x
+\end{aligned}
+$$
+
+であるはずだから, 直ちに $A=0$ かつ $B=\frac{1}{2}$ となる.したがって, 非斉次方程式の特殊解は
+
+
+\begin{equation*}
+y=\frac{1}{2} \cos x \tag{*2}
+\end{equation*}
+
+
+である.ここで求める非斉次方程式 (11) $y^{\prime \prime}-2 y^{\prime}+y=\sin x$ の一般解は線形方程式の一般論加ら
+
+$$
+\text { 「特殊解」 }+ \text { 「斉次方程式の一般解」 }
+$$
+
+の形で与えられることに注意しよう. ゆえに $[8]$ の非斉次方程式 (11) の解は
+
+
+\begin{equation*}
+y(x)=\frac{1}{2} \cos x+\left(c_{1}+c_{2} x\right) e^{x} \tag{*3}
+\end{equation*}
+
+
+で与えられる.
+
+[9] $\left\{f_{n}(x)\right\}_{n}$ を区間 $I=[a, b]$ 上で定義された連続関数列とする. この $\left\{f_{n}(x)\right\}_{n}$ がある 関数 $f(x)$ に $I$ 上で一様収束するとき,
+
+
+\begin{equation*}
+\lim _{n \rightarrow \infty} \int_{a}^{b} f_{n}(x) d x=\int_{a}^{b} f(x) d x \tag{12}
+\end{equation*}
+
+
+が成り立つことを示せ.
+
+$[9]$ の解答例
+
+仮定の $f_{n} \rightarrow f$ の区間 $I$ 上一様収束は, $\varphi-\delta$ 論法で書き表すと
+
+$$
+\begin{aligned}
+& \forall \varepsilon>0, \exists N \equiv N(\varepsilon) \in \mathbb{N}: \\
+& \text { if } \quad n \geq N(\varepsilon) \Rightarrow\left|f_{n}(x)-f(x)\right|<\varepsilon, \quad(\forall x \in I=[a, b])
+\end{aligned}
+$$
+
+ということである.したがって,この一様収束の定義から
+
+$$
+\begin{aligned}
+& \forall \varepsilon>0, \exists N_{\varepsilon} \in \mathbb{N}: \\
+& \text { if } \quad n \geq N_{\varepsilon} \Rightarrow\left|f_{n}(x)-f(x)\right|<\frac{\varepsilon}{b-a}, \quad(\forall x \in I=[a, b])
+\end{aligned}
+$$
+
+としてもよい. すなわち, 上記評価 $\left|f_{n}-f\right|<\varepsilon /(b-a)$ が任意の $x \in I$ に対して成り立 つようにできることがわかる.
+
+$n$ に対して
+
+$$
+\begin{aligned}
+& \left|\int_{a}^{b} f_{n}(x) d x-\int_{a}^{b} f(x) d x\right|=\left|\int_{a}^{b}\left(f_{n}(x)-f(x)\right) d x\right| \leqslant \int_{a}^{b}\left|f_{n}(x)-f(x)\right| d x \\
+& \leqslant \int_{a}^{b} \frac{\varepsilon}{b-a} d x=\frac{\varepsilon}{b-a} \int_{a}^{b} d x=\frac{\varepsilon}{b-a}[x]_{a}^{b}=\frac{\varepsilon}{b-a} \times(b-a)=\varepsilon
+\end{aligned}
+$$
+
+の成立を意味する.
+
+「補足」：（最後の積分の評価のところに関して）
+
+仮定の一様収束 $\left\|f_{n}-f\right\|<\eta,(\forall \eta>0)$ に対して,
+
+$$
+\begin{aligned}
+& \left|\int_{a}^{b} f_{n}(x) d x-\int_{a}^{b} f(x) d x\right| \leqslant \int_{a}^{b}\left|f_{n}(x)-f(x)\right| d x \leqslant \sup _{x \in I}\left|f_{n}(x)-f(x)\right| \cdot \int_{a}^{b} d x \\
+& =\left\|f_{n}-f\right\|_{\infty} \cdot|I|<\eta \cdot|I|=\varepsilon
+\end{aligned}
+$$
+
+としてもよい.
+
+[10] $I=[a, b] \subset \mathbb{R}$ とする. $\mathbb{R}^{2}$ 内の有界閉集合 $D=I \times E$ 上で定義された関数 $f(x, y)$ は連続であり, その導関数 $\frac{\partial f}{\partial y}$ も $D$ で連続であるとする.このとき, 任意の $\left(x_{0}, c\right) \in D$ において, 初期値問題
+
+\[
+\left\{\begin{array}{l}
+\frac{d y}{d x}=f(x, y)  \tag{13}\\
+y\left(x_{0}\right)=c
+\end{array}\right.
+\]
+
+をみたす解 $y \equiv y(x)$ が $x=x_{0}$ の近傍 $U$ でただ 1 つ存在することを示せ.
+
+[10] の解答例（重要なポイントのみ)
+
+(1) $D$ は $\mathbb{R}^{2}$ 内のコンパクト集合で, $f \equiv f(x, y)$ の $D$ 上連続性より
+
+$$
+\exists M>0: \quad|f(x, y)| \leqslant M \quad(\forall(x, y) \in D)
+$$
+
+が成り立つ. すなわち, $f(x, y)$ は $D$ 上, $M$-有界である.
+
+(2) 仮定より, $f \in C(D)$ は $D$ で連続な導関数 $\frac{\partial f}{\partial y}$ をもつから, $f_{x} \equiv f(x, \cdot) \in C^{1}(E)$ である.
+
+したがって, $E$ 内の適当な区間 $\forall[\xi, \eta]$ において, 適当な点 $\exists \zeta(\xi<\zeta<\eta)$ がとれて
+
+$$
+\begin{aligned}
+& \frac{f(x, \eta)-f(x, \xi)}{\eta-\xi}=\frac{\partial f}{\partial y}(\zeta) \quad(\forall x \in I) \\
+& \Longleftrightarrow \quad f(x, \eta)-f(x, \xi)=\frac{\partial f}{\partial y}(\zeta) \cdot(\eta-\xi)
+\end{aligned}
+$$
+
+仮定から $f(x, \cdot) \in C^{1}(E)$ であるから
+
+$$
+\begin{aligned}
+& \exists K_{x}:=\max _{y \in[\xi, \eta]}\left|\frac{\partial f}{\partial y}(x, y)\right|, \quad(\forall x \in I) \\
+& \text { i.e., }|f(x, \eta)-f(x, \xi)| \leqslant\left|\frac{\partial f}{\partial y}(\zeta)\right| \cdot|\eta-\xi| \quad(\forall x \in I) \\
+& \leqslant K \cdot|\eta-\xi|
+\end{aligned}
+$$
+
+が成り立つ.これは関数 $f(x, y)$ の変数 $y$ に関する一様リプシッツ(Lipschitz) 条件に他 ならない.
+
+(3) 以上の観点から, [10] の要件は授業で講義した「正規形の常微分方程式のコーシー問題の解の存在一意性定理」で課された条件とほぼ同様な条件を導出する十分条件となって いる. そのため, 定理の主張の証明にかんしてはほとんど同様な進行状況となるため, 同主張が成立することが示される.
+
+
+\end{document}
