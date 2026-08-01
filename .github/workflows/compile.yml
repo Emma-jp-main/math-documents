@@ -24,7 +24,7 @@ jobs:
 
       # 3. 生成された PDF ファイルを GitHub 上に保存（ダウンロード可能にする）
       - name: Upload PDF Artifacts
-        uses: actions/artifacts-upload@v4 # 2026年現在の推奨アクション
+        uses: actions/upload-artifact@v4  # プラグイン
         with:
           name: pdf-documents
           path: "*.pdf"
