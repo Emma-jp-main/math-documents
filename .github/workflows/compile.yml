@@ -1,0 +1,30 @@
+name: Compile LaTeX
+
+on:
+  push:
+    branches:
+      - main # メインブランチにpushされたときに実行（環境に合わせて master 等に変更してください）
+  workflow_dispatch: # GitHubの画面から手動で実行することも可能にする設定
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. リポジトリのファイルをチェックアウト
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. LaTeX環境をセットアップしてコンパイル
+      # xu-cheng/latex-action はフォルダ内のすべての .tex ファイルを自動で処理します
+      - name: Compile LaTeX documents
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: "*.tex" # すべての .tex ファイルを対象にする
+          compiler: latexmk  # 一般的な latexmk を使用（必要に応じて xelatex や lualatex に変更）
+
+      # 3. 生成された PDF ファイルを GitHub 上に保存（ダウンロード可能にする）
+      - name: Upload PDF Artifacts
+        uses: actions/artifacts-upload@v4 # 2026年現在の推奨アクション
+        with:
+          name: pdf-documents
+          path: "*.pdf"
