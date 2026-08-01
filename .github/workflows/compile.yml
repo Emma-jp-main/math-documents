@@ -19,7 +19,7 @@ jobs:
       - name: Compile LaTeX documents
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: "*.tex" # すべての .tex ファイルを対象にする
+          root_file: "src/*.tex" # すべての .tex ファイルを対象にする
           compiler: lualatex
 
       # 3. 生成された PDF ファイルを GitHub 上に保存（ダウンロード可能にする）
@@ -27,4 +27,4 @@ jobs:
         uses: actions/upload-artifact@v4  # プラグイン
         with:
           name: pdf-documents
-          path: "*.pdf"
+          path: "src/*.pdf"
