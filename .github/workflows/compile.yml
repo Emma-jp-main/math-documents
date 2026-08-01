@@ -3,28 +3,52 @@ name: Compile LaTeX
 on:
   push:
     branches:
-      - main # メインブランチにpushされたときに実行（環境に合わせて master 等に変更してください）
-  workflow_dispatch: # GitHubの画面から手動で実行することも可能にする設定
+      - main
+  workflow_dispatch:
 
 jobs:
-  build:
+  # 1. src フォルダ内の .tex ファイルを自動でリストアップする
+  find-files:
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      # 1. リポジトリのファイルをチェックアウト
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+      - id: set-matrix
+        # 拡張子 .tex を除いたファイル名のみをリスト化します
+        run: |
+          echo "matrix=$(cd src && ls *.tex | sed 's/\.tex$//' | jq -R -s -c 'split("\n")[:-1]')" >> $GITHUB_OUTPUT
 
-      # 2. LaTeX環境をセットアップしてコンパイル
-      # xu-cheng/latex-action はフォルダ内のすべての .tex ファイルを自動で処理します
-      - name: Compile LaTeX documents
+  # 2. リストアップされたファイルを1つずつコンパイルする
+  build:
+    needs: find-files
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        filename: ${{ fromJson(needs.find-files.outputs.matrix) }}
+      fail-fast: false # 1つのファイルがエラーになっても、他のファイルを巻き添えにしない設定
+    steps:
+      - uses: actions/checkout@v4
+
+      # 3. 日本語設定（jsarticle等に対応）のための設定ファイルを一時的に作成
+      - name: Create latexmkrc for Japanese
+        run: |
+          echo "\$latex = 'uplatex -synctex=1 -halt-on-error -interaction=nonstopmode';" > src/.latexmkrc
+          echo "\$bibtex = 'upbibtex';" >> src/.latexmkrc
+          echo "\$dvipdf = 'dvipdfmx %O -o %D %S';" >> src/.latexmkrc
+          echo "\$makeindex = 'mendex -O %D %S';" >> src/.latexmkrc
+
+      # 4. コンパイルを実行
+      - name: Compile LaTeX
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: "src/*.tex" # すべての .tex ファイルを対象にする
-          compiler: lualatex
+          root_file: "src/${{ matrix.filename }}.tex"
+          working_directory: "src" # 日本語ファイル名のエラーを防ぐため、srcフォルダ内で作業させます
+          compiler: latexmk
 
-      # 3. 生成された PDF ファイルを GitHub 上に保存（ダウンロード可能にする）
-      - name: Upload PDF Artifacts
-        uses: actions/upload-artifact@v4  # プラグイン
+      # 5. 生成された PDF ファイルを保存
+      - name: Upload PDF Artifact
+        uses: actions/upload-artifact@v4
         with:
-          name: pdf-documents
-          path: "src/*.pdf"
+          name: "${{ matrix.filename }}-pdf"
+          path: "src/${{ matrix.filename }}.pdf"
