@@ -20,7 +20,7 @@ jobs:
         uses: xu-cheng/latex-action@v3
         with:
           root_file: "*.tex" # すべての .tex ファイルを対象にする
-          compiler: latexmk  # 一般的な latexmk を使用（必要に応じて xelatex や lualatex に変更）
+          compiler: lualatex
 
       # 3. 生成された PDF ファイルを GitHub 上に保存（ダウンロード可能にする）
       - name: Upload PDF Artifacts
