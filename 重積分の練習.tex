@@ -1,0 +1,86 @@
+\documentclass{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp}
+\newtheorem*{question*}{問}
+\newtheorem{answer}{解答}
+\begin{document}
+\begin{itembox}[l]{問}
+$\displaystyle \iint_D \frac{1}{(1+x)(1+xy^2)} dx dy \hspace{4zw}$
+$ D:= \{(x,y) \in \mathbb{R}^2 | \ 1 \le x \le 3, \ 0 \le y \le 1 \}$
+\end{itembox}
+
+\begin{answer}
+$x = u^2, \ y = \displaystyle \frac{v}{u}$ と変数変換すると, 領域$D$ は$D' = \{(u,v) \in \mathbb{R}^2 | \ 1 \le u \le \sqrt{3}, \ 0 \le v \le u \}$ と書き直せて, Jacobianは$\displaystyle \frac{\partial(x,y)}{\partial(u,v)} = \begin{vmatrix} 2u & 0 \\ * & \frac{1}{u} \end{vmatrix} = 2$ なので 
+
+\begin{align*}
+\displaystyle \iint_D \frac{1}{(1+x)(1+xy^2)} dx dy 
+&= 2\iint_{D'} \displaystyle \frac{1}{(1+u^2)(1+v^2)} du dv \\
+&= 2 \displaystyle \int_1^{\sqrt{3}} \left( \displaystyle \int_0^u \frac{1}{(1+u^2)(1+v^2)} dv \right) du \\
+&= 2 \displaystyle \int_1^{\sqrt{3}} \frac{1}{1+u^2} \Big[\arctan v \Big]_0^u du \\
+&= \Big[(\arctan u)^2 \Big]_1^{\sqrt{3}} \\
+&= \displaystyle \frac{7}{144} {\pi}^2
+\end{align*}
+\end{answer}
+
+\bigskip
+\bigskip
+
+\begin{answer}
+\begin{align*}
+\displaystyle \iint_D \frac{1}{(1+x)(1+xy^2)} dx dy 
+&= \displaystyle \int_1^3 \frac{1}{1+x} \left[\displaystyle \frac{\arctan (\sqrt{x}y)}{\sqrt{x}} \right]_{y=0}^1 dx \\
+&= \displaystyle \int_1^3 \frac{\arctan(\sqrt{x})}{\sqrt{x}(1+x)} dx \\
+&= 2\displaystyle \int_1^{\sqrt{3}} \frac{\arctan t}{1+t^2} dt \ \ (t = \sqrt{x} と置換) \\
+&= \Big[(\arctan t)^2 \Big]_1^{\sqrt{3}} \\
+&= \displaystyle \frac{7}{144} {\pi}^2
+\end{align*}
+\end{answer}
+
+\bigskip
+\bigskip
+\bigskip
+
+\begin{answer}
+$s = \displaystyle \frac{1}{1+x}, \ t = \displaystyle \frac{1}{1+xy^2} = \frac{s}{s + (1-s)y^2}$ と変数変換をすると, 領域$D$ は 
+
+$D' = \left\{(s,t) \in \mathbb{R}^2 \middle| \ \displaystyle \frac{1}{4} \le s \le \frac{1}{2}, \ s \le t \le 1 \right\}$ と表せて, 
+
+$\displaystyle \frac{\partial(s,t)}{\partial(x,y)} = \begin{vmatrix} -\frac{1}{(1+x)^2} & 0 \\ * & -\frac{2xy}{(1+xy^2)^2} \end{vmatrix} = \displaystyle \frac{2xy}{(1+x)^2 (1+xy^2)^2} = 2s^{\frac{3}{2}}t^{\frac{3}{2}} \sqrt{(1-s)(1-t)}$
+
+\begin{align*}
+よって, \displaystyle \iint_D \frac{1}{(1+x)(1+xy^2)} dx dy
+&= \displaystyle \frac{1}{2} \iint_{D'} \frac{1}{\sqrt{s(1-s)}} \frac{1}{\sqrt{t(1-t)}} ds dt \\
+&= \displaystyle \frac{1}{2} \int_{\frac{1}{4}}^{\frac{1}{2}}  \frac{1}{\sqrt{s(1-s)}} \left(\int_s^1 \frac{1}{\sqrt{t(1-t)}} dt \right) ds \\
+&= \displaystyle \int_{\frac{1}{4}}^{\frac{1}{2}}  \frac{1}{\sqrt{s(1-s)}} \left( \int_{\sqrt{s}}^1 \frac{1}{\sqrt{1-u^2}} du \right) \ (\sqrt{t} = u と置換)\\
+&= \displaystyle \int_{\frac{1}{4}}^{\frac{1}{2}} \frac{1}{\sqrt{s(1-s)}} \Big[\arcsin u \Big]_{\sqrt{s}}^1 ds\\
+&= \displaystyle \frac{\pi}{2} \int_{\frac{1}{4}}^{\frac{1}{2}} \frac{1}{\sqrt{s(1-s)}} ds - \displaystyle \int_{\frac{1}{4}}^{\frac{1}{2}}  \frac{\arcsin{\sqrt{s}}}{\sqrt{s(1-s)}} ds \\
+&= \pi \displaystyle \int_{\frac{1}{2}}^{\frac{1}{\sqrt{2}}} \frac{1}{\sqrt{1-v^2}} dv - 2\displaystyle \int_{\frac{1}{2}}^{\frac{1}{\sqrt{2}}}  \frac{\arcsin{\sqrt{v}}}{\sqrt{1-v^2}} dv \\
+&= \pi \Big[\arcsin v \Big]_{\frac{1}{2}}^{\frac{1}{\sqrt{2}}} - \Big[(\arcsin v)^2 \Big]_{\frac{1}{2}}^{\frac{1}{\sqrt{2}}} \\
+&= \displaystyle \frac{7}{144} {\pi}^2
+\end{align*}
+\end{answer}
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+\begin{answer}
+  $s = 1+x, \ \ t = 1+xy^2 = 1 + y^2(s-1)$ と変数変換すると, 領域$D$ は 
+  
+$D' = \{(s,t) \in \mathbb{R}^2 | \ 2 \le s \le 4, \ 1 \le t \le s \}$ と書き直せて, $\displaystyle \frac{\partial(s,t)}{\partial(x,y)} = \begin{vmatrix} 1 & 0 \\ y^2 & 2xy \end{vmatrix} = 2xy = 2\sqrt{(s-1)(t-1)}$
+\begin{align*}
+\displaystyle \iint_D \frac{1}{(1+x)(1+xy^2)} dx dy
+&= \displaystyle \frac{1}{2} \iint_{D'} \frac{1}{s\sqrt{s-1}} \frac{1}{t\sqrt{t-1}} ds dt \\
+&= \displaystyle \frac{1}{2} \int_2^4 \frac{1}{s\sqrt{s-1}} \left(\displaystyle \int_1^s \frac{1}{t\sqrt{t-1}} dt \right) ds \\
+&= \displaystyle \int_2^4 \frac{1}{s\sqrt{s-1}} \left(\displaystyle \int_0^{\sqrt{s-1}} \frac{1}{1+u^2} du \right) ds \ \ (u = \sqrt{t-1} と置換) \\
+&= \displaystyle \int_2^4 \frac{\arctan (\sqrt{s-1})}{s\sqrt{s-1}} ds \\
+&= 2\displaystyle \int_1^{\sqrt{3}} \frac{\arctan v}{1+v^2} dv \ \ 
+  (v = \sqrt{s-1} と置換) \\
+&= \Big[(\arctan v)^2 \Big]_1^{\sqrt{3}} \\
+&= \displaystyle \frac{7}{144} {\pi}^2 
+\end{align*}
+ 
+\end{answer}
+
+
+\end{document}

@@ -1,0 +1,142 @@
+% This LaTeX document needs to be compiled with XeLaTeX.
+\documentclass[10pt]{jsarticle}
+\usepackage{tikz,ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp,wrapfig,pgfplots,multicol}
+\begin{document}
+
+\begin{flushright}
+2024/9/5
+\end{flushright}
+\noindent
+\textbf{問} \ 次の関数列が一様収束するか判定せよ.
+
+(1) \ $f_n (x) = n^2 x e^{-nx}$ \quad
+$(x \in [0, a], \ a > 0, n = 1, 2, \cdots)$
+
+(2) \ $f_{n}(x)= \displaystyle\frac{x^{n}}{\left(1+x^{2}\right)^{n}} \quad(x \in \mathbb{R})$
+
+(3) \ $f_{n}(x)=e^{-n\left(1+x^{2}\right)} \quad (x \in \mathbb{R})$
+
+
+(4) \ $f_{n}(x)= \displaystyle\frac{1}{1+x^{2 n}} \quad \ \  (x \in \mathbb{R})$
+
+\bigskip
+
+\newpage
+\noindent
+【\textbf{解答}】\\
+(1) \ (※ $f_n(\frac{1}{n}) = ne^{-1}$ であることに着目する)
+
+まず, \ 極限関数は, \ $\displaystyle \lim _{n \rightarrow \infty} f(x)=0$.
+
+以下では, \ $\{f_n \}$ が定数関数 $0$ に一様以束しないことを示す.
+
+$\varepsilon:= \displaystyle\frac{1}{e} とし, \ \forall N \in \mathbb{N}, \  x= \displaystyle \frac{1}{N}, \ n:=N$ とすると, \ $n \ge N$ かつ
+$\left|f_{n}(x)-0\right|=N e^{-1} \geqq e^{-1} \geqq \varepsilon$
+
+なので, \ $\{f_n\}$ は一様収束しない.\\
+
+【別解】
+
+$$
+\begin{aligned}
+\int_{0}^{a} f_{n}(x) d x & =\int_{0}^{a}(-n x) \cdot\left(e^{n x}\right)^{\prime} d x \\
+& =\left[-n x e^{-n x}\right]_{0}^{a}+n \int_{0}^{a} e^{-n x} d x \\
+& =-(n a+1) e^{-n a}+1 \\
+& \rightarrow 1 \qquad (n \rightarrow \infty)
+\end{aligned}
+$$
+
+なので, \ $\displaystyle \lim _{n \rightarrow \infty} \int_{0}^{a} f_{n}(x) d x \neq \int_{0}^{a} \lim _{n \rightarrow \infty} f_n(x) d x$. \qquad
+$\therefore\left\{f_{n}\right\} $ は一様収束しない.
+
+\bigskip
+
+\noindent
+(2) $f_{n}(x)= \displaystyle \frac{x^{n}}{\left(1+x^{2}\right)^{n}} \quad(x \in \mathbb{R})$
+
+極限関数については, \ $|x| < 1, \ |x| = 1, \ |x| < 1$ のときそれそれで場合分けして考えると, \ $\displaystyle \lim _{n \rightarrow \infty} f_{n}(x)=0$ であることがわかる. 以下では, \ $\{f_n\}$が 定数関数$0$ に一様収束することを示していく.
+
+
+関数 $|f_1 (x) |$ が $x= \pm 1$ で最大値 $\displaystyle \frac{1}{2}$ を取ることを踏まえると、 $\left|f_{n+1} (x)\right|=\left|f_{n}(x)\right| \cdot\left|\displaystyle \frac{x}{1+x^{2}}\right|$ であるから帰納的に $\left|f_{n}(x)\right| \leqq\left(\displaystyle \frac{1}{2}\right)^{n}$ と表せる.\\
+$\therefore \displaystyle \sup _{x=\infty}\left|f_{n}(x)-0\right|=\frac{1}{2^{n}} \rightarrow 0 \quad (n \to \infty)$ なので, \ $\{f_n\}$ は $0$ に一様収束する. \quad ($\varepsilon - N$ でも可)
+
+\bigskip
+
+\noindent
+(3) $f_{n}(x)=e^{-n\left(1+x^{2}\right)}(x \in \mathbb{R})$
+が極限関数 $0$ に一様収束することを示す.
+
+$\forall x \in \mathbb{R}, \ \displaystyle \frac{1}{e^{n(1+x^2)}} \leqq \frac{1}{e^n}$ なので, \ 
+$\displaystyle \sup _{x \in \mathbb{R}}\left|f_{n}(x)-0\right|=\frac{1}{e^{n}} \rightarrow 0 \quad (n \rightarrow \infty)$\\
+$\therefore$ $\{f_n \}$は $0$ に一様収束する.
+
+\bigskip
+
+【別解: $\varepsilon - N$ 論法での記述】
+
+$\forall \varepsilon>0$, \ 自然数 $N:=\max \{1,[-\log \varepsilon]+1\}$ \ 
+([ ] はガウス記号, \ $[-\log \varepsilon]+1$ が正かはわからないため$1$ との$\max$ とした)
+を定めると, \ $\forall x \in \mathbb{R}, \ n \geqq N$ ならば
+
+$\displaystyle \frac{1}{e^{n(1+x^2)}} \leqq \frac{1}{e^{n}} \leqq \frac{1}{e^{N}}<\varepsilon \qquad
+\left(\because \log \frac{1}{\varepsilon}=-\log \varepsilon<N\right)$
+なので, \ $\{f_n\}$ は $0$ に一様収束する.
+
+\bigskip
+
+\noindent
+(4) $f_{n}(x)= \displaystyle \frac{1}{1+x^{2 n}} \quad(x \in \mathbb{R})$
+
+極限関数は，$f=\left\{\begin{array}{ll}0 & (|x|>1) \\ \frac{1}{2} & (|x|=1) \\ 1 & (|x|<1)\end{array}\right.$ となる.
+
+$f_n$ は連続関数であるが, \ $f$ は不連続関数なので, \ $\{f_n\}$ は一様収束しない.
+
+【別解】
+$\displaystyle \sup _{x \in R}\left|f_{n}(x)-f(x)\right|= \displaystyle \frac{1}{2} \neq 0$ なので
+$\{f_n\}$は一様収束しない.
+
+\newpage
+
+\noindent
+※\textbf{補足}\\
+・ 一様収束の定義
+
+区間 $I$ 上の関数列 $\{f_n\}$ が関数 $f$ に一様収束する
+
+$\overset{\mathrm{def}}{\iff}$
+$\forall \varepsilon > 0, \ \exists N \in \mathbb{N}$ s.t. $\forall x \in I, \ \forall n \in \mathbb{N}, \ n \geqq N \Longrightarrow |f_n(x) - f(x)| < \varepsilon$
+
+ \ $\Longleftrightarrow \displaystyle \lim_{n \to \infty} \sup_{x \in I} |f_n (x) - f(x) | = 0$ \qquad
+(ただし, \ $\displaystyle \sup_{x \in I} |f_n (x) - f(x) | := \sup \{|f_n (x) - f(x) | \ ; x \in I \}$)
+
+\bigskip
+
+\noindent
+・否定命題
+
+命題「$A \Rightarrow B$」は 「$(\neg A) \lor B$」と表すことができるので, 
+
+関数列が一様収束しないことの定義は以下のように表せる.
+
+$\exists \varepsilon > 0$ s.t. $\forall N \in \mathbb{N}$, \  $\exists x \in I$ s.t. $\exists n \in \mathbb{N}$ s.t. $n \geqq N \land |f_n(x) - f(x)| \geqq \varepsilon$
+
+\bigskip
+
+\noindent
+・一様コーシー列
+
+ユークリッド空間上の数列において収束性とコーシー列であることが同値であったように, \ 関数列の一様収束性と一様コーシー列であることは同値である. 実際, \ 関数$f, \ g$ に対して距離$d(f, \ g) := \displaystyle \sup_{x \in I} |f(x) - g(x)|$ を定めると, \ 関数列$\{f_n\}$ の一様収束性は $d(f_n, \ f) \to 0 \ (n \to \infty)$ と表すことができ, \ $d_n := d(f_n, \ f)$ とすることで数列とみなせる.
+
+\bigskip
+
+\noindent
+・関数列が一様収束するための十分条件として, \ Diniの定理というものがある.
+
+\bigskip
+
+\noindent
+・関数列が一様有界性 + 同程度連続性 $\Longrightarrow$ 一様収束する部分列をもつ \quad (Ascoli–Arzelà の定理)
+
+
+
+\end{document}

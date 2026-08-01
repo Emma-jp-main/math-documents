@@ -1,0 +1,127 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb,amsthm,ascmac,bm,wrapfig}
+\newtheorem{question}{問}
+\newtheorem*{answer*}{解答}
+\begin{document}
+
+\begin{question}
+次の級数の収束・発散を判定せよ。
+\end{question}
+
+(1) $\displaystyle \sum_{n=1}^{\infty} \left(1-\frac{1}{n^2} \right)^n$
+\ \ \ \ \ \ \ \ \  
+(2) $\displaystyle \sum_{n=1}^{\infty} \frac{1}{n^(n+1)}$
+\ \ \ \ \ \   
+(3) $\displaystyle \sum_{n=1}^{\infty} (-1)^{n-1} \cdot \frac{2^n}{n!}$
+\ \ \ \ \ \ \ \ \ \ \ \ \ 
+(4) $\displaystyle \sum_{n=0}^{\infty} \left(1+\frac{1}{n} \right)^{-n^2}$
+
+\bigskip
+
+(5) $\displaystyle \sum_{n=1}^{\infty} \frac{1}{n^2}$
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+(6) $\displaystyle \sum_{n=1}^{\infty} \frac{1}{n}$
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \  
+(7) $\displaystyle \sum_{n=1}^{\infty} \frac{1}{n!}$
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+(8) $\displaystyle \sum_{n=1}^{\infty} \frac{1}{\sqrt{2n-1}}$
+
+\bigskip
+
+(9) $\displaystyle \sum_{n=1}^{\infty} \frac{1}{1+\sqrt{n}}$
+\ \ \ \ \ \ \ \ \ \ \ \ 
+(10) $\displaystyle \sum_{n=1}^{\infty} n\sin \frac{1}{n}$
+\ \ \ \ \ \ \ \    
+(11) $\displaystyle \sum_{n=1}^{\infty} \frac{\log n}{n}$
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+(12) $\displaystyle \sum_{n=2}^{\infty} \frac{n}{n^3-2n^2+1}$
+
+\bigskip
+
+(13) $\displaystyle \sum_{n=1}^{\infty} (\sqrt[n]{n}-1)$
+\ \ \ \ \ \ \ \ \ 
+(14) $\displaystyle \sum_{n=1}^{\infty} \frac{n}{(n+1)!}$
+\ \ \ \ \ \ 
+(15) $\displaystyle \sum_{n=1}^{\infty} (-1)^{n-1} \cdot \frac{\log n}{\log{(n+1)}}$
+\ 
+(16) $\displaystyle \sum_{n=1}^{\infty} \frac{\sqrt{n}}{n^2+1}$
+
+\bigskip
+
+(17) $\displaystyle \sum_{n=1}^{\infty} \sin{\frac{a}{n}} \ (a \neq 0)$
+
+\bigskip
+
+\begin{answer*}
+\end{answer*}
+
+(1) $\displaystyle \left(1-\frac{1}{n} \right)^n = \displaystyle\left(\frac{n-1}{n} \right)^n$ = 
+$\displaystyle \frac{1}{\left(\frac{n}{n-1} \right)^n}$ = 
+$\displaystyle \frac{1}{\left(1 + \frac{1}{n-1} \right)^{n-1} \left(1 + \frac{1}{n-1} \right)}$
+より,
+$\displaystyle \lim_{n \to \infty} \left(1-\frac{1}{n^2} \right)^n = \frac{1}{e} \neq 0$.
+
+(2) $\displaystyle \sum_{n=1}^{\infty} \frac{1}{n^(n+1)}$ =
+    $\displaystyle \sum_{n=1}^{\infty} \left\{\frac{1}{n}  - \frac{1}{n+1} \right\}$ = $1$ 
+    より収束.
+
+(3) $\displaystyle \frac{2^n}{n!}$は単調減少し, 
+    $\displaystyle \lim_{n \to \infty} \frac{2^n}{n!} = 0$なので交項級数の性質より収束.
+    
+(4) $\displaystyle \lim_{n \to \infty} \left(1+\frac{1}{n} \right)^{-n}$ = 
+$\displaystyle \frac{1}{e} < 1$ なので, コーシーの判定法より収束.
+
+(5) $\displaystyle \sum_{k=1}^{n} \frac{1}{k^2} < 1+ \displaystyle \frac{1}{1\cdot2}$
++ $\displaystyle \frac{1}{2\cdot3} + \dotsb\dotsb + \displaystyle \frac{1}{(n-1)n}$ = 
+$2 - \displaystyle \frac{1}{n}(部分分数分解) \ \ \ \  \therefore$ 収束.
+
+ \ \ \ \ \ $S_n := \displaystyle \sum_{k=1}^{n} \frac{1}{k^2}$ とおいて, $\{S_n\}$がCauchy列になることを示しても良い.
+
+(6) $1+\displaystyle \frac{1}{2} + \displaystyle \frac{1}{3} + \displaystyle \frac{1}{4} + $
+$ \dotsb\dotsb  \ge 1 + \displaystyle \frac{1}{2} + $
+$\left(\displaystyle \frac{1}{4} + \displaystyle \frac{1}{4} \right) + \dotsb\dotsb$ より,
+$\displaystyle \sum_{k=1}^{2^n} \frac{1}{k} \ge 1 + \displaystyle \frac{n}{2}$. \ \ \ $\therefore$発散.
+
+(7) $e = \displaystyle \sum_{n=1}^{\infty} \frac{1}{n!}$ (マクローリン展開)　より収束.
+
+(8) $\displaystyle \frac{1}{\sqrt{2n-1}} \ge \frac{1}{\sqrt{2n}} \ge \frac{1}{\sqrt{2}}\cdot\frac{1}{n}$ なので発散.
+
+(9) $\displaystyle \frac{1}{1+\sqrt{n}} \ge \frac{1}{\sqrt{n} + \sqrt{n}} = \frac{1}{2\sqrt{n}}$
+    なので発散.
+    
+(10) $n\sin \displaystyle \frac{1}{n} = \frac{\sin \frac{1}{n}}{\frac{1}{n}}$
+     $\stackrel{n \to \infty}{\longrightarrow} 1 \neq 0$ なので発散.
+     
+(11) $\displaystyle \frac{\log n}{n} \ge \frac{1}{n} (n \ge 3)$ なので発散.
+
+(12) $\displaystyle \frac{n}{n^3-2n^2+1} = \frac{n}{(n-1)(n^2-n-1)} \le \frac{n}{(n-1)(n^2-n-n)}$ 
+     = $\displaystyle \frac{1}{(n-1)(n-2)} = \frac{1}{n-2} - \frac{1}{n-1}$
+     
+     \ \ \ \ \ \ $\displaystyle \sum_{n=3}^{\infty} \left(\frac{1}{n-2} - \frac{1}{n-1} \right)$      = $1$ なので収束.
+     
+(13) $\log x \le x - 1 \ (x > 0)$ より, $\displaystyle \frac{\log n}{n} \le \sqrt[n]{n} - 1$ 
+　　なので発散.
+
+    \ \ \ \ \ \ ※$a_n = \sqrt[n]{n} - 1$ とおくと, $a_n > \log{(a_n + 1)} = \displaystyle$           $\displaystyle \frac{\log n}{n}$
+    
+(14) $\displaystyle \sum_{n=1}^{\infty} \frac{n}{(n+1)!}$ = 
+     $\displaystyle \sum_{n=1}^{\infty} \left(\frac{1}{n!} - \frac{1}{(n+1)!} \right)$ = $1$
+     なので収束.
+     
+(15) $\displaystyle \frac{(\log n)'}{\{\log{(n+1)}\}'}$ = 
+     $\displaystyle \frac{n+1}{n} \stackrel{n \to \infty}{\longrightarrow} 1$ 
+     なので, ロピタルの定理より
+     $\displaystyle \lim_{n \to \infty} (-1)^{n-1} \cdot \frac{\log n}{\log{(n+1)}} \neq 0$
+     
+     \ \ \ \ \ \ となって発散.
+     
+(16) $\displaystyle \frac{\sqrt{n}}{n^2+1} < \frac{\sqrt{n}}{n^2} = \frac{1}{n^{\frac{3}{2}}}$
+     なので収束.
+     
+(17) マクローリンの定理より, $\sin x \ge x - \displaystyle \frac{x^3}{3!}$ と予想できる. 実際, 
+     $f(x) := \sin x - \left(x - \displaystyle \frac{x^3}{3!} \right)$ とおいて微
+     
+     \ \ \ \ \ \ 分すれば$0$以上であることがわかる. \ $\therefore$ 
+     $\sin{\displaystyle \frac{a}{n}} \ge \displaystyle \frac{a}{n} - \frac{a^3}{6n^3}$ 
+     なので発散. 
+\end{document}

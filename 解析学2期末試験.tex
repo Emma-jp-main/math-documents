@@ -1,0 +1,98 @@
+\documentclass{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp,wrapfig}
+\usepackage{geometry}
+\usepackage[inline]{enumitem} %enumerate環境で横に箇条書きをかけるようにする
+\usepackage{ulem} %波線や破線、二重線などを引けるようにする
+\usepackage{multirow} %表のところで使う
+\geometry{a4paper, left=10mm, right=10mm, top=10mm, bottom=30mm}
+
+\begin{document}
+
+\begin{tabular}{p{1cm}p{2cm}p{0.5cm}p{1.5cm}p{1cm}p{1.5cm}p{0.5cm}p{1cm}p{1cm}p{0.5cm}p{2cm}p{0.1cm}p{1cm}p{1cm}}
+        \cline{1-11} \cline{13-14}
+\multicolumn{1}{|c|}{\multirow{2}{*}{科目名}} &  \multicolumn{1}{c|}{\multirow{2}{*}{ 解析学2 }} & \multicolumn{1}{c|}{\multirow{2}{*}{対象}} & \multicolumn{1}{c|}{\multirow{2}{*}{ \ 3MA \ }} & \multicolumn{1}{c|}{\multirow{2}{*}{学部}} & \multicolumn{1}{c|}{\multirow{2}{*}{創域理工学部}} & \multicolumn{1}{c|}{\multirow{2}{*}{学科}} & \multicolumn{2}{c|}{\multirow{2}{*}{数理科学科}} & \multicolumn{1}{c|}{学籍} & \multicolumn{1}{c|}{ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ } & \multicolumn{1}{c|}{} & \multicolumn{1}{c}{ \ \ 評点} & \multicolumn{1}{c|}{}  \\ \cline{13-14}
+\multicolumn{1}{|c|}{}  & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{}  & \multicolumn{1}{c|}{}  & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{}  & \multicolumn{1}{c|}{}  & \multicolumn{2}{c|}{}  & \multicolumn{1}{c|}{番号}  & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c|}{} \\ \cline{1-11}
+\multicolumn{4}{|l|}{\multirow{2}{*}{2024年1月10日（金）}} & \multicolumn{1}{c|}{\multirow{2}{*}{担当}} & \multicolumn{1}{c|}{\multirow{2}{*}{立川 篤}} & \multicolumn{1}{c|}{\multirow{2}{*}{学年}} & \multicolumn{1}{c|}{\multirow{2}{*}{ \ \ 年}} & \multicolumn{1}{c|}{\multirow{2}{*}{氏名}} & \multicolumn{2}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c}{} & \multicolumn{1}{c|}{} \\ \cline{13-14} 
+\multicolumn{4}{|r|}{3回目} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{1}{c|}{} & \multicolumn{2}{c|}{} \\ \cline{1-13}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{} & \multicolumn{2}{c|}{\multirow{1.8}{*}{持込に関する}} & \multicolumn{9}{c|}{} \\ 
+\multicolumn{1}{|c|}{試験} & \multicolumn{1}{c|}{\multirow{2}{*}{{\LARGE60}分}} & \multicolumn{2}{c|}{\multirow{2.5}{*}{注意事項}} & \multicolumn{9}{c|}{筆記用具以外持込不可} \\ 
+\multicolumn{1}{|c|}{時間} & \multicolumn{1}{c|}{} & \multicolumn{2}{c|}{} & \multicolumn{9}{c|}{} \\ \cline{3-13}
+\multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{} & \multicolumn{2}{c|}{試験時注意事項} & \multicolumn{9}{c|}{} \\
+\cline{1-13}
+\end{tabular}
+
+注: 以下，扱っている線形空間はすべて実線形空間としてよい（もちろん，しなくてもよい）．
+
+\begin{enumerate}
+\item 
+Hilbert空間$X, Y$ の積空間$X \times Y$ の元$(x, y)$ に対して
+$$
+\left(\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right)\right)_{X \times Y}:=\left(x_{1}, x_{2}\right)_{X}+\left(y_{1}, y_{2}\right)_{Y}
+$$
+とおく. ただし，$\left(x_{1}, x_{2}\right)_{X},\left(y_{1}, y_{2}\right)_{Y}$ は，それぞれ $X, Y$ での内積を表す.
+
+(a) \ $(\cdot, \cdot)_{X \times Y}$ が内積となることを示せ.
+
+(b) \ $X \times Y$ が$(\cdot, \cdot)_{X \times Y}$ に関してヒルベルト空間となることを示せ.
+
+\vspace{13zw}
+
+\item 
+$H$ を Hilbert 空間，$\left\{x_{k}\right\}_{k \in \mathbb{N}}$ を $H$ の正規直交系とする．このとき，任意の $x \in H$ に対して，
+
+$$
+\sum_{k=1}^{\infty}\left|\left(x, x_{k}\right)\right|^{2} \leq\|x\|^{2}
+$$
+
+が成り立つことを示せ．ただし，$(\cdot, \cdot),\|\cdot\|$ は $H$ の内積とその内積から定まるノルムとする. 
+
+\vspace{13zw}
+
+\item
+$X, Y$ を Banach 空間とする. $T$ を $X$ から $Y$ への有界線形作用素で，$D(T)=X$ であるとする（ $D(T)$ は $T$ の定義域）.
+
+$$
+\mathcal{N}(T)=\{x \in X \ ; \ T x=0\}
+$$
+
+とおくと， $\mathcal{N}(T)$ は $X$ の閉部分空間となることを示せ．
+
+
+\newpage
+
+
+\item
+$\Omega$ を $\mathbb{R}^{n}$ の有界開集合とし，
+
+$$
+L=\left\{u(x) \in L^{2}(\Omega) ; \int_{\Omega} u(x) d x=0\right\}
+$$
+
+とおく．このとき次の問いに答えよ．\\
+（a）$L$ が $L^{2}(\Omega)$ の閉部分空間となることを示せ. \hspace{8zw}
+（b）$L$ への射影 $\operatorname{Proj}_{L}$ を求めよ. \ (証明不要) \\
+（c）$L^{2}(\Omega)$ において $L^{\perp}$ を求めよ. \ (証明不要)
+
+\vspace{16zw}
+
+\item
+$X, Y$ をBanach空間とする.
+
+(a) 線形作用素 $S: D(S) \subset X \to Y$ ($D(S)$ は$S$ の定義域を表す) が閉作用素であることの定義を述べよ.
+
+(b) 有界線形作用素$T:X \to Y$ は閉作用素となることを示せ.
+
+\vspace{18zw}
+
+\item
+$X$ をBanach空間とする. このとき, \ 次の問いに答えよ.
+
+(a) $X$ の共役空間$X^*$ の定義を述べよ. \hspace{8zw}
+(b) $X$ における弱収束の定義を述べよ.
+
+(c) $X$ における点列$\{x_n\}$ が$\bar{x} \in X$ に強収束していれば, \ $\{x_n\}$ は$\bar{x}$ に弱収束することを示せ.
+ 
+\end{enumerate}
+
+
+\end{document}

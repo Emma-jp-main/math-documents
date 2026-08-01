@@ -1,0 +1,44 @@
+\documentclass{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp}
+\newtheorem*{answer*}{解答}
+
+\begin{document}
+
+\begin{center}
+  数学科教育論1 \ \ \ \ 第三回課題
+\end{center}
+
+\begin{flushright}
+  6122111 三森誠真
+\end{flushright}
+
+\begin{itembox}[l]{問3.8}
+二項定理$(a+b)^n = \displaystyle \sum_{k=0}^n {}_n C_k \ a^k \ b^{n-k}$ が成り立つことを, 数学的帰納法を用いて証明せよ.
+\end{itembox}
+
+\begin{answer*}
+\end{answer*}
+(i) $n=1$ のとき, \ (左辺) = $a+b$.
+
+\ \ \ \ \ \ \ \ \ \ (右辺) = ${}_1 C_0 \ b + {}_1 C_1 \ a = a+b$
+なので成り立つ.
+
+(ii) $n=k$ のとき, \ 式$(a+b)^k = \displaystyle \sum_{l=0}^k {}_k C_l \ a^l \ b^{k-l}$が成り立つと仮定すると, $n=k+1$ のとき,
+
+\begin{align*}
+(a+b)^{k+1} 
+&= a(a+b)^k + b(a+b)^k \\
+&= \displaystyle \sum_{l=0}^k {}_k C_l \ a^{l+1} \ b^{k-l} + \displaystyle \sum_{l=0}^k {}_k C_l \ a^l \ b^{k+1-l} \\
+&= \displaystyle \sum_{s=1}^{k+1} {}_k C_{s-1} \ a^s \ b^{k+1-s} + \displaystyle \sum_{l=0}^k {}_k C_l \ a^l \ b^{k+1-l} \ (第一項にてl+1=s と置換)\\
+&= \displaystyle \sum_{l=1}^{k+1} {}_k C_{l-1} \ a^l \ b^{k+1-l} + \displaystyle \sum_{l=0}^k {}_k C_l \ a^l \ b^{k+1-l} \\
+&= a^{k+1} + \displaystyle \sum_{l=1}^{k} {}_k C_{l-1} \ a^l \ b^{k+1-l} + \displaystyle \sum_{l=1}^k {}_k C_l \ a^l \ b^{k+1-l} + b^{k+1} \\
+&= \displaystyle \sum_{l=1}^{k} {}_{k+1} C_l \ a^l \ b^{k+1-l} + a^{k+1} + b^{k+1} \\
+&= \displaystyle \sum_{l=0}^{k+1} {}_{k+1} C_l \ a^l \ b^{k+1-l}
+\end{align*}
+
+よって, $n=k+1$ のときも成り立つ.
+
+(i), \ (ii) より二項定理が示された.
+
+
+\end{document}

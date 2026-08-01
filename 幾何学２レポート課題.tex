@@ -1,0 +1,243 @@
+% This LaTeX document needs to be compiled with XeLaTeX.
+\documentclass[10pt]{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,mathtools,fancybox,bm,physics,arydshln,mathcomp,wrapfig}
+
+\begin{document}
+
+\section*{幾何学$2$　レポート課題}
+
+\begin{flushright}
+6122111　三森誠真
+\end{flushright}
+
+{\bf 問1}. 基本群が位相的不変量であることを\textbf{説明}せよ. また, \ 基本群がもつ他の性質を$1$ つあげ, \ その証明を与えよ.
+
+・基本群が位相的不変量であること
+
+位相空間$X,Y$ に対して, $X \approx Y \Longrightarrow \pi_1(X, x_0) \cong \pi_1(Y, f(x_0))$ となることを説明する.
+
+写像$(f_*)_{x_0} : \pi_1 (X, x_0) \to \pi_1 (Y, f(x_0)), \ \textless\alpha\textgreater \mapsto \textless f\circ\alpha \textgreater$ と定義するとこれはwell-definedであり, \ $\textless\alpha\textgreater, \ \textless\beta\textgreater \in \pi_1 (X, x_0)$ に対して, \ $f_* (\textless\alpha\textgreater \textless\beta\textgreater) = f_*(\textless\alpha\textgreater) f_*(\textless\beta\textgreater)$ となるため準同型. 
+$(g_*)_{f(x_0)} (f_*)_{x_0} = \gamma_\#$ が単射となるので $(f_*)_{x_0}$ も単射.
+同様にして$(f_*)_{x_0}$ の全射性も導くことができる.
+以上より, \ $(f_*)_{x_0}$ は全単射かつ準同型より同型写像となる.
+
+\bigskip
+
+・ほかの性質として, \ $X$:弧状連結とし, \ $x_0, x_1 \in X$ に対して$\pi_1(X, x_0) \cong \pi_1(X, x_1)$ （群として）
+
+が成り立つ. これを証明する.
+
+写像$\gamma_\# : \pi_1(X,x_0) \to \pi_1(X, x_1), \ \textless\alpha\textgreater \mapsto \textless\gamma\textgreater^{-1} \textless\alpha\textgreater \textless\gamma\textgreater$ を定義すると, \
+
+$\gamma_\#(\textless\alpha\textgreater)\gamma_\#(\textless\beta\textgreater) 
+= \textless\gamma\textgreater^{-1} \textless\alpha\textgreater \textless\gamma\textgreater\textless\gamma\textgreater^{-1} \textless\beta\textgreater \textless\gamma\textgreater
+= \textless\gamma\textgreater^{-1} \textless\alpha\textgreater \textless\beta\textgreater \textless\gamma\textgreater
+= \gamma_\# (\textless\alpha\textgreater \textless\beta\textgreater)$ より$\gamma_\#$ は準同型.
+
+つぎに, \ $\gamma_\#$ の逆写像の存在を示す.
+
+$$
+\begin{aligned}
+\gamma_\# \circ (\gamma^{-1})_\# (\textless \alpha \textgreater)
+= \gamma_\# (\textless\gamma^{-1}\textgreater^{-1} \textless\alpha\textgreater \textless\gamma^{-1}\textgreater)
+= \gamma_\# (\textless\gamma\textgreater \textless\alpha\textgreater \textless\gamma^{-1}\textgreater)
+&= \gamma_\# (\textless\gamma\alpha\gamma^{-1}\textgreater) \\
+&= \textless\gamma\textgreater^{-1} \textless\gamma\alpha\gamma^{-1}\textgreater \textless\gamma\textgreater \\
+&= \textless\alpha\textgreater  
+\end{aligned}
+$$
+
+
+$$
+\begin{aligned}
+(\gamma^{-1})_\# \circ \gamma_\# (\textless \alpha \textgreater)
+= (\gamma^{-1})_\# (\textless\gamma\textgreater^{-1} \textless\alpha\textgreater \textless\gamma\textgreater)
+= (\gamma^{-1})_\# (\textless\gamma^{-1}\alpha\gamma\textgreater)
+&= \textless\gamma^{-1}\textgreater^{-1} (\textless\gamma^{-1}\alpha\gamma\textgreater) \textless\gamma^{-1}\textgreater \\
+&= \textless\alpha\textgreater  
+\end{aligned}
+$$
+
+であるため, \ $(\gamma_\#)^{-1} = (\gamma^{-1})_\#$ となり$\gamma_\#$ は全単射.
+
+以上より, \ $\gamma_\#$ は同型写像となるため題意は示された.
+
+\bigskip
+\bigskip
+
+{\bf 問$2$}. 円周$S^1$ の基本群が$\mathbb{Z}$ に同型であることを, \ 次の指示に従ってそれぞれ\textbf{説明}せよ.
+
+(1) 回転数を利用した説明
+
+写像$\deg : \pi_1(S^1, 1) \to \mathbb{Z}, [\alpha] \mapsto \deg\alpha$ ($\deg\alpha = \tilde{\alpha}(1), \ \tilde{\alpha}は\alpha$ の持ち上げ) を考えると, \ 
+
+$\alpha, \beta \in S^1$ に対して, \ $\deg([\alpha][\beta]) = \deg[\alpha] + \deg[\beta]$ なので$\deg$ は準同型.
+
+(全射性)
+
+任意の$n \in \mathbb{Z}$ に対して $\alpha_n(t) = (\cos(2n\pi t), \sin(2n\pi t))$ とすると, \ $\deg([\alpha_n]) = n$ となるため全射.
+
+(単射性)
+
+$\deg([\alpha]) = \deg([\alpha'])$ と仮定する.
+
+$\tilde{\alpha}, \ \tilde{\alpha'}$ を$[0, 1] \to \mathbb{R}$ を $\alpha, \alpha'$ の持ち上げとすると, \ $\tilde{\alpha} (0) = \tilde{\alpha'} (0) = 0, \ \tilde{\alpha} (1) = \tilde{\alpha'} (1)$ であり, \ その間のホモトピー
+
+$\begin{array}{rccc}
+\tilde{H} \colon & [0, 1] \times [0, 1]   &\longrightarrow& \mathbb{R} \\
+        & \rotatebox{90}{$\in$}&               & \rotatebox{90}{$\in$} \\
+        & (t, s)  & \longmapsto   & (1-s)\tilde{\alpha}(t) + s\tilde{\alpha'}(t)
+\end{array}$
+を考える. ここで, \ $h: \mathbb{R} \to S^1$ に対して, \ $H := h \circ \tilde{H}$ とすると, \ $H$ は$\alpha$ から$\alpha'$ へのホモトピーとなる.
+よって, \ $\alpha \simeq \alpha'$ なので単射.
+
+\bigskip
+\bigskip
+
+(2) 被覆変換群を利用した説明
+
+$S^1$ の普遍被覆空間は$(\mathbb{R}, p), \ p(r) = e^{2\pi ir}$ である. $(\mathbb{R}, p)$ の被覆変換は同相写像$h : \mathbb{R} \to \mathbb{R}$ で, \ $p \circ h = p$ すなわち $e^{2\pi ih(r)} = e^{2\pi ir}$ をみたすものとなる. つまり, \ $h(r) - r = k (\exists k \in \mathbb{Z})$ なので, \ $h$ は $\mathbb{Z}$ 上の平行移動$r \mapsto r + k$ に対応する. 
+
+よって$\mathbb{Z}$ に同型.
+
+\bigskip
+\bigskip
+
+{\bf 問$3$}. ファンカンペンの定理を用いて, \ 次の位相空間の基本群を導出過程も含めてそれぞれ求めよ.
+
+(1) 球面$S^2$
+
+$S^{2}=$ $\left\{\left(x_{0}, x_{1}, x_{2}\right) \in \mathbb{R}^{3} ; \ \sum_{i=0}^{2} x_{i}{ }^{2}=1\right\}$ の開被覆 $\{U, V\}, U:=S^{2}-\{p\}$, $V:=S^{2}-\{q\}, p:=(0,0,1), q:=(0, 0,-1) \in S^{2}$, を考える. このとき, \  $U, \ V, \ U \cap V \simeq S^{1}$ は弧状連結である. したがって, \ van Kampen の定理が使えて $\pi_{1}\left(S^{n}\right)=\pi_{1}(U) *_{\pi_{1}(U \cap V)} \pi_{1}(V)$ となる. ここで, $\pi_{1}(U)=\pi_{1}(V) = \{e\}$ なので, \ 融合積は
+$\pi_{1}(U) *_{\pi_{1}(U \cap V)} \pi_{1}(V)
+= \{e\} *_{\pi_{1}(U \cap V)} \{e\}
+= \{e\}$
+
+よって, \ $S^2$ の基本群は$\{e\}$（単連結）.
+
+\bigskip
+\bigskip
+
+(2) トーラス$T^2$
+
+$$
+T^{2}=\left\{(x, y, z) \in R^{3} \mid\left(\left(x^{2}+y^{2}\right)^{1 / 2}-2\right)^{2}+z^{2}=1\right\}
+$$
+
+の基本群を, $U_{1}$ を
+
+$$
+\begin{aligned}
+X= & \left\{(x, y, z) \in R^{3} \mid y=0,(x+2)^{2}+z^{2}=1\right\} \\
+& \cup\left\{(x, y, z) \in R^{3} \mid z=0, x^{2}+y^{2}=1\right\}
+\end{aligned}
+$$
+
+の $\varepsilon$ 近傍 $(\varepsilon<0.1), U_{2}=T^{2} \backslash X$ として, 被覆 $T^{2}=U_{1} \cup U_{2}$ を用いて求めていく.
+基点 $b$ を $U_{12}=U_{1} \cap U_{2}$ 上に, $(-1,0,0)$ に近く, $z>0$ かつ $y<0$ の部分にとる. 
+$U_{1} \cap U_{2} \approx S^{1} \times[0,1]$ である. したがって $\pi_{1}\left(U_{1} \cap U_{2}, b\right) \cong Z$ . \ $U_{1}$ は, $X$ を変形レトラクトに持ち, $X$ は $S^{1} \vee S^{1}$ と同相だから, 弧状連結な空間の基本群は, 基点のとり方によらないことより, $\pi_{1}\left(U_{1}, b\right) \cong \pi_{1}\left(S^{1} \vee S^{1}, b_{X}\right) \cong Z * Z$ である. 
+ここで， $b_{X}=(-1,0,0)$ である. $\pi_{1}\left(X, b_{X}\right)$ の生成元は， $X$ の $S^{1}$ をそれぞれ 1周与る曲線 $\alpha_{1}(t)=(-2+\cos 2 \pi t, 0, \sin 2 \pi t), \alpha_{2}(t)=(-\cos 2 \pi t,-\sin 2 \pi t, 0)$ $(t \in[0,1])$ で代表される $a_{1}, a_{2}$ である. $U_{2}$ は, 正方形の内部と同相で, $\pi_{1}\left(U_{2}, b\right) \cong\{1\}$. ここで, $\left(i_{1}\right)_{*}: \pi_{1}\left(U_{1} \cap U_{2}, b\right) \longrightarrow \pi_{1}\left(U_{1}, b\right)$ を計算する必要
+がある. $\pi_{1}\left(U_{12}, b\right)$ の生成元は, $b$ から, $\alpha_{1}$ の近傍を通り, $\alpha_{2}$ の近傍を通り, さらに $\bar{\alpha}_{1}$ の近傍, $\bar{\alpha}_{2}$ の近傍を通り, $b$ に戻る $U_{12}$ 上の曲線で表される. したがって, $\left(i_{1}\right)_{*}: \pi_{1}\left(U_{12}, b\right) \longrightarrow \pi_{1}\left(U_{1}, b\right) \cong \pi_{1}\left(X, b_{X}\right)$ による $\pi_{1}\left(U_{12}, b\right) \cong Z$ の生成元の像は, $\left[\alpha_{1}\right]\left[\alpha_{2}\right]\left[\alpha_{1}\right]^{-1}\left[\alpha_{2}\right]^{-1}$ で表される. したがって、次を得る.
+
+$$
+\pi_{1}\left(T^{2}, b\right) \cong(\boldsymbol{Z} * \boldsymbol{Z})_{\boldsymbol{Z}}^{*}\{1\} \cong\left\langle a_{1}, a_{2} \mid a_{1} a_{2} a_{1}^{-1} a_{2}^{-1}\right\rangle \cong \boldsymbol{Z} \times \boldsymbol{Z}
+$$
+
+\bigskip
+\bigskip
+
+{\bf 問$4$}. (2) ブラウワー (Brouwer) の不動点定理
+；任意の連続写像 $f: \mathbb{D}^{2} \longrightarrow \mathbb{D}^{2}$ には不動点 (fixed point)，すなわち， $f\left(x_{0}\right)=x_{0}$ 1 を満たす $x_{0} \in \mathbb{D}^{2}$ が存在することを示していく.\\
+不動点が存在しないと仮定して矛盾を導く. 不動点がないと仮定すると，任意の $x \in \mathbb{D}^{2}$ に対して $f(x) \neq x$ である. このとき, $f(x)$ から $x$ へ延ばした半直線を引くことができ，その半直線 と $\mathbb{S}^{1}$ とは 1 点で交わる. その交点を $\varphi(x)$ とおく. $\varphi(x) \in \mathbb{S}^{1}$ を求める. $\varphi(x)$ は
+
+$$
+(1-t) f(x)+t x=X \quad(t \geq 0), \quad\|X\|=1
+$$
+
+を満たす点 $X \in \mathbb{R}^{2}$ として求まる. $\mathbb{R}^{2}$ の内積を〈, 〉で表わすと,
+
+$$
+\begin{aligned}
+1 & =\|X\|^{2} \\
+& =\langle f(x)+t(x-f(x)), f(x)+t(x-f(x))\rangle \\
+& =\|f(x)\|^{2}+2 t\langle f(x), x-f(x)\rangle+t^{2}\|x-f(x)\|^{2}
+\end{aligned}
+$$
+
+となる. $\|x-f(x)\|^{2} \neq 0$ ゆえ, これは 2 次方程式であり，
+
+$$
+t^{2}\|x-f(x)\|^{2}+2 t\langle f(x), x-f(x)\rangle+\|f(x)\|^{2}-1=0
+$$
+
+
+の 2 つの解を $\alpha, \beta$ とおくと,
+
+$$
+\alpha \beta=\frac{\|f(x)\|^{2}-1}{\|x-f(x)\|^{2}} \leq 0
+$$
+
+であることがわかる. ゆえに，求める $t$ の値は上の方程式の解のうち正の方，すなわち，
+
+
+\begin{equation*}
+t=\frac{-\langle f(x), x-f(x)\rangle+\sqrt{\langle f(x), x-f(x)\rangle^{2}-\|x-f(x)\|^{2}\left(\|f(x)\|^{2}-1\right)}}{\|x-f(x)\|^{2}} \tag{2.6a}
+\end{equation*}
+
+
+である. この $t$ を $t(x)$ で表わすと， $t: \mathbb{D}^{2} \longrightarrow \mathbb{R}$ は連続関数であり，
+
+$$
+\varphi(x)=t(x) x+(1-t(x)) f(x)
+$$
+
+と表わされる. この表示から， $\varphi: \mathbb{D}^{2} \longrightarrow \mathbb{S}^{1}, x \longmapsto \varphi(x)$ は連続写像であることがわかる。\\
+$i: \mathbb{S}^{1} \longrightarrow \mathbb{D}^{2}$ を包含写像とする. $\varphi$ の定義より $\varphi \circ i=\mathrm{id}_{\mathbb{S}^{1}}$ であるから，基本群の間の誘導準同型は
+
+$$
+\varphi_{*} \circ i_{*}=(\varphi \circ i)_{*}=\operatorname{id}_{\pi_{1}\left(\mathbb{S}^{1}, 1\right)}: \pi_{1}\left(\mathbb{S}^{1}, 1\right) \longrightarrow \pi_{1}\left(\mathbb{S}^{1}, 1\right)
+$$
+
+を満たす. これより， $i_{*}: \pi_{1}\left(\mathbb{S}^{1}, 1\right) \longrightarrow \pi_{1}\left(\mathbb{D}^{2}, 1\right)$ は単射でなければならないが， $\pi_{1}\left(\mathbb{S}^{1}, 1\right) \cong \mathbb{Z}$ であり， $\pi_{1}\left(\mathbb{D}^{2}, 1\right)=\{1\}$ であるから，これは不可能である. 背理法により， $f$ は不動点を持つことが示された.
+
+
+\bigskip
+\bigskip
+
+\newpage
+{\bf 問$5$}
+
+幾何学$2$ の授業で学んだ内容の中で特に印象深かったものとしては, \ 「貼り合わせの補題」が挙げられる. 
+
+補題の主張は以下の通りである.
+
+\bigskip
+
+\ovalbox{\begin{tabular}{l}
+位相空間$X, Y$ と閉（開）集合$A, B \subset X$ に対して$X = A \cup B$ であると仮定する. \\
+連続写像$f_1 : A \to Y, \ f_2 : B \to Y$ が任意の$x \in A \cap B$ に対して $f_1 (x) = f_2(x)$ を満たすとする. \\
+このとき, \ $g: X \to Y$ を
+$g(x) = \begin{cases}
+f_1(x) \ (x \in A) \\
+f_2(x) \ (x \in B)
+\end{cases}$
+で定義すれば連続写像となる. 
+\end{tabular}}
+
+\bigskip
+
+証明については, \ 連続写像の定義に従うことで自然な流れで示すことができる.
+この補題の意義としては, \ $2$ つの連続写像$f_1, f_2$ をそれらの定義域の共通部分で貼り合わせることにより, \ 全体の定義域$X$ 上での連続写像を構成できるという点にある.
+
+実際には, \ ホモトピーの推移律や位相空間上の道の積を定義するときなどで役立つ. 具体的には$\alpha$ を $x_0$ から $x_1$ への道, \ $\beta$ を $x_1$ から $x_2$ への道としたときに, \ $x_0$ から $x_2$ への道として$\alpha$ と $\beta$ の積 $\alpha\beta$ を 
+
+$\alpha\beta = \begin{cases}
+ \alpha(2t) \ \ \ (0 \le t \le 1/2)\\
+ \beta(2t-1) \ \ \ (1/2 \le t \le 1)
+\end{cases}$ 
+と定義できるが, \ この$\alpha\beta$ が連続であることは貼り合わせの補題から従う.
+
+このように, \ $2$つの連続写像を組み合わせることで新たに連続写像を構成できるという点が自然な形であるとはいえ非常に応用の効く補題であると感じた. 
+
+
+
+\end{document}

@@ -1,0 +1,110 @@
+\documentclass{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln}
+\newtheorem{question}{問}
+\begin{document}
+\textbf{基礎解析学２B　レポート課題}
+\begin{flushright}
+6122111 三森誠真
+\end{flushright}
+\begin{question}
+\end{question}
+偽である. $\exists c\in\mathbb{R}$ s.t. $f(x)=c$ (定数関数) のとき, $f$は$C^2$級の関数であり, $f'(0) = 0$を満たすが, $x=0$は$f$の極値をとる点でも変曲点でもない.
+
+($\Longrightarrow$ の反例)
+$f(x) = 
+\begin{cases}
+ x^5 \sin(\frac{1}{x}) & (x \neq 0) \\
+ 0 & (x = 0)
+\end{cases}$
+
+($\Longleftarrow$ の反例)
+$f(x) = x^3 - x$ など
+
+\bigskip
+
+\begin{question}
+\end{question}
+(1)
+$f_1 (x,y) := x^2+y^4$
+
+\bigskip
+
+$\displaystyle\frac{\partial f}{\partial x}(x, y) = 2x$, \ 
+$\displaystyle\frac{\partial f}{\partial y}(x, y) = 4y^3$ なので停留点は$(0,0)$.
+$$
+\begin{aligned}
+& A_{f_1}(x, y)=\left(\begin{array}{cc}
+\displaystyle\frac{\partial^2 f}{\partial x^2}(x, y) & \displaystyle\frac{\partial^2 f}{\partial x \partial^2 y}(x, y) \\
+\displaystyle\frac{\partial^2 f}{\partial y \partial x}(x, y) & \displaystyle\frac{\partial^2 f}{\partial y^2}(x, y)
+\end{array}\right)=\left(\begin{array}{cc}
+2 & 2 x+4 y^3 \\
+2 x+4 y^3 & 12 y^2
+\end{array}\right) , \ H_{f_1}(0,0)=\left|\begin{array}{ll}
+2 & 0 \\
+0 & 0
+\end{array}\right|=0
+\end{aligned}
+$$
+
+となるが, $(x,y) \neq (0,0)$において$f_1(x,y)>f(0,0)$となるので$f_1$は$(0,0)$で極小値をとる.
+
+\bigskip
+\bigskip
+\bigskip
+
+(2)
+$f_2 (x,y) := -x^2-y^4$
+
+\bigskip
+
+$\displaystyle\frac{\partial f}{\partial x}(x, y) = -2x$, \ 
+$\displaystyle\frac{\partial f}{\partial y}(x, y) = -4y^3$ なので停留点は$(0,0)$.
+$$
+\begin{aligned}
+& A_{f_2}(x, y)=\left(\begin{array}{cc}
+\displaystyle\frac{\partial^2 f}{\partial x^2}(x, y) & \displaystyle\frac{\partial^2 f}{\partial x \partial^2 y}(x, y) \\
+\displaystyle\frac{\partial^2 f}{\partial y \partial x}(x, y) & \displaystyle\frac{\partial^2 f}{\partial y^2}(x, y)
+\end{array}\right)=\left(\begin{array}{cc}
+-2 & -2 x-4 y^3 \\
+-2 x-4 y^3 & -12 y^2
+\end{array}\right) , \ H_{f_2}(0,0)=\left|\begin{array}{ll}
+-2 & 0 \\
+0 & 0
+\end{array}\right|=0
+\end{aligned}
+$$
+
+となるが, $(x,y) \neq (0,0)$において$f_2(x,y)<f(0,0)$となるので$f_2$は$(0,0)$で極大値をとる.
+
+\bigskip
+\bigskip
+\bigskip
+
+(3)
+$f_3(x,y) := x^3+y^3$
+
+\bigskip
+
+$\displaystyle\frac{\partial f}{\partial x}(x, y) = 3x^2$, \ 
+$\displaystyle\frac{\partial f}{\partial y}(x, y) = 3y^2$ なので停留点は$(0,0)$.
+$$
+\begin{aligned}
+& A f_3(x, y)=\left(\begin{array}{cc}
+6 x & 3 x^2+3 y^2 \\
+3 x^2+3 y^2 & 6 y
+\end{array}\right) , \ H_{f_3}(0,0)=\left|\begin{array}{ll}
+0 & 0 \\
+0 & 0
+\end{array}\right|=0
+\end{aligned}
+$$
+
+となるが, $x^3+y^3=(x+y)(x^2-xy+y^2)=(x+y)\left\{(x-\displaystyle\frac{y}{2})^2 + \frac{3}{4}y^2\right\}$ なので,
+
+$x+y>0$のとき, $f_3(x,y)>f(0,0)$,
+
+$x+y<0$のとき, $f_3(x,y)<f(0,0)$
+
+となり$f_3$は$(0,0)$で極大値も極小値もとらない.
+
+\end{document}

@@ -1,0 +1,247 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb,amsthm,bm,physics,arydshln}
+\newtheorem{question}{問}
+\newtheorem*{answer*}{解答}
+\begin{document}
+
+\begin{question}
+次の行列のJordan標準形を求めよ.
+\end{question}
+
+(1)
+$\left(\begin{array}{cc}
+1 & 4 \\
+-1 & -3
+\end{array}\right)$ \ \ \ \ \ \ \ \ \ \ 
+(2)
+\( \left(\begin{array}{ccccccc}0 & 1 & 0 & -1 & -1 & 0 & 1 \\ 0 & 0 & 1 & 1 & 1 & 0 & -1 \\ 0 & 0 & 0 & 0 & -1 & 0 & 1 \\ 0 & 0 & 0 & 0 & 1 & 0 & -1 \\ 0 & 0 & 0 & 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0\end{array}\right) \) \ \ \ \ \ \ \ \ \ \ 
+(3)
+$
+\left(\begin{array}{ccccc}
+1 & 1 & \cdots & \cdots & 1 \\
+& 0 & & & \vdots \\
+& & \ddots & & \vdots \\
+& & & 0 & 1 \\
+& & & & 1
+\end{array}\right)
+$
+
+
+
+
+\begin{answer*}
+\end{answer*}
+(1)
+
+(解法 1)
+\[
+|t E-A|=\left|\begin{array}{cc}
+t-1 & -4 \\
+1 & t+3
+\end{array}\right|=(t-1)(t+3)+4=t^2+2 t+1=(t+1)^2 \text { なので$A$の固有値は$-1$} .
+\]
+\( \begin{aligned} & P:=\left((A+E)\left(\begin{array}{ll}1 \\ 0\end{array}\right) \ \   \left(\begin{array}{l}1 \\ 0\end{array}\right)\right)=\left(\begin{array}{cc}2 & 1 \\ -1 & 0\end{array}\right) とおくと, \\ & P^{-1} A P=\left(\begin{array}{cc}0 & -1 \\ 1 & 2\end{array}\right)\left(\begin{array}{cc}1 & 4 \\ -1 & -3\end{array}\right)\left(\begin{array}{cc}2 & 1 \\ -1 & 0\end{array}\right)=\left(\begin{array}{cc}1 & 3 \\ -1 & -2\end{array}\right)\left(\begin{array}{cc}2 & 1 \\ -1 & 0\end{array}\right)=\left(\begin{array}{cc}-1 & 1 \\ 0 & -1\end{array}\right)\end{aligned} \)
+
+\bigskip
+\bigskip
+
+（解法2）
+
+固有値は$-1$なので，$A+E$ \( =\left(\begin{array}{cc}2 & 4 \\ -1 & -2\end{array}\right) \rightarrow\left(\begin{array}{ll}1 & 2 \\ 0 & 0\end{array}\right) \) より, 
+$(A+E) \bm{x_1}=\bm{0}$ を解くと, 
+
+\(\quad \bm{x_1}=\left(\begin{array}{c}-2 c_1 \\ c_1\end{array}\right)=c_1\left(\begin{array}{c}-2 \\ 1\end{array}\right). \quad \therefore W(-1 ; A)=\left\langle\left(\begin{array}{c}-2 \\ 1\end{array}\right)\right\rangle \).
+
+\( (A+E) \bm{x_2}=\bm{x_1} を解くと, \quad \bm{x_2}=\left(\begin{array}{c}-2 c_2-1 \\ c_2\end{array}\right). \quad c_2=0 とすると,  \quad x_2=\left(\begin{array}{c}-1 \\ 0\end{array}\right) \).
+
+$P:=\left(\begin{array}{cc}-2 & -1 \\ 1 & 0\end{array}\right)$ とおくことで
+
+
+\( \begin{aligned} P^{-1} A P=\left(\begin{array}{cc}0 & 1 \\ -1 & -2\end{array}\right)\left(\begin{array}{cc}1 & 4 \\ -1 & -3\end{array}\right)\left(\begin{array}{rr}-2 & -1 \\ 1 & 0\end{array}\right) & =\left(\begin{array}{cc}-1 & -3 \\ 1 & 2\end{array}\right)\left(\begin{array}{cc}-2 & -1 \\ 1 & 0\end{array}\right) \\ & =\left(\begin{array}{cc}-1 & 1 \\ 0 & -1\end{array}\right)\end{aligned} \)
+
+\bigskip
+\bigskip
+
+(2)
+
+(解法１)
+
+固有多項式は$t^7$ で$A^2 \neq O , \ A^3 = O$ なので, 最小多項式は$t^3$. 
+
+よって, 固有値$0$のJordan細胞の最大次数は$3$. 
+
+また, 
+$
+\left(\begin{array}{ccccccc:c}
+0 & 1 & 0 & -1 & -1 & 0 & 1 & b_1 \\
+0 & 0 & 1 & 1 & 1 & 0 & -1 & b_2 \\
+0 & 0 & 0 & 0 & -1 & 0 & 1 & b_3 \\
+0 & 0 & 0 & 0 & 1 & 0 & -1 & b_4 \\
+0 & 0 & 0 & 0 & 0 & 1 & 1 & b_5 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & b_6 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & b_7
+\end{array}\right) \rightarrow\left(\begin{array}{ccccccc:c}
+0 & 1 & 1 & 0 & 0 & 0 & 0 & b_1+b_2 \\
+0 & 0 & 1 & 1 & 0 & 0 & 0 & b_2+b_3 \\
+0 & 0 & 0 & 0 & 1 & 0 & -1 & -b_3 \\
+0 & 0 & 0 & 0 & 0 & 1 & 1 & b_5 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & b_3+b_4 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & b_6 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & b_7
+\end{array}\right)
+$
+なので, 
+
+\bigskip
+
+dim(W(0;$A$)) = $3$. \ $\therefore$ 固有値$0$のJordan細胞の個数は$3$.
+
+求めるJordan標準形は
+$J(0,3) \oplus J(0,3) \oplus J(0,1) \quad または \quad J(0,3) \oplus J(0,2) \oplus J(0,2)$.
+
+$A\bm{x} = \bm{b}$ が解をもつための条件は, $b_3+b_4 = 0, \ b_6=b_7=0$ ────(*)
+
+$A\bm{x} = \bm{0}$ を解くことにより, $W(0;A) = \begin{pmatrix} a_1 \\ 0 \\ a_2 \\ -a_2 \\ a_3 \\ -a_3 \\ a_3 \end{pmatrix} = a_1 \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \end{pmatrix} + a_2 \begin{pmatrix} 0 \\ 1 \\ -1 \\ 1 \\ 0 \\ 0 \\ 0 \end{pmatrix} + a_3 \begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 1 \\ -1 \\ 1 \end{pmatrix}$
+
+○○は(*)を満たさないので, $A$のJordan標準形は$1$次のJordan細胞を持つことがわかる.
+
+よって, Jordan標準形は$\underline{J(0,3) \oplus J(0,3) \oplus J(0,1)}$.
+
+\bigskip
+\bigskip
+
+$A\bm{x} = \bm{0}$ を解くことにより, $W(0;A) = \begin{pmatrix} a_1 \\ 0 \\ a_2 \\ -a_2 \\ a_3 \\ -a_3 \\ a_3 \end{pmatrix} = a_1 \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \end{pmatrix} + a_2 \begin{pmatrix} 0 \\ 1 \\ -1 \\ 1 \\ 0 \\ 0 \\ 0 \end{pmatrix} + a_3 \begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 1 \\ -1 \\ 1 \end{pmatrix}$
+
+$A\bm{x} = \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \end{pmatrix}$ を解くことにより, 
+$\bm{x} = \begin{pmatrix} 0 \\ 0 \\ 1 \\ -1 \\ 0 \\ 0 \\ 0 \end{pmatrix} + a_4\begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \end{pmatrix} + a_5\begin{pmatrix} 0 \\ 1 \\ -1 \\ 1 \\ 0 \\ 0 \\ 0 \end{pmatrix} + a_6\begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 1 \\ -1 \\ 1 \end{pmatrix}$
+
+$A\bm{x} = \begin{pmatrix} 0 \\ 1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \end{pmatrix}$ を解くことにより, 
+$\bm{x} = \begin{pmatrix} 0 \\ 0 \\ 1 \\ 0 \\ 0 \\ 0 \\ 0 \end{pmatrix} + a_7\begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0\end{pmatrix} + a_8\begin{pmatrix} 0 \\ 1 \\ -1 \\ 1 \\ 0 \\ 0 \\ 0 \end{pmatrix} + a_9\begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 1 \\ -1 \\ 1 \end{pmatrix}$
+
+$A\bm{x} = \begin{pmatrix} 0 \\ 1 \\ -1 \\ 1 \\ 0 \\ 0 \\ 0 \end{pmatrix}$ を解くことにより, 
+$\bm{x} = \begin{pmatrix} 0 \\ 0 \\ 1 \\ -1 \\ 0 \\ 1 \\ -1 \end{pmatrix} + a_{10} \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \end{pmatrix} + a_{11} \begin{pmatrix} 0 \\ 1 \\ -1 \\ 1 \\ 0 \\ 0 \\ 0 \end{pmatrix} + a_{12} \begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 1 \\ -1 \\ 1 \end{pmatrix}$
+
+$A\bm{x} = \begin{pmatrix} 0 \\ 0 \\ 1 \\ -1 \\ 1 \\ 0 \\ 0 \end{pmatrix}$ を解くことにより,
+$\bm{x} = \begin{pmatrix} 0 \\ 0 \\ 0 \\ 1 \\ 0 \\ 0 \\ 1 \end{pmatrix} + a_{13} \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \end{pmatrix} + a_{14} \begin{pmatrix}  0 \\ 1 \\ -1 \\ 1 \\ 0 \\ 0 \\ 0 \end{pmatrix} + a_{15} \begin{pmatrix} 0 \\ 0 \\ 0 \\ 0 \\ 1 \\ -1 \\ 1 \end{pmatrix}$
+
+$P:= \begin{pmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 1 & 0 & 1 & 0 & 0 & 0 \\ 0 & 0 & 1 & -1 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 & -1 & 1 & 0 \\ 0 & 0 & 0 & 0 & 1 & 0 & 1 \\ 0 & 0 & 0 & 0 & 0 & 0 & -1 \\ 0 & 0 & 0 & 0 & 0 & 1 & 1 \end{pmatrix}$ とおくと, 
+$P^{-1} = \begin{pmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 1 & 0 & -1 & -1 & 0 & 1 \\ 0 & 0 & 1 & 1 & 0 & -1 & -1 \\ 0 & 0 & 0 & 1 & 1 & 0 & -1 \\ 0 & 0 & 0 & 0 & 1 & 1 & 0 \\ 0 & 0 & 0 & 0 & 0 & 1 & 1 \\ 0 & 0 & 0 & 0 & 0 & -1 & 0 \end{pmatrix}$ であり, 
+
+$P^{-1}AP = \begin{pmatrix} 0 & 1 & 0 & -1 & -1 & 0 & 1 \\ 0 & 0 & 1 & 1 & 0 & -1 & -1 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 1 & 1 & 0 \\ 0 & 0 & 0 & 0 & 0 & 1 & 1 \\0 & 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0 \end{pmatrix} \begin{pmatrix} 1 & 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 1 & 0 & 1 & 0 & 0 & 0 \\ 0 & 0 & 1 & -1 & 1 & 0 & 0 \\ 0 & 0 & 0 & 1 & -1 & 1 & 0 \\ 0 & 0 & 0 & 0 & 1 & 0 & 1 \\ 0 & 0 & 0 & 0 & 0 & 0 & -1 \\ 0 & 0 & 0 & 0 & 0 & 1 & 1 \end{pmatrix} = J(0,3) \oplus J(0,3) \oplus J(0,1)$
+
+(解法2)
+
+$xE - A \rightarrow \left(\begin{array}{ccccccc}1 & 0 & 0 & 0 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & x & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & x^3 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & x^3\end{array}\right) \rightarrow \left(\begin{array}{c:ccc:ccc}x & 0 & 0 & 0 & 0 & 0 & 0 \\ \hdashline 0 & 1 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & x^3 & 0 & 0 & 0 \\ \hdashline 0 & 0 & 0 & 0 & 1 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & x^3\end{array}\right)$
+
+$\hspace{20zw} \sim 
+\left(\begin{array}{c:ccc:ccc}x & 0 & 0 & 0 & 0 & 0 & 0 \\ \hdashline 0 & x-1 & 0 & 0 & 0 & 0 & 0 \\ 0 & 0 & x-1 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & x & 0 & 0 & 0 \\ \hdashline 0 & 0 & 0 & 0 & x-1 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & x-1 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & x\end{array}\right)$
+
+$\hspace{20zw} = 
+xE_7 - \left(\begin{array}{c:ccc:ccc}0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hdashline 0 & 0 & 1 & 0 & 0 & 0 & 0 \\ 0 & 0 & 0 & 1 & 0 & 0 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0 \\ \hdashline 0 & 0 & 0 & 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 0 & 0 & 0 & 1 \\ 0 & 0 & 0 & 0 & 0 & 0 & 0\end{array}\right)$
+
+なので, Jordan標準形は $J(0,3) \oplus J(0,3) \oplus J(0,1)$.
+
+\bigskip
+\bigskip
+
+\begin{question}
+次の行列をある正則行列によって対角化せよ.
+\end{question}
+
+(1)
+$\left(\begin{array}{cccc}
+1 & \cdots & \cdots & 1 \\
+\vdots & & & \\
+\vdots & & \text{\huge{O}} & \\
+1 & & & \end{array} \right)$
+
+\begin{answer*}
+\end{answer*}
+固有多項式は, 
+\begin{align*}
+D_n(t) =
+\begin{vmatrix}
+t-1 & -1 & -1 & \cdots & -1 \\
+-1 & t & 0 & \cdots & 0 \\
+-1 & 0 & t & & \\
+\vdots & \vdots & & \ddots \\
+-1 & 0 & & & t
+\end{vmatrix}
+&= \begin{vmatrix}
+t & -1 & 0 & \cdots & 0 \\
+-1 & t-1 & -1 & \cdots & -1 \\
+0 & -1 & t & & \\
+\vdots & \vdots & & \ddots & \\
+0 & -1 & & & t
+\end{vmatrix} \\
+&= t\begin{vmatrix} 
+t-1 & -1 & \cdots & -1 \\
+-1 & t & &  \\
+\vdots & & \ddots & \\
+-1 & & & t
+\end{vmatrix}
++ \begin{vmatrix}
+-1 & 0 & \cdots & 0 \\
+-1 & t & & \\
+\vdots & & \ddots & \\
+-1 & & & t
+\end{vmatrix} \ (余因子展開) \\
+&= tD_{n-1}(t) - t^{n-2} \ (n \ge 3)
+\end{align*}
+
+(i) $t = 0$ のとき, $D_n(0) = 0$.
+
+(ii) $t \neq 0$ のとき, 
+
+$\displaystyle \frac{D_n(x)}{x^n} = \displaystyle \frac{D_{n-1}(x)}{x^{n-1}} - \displaystyle \frac{1}{x^2}$ なので, 漸化式を解くと
+$\displaystyle \frac{D_n(x)}{x^n} = \displaystyle \frac{x^2 - x - n + 1}{x^2}$. 
+
+(i), (ii) より$D_n(x) = x^{n-2}\left(x - \displaystyle \frac{1 + \sqrt{4n-3}}{2}\right) \left(x - \displaystyle \frac{1 - \sqrt{4n-3}}{2} \right) \ (n \ge 3)$ となる.
+
+また, $D_2(x) = t^2 - t -1$ なので上の式は$n \ge 2$で成り立つ.
+
+したがって, $\alpha := \displaystyle \frac{1 + \sqrt{4n-3}}{2}, \ \beta := \displaystyle \frac{1 - \sqrt{4n-3}}{2}$ とおくと固有値は $0, \ \alpha, \ \beta$.
+
+$P := \begin{pmatrix}
+0 & \cdots & 0 & \alpha & \beta \\
+-1 & \cdots & -1 & 1 & 1 \\
+1 & & & \vdots & \vdots \\
+ & \ddots & & \vdots & \vdots \\
+ & & 1 & 1 & 1 \end{pmatrix}$
+とおくと, 
+$P^{-1} = \displaystyle \frac{1}{1-n} 
+\begin{pmatrix} 0 & 1 & 2-n & 1 & \cdots & 1 & 1 & 1 \\
+                0 & 1 & 1 & 2-n & \cdots & 1 & 1 & 1 \\
+ \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\
+ \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+ \vdots & \vdots & \vdots & \vdots & \vdots & \vdots & \ddots & \vdots \\
+               0 & 1 & 1 & 1 & \cdots & 1 & 1 & 2-n \\
+\frac{1-n}{\alpha - \beta} & \frac{\beta}{\alpha - \beta} & \cdots & \cdots & \cdots & \cdots & \cdots & \frac{\beta}{\alpha - \beta} \\
+\frac{1-n}{\beta - \alpha} & \frac{\alpha}{\beta - \alpha} & \cdots & \cdots & \cdots & \cdots & \cdots & \frac{\alpha}{\beta - \alpha}
+\end{pmatrix}$
+
+であり, $P^{-1}AP = \begin{pmatrix}
+0 & & & & \\
+ & \ddots & & & \\
+ & & 0 & & \\
+ & & & \alpha & \\
+ & & & & \beta \end{pmatrix}$.
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+(1)
+$
+\left(\begin{array}{cccc}
+2 & 1 & &  \\
+1 & \ddots & \ddots &\text{\huge{0}} \\
+  & \ddots & \ddots & 1\\
+\text{\huge{0}} & & 1 & 2
+\end{array}\right)
+$
+余因子展開
+
+
+\end{document}

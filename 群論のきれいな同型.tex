@@ -1,0 +1,22 @@
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage{tikz,ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp,wrapfig,pgfplots,multicol}
+\usetikzlibrary{calc}
+\usetikzlibrary{intersections}
+\DeclareMathOperator{\id}{id} %\idは定義されていない
+\newtheorem*{answer*}{解答}
+
+\begin{document}
+
+{\bf 問1} \ 乗法群$S^1 = \{z \in C^* | |z| = 1 \}$ について, \  $\mathbb{R}/\mathbb{Z} \cong S^1$ を示せ.
+このとき, \ 
+\begin{answer*}
+写像$f : \mathbb{R} \to S^1$ を $f(\theta) = e^{2\pi i\theta}$ となるように定めると, \  
+$f(\theta +\phi)
+=e^{i(\theta+\phi)}
+=e^{i\theta}e^{i\phi}
+=f(\theta)f(\phi)$
+\end{answer*}
+なので $f$ は準同型写像. 乗法群 $S^1$の単位元は $1$ なので $\ker f = \mathbb{Z}$, \ $f$ は全射なので Im($f$) = $S^1$. よって準同型定理より, $\mathbb{R}/\ker f \cong \Im(f)$ i.e. 
+$\mathbb{R}/\mathbb{Z} \cong S^1$.
+
+\end{document}

@@ -1,0 +1,265 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb,bm,physics,arydshln}
+\newtheorem{question}{問}
+\begin{document}
+
+\begin{question}
+$A=\begin{pmatrix} 1&0&0 \\ 1&1&1 \\ 1&0&1 \end{pmatrix}$を上三角化せよ.
+\end{question}
+
+\bigskip
+
+\begin{align*}
+\underline{\textbf{解答}}　まず、固有多項式を求めると、
+g_{A}(t) = \det (tE-A)
+&=\begin{vmatrix} t-1&0&0 \\ -1&t-1&-1 \\ -1&0&t-1 \end{vmatrix} \\
+&= (t-1)^3 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \therefore g_{A}(t) = 0を解くと、t=1
+\end{align*}
+
+$A$の固有値は$1$であるので、この固有値に対する固有ベクトルを求めると、
+$E-A = \begin{pmatrix} 0&0&0 \\ -1&0&-1 \\ -1&0&0 \end{pmatrix}$ \ より、
+固有空間は$W(1;A) = \left\{c_1\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} \ \middle| \ c_1\in \mathbb{R} \right\}$なので、ノルムが$1$の固有ベクトルとして、
+$\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix}$がとれる.
+
+このとき、このベクトルを含むような$\mathbb{R}^3$の正規直交基底を
+$\left\{\bm{u}_1 , \bm{u}_2, \bm{u}_3 \right\}$ :=
+$\left\{\begin{pmatrix} 0 \\ 1 \\ 0 \end{pmatrix} , \begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix} , \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} \right\}$ \ となるようにとると、
+
+(実際、$\bm{u}_1 , \bm{u}_2, \bm{u}_3$ は \ 一次独立 \ かつ \ $\mathbb{R}^3$を生成していて、$(\bm{u}_i, \bm{u}_j) = \delta_{ij} \ (1 \le i, j \le 3)$ を満たす）
+
+\bigskip
+
+$P:= \begin{pmatrix} \bm{u}_1&\bm{u}_2&\bm{u}_3 \end{pmatrix}$ =
+$\begin{pmatrix} 0&1&0 \\ 1&0&0 \\ 0&0&1 \end{pmatrix}$は直交行列である.
+
+\[
+  \left(
+  \begin{tabular}{l}
+    $\because (\bm{u}_i, \bm{u}_j) = \delta_{ij} \ \ (1 \le i, j \le 3) \Longleftrightarrow$ 
+    ${}^t \bm{u}_i \bm{u}_j = \delta_{ij} \ \ (1 \le i, j \le 3)$ \\
+    \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+    $\Longleftrightarrow {}^tAA の(i, j)成分が\delta_{ij}$\\
+    \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \
+    $\Longleftrightarrow {}^tAA = E$
+  \end{tabular}
+  \right)
+\]
+
+\begin{align*}
+よって、P^{-1}AP = {}^tPAP
+&= \begin{pmatrix} 0&1&0 \\ 1&0&0 \\ 0&0&1 \end{pmatrix} \begin{pmatrix} 1&0&0 \\ 1&1&1 \\ 1&0&1 \end{pmatrix} \begin{pmatrix} 0&1&0 \\ 1&0&0 \\ 0&0&1 \end{pmatrix} \\
+&= \begin{pmatrix} 1&1&1 \\ 1&0&0 \\ 1&0&1 \end{pmatrix} \begin{pmatrix} 0&1&0 \\ 1&0&0 \\ 0&0&1 \end{pmatrix} \\
+&= \begin{pmatrix} 1&1&1 \\ 0&1&0 \\ 0&1&1 \end{pmatrix} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ となる.
+\end{align*}
+
+ここで、$B:=\begin{pmatrix} 1&0 \\ 1&1 \end{pmatrix}$とおくと
+$g_B(t) = \begin{vmatrix} t-1&0 \\ -1&t-1 \end{vmatrix} = (t-1)^2$ より、$Bの固有値は1$であり、固有空間は$W(1;B) = \left\{c_2\begin{pmatrix} 0 \\ 1  \end{pmatrix} \ \middle| \ c_2 \in \mathbb{R} \right\}$なので、$\mathbb{R}^2$の正規直交基底として
+$\left\{\begin{pmatrix} 0 \\ 1 \end{pmatrix} , \begin{pmatrix} 1 \\ 0 \end{pmatrix} \right\}$ \ となるものをとると、$Q := \begin{pmatrix} 0&1 \\ 1&0 \end{pmatrix}$は直交行列である.
+よって、$Q^{-1}BQ = {}^t QBQ = \begin{pmatrix} 0&1 \\ 1&0 \end{pmatrix}$
+$\begin{pmatrix} 1&0 \\ 1&1 \end{pmatrix} \begin{pmatrix} 0&1 \\ 1&0 \end{pmatrix}$
+= $\begin{pmatrix} 1&1 \\ 0&1 \end{pmatrix}$
+
+\[ このとき、P^{-1}AP = \left( 
+\begin{array}{c:cc}
+1 & 1 & 1 \\ \hdashline
+ &  &  \\ 
+\bm{0} & \ \ \ \ \ B &  \\
+ & & \\
+\end{array}
+\right)
+に対して、行列の長方形分割を用いると、\]
+
+\[ \left( 
+\begin{array}{c:c}
+1 & \bm{0} \\ \hdashline
+ &  \\ 
+\bm{0} & \ \ {}^tQ  \\
+ &  \\
+\end{array}
+\right)
+{}^tPAP
+\left( 
+\begin{array}{c:c}
+1 & \bm{0} \\ \hdashline
+ &  \\ 
+\bm{0} & \ Q  \\
+ &  \\
+\end{array}
+\right) 
+=
+\left( 
+\begin{array}{c:c}
+1 & \bm{0} \\ \hdashline
+ &  \\ 
+\bm{0} & \ \ {}^tQBQ  \\
+ &  \\
+\end{array}
+\right)
+=
+\left( 
+\begin{array}{c:cc}
+1 & \ \ \ \ \ \bm{0} & \\ \hdashline
+ &1&1  \\ 
+\bm{0} & &  \\
+ &0&1 \\
+\end{array}
+\right)
+ \ となってAが上三角化されるため、\]
+\[R:=
+P\left( 
+\begin{array}{c:c}
+1 & \bm{0} \\ \hdashline
+ &  \\ 
+\bm{0} & \ Q  \\
+ &  \\
+\end{array}
+\right)
+=
+\begin{pmatrix} 0&1&0 \\ 1&0&0 \\ 0&0&1 \end{pmatrix}
+\begin{pmatrix} 1&0&0 \\ 0&0&1 \\ 0&1&0 \end{pmatrix}
+=
+\begin{pmatrix} 0&0&1 \\ 1&0&0 \\ 0&1&0 \end{pmatrix}
+ \ とおくことにより、{}^tRAR = \begin{pmatrix} 1&0&0 \\ 0&1&1 \\ 0&0&1 \end{pmatrix} となる.\]
+
+\[ また、P \ と \ \left( 
+\begin{array}{c:c}
+1 & \bm{0} \\ \hdashline
+ &  \\ 
+\bm{0} & \ Q  \\
+ &  \\
+\end{array}
+\right) は直交行列なので、その積Rも直交行列である.よって、 \ 
+\underline{R^{-1}AR = \begin{pmatrix} 1&0&0 \\ 0&1&1 \\ 0&0&1 \end{pmatrix}.} \]
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+\begin{question}
+$A = \begin{pmatrix} 1&0&0 \\ 2&3&4 \\ -2&-2&-3 \end{pmatrix}$を上三角化せよ.
+\end{question}
+
+\bigskip
+
+\underline{\textbf{解答}}
+
+まず、$A$の固有多項式は、$g_{A}(t) = \det (tE-A) = (t-1)^2(t+1)$ となるので、$A$の固有値は$-1,1$となる.
+
+そして、それぞれの固有空間は
+
+\bigskip
+
+$W(-1;A) = \left\{c_1\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix} \ \middle| \ c_1 \in \mathbb{R} \right\}$, \ \ 
+$W(1;A) = \left\{c_2\begin{pmatrix} -1 \\ 1 \\ 0 \end{pmatrix} + c_3\begin{pmatrix} -2 \\ 0 \\ 1 \end{pmatrix} \ \middle| \ c_2, c_3 \in \mathbb{R} \right\}$ \
+となるので、
+
+$\mathbb{R}^3$ の基底として、$\left\{\begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix}, \begin{pmatrix} -1 \\ 1 \\ 0 \end{pmatrix}, \begin{pmatrix} 0 \\ 0 \\ 1 \end{pmatrix} \right \}$ をとり、これを正規直交化すると、$\left\{\displaystyle \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ -1 \\ 1 \end{pmatrix}, \displaystyle \frac{1}{\sqrt{6}} \begin{pmatrix} -2 \\ 1 \\ 1 \end{pmatrix}, \displaystyle \frac{1}{\sqrt{3}} \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \right \}$ が得られる.よって、$P:= \displaystyle \frac{1}{\sqrt{6}} \begin{pmatrix} 0&-2&\sqrt{2} \\ -\sqrt{3}&1&\sqrt{2} \\ \sqrt{3}&1&\sqrt{2} \end{pmatrix}$とおくと、$P$は直交行列となり、
+
+\bigskip
+
+$P^{-1}AP = {}^tPAP = \underline{\begin{pmatrix} -1&-{2\sqrt{3}}/3&-{8\sqrt{6}}/3 \\ 0&1&0 \\ 0&0&1 \end{pmatrix}}$ となって上三角化された.
+\bigskip
+\bigskip
+\bigskip
+
+\begin{question}
+Let $A= \begin{pmatrix} -2&2&10 \\ 2&-11&8 \\ 10&8&-5 \end{pmatrix}$. 
+
+ \ \ \ \ \ Find an orthogonal matrix $P$ and a diagonal matrix $D$ such that $P^{-1}AP = D$.
+\end{question}
+
+\bigskip
+\bigskip
+
+\underline{\textbf{solution}} \ \ \ \ \ $A$ is symmetric, so $A$ is orthogonally diagonalizable.
+\[
+  \left(
+  \begin{tabular}{l}
+Let $A$ be symmetric matrix. Then, there exists an orthogonal matrix $P$ such that
+$P^{-1}AP$ = 
+$\begin{pmatrix} \lambda_{1} &  \ \ \ \ \ * & \\ & \ddots &  \\ ${\huge O}$ & & \lambda_{n} \end{pmatrix}$. \\
+Moreover, ${}^t (P^{-1}AP) = {}^t ({}^t PAP) ={}^t P \ {}^t\!AP = P^{-1}AP$. \ \ ($P^{-1}AP$ is a symmetric matrix) \\
+Therefore $P^{-1}AP$ is a diagonal matrix.
+ \end{tabular}
+  \right)
+\]
+ \ \ \ First, we will find the eigenvalues of $A$. To do so, we solve the characteristic polynomial of $A$ as follows.
+
+\begin{align*}
+g_A(t)=\det(tE-A)
+&=\begin{vmatrix} t+2&-2&-10 \\ -2&t+11&-8 \\ -10&-8&t+5 \end{vmatrix} \\
+&= t^3+18t^2-81t-1458 \ \ \ \ \ (1458=2\cdot3^6=18\cdot81) \\
+&= (t+9)(t+18)(t-9)
+\end{align*}
+
+Thus, there are three eigenvalues $\lambda_1 := -9, \ \lambda_2 := -18$, and \ $\lambda_3 := 9$.
+
+\bigskip
+
+Next, we need to find the eigenvectors of A.
+
+\bigskip
+
+(i) \ The eigenvectors $\bm{x_1}$ associated to $\lambda_1$ solve 
+$(\lambda_1E-A) \bm{x_1} = \bm{0}$.
+
+Since \ $-9E-A = \begin{pmatrix} -7&-2&-10 \\ -2&2&-8 \\ -10&-8&-4 \end{pmatrix}$ $\longrightarrow \begin{pmatrix} 1&0&2 \\ 0&1&-2 \\ 0&0&0 \end{pmatrix}$, \ we can choose
+$\bm{x_1} = \begin{pmatrix} -2 \\ 2 \\ 1 \end{pmatrix}$.
+
+Normalizing $\bm{x_1}$ gives 
+$\bm{u_1} := \displaystyle \frac{\bm{x_1}}{\|\bm{x_1}\|} = \displaystyle \frac{1}{3}$
+$\begin{pmatrix} -2 \\ 2 \\ 1 \end{pmatrix}$. 
+
+\bigskip
+
+(i\hspace{-0.5pt}i) \ The eigenvectors $\bm{x_2}$ associated to $\lambda_2$ solve
+$(\lambda_2E-A) \bm{x_2} = \bm{0}$.
+
+Since \ $-18E-A = \begin{pmatrix} -16&-2&-10 \\ -2&-7&-8 \\ -10&-8&-13 \end{pmatrix}$
+$\longrightarrow \begin{pmatrix} 1&0&\frac{1}{2} \\ 0&1&1 \\ 0&0&0 \end{pmatrix}$, \ we can choose $\bm{x_2} = \begin{pmatrix} 1 \\ 2 \\ -2 \end{pmatrix}$.
+
+Normalizing $\bm{x_2}$ gives
+$\bm{u_2} := \displaystyle \frac{\bm{x_2}}{\|\bm{x_2}\|} = \displaystyle \frac{1}{3}$
+$\begin{pmatrix} 1 \\ 2 \\ -2 \end{pmatrix}$. 
+
+
+\bigskip
+
+$\bm{x_1}$ and $\bm{x_2}$ are vectors from distinct eigenvalues of the symmetric matrix $A$, so
+$(\bm{x_1}, \bm{x_2}) = 0$.
+
+\[
+  \left(
+  \begin{tabular}{l}
+  $\because \ \lambda_1 (\bm{x_1}, \bm{x_2})$ \\
+  $ = (\lambda_1 \bm{x_1}, \bm{x_2})$ =
+  ${}^t(\lambda_1 \bm{x_1}) \cdot \bm{x_2} = {}^t(A \bm{x_1}) \cdot \bm{x_2}$ =
+  ${}^t \bm{x_1} {}^t A \bm{x_2} = {}^t \bm{x_1} A \bm{x_2} = {}^t \bm{x_1} \lambda_2 \bm{x_2}$=
+  $(\bm{x_1}, \lambda_2 \bm{x_2}) = \lambda_2 (\bm{x_1}, \bm{x_2})$ \\
+  Hence $(\lambda_1 - \lambda_2)(\bm{x_1}, \bm{x_2}) = 0. \ \ \ \ \ \lambda_1 \neq \lambda_2$,     so $(\bm{x_1}, \bm{x_2}) = 0$.
+ \end{tabular}
+  \right)
+\]
+
+Thus, we define $\bm{u_3} := \displaystyle \frac{1}{3} \begin{pmatrix} 2 \\ 1 \\ 2 $ $\end{pmatrix}$, where is orthogonal to $\bm{u_1}, \bm{u_2}$, then $\bm{u_3}$ is the eigenvectors associated to $\lambda_3$, and
+$\left\{\bm{u}_1 , \bm{u}_2, \bm{u}_3 \right\}$ is an orthonormal basis.
+
+Hence, setting $P := \begin{pmatrix} \bm{u}_1&\bm{u}_2&\bm{u}_3 \end{pmatrix}$ =
+$\displaystyle \frac{1}{3} \begin{pmatrix} -2&1&2 \\ 2&2&1 \\ 1&-2&2 \end{pmatrix}$,
+ \ $P$ is an orthogonal matrix, and
+
+we get
+\begin{align*}
+P^{-1}AP = {}^tPAP
+&= \displaystyle \frac{1}{9} \begin{pmatrix} -2&2&1 \\ 1&2&-2 \\ 2&1&2 \end{pmatrix} \begin{pmatrix} -2&2&10 \\ 2&-11&8 \\ 10&8&-5 \end{pmatrix} \begin{pmatrix} -2&1&2 \\ 2&2&1 \\ 1&-2&2 \end{pmatrix} \\
+&=\begin{pmatrix} 2&-2&-1 \\ -2&-4&4 \\ 2&1&2 \end{pmatrix} \begin{pmatrix} -2&1&2 \\ 2&2&1 \\ 1&-2&2 \end{pmatrix} \\
+&= \underline{\begin{pmatrix} -9&0&0 \\ 0&-18&0 \\ 0&0&9 \end{pmatrix}}.
+\end{align*}
+
+
+
+
+
+\end{document}

@@ -1,0 +1,177 @@
+\documentclass{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp}
+\newtheorem{question}{問}
+\begin{document}
+\textbf{一般位相2B　中間レポート課題}
+\begin{flushright}
+6122111 三森誠真
+\end{flushright}
+$\fbox{1}$ \\
+(a) \ 位相空間$(X, \mathcal{O})$がHausdorff空間
+
+$\stackrel{\mathrm{def}}{\Longleftrightarrow} X$ 上の任意の相異なる２点$a,b$ に対して, $a \in O_1, \ b \in O_2, \ O_1 \cap O_2 = \emptyset$ となるような開集合$O_1, O_2$
+
+\ \ \ \ \ \ が存在する. \\
+(b) 任意の相異なる２点$a,b \in M$ に対して, $a$ のある近傍$B\left(a,\displaystyle \frac{d(a,b)}{2}\right)$と $b$ のある近傍$B\left(b,\displaystyle \frac{d(a,b)}{2}\right)$ が
+
+\ \ 存在して$B\left(a,\displaystyle \frac{d(a,b)}{2}\right) \cap B\left(b,\displaystyle \frac{d(a,b)}{2}\right) = \emptyset$ となるので, $(M,\mathcal{O}_d)$ はHausdorff空間.\\
+(c) $Y = \{a,b\}$ の位相として4種類の位相を考えていることから以下では$a \neq b$として扱う.
+
+\ \ $(Y,\mathcal{O}_1)$: $Y$上の２点$a,b$ に対して, $a$ を含むような開集合は$Y$のみ, $b$ を含むような開集合も$Y$ のみであ
+
+\hspace{5zw}り, $Y \cap Y \neq \emptyset$ となるのでHausdorff空間でない. 
+
+\ \ $(Y,\mathcal{O}_2)$ : $Y$上の２点$a,b$ に対して, $a$ を含むような開集合は$\{a\}とY$, $b$ を含むような開集合は$Y$ のみ
+
+\hspace{5zw}であり, $\{a\} \cap Y \neq \emptyset, \ Y \cap Y \neq \emptyset$ となるのでHausdorff空間でない.
+
+\ \ $(Y,\mathcal{O}_3)$ : $Y$上の２点$a,b$ に対して, $a$ を含むような開集合は$Y$のみ, $b$ を含むような開集合は$\{b\}とY$
+
+\hspace{5zw}であり, $\{b\} \cap Y \neq \emptyset, \ Y \cap Y \neq \emptyset$ となるのでHausdorff空間でない.
+
+\ \ $(Y,\mathcal{O}_4)$ : $Y$上の任意の相異なる２点, 即ち$a,b$ に対して, $a$ を含むような開集合は$\{a\}とY$, $b$ を含むよ
+
+\hspace{5zw}うな開集合は$\{b\}とY$ であり, $\{a\} \cap \{b\} = \emptyset$ となるからHausdorff空間である. \\
+(d) 位相空間$(Z,\mathcal{O}_Z)$ がHausdorff空間でないと仮定すると, ある相異なる２点$a,b \in Z$ が存在して, $a$ を含
+
+\ \ むような任意の開集合$O_1$, $b$ を含むような任意の開集合$O_2$ に対して$O_1 \cap O_2 \neq \emptyset$. このとき, $O_1 \subset Z - O_2$
+
+\ \ が成り立ち, $O_2$ が開集合であることから$Z - O_2$ は有限集合. よって$O_1$ も有限集合となり, $Z - O_1$は
+
+\ \ 無限集合となる($\because Z が無限集合$ )が, これは$O_1$ が開集合であることに反する. したがって, $(Z,\mathcal{O}_Z)$ は
+
+\ \ Hausdorff空間. \\
+$\fbox{2}$ \\
+(a) $\mathcal{U}$ が$A$の開被覆 $\stackrel{\mathrm{def}}{\Longleftrightarrow}$
+$\mathcal{O}$ の部分集合$\mathcal{U}$ が$A \subset \bigcup \mathcal{U}$を満たす. \\
+(b) $A$ が$(X, \mathcal{O})$ でCompact 
+
+\ \ $\stackrel{\mathrm{def}}{\Longleftrightarrow}$
+$A$ の任意の開被覆に対して有限個の開集合$O_1, \dotsb\dotsb, O_n$ を取り出して$A \subset \displaystyle \bigcup_{i=1}^n O_i$ と表せる. \\
+(c) $A^c = X - A$ が開集合であることを示せばよい. まず, 任意に１点$x \in A^c$ をとる. このとき, 任意の$y \in A$
+
+\ \ に対して $x \neq y$ であり, $X$ がHausdorff空間であることから ある開集合$U_y(x) \ni x, V_x(y) \ni y$ が存在し
+
+\ \ て$U_y(x) \cap V_x(y) = \emptyset$ となる. そして, $A \subset \displaystyle \bigcup_{\lambda \in \Lambda} \{V_{x_\lambda}(y_\lambda) | y_\lambda \in A\}$ より $\{V_{x_\lambda}(y_\lambda) | y_\lambda \in A\}$ は$A$ の開被覆
+
+\ \ であり, $A$ がCompactであることから有限個の$y_1, \dotsb\dotsb y_n$ を取り出して $A \subset \displaystyle \bigcup_{i=1}^n V_{x_i}(y_i)$ と表せる. こ
+
+\ \ こで, $U := \displaystyle \bigcap_{i=1}^n U_{y_i}(x_i)$ とおくと $U$ は$x$ の開近傍であり, $U \cap A \subset U \cap \displaystyle \bigcup_{i=1}^n V_{x_i}(y_i) = \displaystyle \bigcup_{i=1}^n (U \cap V_{x_i}(y_i)) \subset$
+
+\ \ $\displaystyle \bigcup_{i=1}^n (U_{y_i}(x_i) \cap V_{x_i}(y_i)) = \emptyset$. よって, $U \cap A = \emptyset$ より$U \subset A^c$ なので, $x \in U = U^i \subset (A^c)^i$. 
+
+\ \ したがって, $A^c$ は開集合なので$A$ は閉集合となる. \\
+(d) $A \cup B$ の任意の開被覆を $\{U_\lambda|\lambda \in \Lambda \}$ とすると, $A \subset A \cup B \subset \displaystyle \bigcup_{\lambda \in \Lambda} U_\lambda$ なので, $\{U_\lambda|\lambda \in \Lambda\}$は$A$ の開被
+
+\ \ 覆でもある. 同様にして$B$ の開被覆でもあり, $A, B$ のCompact性より有限個の$U_1, \dotsb\dotsb, U_n$ を取り出
+
+\ \ して$A \displaystyle \subset \bigcup_{i=1}^n U_i, \ B \subset \displaystyle \bigcup_{i=1}^n U_i$ と表せる. よって, $A \cup B \subset \displaystyle \bigcup_{i=1}^n U_i$ なので$A \cup B$ はCompact. \\
+(e) $(0,1)$ がCompactであると仮定すると, $(0,1)$の開被覆$\left\{\left(\displaystyle\frac{1}{n}, 1\right) \middle| n \in \mathbb{N}\right\}$ に対して有限部分被覆
+
+\ \ $\left\{\left(\displaystyle\frac{1}{n_k}, 1\right) \middle| n_k \in \mathbb{N}, \ k=1,\dotsb, m \right\}$ が取れるはずだが, $N := \max\{n_k | \ k=1,\dotsb,m\}$ とおくと
+
+\ \ $\displaystyle \bigcup_{k=1}^m \left(\displaystyle\frac{1}{n_k}, 1\right) = \left(\displaystyle\frac{1}{N}, 1\right) \not\supset (0,1)$ となって矛盾するのでCompactでない. \\
+(f) $X = \{a,b\}$
+ に開集合系として $\{\emptyset,\{a\},\{a,b\}\}$
+ を定めて位相空間する. 開区間 $I:=(0,1)$
+ としたとき
+
+\ \ $A=(\{a\} \times I) \cup (\{b\} \times \bar{I}), \ B=\{a\} \times \bar{I}$
+とおくと $A,B$
+ は $X \times \mathbb{R}$
+ のCompact集合であるが, $A \cap B$
+ は
+ 
+\ \ Compactではない. \\
+$\fbox{3}$ \\
+(a) 位相空間$(X, \mathcal{O})$ が局所Compact $\stackrel{\mathrm{def}}{\Longleftrightarrow}$ 任意の点$x \in X$ に対してCompactな$x$ の近傍が存在する. \\
+(b) 任意の点$x \in [0,1)$ に対して$\left[0,\displaystyle \frac{x+1}{2}\right]$ は$\mathbb{R}$ 上の有界閉集合なのでCompact集合であり, さらに
+
+\ \ $\left[0,\displaystyle \frac{x+1}{2}\right]^i$ = $\bigcup \left\{U \subset \left[0,\displaystyle \frac{x+1}{2}\right] \middle| U = [0,1) \cap O , \ O \in \mathcal{O} \right\} = \left[0,\displaystyle \frac{x+1}{2}\right) \ni x$ なので $\left[0,\displaystyle \frac{x+1}{2}\right]$ は$x$
+
+\ \ の近傍となる. 以上より, Compactな$x$ の近傍が存在するので$[0,1)$は局所Compactである. \\
+(c) $X^* = X \cup \{p_\infty\}$ とし, $X^*$ の部分集合族$\mathcal{O}^*$ を $\mathcal{O}^* = \mathcal{O} \cup \mathcal{O}', \ \mathcal{O}' = \{M \subset X^* | p_\infty \in M, \ X^* - M が\\ \ \ \ \ (X,\mathcal{O})の\text{Compact}閉集合\}$ と定めると, $(X^*, \mathcal{O}^*)$ は位相空間となる. 実際, 
+
+(i) $\emptyset \in \mathcal{O}$ なので, $\emptyset \in \mathcal{O}^*$.
+
+\ \ \ \ $X^* \in \mathcal{O}'$ なので, $X^* \in \mathcal{O}^*$.
+
+(ii) $\mathcal{O}^*$ の元$O_i (i=1,2)$ を任意に取ると, 
+
+\ \ \ \ \ $p_\infty \notin O_1 \cap O_2$ のとき, $O_1 \cap O_2 \subset X (\because 任意に元 y \in O_1 \cap O_2 \subset X^* = X \cup \{p_\infty\} をとるとy \neq p_\infty)$ 
+
+\ \ \ \ \ であるから $O_1 \cap O_2 = (O_1 \cap O_2) \cap X = (O_1 \cap X) \cap (O_2 \cap X) \in \mathcal{O}$
+
+\ \ \ \ \  $\left(  \begin{tabular}{l}
+$\because O_i \in \mathcal{O}$ のときは $O_i \cap X \in \mathcal{O}$ であることは明らかなので $O_i \in \mathcal{O}'$ のときについて考えていくと, $X^* - O_i \subset X$ \\
+であるから$p_\infty \in O_i \ (p_\infty \notin O_i と仮定すると p_\infty \in X^* - O_i \subset X となってp_\infty \notin Xに矛盾する)$. よって, \\
+$X^* - O_i = (X \cup p_\infty) - ((O_i - \{p_\infty\}) \cup \{p_\infty\})$
+= $X - (O_i - \{p_\infty\})$ と $X^* - O_i \in \mathfrak{A}$ より $O_i - \{p_\infty\} \in \mathcal{O}$. \\
+したがって $O_i \cap X = (O_i - \{p_\infty\}) \cap X \in \mathcal{O}$ となる.
+     \end{tabular} \right)$
+
+\ \ \ \ \ よって$O_1 \cap O_2 \in \mathcal{O}^*$.
+
+\ \ \ \ \ $p_\infty \in O_1 \cap O_2$ のときは $p_\infty \in O_i $ かつ $ O_i \in \mathcal{O}^*$ より $X^* - O_i$ が$(X,\mathcal{O})$ のCompactな閉集合となる
+
+\ \ \ \ \ ので, $X^* - (O_1 \cap O_2) = (X^* - O_1) \cup (X^* - O_2)$ もCompactな閉集合となる. よって$O_1 \cap O_2 \in \mathcal{O}^*$.
+
+(iii) 任意の$\lambda \in \Lambda$ に対して$O_\lambda \in \mathcal{O}^*$ とする. $p_\infty \in \displaystyle \bigcup_{\lambda \in \Lambda} O_\lambda$ のとき, ある$\lambda_0 \in \Lambda$ が存在して$p_\infty \in O_{\lambda_0}.$ 
+  
+\ \ \ \ \ このとき, $X^* - O_{\lambda_0}$ は$(X,\mathcal{O})$ のCompactな閉集合であり$X^* - \displaystyle \bigcup_{\lambda \in \Lambda} O_{\lambda} = (X^* - O_{\lambda_0}) \cap \displaystyle \bigcap_{\substack{\lambda \in \Lambda \\ \lambda \neq \lambda_0}} (X^* - O_\lambda)$ 
+
+\ \ \ \ \ なので$X^* - \displaystyle \bigcup_{\lambda \in \Lambda} O_{\lambda}$ は$X$ のCompact な閉集合. よって$\displaystyle \bigcup_{\lambda \in \Lambda} O_\lambda \in \mathcal{O}^*$. また$p_\infty \notin \displaystyle \bigcup_{\lambda \in \Lambda} O_{\lambda}$ のときは
+
+\ \ \ \ \ ある$\lambda \in \Lambda$ に対して$O_\lambda \in \mathcal{O}$ なので $\displaystyle \bigcup_{\lambda \in \Lambda} O_\lambda \in \mathcal{O}$. したがって$\displaystyle \bigcup_{\lambda \in \Lambda} O_\lambda \in \mathcal{O}^*$.
+
+(i) $\sim$ (iii) より $(X^*, \mathcal{O}^*)$ は位相空間となる. \\
+$\fbox{4}$ \\
+$[\textbf{問題}]$
+
+$\mathbb{R}$ の部分集合$K$ を$K := \left\{\displaystyle \frac{1}{n} \middle | n \in \mathbb{N} \right\}$ と定義し, $\mathbb{R}$ の部分集合系$\mathcal{B}$ を$\mathcal{B} := \{(a,b) | a,b \in \mathbb{R}\} \cup \{(a,b) - K | a,b \in \mathbb{R}\}$ とする. このとき, $\mathcal{B}$ を開基とするある$\mathbb{R}$ の位相が存在する. \\
+この位相を$\mathcal{O}_K$ とするとき, 以下の問いに答えよ.
+
+(1) 位相空間$(\mathbb{R}, \mathcal{O}_K)$ はHausdorff空間であるが正則空間ではないことを示せ.
+
+(2) 位相空間$(\mathbb{R}, \mathcal{O}_K)$ の部分空間$K$ は 離散位相空間であることを示せ.
+
+(3) 位相空間$(\mathbb{R}, \mathcal{O}_K)$ の部分空間$[0,1]$ はCompact空間ではないことを示せ. \\
+$[\textbf{解答}]$
+
+(1) $\mathcal{O}_K$ は$\mathcal{B}$ によって生成された位相なのでEuclid空間を$\mathcal{O}$ とすると$\mathcal{O} \subset \mathcal{B} \subset \mathcal{O}_K$. よって, $(\mathbb{R}, \mathcal{O})$ が
+
+Hausdorff空間であることから$(\mathbb{R}, \mathcal{O}_K)$もHausdorff空間となる. 次に, $(\mathbb{R}, \mathcal{O}_K)$ が正則空間であると仮定
+
+すると$K$ は閉集合なので $\exists \ U, V \in \mathcal{O}_K$ s.t. $\{0\} \subset U, \ K \subset V, \ U \cap V = \emptyset$ となる. $U$ は開集合なので開基
+
+の定義より$U = \bigcup \{U_0 | U_0 \in \mathcal{B}\} \ (\ni 0)$. よって, $\exists U_0 \in \mathcal{B}$ s.t. $0 \in U_0 \subset U$. --------(*) また$U_0 \in \mathcal{B}$ より
+
+$\exists a,b \in \mathbb{R}$ s.t. $U_0 = (a,b)$ または $U_0 = (a,b) - K$ と表されるが, $U_0 = (a,b)$ と表せると仮定してみると
+
+$0 \in U_0$ より$b > 0$ であり, このときArchimedes の原理から$U_0 \cap K \neq \emptyset$ となるが, これは(*)と$K \subset V$ 
+
+より$U \cap V \neq \emptyset$ となってしまい矛盾する. よって$U_0 = (a,b) - K$ となる.
+
+次に, Archimedes の原理から$\displaystyle \frac{1}{N} < b$ となるような$N \in \mathbb{N}$ がとれる. $V$ は開集合なので開基の定義より 
+
+$\exists V_0 \in \mathcal{B}$ s.t. $\displaystyle \frac{1}{N} \in V_0 \subset V$ と表せる. このとき, $V_0$ は$\exists c,d \in \mathbb{R}$ s.t. $V_0 = (c,d)$ または$V_0 = (c,d) - K$ の
+
+どちらかになるが, $\displaystyle \frac{1}{N} \in V_0$ なので$V_0 = (c,d)$. ここで, $\max\left\{c, \displaystyle \frac{1}{N+1} \right\} < z < \displaystyle \frac{1}{N}$ となるような$z \in \mathbb{R}$ 
+
+をとると$z \in ((a,b) - K) \cap (c,d) = U_0 \cap V_0 \subset U \cap V$ となり$U \cap V = \emptyset$ に矛盾する. よって$(\mathbb{R}, \mathcal{O}_K)$ は
+
+正則空間でない.
+
+(2) $\forall n \in \mathbb{N}, \ \epsilon := \displaystyle \frac{1}{2} \left(\displaystyle \frac{1}{n} - \frac{1}{n+1}\right)$ とおく. このとき, 開区間$I := \left(\displaystyle \frac{1}{n} - \epsilon, \frac{1}{n} + \epsilon \right)$ は$(\mathbb{R}, \mathcal{O}_K)$ の開集合で
+
+あり, さらに$K \cap I = \left\{\displaystyle \frac{1}{n} \right\}$ なので$K$ の任意の部分集合は開集合となり$K$ が離散空間であることが分かる.
+
+(3) $[0,1]$ がCompact空間でないと仮定すると, $(\mathbb{R}, \mathcal{O}_k)$ の部分空間$K$ は$[0,1]$ の閉集合なのでCompact. 
+
+しかし, このとき$K$ は離散位相空間であり且つCompact空間なので有限集合となる ($\because K$の開被覆として
+
+$\left\{\displaystyle \frac{1}{n} \middle | n \in \mathbb{N} \right\}$ をとることができる) がこれは$K$ が無限集合であることに矛盾する. よって$[0,1]$ はCompact.
+
+
+
+\end{document}

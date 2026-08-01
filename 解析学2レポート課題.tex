@@ -1,0 +1,324 @@
+\documentclass{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp,wrapfig}
+\usepackage{geometry}
+\usepackage[inline]{enumitem} %enumerate環境で横に箇条書きをかけるようにする
+\usepackage{ulem} %波線や破線、二重線などを引けるようにする
+
+\begin{document}
+
+\section*{解析学2 \ レポート課題}
+
+\begin{flushright}
+6122111 \ 三森誠真
+\end{flushright}
+
+\begin{itembox}[l]{[1]}
+  線形空間 $X$ に 2 つのノルム $\|\cdot\|_{1}$ と $\|\cdot\|_{2}$ が定義されていて，この 2 つのノルムは同値であるとする. ノルム $\|\cdot\|_{1}$ に関して $X$ 完備であれば，$X$ は $\|\cdot\|_{2}$ に関しても完備となることを示せ.
+\end{itembox}
+
+\textbf{解答}
+
+$\|\cdot\|_{1}$ の完備性より, \ $\forall \varepsilon > 0, \ \exists N \in \mathbb{N}$ s.t. $m, n \ge N \Longrightarrow \|x_n - x_m \|_1 < \varepsilon$.
+
+ノルムの同値性より, \ $\exists M > 0$ s.t. $\| x_n - x_m \|_2 \le M\|x_n - x_m\|_1 < M\varepsilon$
+
+$\varepsilon$ は任意なので, \ $X$ は$\|\cdot\|_{2}$ に関しても完備.
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[2]}
+ $X, Y$ は Banach 空間とし，$\|\cdot\|_{X},\|\cdot\|_{Y}$ はそれぞれ $X, Y$ のノルムとする. 積空間 $X \times Y$ の元 $(x, y)$ に対して
+
+$$
+\|(x, y)\|_{X \times Y}:=\|x\|_{X}+\|y\|_{Y}
+$$
+
+とおく.\\
+（a）$\|\cdot\|_{X \times Y}$ がノルムとなることを示せ．\\
+（b）$X \times Y$ が $\|\cdot\|_{X \times Y}$ に関して Banach 空間となることを示せ.\\ 
+\end{itembox}
+
+\textbf{解答}
+
+(a) :
+
+(i) \ $\|(x, y)\|_{X \times Y} =\|x\|_{X}+\|y\|_{Y} \ge 0$
+
+(ii) \ $\|(x, y)\| = 0 \ \Longleftrightarrow \ \|x\|_{X}+\|y\|_{Y} = 0 \ \Longleftrightarrow \ x = y = 0 \ \Longleftrightarrow \ (x, y) = \bm{0}$
+
+(iii) \ 任意の$a \in \mathbb{R}$ に対して $\|a(x, y)\|_{X\times Y} = \|(ax, ay)\|_{X\times Y} = \|ax\|_X + \|ay\|_Y = a(\|x\| + \|y\|)$
+
+(iv) \ 任意の$(x_1, y_1), \ (x_2, y_2) \to X \times Y$ に対して
+$$
+\begin{aligned}
+\|(x_1, y_1) + (x_2, y_2)\|_{X\times Y} = \|(x_1 + x_2, y_1 + y_2)\|_{X\times Y} 
+&= \|x_1 + x_2\|_X + \|y_1 + y_2\|_Y \\
+&\le \|x_1\|_X + \|x_2\|_X + \|y_1\|_Y + \|y_2\|_Y \\
+&= \|(x_1, y_1)\| + \|(x_2, y_2)\|  
+\end{aligned}
+$$
+
+(i) $\sim$ (iv) より$\|\cdot\|_{X \times Y}$ はノルムとなる.
+
+\bigskip
+
+(b) :
+
+$\|\cdot\|_{X \times Y}$ に関して$X \times Y$ が完備であること, i.e. 任意のCauchy列$\{(x_n, y_n)\}$ が収束することを示せばよい.
+
+任意の$\varepsilon > 0$ に対してある自然数$N$ が存在し, \ $n, m \ge N$ ならば, \ $X, Y$ の完備性よりそれぞれ$\|x_n - x_m\|_X < \varepsilon/2, \ \|y_n - y_m\|_Y < \varepsilon/2$ と表せるため, \ 
+$$
+\|(x_n, y_n) - (x_m, y_m)\|_{X\times Y} = \|x_n - x_m\|_X + \|y_n - y_m\|_Y < \varepsilon/2 + \varepsilon/2 = \varepsilon.
+$$
+よって, \ $X \times Y$ は完備なのでBanach空間となる.
+ 
+ 
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[3]}
+$X, Y$ は Banach 空間とし，$\|\cdot\|_{X},\|\cdot\|_{Y}$ はそれぞれ $X, Y$ のノルムとする．また，$X$ の部分空間で定義された作用素 $T$ に対し，その定義域を $D(T)$ と書く $T: D(T) \subset X \rightarrow Y$ を線形作用素とし，$x \in D(T)$ に対して，
+
+$$
+\|x\|:=\|x\|_{X}+\|T x\|_{Y}
+$$
+
+とおく，このように定義した $\|\cdot\|$ が $D(T)$ 上のノルムとなることを示せ.
+\end{itembox}
+
+\textbf{解答}
+
+(i) \ $\|x\|:=\|x\|_{X}+\|T x\|_{Y} \ge 0$
+
+(ii) \ $\|x\| = 0 \ \Longleftrightarrow \ \|x\|_{X}+\|T x\|_{Y} = 0 \ \Longleftrightarrow \ \|x\|_X = \|Tx\|_Y = 0 \ \Longleftrightarrow \ \|x\| = 0$
+
+$\begin{aligned}
+\text{(iii) \ 任意の$a \in \mathbb{R}$に対して} \|ax\| = \|ax\|_X + \|T(ax)\|_Y 
+&= a\|x\|_X + a\|Tx\|_Y \ (Tの線形性) \\
+&= a\|x\|
+\end{aligned}$
+$$
+\begin{aligned}
+\text{(iv) \ 任意の} x, y \in D(T) \text{に対して} \|x + y\| = \|x + y\|_X + \|T(x + y)\|_Y
+&= \|x + y\|_X + \|T(x) + T(y)\|_Y \ (Tの線形性) \\
+&\le \|x\|_X + \|y\|_X + \|T(x)\|_Y + \|T(y)\|_Y \\
+&= \|x\| + \|y\|
+\end{aligned}
+$$
+
+(i) $\sim$ (iv) より$\|\cdot\|$ は $D(T)$ 上のノルムとなる.
+ 
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[4]}
+  $H$ を Hilbert 空間，$L \subset H$ とする．\\
+（a）$L^{\perp}$ は $H$ の閉部分空間であることを示せ．\\
+（b）$L$ か閉部分空間のとき，$\left(L^{\perp}\right)^{\perp}=L$ となることを示せ．
+\end{itembox}
+
+\textbf{解答}
+
+(a) :
+
+(i) \ $L^{\perp} = \{x \in H | x \perp L\}$ が$H$ の部分空間であることの証明
+
+$u, v \in L^{\perp} \Longleftarrow \forall \alpha, \beta \in \mathbb{R}, \ \alpha u + \beta v \in L^{\perp}$ を示せばよい.
+
+任意の$l \in L$ に対して, \ $\langle \alpha u + \beta v, \ l \rangle = \alpha \langle u, \ l \rangle + \beta \langle v, \ l \rangle = 0$ なので $\alpha u + \beta v \in L^{\perp}$.
+
+よって, \ $L^{\perp}$ は $H$ の部分空間.
+
+\bigskip
+
+(ii) \ $L^{\perp}$ が閉集合であることの証明
+
+任意の$u_n \in L^{\perp}$ に対して$\{u_n\}$ を点列として定めたとき, \ $\displaystyle \lim_{n \to \infty} u_n = u \in L^{\perp}$ であることを示す. 
+
+任意の$l \in L$ に対して $\langle u_n, \ l \rangle = 0$ であるから, \ $\langle u, \ l \rangle = 0$ を示すためには$\displaystyle \lim_{n \to \infty} \langle u_n, \ l \rangle = \langle u, \ l \rangle$ であることを示せばよい.
+
+任意の$\varepsilon > 0$ に対してある自然数$N$ が存在し, \ $n \ge N$ ならば, \ $\displaystyle \lim_{n \to \infty} u_n = u$ より $|u_n - u| < \frac{\varepsilon}{\|l\|}$ とできるため, \ 
+$|\langle u_n, \ l \rangle - \langle u, \ l \rangle | 
+= |\langle u_n - u, \ l \rangle |
+\le \|u_n - u\| \|l\|
+< \varepsilon$
+
+よって, \ $\displaystyle \lim_{n \to \infty} \langle u_n, \ l \rangle = \langle u, \ l \rangle$ なので$L^{\perp}$ は閉集合.
+
+(i), (ii) より$L^{\perp}$ は$H$ の閉部分空間である.
+
+\bigskip
+\bigskip
+
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[5]}
+$\left\{e_{k}\right\}_{k \in \mathbb{N}}$ を Hilbert 空間 $H$ の正規直交系（完全正規直交系とは仮定していない）とし，有限個の $e_{k}$ の 1 次結合の全体を $L_{0}$ とおく. すなわち，
+
+$$
+L_{0}=\left\{\sum_{k=1}^{n} \alpha_{k} e_{k} ; \alpha_{k} \in \mathbb{R}, n \in \mathbb{N}\right\}
+$$
+
+とおき，$L_{0}$ の閉包を $L_{1}$ とおく．$L_{1}$ が $H$ の閉部分空間となることを示せ．
+\end{itembox}
+
+\textbf{解答}
+
+まず, \ $L_1$ の定義から閉集合であることは明らか.
+
+任意の$x, y \in L_1$ に対して, \ $\displaystyle \lim_{n \to \infty} x_n = x, \ \lim_{n \to \infty} y_n = y$ となるような$x_n, y_n \in L_0$ が存在する.
+
+$L_0$ の定義から $x_n + y_n \in L_0$, \ さらに, $\displaystyle \lim_{n \to \infty} (x_n + y_n) = x + y$ より $x + y \in L_1$.
+
+よって, \ $L_1$ は和について閉じている. スカラー倍も同様.
+
+したがって, \ $L_1$ は$H$ の閉部分空間.
+ 
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[6]}
+  Hilbert 空間 $X, Y$ の積空間は内積
+
+$$
+\left(\left(x_{1}, y_{1}\right),\left(x_{2}, y_{2}\right)\right)_{X \times Y}:=\left(x_{1}, x_{2}\right)_{X}+\left(y_{1}, y_{2}\right)_{Y}
+$$
+
+によってヒルベルト空間となることを示せ. ただし，$\left(x_{1}, x_{2}\right)_{X},\left(y_{1}, y_{2}\right)_{Y}$ は，それぞれ $X, Y$ での内積を表す.
+\end{itembox}
+
+\textbf{解答}
+
+$\|\cdot\|_X, \ \|\cdot\|_Y$ の完備性より, \ $\|\cdot\|_{X\times Y}$ も完備なので $X \times Y$ はヒルベルト空間となる.
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[7]}
+ $H$ を Hilbert 空間，$\left\{x_{k}\right\}_{k \in \mathbb{N}}$ を $H$ の正規直交系とする．このとき，任意の $x \in H$ に対して，
+
+$$
+\sum_{k=1}^{\infty}\left|\left(x, x_{k}\right)\right|^{2} \leq\|x\|^{2}
+$$
+
+が成り立つことを示せ．ただし，$(\cdot, \cdot),\|\cdot\|$ は $H$ の内積とその内積から定まるノルムとする. 
+\end{itembox}
+
+\textbf{解答}
+
+$A := \left\{x_{k}\right\}_{k \in \mathbb{N}}$ とし, \ $A_0$ を$A$ の任意の有限部分集合とする. このとき, \ $y := \sum_{x_k \in A_0}(x, x_k)x_k$ と置くと, \ $A$ の正規直交性より, \ 任意の$x_k' \in A_0$ に対して $(x-y, x_k') = (x, x_k') - \displaystyle \sum_{x_k \in A_0} ((x, x_k)x_k, x_k') = (x, x_k') - (x, x_k') = 0$ が分かる. $y$ は$x_k' \in A_0$ の一次結合なので, \ これから$(x-y, y) = \bm{0}$ となる. よって, \ ピタゴラスの定理により, \ $\|x-y\|^2 + \|y\|^2 = \|x\|^2$ が成り立ち, \ $\|y\|^2 \le \|x\|^2$ が分かる. $y$ の定義に戻って再びピタゴラスの定理を使うことにより, \ $\|y\|^2 = \displaystyle \sum_{x_k \in A_0} |(x, a)|^2$ であることが示されるので, \ $\|y\|^2 \le \|x\|^2$ と合わせて$\displaystyle \sum_{x_k \in A_0} |(x, a)|^2 \le \|x\|^2$ が証明される. これより $c := \sup\{\displaystyle \sum_{x_k \in A_0} |(x, a)|^2 | A_0 \subset A は有限集合 \}$ が有限な値として定まり, \ $c \le \|x\|^2$ が成り立つ.
+
+次に, \ 任意の$\varepsilon > 0$ に対して$c$ の定義より, \ ある有限集合$A_0 \subset A$ で$c - \varepsilon < \displaystyle \sum_{x_k \in A_0} |(x, a)|^2$ となるものがある. これに対して, \ $A_0 \subset A' \subset A$ をみたす任意の有限集合$A'$ を取ると, \ 
+$$
+c - \varepsilon < \displaystyle \sum_{x_k \in A_0} |(x, a)|^2 \le \displaystyle \sum_{x_k \in A'} |(x, a)|^2 \le c
+$$
+が成り立つので $|c - \displaystyle \sum_{x_k \in A'} |(x, a)|^2| < \varepsilon$ となり, \ $\{|(x, a)|^2 \}_{x_k \in A}$ は総和可能で, \ 和は$c$ であることが示された. よって, \ 問題のBesselの不等式が示された.
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[8]}
+  $\Omega$ を $\mathbb{R}^{n}$ の有界開集合とし，
+
+$$
+L=\left\{u(x) \in L^{2}(\Omega) ; \int_{\Omega} u(x) d x=0\right\}
+$$
+
+とおく．このとき次の問いに答えよ．\\
+（a）$L$ が $L^{2}(\Omega)$ の閉部分空間となることを示せ.\\
+（b）$L$ への射影 $\operatorname{Proj}_{L}$ を求めよ.\\
+（c）$L^{2}(\Omega)$ において $L^{\perp}$ を求めよ
+\end{itembox}
+
+\textbf{解答}
+
+(a) :
+
+(i) \ $L$ が部分空間であることの証明
+
+任意の$u_1(x), \ u_2(x) \in L, \ \alpha, \ \beta \in \mathbb{R}$ に対して, \ ミンコフスキーの不等式から
+\[\left(\int_\Omega |u_1(x) + u_2(x)|^2 dx \right)^{1/2} \le 
+\left(\int_\Omega |u_1(x)|^2 dx \right)^{1/2} + \left(\int_\Omega |u_2(x)|^2 dx \right)^{1/2} 
+< \infty \] なので $\alpha u_1(x) + \beta u_2(x) \in L^2(\Omega)$.
+
+さらに, \ $\displaystyle \int_\Omega (\alpha u_1(x) + \beta u_2(x)) dx = \alpha \int_\Omega u_1(x) dx + \beta \int_\Omega u_2(x) dx = 0$.
+
+以上より, \ $\alpha u_1(x) + \beta u_2(x) \in L$ となるため, \ $L$ は和とスカラー倍について閉じている. よって, \ $L$ は $L^{2}(\Omega)$ の部分空間となる.
+
+\bigskip
+
+(b) \ $\operatorname{Proj}_{L} (t) = u(t) - \displaystyle\frac{1}{|\Omega|} \int_\Omega u(t) dt \ (t \in \Omega)$.
+
+\bigskip
+
+(c) \ $L^{\perp}$ は$\Omega$ 上の定数関数全体.
+
+
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[9]}
+  $H=L^{2}(-2,2)$ において，次の空間の直交補空間を求めよ．\\
+（a）$\{u \in H ; u(x)=0$ a．e．$x \in(0,1)\}$\\
+（b）$\{u \in H ; u(x)=u(-x)$ a．e．$x\}$\\
+（c）$\{u \in H ; u(x)=$ 定数 a．e．$x\}$\\
+ただし，
+
+$$
+L^{2}(-2,2)=\left\{u:(-2,2) \rightarrow \mathbb{R} ; \int_{-2}^{2}|u(x)|^{2} d x<\infty\right\}
+$$
+
+であり，内積は
+
+$$
+(u, v)=\int_{-2}^{2} u(x) v(x) d x
+$$
+
+で与えられているとする．（実数値関数に限定したので，教科書と内積の定義が違います。）
+\end{itembox}
+
+\textbf{解答}
+
+(i) \ $\{u \in H | u=0, \ a.e. (-2, 2) - (0, 1) \}$
+
+(ii) \ $\{u \in H | u(x) = -u(-x) a.e. x \}$
+
+(iii) \ $\left\{u \in H | \displaystyle \int_{-2}^2 u(x) dx = 0 \right\}$
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[10]}
+  $X, Y$ を Banach 空間とする。 $T$ を $X$ から $Y$ への有界線形作用素で，$D(T)=X$ であると する（ $D(T)$ は $T$ の定義域）。
+
+$$
+\mathcal{N}(T)=\{x \in X ; T x=0\}
+$$
+
+とおくと， $\mathcal{N}(T)$ は $X$ の閉部分空間となることを示せ．
+\end{itembox}
+
+\textbf{解答}
+
+任意の$x, y \in \mathcal{N}(T), \ \alpha, \beta \in \mathbb{R}$ に対して, \ $\alpha x + \beta y \in X$ であり, \ 
+$$
+T(\alpha x + \beta y ) = \alpha T(x) + \beta T(y) = 0
+$$
+なので, \ $\mathcal{N}(T)$ は和とスカラー倍について閉じている. よって, \ $\mathcal{N}(T)$ は$X$ の部分空間.
+
+さらに, \ $\mathcal{N}(T) = T^{-1}(\{0\})$ なので, \ $T$ の連続性から$\mathcal{N}(T)$ は閉集合.
+
+以上より, \ $\mathcal{N}(T)$ は $X$ の閉部分空間となる.
+
+
+
+
+
+
+
+\end{document}

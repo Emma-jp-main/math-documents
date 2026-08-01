@@ -1,0 +1,26 @@
+\documentclass{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp}
+\newtheorem{question}{問}
+\newtheorem*{answer*}{解答}
+\begin{document}
+\begin{itembox}[l]{問}
+$f(x,y) := \begin{cases}
+  \displaystyle \frac{xy(x^2-y^2)}{x^2 + y^2} & \ (x,y) \neq (0,0) \\
+  0 & \ (x,y) = (0,0)
+\end{cases}$ の極値を求めよ.
+\end{itembox}
+
+\begin{answer*}
+$\forall h \neq 0, \ f\left(h,\displaystyle \frac{h}{2} \right) = \displaystyle \frac{3}{10}h^2 > 0, \ f\left(h,-\frac{h}{2} \right) = -\displaystyle \frac{3}{10}h^2 < 0$ なので極値は存在しない.
+
+実際, $f_x (x,0) = 0 なので f_{xx} (0,0) = \displaystyle \lim_{h \to 0} \frac{f_x (h,0) - f_x (0,0)}{h} = 0$.
+
+$f_x (0,y) = -y$ なので, $f_{xy} (0,0) = \displaystyle \lim_{h \to 0} \frac{f_x (0,h) - f_x (0,0)}{h} = -1$.
+
+$f_y (x,0) = x$ なので, $f_{yx} (0,0) = \displaystyle \lim_{h \to 0} \frac{f_y (h,0) - f_y (0,0)}{h} = 1$.
+
+$f_y (0,y) = 0$ なので, $f_{yy} (0,0) = \displaystyle \lim_{h \to 0} \frac{f_y (0,h) - f_y (0,0)}{h} = 0$.
+
+であり, Hesse行列は $\begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}$. これだけでは判定ができない.
+\end{answer*}
+\end{document}

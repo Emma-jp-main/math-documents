@@ -1,0 +1,25 @@
+\documentclass[10pt]{jsarticle}
+\usepackage{tikz,ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp,wrapfig,pgfplots,multicol}
+\begin{document}
+
+$\displaystyle \frac{z}{\sin z - \tan z}$ の極と留数について
+
+$\sin x = x - \displaystyle \frac{x^3}{6} + \displaystyle \frac{x^5}{120} + \cdots$
+
+($e^x$ のマクローリン展開した式に$ix$ を代入すると$\sin x, \cos x$ のマクローリン展開が得られる)
+
+$\tan x 
+= \displaystyle \frac{x-\frac{x^3}{3!} + \frac{x^5}{5!} + o(x^6)}{1 - \frac{x^2}{2!} + \frac{x^4}{4!} + o(x^5)}
+= x \cdot \displaystyle \frac{1- \frac{x^2}{3!} + \frac{x^4}{5!} + o(x^5)}{1 - \frac{x^2}{2!} + \frac{x^4}{4!} + o(x^5)}
+= x + \displaystyle \frac{x^3}{3} + \displaystyle \frac{2}{15}x^5 + o(x^6)$
+
+$\displaystyle \frac{z}{\sin z - \tan z}
+= \displaystyle \frac{1}{-\frac{z^2}{2} - \frac{z^4}{8} + o(z^5)}
+= -\frac{2}{z^2} \cdot \frac{1}{1-(-\frac{z^2}{4} - o(z^3))}$
+
+\textcircled{\scriptsize 2}
+
+$\displaystyle \frac{z^4}{(z^2 - c^2)^4} \ (z = c)$ の留数
+
+$z^4$ を$z = -c$ に関してテイラー展開すればよい.
+\end{document}

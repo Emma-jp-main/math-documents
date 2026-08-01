@@ -1,0 +1,213 @@
+\documentclass{amsart}
+%\documentclass[dvipdfmx]{amsart}
+%\documentclass[12pt,dvipdfmx]{amsart}
+
+%使用するパッケージをここで指定
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[dvipdfmx]{graphicx}
+\usepackage{hyperref}
+\usepackage[all]{xy} 
+%\usepackage[top=25truemm,bottom=25truemm,left=30truemm,right=30truemm]{geometry}
+
+
+%定理環境をここで指定
+\theoremstyle{plain}%plainスタイル：見出し太字，本文斜体，上下にスペースが入る（実はこれは書かなくともデフォルトでこれになっている．日本語は斜体にならないので，日本語で書く場合は以下のdefinitionスタイルの方が良いかも．）
+\newtheorem{thm}{定理}
+%\newtheorem{thm}{定理}[section]%上の替わりにこれを書くと定理番号にsectionの番号が反映される
+\newtheorem*{thm*}{定理}%このように\newtheoremの後に*を着けると番号が表示されない
+\newtheorem{prop}{命題}
+
+\theoremstyle{definition}%definitionスタイル：見出し太字，本文普通，上下にスペースが入る
+\newtheorem{defn}{定義}
+\newtheorem{lem}{補題}
+\newtheorem{cor}{系}
+\newtheorem{claim}{主張}
+
+\theoremstyle{remark}%remarkスタイル：見出し斜体，本文普通
+\newtheorem{rem}{注意}
+
+
+\if0%上の命題以降のコマンドをこれに変えると通し番号になる
+%\newtheorem{prop}[thm]{命題}
+
+\theoremstyle{definition}%definitionスタイル：見出し太字，本文普通，上下にスペースが入る
+\newtheorem{defn}[thm]{定義}
+\newtheorem{lem}[thm]{補題}
+\newtheorem{cor}[thm]{系}
+\newtheorem{claim}[thm]{主張}
+
+\theoremstyle{remark}%remarkスタイル：見出し斜体，本文普通
+\newtheorem{rem}[thm]{注意}
+\fi
+
+%良く使う記号はここでコマンドの名前を付けておくと楽になる
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+
+
+\allowdisplaybreaks%これがあると数式がページをまたいだ時にきちんと分裂してくれる
+
+
+%ここからタイトルなど
+%\title[電算機2TeX]{電子計算機及び実習2のTeXサンプル}
+\title{電子計算機及び実習2のTeXサンプル}
+%\author[G. Omori]{大森　源城}
+\author{大森　源城}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+本論文では，$1+1=2$であることを証明する．
+\end{abstract}
+
+\section{はじめに}
+
+内田氏~\cite{Uchida}の著書を参考に2023年度の一般位相A\footnote{実はこの講義の参考書は松坂氏~\cite{Matsuzaka}の著書である．}の講義準備をしているときに，ふと思いついて自然数1について考えてみた事が本研究を始めたきっかけである．
+1は整数環$\Z $の加法に関する生成元でありかつ$\Z -\{0\}$の乗法単位元でもある為非常に重要な自然数である．
+次が本論文の主定理である．
+\begin{thm}\label{main-thm}
+\[
+1+1=2
+\]
+が成り立つ．
+\end{thm}
+念の為，番号が付いていない定理も以下に記載しておく：
+\begin{thm*}
+実は，$1+1=2$が成り立つ．
+\end{thm*}
+
+
+\section{準備}
+
+この章では，主定理の証明を行う為の準備をする．
+
+\subsection{今日の天気}
+
+数学は雪の日でも雨の日でもできはするが，天気が良いと気分も違う．
+
+\subsubsection{気分と行列}
+
+\begin{rem}
+$\begin{pmatrix}
+a & b \\
+c & d \\
+\end{pmatrix}
+$と
+$\begin{bmatrix}
+a & b \\
+c & d \\
+\end{bmatrix}
+$と
+$\begin{vmatrix}
+a & b \\
+c & d \\
+\end{vmatrix}
+$と
+$\begin{Vmatrix}
+a & b \\
+c & d \\
+\end{Vmatrix}
+$は枠の形が違う．
+前者2つは大体同じ意味で使われることが多い気がするので，気分によって変えてもいいかもしれない．
+\end{rem}
+
+
+図は以下のように入れる：
+\if0
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=1.2]{balanced_surperelliptic_periodic_map2.pdf}
+\caption{The balanced superelliptic rotation $\zeta =\zeta _{g,k}$ and the balanced superelliptic covering map $p=p_{g,k}\colon \Sigma _g\to \Sigma _0$.}\label{fig_bs_periodic_map}
+\end{center}
+\end{figure}
+\fi
+
+
+\section{主定理の証明}
+
+本章では定理~\ref{main-thm}の証明を行う．
+その前に，以下の命題や補題を用意する．
+
+\begin{prop}\label{prop-int}
+以下が成り立つ：
+\begin{enumerate}
+\item $\displaystyle \int _a^b(\alpha f+\beta g)(x) dx=\alpha \int _a^bf(x)dx+\beta \int _a^bg(x)dx$,
+\begin{enumerate}
+\item $(\alpha f+\beta g)(x)=\alpha \cdot f(x)+\alpha \cdot g(x)$,
+\item $f\colon \R \to \R=\left( \Q \cup (\R \setminus \Q )\right) =\C \cap \R$,
+\end{enumerate}
+\item $\displaystyle \int _a^bf(x)dx+\int _b^cf(x)dx=\int _a^cf(x) dx$.
+\end{enumerate}
+\end{prop}
+
+\begin{lem}\label{lem-lim}
+以下が成り立つ：
+\begin{itemize}
+\item $\displaystyle \lim _{n\to \infty }(\alpha a_n+\beta b_n)=\alpha (\lim _{n\to \infty }a_n)+\beta (\lim _{n\to \infty }b_n)$,
+\begin{itemize}
+\item $\displaystyle \sum _{n=1}^{\infty }a_n=\lim _{n\to \infty }\left( \sum _{k=1}^na_k\right)$,
+\item $1\in \N \subset \Z \subset \Q \subset \R \subset \C$, 
+\end{itemize}
+\item $1=\sin \frac{\pi}{2}=\cos 0=\log e$.
+\end{itemize}
+\end{lem}
+
+\begin{proof}
+関係式
+\begin{equation}
+|x+y|\leq |x|+|y|\label{tri-eq}
+\end{equation}
+より，
+\begin{align*}
+|x_1-x_n|&=|x_1-x_2+x_2-x_n|\\
+&\stackrel{(\ref{tri-eq})}{\leq }|x_1-x_2|+|x_2-x_n|.
+\end{align*}
+これを続けて
+\begin{align*}
+|x_1-x_n|\leq &|x_1-x_2|+|x_2-x_n|\\
+\vdots &\\
+\leq & \sum _{i=1}^{n-1}|x_{i-1}-x_i|.
+\end{align*}
+
+\end{proof}
+
+
+
+以下が定理~\ref{main-thm}の証明である．
+
+\begin{proof}[定理~\ref{main-thm}の証明]
+命題~\ref{prop-int}と補題\ref{lem-lim}より明らか．
+\end{proof}
+
+
+最後に，洋書や英字論文の参照の仕方の一例として，参考文献~\cite{Farb-Margalit, Omori1, Omori2}を挙げる．
+
+
+\par
+{\bf 謝辞:} 電子計算機及び実習2を日頃より受講して下さっている皆様にこの場をお借りして感謝申し上げます．
+本研究は科研費(課題番号: JP21K00000) の助成を受けたものである．
+
+\begin{thebibliography}{99}
+\bibitem{Uchida}
+内田伏一, 集合と位相 (増補新装版), 裳華房 (2020).
+
+\bibitem{Matsuzaka}
+松阪和夫, 集合・位相入門, 岩波書店 (2018).
+
+\bibitem{Farb-Margalit}
+B. Farb, D. Margalit, \emph{A primer on mapping class groups}, Princeton University Press, Princeton, NJ, 2012.
+
+\bibitem{Omori1}
+Genki Omori, \emph{Minimal generating sets and the abelianization for the quasitoric braid group}, arXiv: 2301.07917
+
+\bibitem{Omori2}
+G. Omori, \emph{A small normal generating set for the handlebody subgroup of the Torelli group}, Geometriae Dedicata \textbf{201} (2019), 353--367.
+\end{thebibliography}
+
+
+\end{document}

@@ -1,0 +1,118 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb,bm,physics}
+\begin{document}
+
+\begin{center}
+\Large \bf
+電子計算機及び実習２　課題2
+\end{center}
+
+\begin{flushright}
+創域理工学部　数理科学科　6122111　三森　誠真
+\end{flushright}
+
+\bigskip
+\bigskip
+
+\textbf{Exercise 4.2}
+
+(1) グラフ $G の隣接行列 A(G) の固有多項式 Φ_{A(G)}(x)$ を求めよ.
+
+\bigskip
+
+ \ \ \ 隣接行列は$A(G)=\begin{pmatrix} 0&1&1 \\ 1&0&1 \\ 1&1&0 \end{pmatrix}$となるので、固有多項式を求めると、
+
+\begin{align*}
+Φ_{A(G)}(x) = \det (xE-A(G))
+&=\begin{vmatrix} x&-1&-1 \\ -1&x&-1 \\ -1&-1&x \end{vmatrix} \\
+&= x^3-3x-2 \\
+&= (x+1)^2 (x-2)
+\end{align*}
+
+\bigskip
+\bigskip
+\bigskip
+
+(2) $A(G)$ を対角化せよ.
+
+\bigskip
+
+ \ \ \ $A(G)$は実対称行列なので、直交行列を用いて対角化が可能である。
+
+ \ \ \ (1)より、$A(G)$の固有値は$-1, 2$であるので、この固有値に対する固有ベクトルを求めていく。
+
+\bigskip
+\bigskip
+
+(i) \ 固有値が$-1$のとき、
+
+ \ \ \ $-E-A(G) = \begin{pmatrix} -1&-1&-1 \\ -1&-1&-1 \\ -1&-1&-1 \end{pmatrix}$ \ なので、
+
+ \ \ \ $(-E-A(G)) \ \bm{x} = \bm{0}を\bm{x}$について解くと、
+$\bm{x} = \begin{pmatrix} -c_1-c_2 \\ c_1 \\ c_2 \end{pmatrix}$
+$= c_1\begin{pmatrix} -1 \\ 1 \\ 0 \end{pmatrix} + c_2\begin{pmatrix} -1 \\ 0 \\ 1$ $\end{pmatrix} \ \ \ \ (c_1, c_2 \in \mathbb{R})$
+
+ \ \ \ よって、固有空間は$W(-1;A(G)) = \left\{c_1\begin{pmatrix} -1 \\ 1 \\ 0 \end{pmatrix} + c_2\begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix} \ \middle| \ c_1, c_2 \in \mathbb{R} \right\}$
+となり、この基底を
+
+ \ \ \ $\left\{\begin{pmatrix} -1 \\ 1 \\ 0 \end{pmatrix} , \begin{pmatrix} -1 \\ 0 \\ 1 \end{pmatrix} \right\}$ととる。そして、この基底を正規直交化すると
+$\left\{\displaystyle \frac{1}{\sqrt{2}}\begin{pmatrix} -1 \\ 1 \\ 0 \end{pmatrix} , \displaystyle \frac{1}{\sqrt{6}}\begin{pmatrix} -1 \\ -1 \\ 2 \end{pmatrix} \right\}$
+
+\bigskip
+
+ \ \ \ となる。
+
+\bigskip
+\bigskip
+
+(i\hspace{-0.5pt}i) \ 固有値が$2$のとき、
+
+ \ \ \ $2E-A(G) = \begin{pmatrix} 2&-1&-1 \\ -1&2&-1 \\ -1&-1&2 \end{pmatrix} \longrightarrow$
+$\begin{pmatrix} 1&0&-1 \\ 0&1&-1 \\ 0&0&0 \end{pmatrix}$ \ なので、
+
+ \ \ \ $(2E-A(G)) \ \bm{x} = \bm{0}を\bm{x}$について解くと、
+$\bm{x} = c_3 \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \ \ \ \ (c_3 \in \mathbb{R})$
+
+ \ \ \ よって、固有空間は$W(2;A(G)) = \left\{c_3\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \ \middle| \ c_3 \in \mathbb{R} \right\}$となり、この基底を$\left\{\begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \right\}$ ととる。
+
+ \ \ \ そして、この基底を正規化すると$\left\{\displaystyle \frac{1}{\sqrt{3}} \begin{pmatrix} 1 \\ 1 \\ 1 \end{pmatrix} \right\}$ となる。
+
+\bigskip
+
+(i), (i\hspace{-0.5pt}i) \ より、$P := \displaystyle \frac{1}{\sqrt{6}}$
+$\begin{pmatrix} -\sqrt{3}&-1&\sqrt{2} \\ \sqrt{3}&-1&\sqrt{2} \\ 0&2&\sqrt{2} \end{pmatrix}$とおくと、$P$は直交行列となる。よって、
+
+\bigskip
+
+\begin{align*}
+P^{-1}A(G)P = {}^tPA(G)P
+&= \displaystyle \frac{1}{6} \begin{pmatrix} -\sqrt{3}&\sqrt{3}&0 \\ -1&-1&2 \\ \sqrt{2}&\sqrt{2}&\sqrt{2} \end{pmatrix} \begin{pmatrix} 0&1&1 \\ 1&0&1 \\ 1&1&0 \end{pmatrix} \begin{pmatrix} -\sqrt{3}&-1&\sqrt{2} \\ \sqrt{3}&-1&\sqrt{2} \\ 0&2&\sqrt{2} \end{pmatrix} \\
+&= \mqty(\dmat[0]{-1,-1,2}) \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ となってA(G)が対角化された。
+\end{align*}
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+(3) 各正整数$l$に対して, $A(G)^l$ を求めよ.
+
+\bigskip
+
+ \ \ \ $B:= \mqty(\dmat[0]{-1,-1,2}) とおくと、B = P^{-1}A(G)P より A(G) = PBP^{-1}$ なので、
+
+\bigskip
+
+\begin{align*}
+ \ \ \ A(G)^l = (PBP^{-1})^l = PB^lP^{-1}
+&= \displaystyle \frac{1}{6} \begin{pmatrix} -\sqrt{3}&-1&\sqrt{2} \\ \sqrt{3}&-1&\sqrt{2} \\ 0&2&\sqrt{2} \end{pmatrix} \mqty(\dmat[0]{(-1)^l,(-1)^l,2^l}) \begin{pmatrix} -\sqrt{3}&\sqrt{3}&0 \\ -1&-1&2 \\ \sqrt{2}&\sqrt{2}&\sqrt{2} \end{pmatrix} \\
+&= \displaystyle \frac{1}{6} \begin{pmatrix} \sqrt{3}\cdot(-1)^{l+1}&(-1)^{l+1}&\sqrt{2}\cdot2^l \\ \sqrt{3}\cdot(-1)^{l+1}&(-1)^{l+1}&\sqrt{2}\cdot2^l \\ 0&2\cdot(-1)^l&\sqrt{2}\cdot2^l \end{pmatrix} \begin{pmatrix} -\sqrt{3}&\sqrt{3}&0 \\ -1&-1&2 \\ \sqrt{2}&\sqrt{2}&\sqrt{2} \end{pmatrix} \\
+&= \displaystyle \frac{1}{3} \begin{pmatrix} 2(2^{l−1}−(−1)^{l−1})&2^l−(−1)^l&2^l−(−1)^l \\2^l − (−1)^l&2(2^{l−1} − (−1)^{l−1})&2^l − (−1)^l \\ 2^l − (−1)^l&2^l − (−1)^l&2(2^{l−1} − (−1)^{l−1}) \end{pmatrix}
+\end{align*}
+
+
+
+
+
+
+\end{document}

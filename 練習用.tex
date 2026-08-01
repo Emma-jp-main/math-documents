@@ -1,0 +1,72 @@
+\documentclass[dvipdfmx]{jsarticle}
+\usepackage{tikz,ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp,wrapfig,pgfplots,multicol}
+
+\begin{document}
+
+特に断りのない限り，導出過程も記述すること、また， $\mathbb{R}_{>0}$ で $\mathbb{R}_{>0}=\{x \in \mathbb{R} \mid x>0\}$ を表すこととする。
+
+$1$ 正整数 $n$ と正の実数 $t>0$ に対し, $a_{n, t}$ を
+$$
+a_{n, t}=\prod_{k=1}^n \frac{6 k t^2+1}{k(t+1)+1}=\frac{\left(6 t^2+1\right)\left(12 t^2+1\right) \cdots\left(6 n t^2+1\right)}{(t+2)(2 t+3) \cdots(n t+n+1)}
+$$
+で定める。このとき, 級数
+$$
+\sum_{n=1}^{\infty} a_{n, t}
+$$
+が発散するような $t$ の範囲を求めよ。
+
+2 次の命題の真偽を判定せよ. 正しい場合は証明を, 誤っている場合は反例を示せ.
+
+(1) ベキ級数 $\sum_{n=0}^{\infty} a_n x^n$ の収束半径が 1 ならば, ベキ級数 $\sum_{n=0}^{\infty} \sqrt{\left|a_n\right|\left|a_{n+1}\right|} x^n$ の収束半径も 1 である.
+
+(2) ベキ級数 $\sum_{n=0}^{\infty} a_n x^n$ の収束半径が 1 ならば, ベキ級数 $\sum_{n=0}^{\infty} a_n x^{n^2}$ の収束半径も1である.
+
+$3\left\{a_n\right\}_{n=0}^{\infty}$ を $1$ 以上の単調増加数列 
+$\left(1 \leq a_0<a_1<\cdots\right)$ で, $a_n \rightarrow \infty(n \rightarrow \infty)$ を満たすものとする. 今, $[0,1]$ 上の関数列 $\left\{f_n\right\}_{n=0}^{\infty}$ を
+$$
+f_n(x)=a_n x(1-x)^{a_n}
+$$
+で定める.このとき, 以下の問いに答えよ.
+
+(1) $\left\{f_n\right\}_{n=0}^{\infty}$ の各点収束先の極限関数 $f$ を求めよ. (答だけでよい) $\}$ I 0
+
+4 $\alpha \in \mathbb{R}_{>0}$ に対し, $\mathbb{R}^2$ 上の関数 $f_\alpha(x, y)$ を
+$$
+f_\alpha(x, y)=|x|^\alpha|y|^{\frac{1}{4}}
+$$
+で定める.このとき, 以下の問い々答えよ.
+(1) $\frac{\partial f_\alpha}{\partial x}(0,0), \frac{\partial f_{\infty}}{\partial y}(0,0)$ を求めよ. (答だけでよい) 0,0
+(2) 集合 $S$ を $S:=\left\{\alpha \in \mathbb{R}_{>0} \mid f_\alpha(x, y)\right.$ は $(0,0)$ で全微分可能 $\}$ で定義する.このとき, inf $S$ を求めよ. $\frac{3}{4}$
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+$A:= \displaystyle \{x | \sup_n f_n (x) \in [-\infty, \ b] \}, \ 
+B := \displaystyle \bigcap_{n \geqq 1} \{x | f_n \in [-\infty, \ b] \}$ とおく.
+
+\bigskip
+
+$\textcircled{\scriptsize 1} \ A \subset B$ の証明
+
+$\forall x \in A, \ \displaystyle \sup_n f_n (x) \in [-\infty, b]$ なので, $\displaystyle \forall n \geqq 1, \ f_n (x) \leqq \sup_n f_n (x) \leqq b$ であり, 
+
+$f_n (x) \in [\infty, b]$ なので $x \in B$.
+
+\bigskip
+
+$\textcircled{\scriptsize 2} \ A \supset B$ の証明
+
+$\forall x \in B, \ \forall n \geqq 1, \ f_n(x) \in [-\infty, b]$ であり, 
+
+$級数の分解: [ \frac{z^n - 1}{(1 - z^n)(1 - z^{n+1})} ] これは、部分分数分解を使って次のように書き換えることができます： [ \frac{z^n - 1}{(1 - z^n)(1 - z^{n+1})} = \frac{1}{1 - z} \left( \frac{z^n}{1 - z^n} - \frac{1}{1 - z^{n+1}} \right) ]
+幾何級数の和の公式: [ \sum_{n=1}^{\infty} z^n = \frac{z}{1 - z} \quad \text{for } |z| < 1 ] これを利用して、各項を計算します。
+級数の収束: 各項が収束することを確認し、全体の和を計算します。具体的には、部分分数分解した各項の和を取ることで、次のように収束します： [ \sum_{n=1}^{\infty} \frac{z^n - 1}{(1 - z^n)(1 - z^{n+1})} = \frac{1}{(1 - z)^2} ]$
+
+
+$\displaystyle\frac{\pi}{4}
+= 1-\frac{1}{3} + \frac{1}{5} - \frac{1}{7} + \frac{1}{9} - \cdots
+= \displaystyle \sum_{i=0}^{\infty} \frac{(-1)^i}{2i + 1}$
+
+\end{document}

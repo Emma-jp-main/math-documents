@@ -1,0 +1,39 @@
+\documentclass{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln}
+
+\begin{document}
+
+\begin{flushright}
+6122111 三森誠真
+\end{flushright}
+
+\begin{itembox}[l]{追加問題2}
+$\displaystyle\lim _{x \rightarrow 0} f(x)=\lim _{x \rightarrow 0} g(x)=0 だが,  \lim _{x \rightarrow 0} \frac{f(x)}{g(x)} \neq \lim _{x \rightarrow 0} \frac{f^{\prime}(x)}{g^{\prime}(x)}$ となる微分可能な関数$f(x),g(x)$の例を作れ. 
+
+ただし, 両辺とも収束するように作ること.
+\end{itembox}
+
+\bigskip
+
+\( \begin{aligned}  & \begin{cases}\displaystyle f(x):=x^3\left(4+2 x \cos \frac{1}{x^2}+3 x^2 \sin \frac{2}{x^2}+4 x^3 \sin \frac{1}{x^2}\right), & \\ 
+\displaystyle g(x):=x^3\left(4+x \cos \frac{1}{x^2}+3 x^2 \sin \frac{2}{x^2}+2 x^3 \sin \frac{1}{x^2}\right) .\end{cases} \end{aligned}\)
+
+
+\(\begin{aligned}& \text{と定めると, }  \displaystyle\lim _{x \rightarrow 0} f(x)=\lim _{x \rightarrow 0} g(x)=0, \ \displaystyle \lim _{x \rightarrow 0} \frac{f(x)}{g(x)}=1 \ \text{となるが,}\\ & \end{aligned} \)
+
+\begin{multline*}
+f^{\prime}(x)=3 x^2\left(4+2 x \cos \frac{1}{x^2}+3 x^2 \sin \frac{2}{x^2}+4 x^3 \sin \frac{1}{x^2}\right) \\
++x^3\left(2 \cos \frac{1}{x^2}+\frac{4}{x^2} \sin \frac{1}{x^2}+6 x \sin \frac{2}{x^2}-\frac{12}{x} \cos \frac{2}{x^2}+12 x^2 \sin \frac{1}{x^2}-8 \cos \frac{1}{x^2}\right)
+\end{multline*}
+
+\hspace*{3zw} = $\displaystyle 24x^5\sin \frac{1}{x^2}+4x\sin \frac{1}{x^2}+15x^4\sin \frac{2}{x^2}+12x^2-12x^2\cos \frac{2}{x^2}$
+
+
+\begin{multline*}
+1+1+1 \\
+2+3+5
+\end{multline*}
+
+ 
+
+\end{document}

@@ -1,0 +1,474 @@
+\documentclass{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp,wrapfig}
+\usepackage{geometry}
+\usepackage[inline]{enumitem} %enumerate環境で横に箇条書きをかけるようにする
+\geometry{a4paper, left=25mm, right=25mm, top=30mm, bottom=30mm}
+
+\begin{document}
+
+\textbf{「常微分方程式論 1 」 前期到達度評価試験に代える大レポート課題}
+
+\begin{flushright}
+6122111 三森誠真
+\end{flushright}
+
+\begin{itembox}[l]{[1]}
+$\mathbb{R}^n$ の点 $x_0 = (x_0^1, \dots, x_0^n)$ を始点とするベクトルのなす接ベクトル全体を $T_{x_0}\mathbb{R}^n$ とする. この接空間 $T_{x_0}\mathbb{R}^n$ の双対空間を $T_{x_0}^* \mathbb{R}^n$ と表す. このとき, \ ベクトル空間 $T_{x_0}\mathbb{R}^n$ の基底
+\[
+\left\{ \left( \frac{\partial}{\partial x_1} \right)_{x_0}, \dots, \left( \frac{\partial}{\partial x_n} \right)_{x_0} \right\}
+\]
+に対して
+\[
+\left\{ (dx_i)_{x_0} \right\}_{i=1,\dots,n} = \left\{ (dx_1)_{x_0}, (dx_2)_{x_0}, \dots, (dx_n)_{x_0} \right\}
+\]
+が双対空間 $T_{x_0}^* \mathbb{R}^n$ の双対基底であることを示せ.
+  
+\end{itembox}
+
+\noindent
+\textbf{【解答】}
+
+接ベクトル \(\bm{v} \in T_{x_0} \mathbb{R}^n\) を偏微分作用素とみなし, 点$x_0$ の近傍$U$ で定義された任意の$C^{\infty}$ 級関数$f$ の全微分d$f$ に対して
+(d$f)_{x_0} (\bm{v}) := \bm{v} (f)$ と定義すると (d$f)_{x_0} \in T_{x_0}^* \mathbb{R}^n$.
+
+特に, \ 任意の$i, j (=1, 2, ......, n)$ に対して
+\[
+(dx_i)_{x_0} \left( \left( \frac{\partial}{\partial x_j} \right)_{x_0} \right) = \frac{\partial x_i}{\partial x_j} \bigg|_{x_0}
+= \delta_{ij} \quad (クロネッカーのデルタ)
+\]
+
+よって, \ \(\{ (dx_i)_{x_0} \}_{i=1, \ldots, n}\) が双対空間 \(T_{x_0}^* \mathbb{R}^n\) の双対基底であることが示された.
+
+
+
+
+
+
+\begin{itembox}[l]{[2]}
+写像 $y = f(x)$ は $(\mathbb{R}^n \supset) \ U$ で $C^1$ 級とし $(f \in C^1(U))$, $x_0 \in U$ を固定して $y_0 = f(x_0)$ とする. このとき, \ ヤコビ行列 (Jacobian) $\frac{D(f)}{D(x)} = \frac{D(f_1, ..., f_n)}{D(x_1, ..., x_n)} = \left| \frac{\partial f_1, ..., f_n}{\partial x_1, ..., x_n}\right|$ について
+\[
+\displaystyle \frac{D(f)}{D(x)} \bigg|_{x=x_0} = 
+\det \left( \frac{\partial f_j(x_0)}{\partial x_k} \right) \bigg|_{\substack{j\downarrow 1, ..., n \\ k \to 1, ..., n}} \neq 0
+\]
+が与えられるなら, \\
+(a) $x_0$ の近傍 $U_0$ と $y_0$ の近傍 $V_0$ が存在して, \ 任意の $y \in V_0$ に対して、$y = f(x)$ をみたす $x$ が $V_0$ での $C^1$ 級の関数 $x = \varphi(y)$ として $U_0$ の中で一意的に定まり, \ 
+\[
+x = \varphi(f(x)), \quad (x \in U_0)　かつ \quad y = f(\varphi(y)), \quad (y \in V_0)
+\]
+が成り立つことを示せ（すなわち, \ 言い換えると, \ 
+
+ \ (i) 写像 $f : U_0 \ni x \mapsto y = f(x) \in V_0$ は $1$ 対 $1$ で $V_0$ の上への写像となり、またその逆写像 $f^{-1} = \varphi : V_0 \ni y = \varphi(y) \in U_0$ も $C^1$ 級となり,
+
+ \ (ii) ヤコビ行列 $\frac{\partial (\varphi)}{\partial (y)}$ に関しては
+\[
+\frac{\partial (\varphi)}{\partial (y)} =
+\frac{\partial (\varphi_1, \dots, \varphi_n)}{\partial (y_1, \dots, y_n)}
+= \left( \frac{\partial (f)}{\partial (x)} \right)^{-1}_{x = \varphi(y)}
+\]
+\[
+\frac{\partial \varphi_j(y)}{\partial y_k} = \frac{\partial f_j(\varphi(y))}{\partial x_k}
+\quad (j \downarrow 1, \dots, n; \quad , k \to 1, \dots, n)
+\]
+と表されることを示せ）. \\
+(b) さらに, \ $y = f(x)$ が $U$ で $C^m$ 級（$m \geq 2$）なら, \ $x = \varphi(y)$ も $V_0$ で $C^m$ 級となることを示せ.  
+\end{itembox}
+
+\noindent
+\textbf{【解答】}
+
+\noindent
+(a)
+
+$F_j (x, y) := f_j (x) - y_j, \ F := (F_1, F_2, \cdots\cdots F_n)$ とすると$F(x_0, y_0) = 0$. $\displaystyle \frac{D(f)}{D(x)} \bigg|_{x=x_0} = 
+\displaystyle \frac{D(F)}{D(x)} \bigg|_{x=x_0} \neq 0$ なので陰関数定理より, \ ある $y_0$ の開近傍 $V_0$ 上の$C^r$ 級写像 $\varphi : V_0 \to \mathbb{R}^n$ が存在して, \ $F(\varphi(y), y) = 0 \quad (y \in V_0)$.
+この$y \in V_0$ に対して $y = f(x)$ となる $x \in U_0$ は $x = \varphi(y)$ として一意的に定まるから 
+$x = \varphi(y) = \varphi(f(x)), \quad y = f(x) = f(\varphi(y))$ を満たす.
+
+\bigskip
+
+\noindent
+(b) 
+
+$F(\varphi(y), y) = 0$ の両辺を$y$ で微分すると, 
+
+$F_x (\varphi(y), y) \cdot \displaystyle \frac{d\varphi}{dy} + F_y (\varphi(y), y) = 0$ \quad
+$\Longleftrightarrow \quad \displaystyle \frac{d\varphi}{dy} = -\frac{F_y (\varphi(y), y)}{F_x (\varphi(y), y)}$
+$= -\left\{ \left(\displaystyle \frac{\partial f}{\partial x} \right)^{-1}  \left(\displaystyle \frac{\partial f}{\partial y} \right) \right\} \bigg|_{x= \varphi(y)}$
+
+なので, \ $y = f(x)$ が $U$ で $C^m$ 級（$m \geq 2$）なら, \ $x = \varphi(y)$ も $V_0$ で $C^m$ 級となる.
+
+
+
+
+
+
+\begin{itembox}[l]{[3]}
+$n \le p$ とする. $\mathbb{R}^n$ の開集合 $W$ で定義された可微分写像$f : W \to \mathbb{R}^p$ に対して, \ $(f_*)_{x_0} = df_{x_0}$ を点 $x_0 \in W$ における $f$ の微分写像とする. 可微分写像 $f$ が点 $x_0 \in W$ で
+
+$$rank (f_*)_{x_0} = n$$
+をみたせば， $x_{0}$ の近傍 $U \subset W$ と， $f\left(x_{0}\right)$ の近傍 $V \subset \mathbb{R}^{p}$ と， $V$ 上の微分同相写像 $\phi: V \rightarrow$ $\phi(V) \subset \mathbb{R}^{p}$ が存在して，任意の $x=\left(x_{1}, \ldots, x_{n}\right) \in U$ に対して
+
+
+\begin{equation*}
+\phi \circ f(x)=\phi \circ f\left(x_{1}, \ldots, x_{n}\right)=\left(x_{1}, \ldots, x_{n}, 0, \ldots, 0\right) \tag{6}
+\end{equation*}
+
+
+が成り立つことを示せ.  
+\end{itembox}
+
+\noindent
+\textbf{【解答】}
+
+$f : W \rightarrow \mathbb{R}^{p}$ に対して
+写像 $g: W \times \mathbb{R}^{p-n} \rightarrow \mathbb{R}^{p}$　を
+$g\left(x, y_{n+1}, \cdots, y_{p}\right)=\left(f,(x), \cdots, f_{n}(x), f_{n+1}(x)+y_{n+1}, \cdots, f_{p}(x)+y_{p}\right)$
+と定めると, \ この$g$ は可微分写像であって, \ 
+点$(x_0, 0) \in W \times \mathbb{R}^{p-n}$ における$g$ のJacobi行列は 
+$$
+\begin{aligned}
+& J_{g}\left(x_{0}, 0\right)=\frac{\partial g}{\partial(x, y)}=\left(\begin{array}{lc}
+\displaystyle \frac{\partial f_{i}}{\partial x_{j}}\left(x_{0}\right) & O \\
+\displaystyle \frac{\partial f_{k}}{\partial x_{l}}\left(x_{0}\right) & E_{p-n}
+\end{array}\right)
+\end{aligned}
+$$
+となる. さらに仮定より$rank J_g (x, 0) = p$
+したがって逆写像定理を適用することにより, \ 
+ある$\left(x_{0}, 0\right)$の近傍$V$ と $g\left(x_{0}, 0\right)$ の近傍 $V^{\prime}$ が存在して, \ $g|_V : V \to V'$ は微分同相写像となる.
+
+さらに, \ $g|_V\left(x_{0}, 0\right)=f\left(x_{0}\right)$ が成り立つ.
+ここで, \ $\varphi = (g|_V)^{-1} : V' \to V$ とおくと, \ 
+$$
+\begin{aligned}
+& \phi \circ f(x)=\left.\phi \circ g\right|_{V}(x, 0) \\
+& =\left(g |_V \right)^{-1} \circ g |_V (x, 0) \\
+& =\left(x_{1}, \cdots, x_{n}, 0, \cdots \cdots, 0\right)
+\end{aligned}
+$$
+
+
+
+
+
+
+
+
+
+\begin{itembox}[l]{[4]}
+$n \geq p$ とする. 
+$\mathbb{R}^{n}$ の開集合 $W$ で定義された可微分写像 $f: W \rightarrow \mathbb{R}^{p}$ に対して,  
+
+$\left(f_{*}\right)_{x_{0}}=d f_{x_{0}}$ を点 $x_{0} \in W$ における $f$ の微分写像とする. 点 $x_{0} \in W$ で
+
+
+\begin{equation*}
+\operatorname{rank}\left(f_{*}\right)_{x_{0}}=p \tag{7}
+\end{equation*}
+
+
+をみたせば， $x_{0}$ の近傍 $U \subset W$ と， $U$ 上の微分同相写像 $\psi: U \rightarrow \psi(U) \subset \mathbb{R}^{p}$ が存在して，任意の $x=\left(x_{1}, \ldots, x_{n}\right) \in \psi(U)$ に対して
+
+
+\begin{equation*}
+f \circ \psi^{-1}\left(x_{1}, \ldots, x_{n}\right)=\left(x_{1}, \ldots, x_{p}\right) \tag{8}
+\end{equation*}
+
+
+が成り立つことを示せ.  
+\end{itembox}
+
+\noindent
+\textbf{【解答】}
+
+写像$g : W \to \mathbb{R}^n$ を $g(x) = (f_1 (x), ..., f_p (x), x_{p+1}, ..., x_n)$ を定めると $g$ は可微分写像であり, \ $x_0$ におけるJacobi行列は正則行列となる. ここで逆写像定理を適用すると, \ $x_0$ のある近傍$U$ に対して微分同相写像$\psi = g|_U : U \to g(U)$ が定まり $y = \psi^{-1}(x) = (g|_U)^{-1}(x)$ とすると, 
+
+$f \circ \psi^{-1} (x) = f(y) = (f_1 (y), ..., f_p (y)) = (x_1, ..., x_p)$ が成り立つ.
+
+
+
+
+
+
+\begin{itembox}[l]{[5]}
+有界閉区間 $I \subset \mathbb{R}$ に対し， $x \in I$ とする. $n$ 変数の 1 階正規型常微分方程式系
+
+
+\begin{equation*}
+y_{j}^{\prime}(x)=a_{j 1}(x) y_{1}(x)+a_{j 2}(x) y_{2}(x)+\cdots+a_{j n}(x) y_{n}(x), \quad(j=1,2, \ldots, n) \tag{9}
+\end{equation*}
+
+
+を考える. このとき, $y(x)={ }^{t}\left(y_{1}(x), y_{2}(x), \ldots, y_{n}(x)\right), A(x)=\left(a_{i j}(x)\right) \in M(n) \equiv M(n \times n)$ $(\leftarrow n$ 次正方行列全体) として，上式（微分方程式系）はベクトル形で
+
+
+\begin{equation*}
+y^{\prime}(x)=A(x) y \tag{10}
+\end{equation*}
+
+
+と書かれる. 斉次線形常微分方程式系： $y^{\prime}(x)=A(x) y$ の解 $y \equiv y(x)$ は $n$ 次元ベクトル空間を
+
+つくることを示せ.  
+\end{itembox}
+
+\textbf{【解答】}
+
+次のような$n$ 変数の$1$階正規型常微分方程式を考える.
+
+$y_{j}^{\prime}(x)=a_{j 1}(x) y_{1}(x)+a_{j 2}(x) y_{2}(x)+\cdots+a_{j n}(x) y_{n}(x), \quad(j=1,2, \ldots, n)$
+
+このとき, \ $y(x)={ }^{t}\left(y_{1}(x), y_{2}(x), \ldots, y_{n}(x)\right)$ を用いてベクトル形式に書き直すことで $y^{\prime}(x)=A(x) y, \ A(x)=\left(a_{i j}(x)\right) \in M(n) \equiv M(n \times n)$ と表され, \ 方程式全体を$1$ つのベクトルの微分方程式として扱える.
+
+まず, \ この方程式系は線形であり, \ リプシッツ条件から解が一意に定まる. 行列 $A(x)$ が正則である, \ つまりどの $x$ においても行列式がゼロでない場合, \ 方程式系の独立な解が $n$ 個存在することが保証され, \ これらは $\mathbb{R}^n$ の基底を構成する. さらに, \ これらの解からなる空間は, \ えられた方程式系の解全体の集合を表し, \ ベクトル空間を形成する.
+
+したがって、この方程式系の解は $n$ 個の独立な解から構成される $n$ 次元ベクトル空間を成し、解空間は $n$ 次元ベクトル空間となることが示された.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\begin{itembox}[l]{[6]}
+関数 $f(t, x)$ は閉領域 $D$
+
+\begin{equation*}
+D:=\left\{(t, x) \in \mathbb{R} \times \mathbb{R}^{n}: \quad\left|t-t^{0}\right| \leqslant r, \quad\left\|x-x^{0}\right\| \leqslant \rho\right\}, \quad r>0, \quad \rho>0 \tag{11}
+\end{equation*}
+
+
+で連続で，ある正定数 $M>0$ に対して
+
+
+\begin{equation*}
+\|f(t, x)\|:=\max _{1 \leqslant j \leqslant n}\left\{\left|f_{j}(t, x)\right|\right\} \leqslant M, \quad(t, x) \in D \tag{12}
+\end{equation*}
+
+
+をみたし，$x$ に関してリプシッツ（Lipschitz）条件：ある正定数 $K>0$ に対して
+
+
+\begin{equation*}
+\|f(t, x)-f(t, y)\| \leqslant K\|x-y\|, \quad(t, x),(t, y) \in D \tag{13}
+\end{equation*}
+
+
+をみたすとする. ただし， $x=\left(x_{1}, \ldots, x_{n}\right),|x|=\left(x_{1}^{2}+\cdots+x_{n}^{2}\right)^{1 / 2},\|x\|:=\max _{i \leqslant j \leqslant n}\left\{\left|x_{j}\right|\right\}$, $f(t, x)=\left(f_{1}(t, x), \ldots, f_{n}(t, x)\right), f_{j}(t, x) \in C(D),(j=1, \ldots, n)$ である. さらに閉領域 $D$ において
+
+
+\begin{equation*}
+\partial_{x} f(t, x)=\frac{\partial\left(f_{1}, \ldots, f_{n}\right)}{\partial\left(x_{1}, \ldots, x_{n}\right)}=\left(\frac{\partial f_{j}(t, x)}{\partial x_{k}}\right)_{\substack{j \downarrow 1, \ldots, n \\ k \rightarrow 1, \ldots, n}} \tag{14}
+\end{equation*}
+
+
+が存在して連続とする. 関数 $\phi(t)=\phi\left(t ; t^{0}, x^{0}\right)$ は区間 $I=\left[t^{0}-r_{0}, t^{0}+r_{0}\right]$ で初期条件 $\phi\left(t^{0}\right)=x^{0}$ をみたす正規型常微分方程式
+
+
+\begin{equation*}
+\frac{d x}{d t}=f(t, x) \tag{15}
+\end{equation*}
+
+
+の解とする.\\
+(a) そのとき, $(t, s, \xi)$ について連続となる解 $\varphi=\varphi(t ; s, \xi)$ は
+
+
+\begin{align*}
+& U=\left\{(s, \xi): \quad a \leqslant s \leqslant b, \quad\|\xi-\phi(s)\| \leqslant \rho_{0}\right\}, \quad\left(\rho_{0}>0 ; \quad \text { 十分小 }\right)  \tag{16}\\
+& V=[a, b] \times U=\{(t, s, \xi): \quad a \leqslant t \leqslant b, \quad(s, \xi) \in U\} \tag{17}
+\end{align*}
+
+
+に対して， $V$ で $(t, s, \xi)$ について $C^{1}$ 級となることを示せ.\\
+(b) さらに $f, \partial_{x} f$ が $(t, x)$ について $D$ で 
+$C^{m}$ 級（ $ m \geq 1）$ ならば， $\varphi$ は $V$ で $C^{m+1}$ 級となることを示せ.  
+\end{itembox}
+
+\noindent
+\textbf{【解答】}
+
+(a) \ $f$ が $x$ に関してリプシッツ条件を満たしているため, \ 初期条件 $(t_0, x_0)$に依存する解 $\phi\left(t ; t^{0}, x^{0}\right)$は $C^1$ 級であることが示せる. 具体的には、関数 $f$ のリプシッツ条件と偏導関数の連続性により, \ 解 $\varphi$ の導関数も連続であることが導かれる. これにより, \ $\varphi$ が $V$ 上で $C^1$ 級であることが示される.
+
+(b) \ $f, \ \partial_x f$ が $C^1$ 級ならば $\varphi$ は条件から $C^2$ 級であるから, \ 帰納的に$f, \partial_{x} f$ が $(t, x)$ について $D$ で 
+$C^{m}$ 級（ $ m \geq 1）$ ならば， $\varphi$ は $V$ で $C^{m+1}$ 級となる.
+ 
+
+
+\begin{itembox}[l]{[7]}
+$D$ を $x-y$ 平面のある領域とする. $D$ で $2 つ の$ 正規型 1 階常微分方程式
+
+\[
+\begin{cases}y^{\prime}=f(x, y) & (\text { 第一方程式 })  \tag{18}\\ y^{\prime}=g(x, y) & (\text { 第二方程式 })\end{cases}
+\]
+
+を考える. $f(x, y), g(x, y)$ は $D$ 上で定義され，有界かつ連続であるとする. また $f(x, y)$ は $D$ に おいてリプシッツ（Lipschitz）定数 $L$ のリプシッツ条件をみたすとする. $y(x), z(x)$ はともに区間 $I=[\alpha, \beta],(\alpha<\beta)$ で定義された連続関数で， $y=y(x), z=z(x)$ はそれぞれ $D$ の中を走る上述 の第一方程式，第二方程式の解であるとする. $x_{0} \in[\alpha, \beta]$ とすれば，$I$ で不等式
+
+
+\begin{equation*}
+|y(x)-z(x)| \leqslant\left|y\left(x_{0}\right)-z\left(x_{0}\right)\right| e^{L\left|x-x_{0}\right|}+\frac{\|f-g\|}{L}\left(e^{L\left|x-x_{0}\right|}-1\right) \tag{19}
+\end{equation*}
+
+
+が成り立つことを示せ.  
+\end{itembox}
+
+\noindent
+\textbf{【解答】}
+
+$h(x) := y(x) - z(x)$ とおくと, 
+
+$|h'(x)| = |f(x, y(x)) - g(x, z(x))| 
+\le |f(x, y(x)) - f(x, z(x))| + |f(x, z(x)) - g(x, z(x))|$. \ (三角不等式)
+
+さらに, \ リプシッツ条件を適用すると, \ $|h'(x)| \le L|h(x)| + ||f - g||$.
+
+ここで, \ $\varphi(x) = |h(x)|$ とし, \ 線形非同次微分不等式$\varphi'(x) \le L\varphi(x) + ||f - g||$ を得る.
+両辺に$e^{-Lx}$ を掛けて整理すると, \ 
+$(e^{-Lx} \varphi(x))' \le ||f - g||e^{-Lx}$.
+
+両辺を$x_0$ から$x$ まで積分すると, \ 
+$e^{-Lx} \varphi(x) - e^{-Lx_0}\varphi(x_0) \le \displaystyle \int_{x_0}^x ||f - g||e^{-Ls} ds$.
+
+この積分について解いて整理すると, \ $|y(x)-z(x)| \leqslant\left|y\left(x_{0}\right)-z\left(x_{0}\right)\right| e^{L\left|x-x_{0}\right|}+\frac{\|f-g\|}{L}\left(e^{L\left|x-x_{0}\right|}-1\right)$ が得られる.
+
+
+
+\begin{itembox}[l]{[8]}
+正規型1階常微分方程式 $y^{\prime}=f(x, y)$ において, $f(x, y)$ は $x-y$ 平面内の領域 $D$ で連続でかつ局所的にリプシッツ（Lipschitz）条件をみたしているとする. このとき，上記の微分方程式の任意 の解はすべて延長不能な解（これ以上延長できない解）にまで延長される.
+
+この延長不能な解 $y=y^{*}(x)$ は $D$ 内を端から端まで走っている. すなわち， $I^{*}$ をその解が定義 されている区間とするとき、次のいずれかの場合が成立する.（下記では，区間 $I^{*}$ の右端について の形だけ述べるが，当然左端についても同様のことが成立する.）\\
+(i) $I^{*}$ の右端は $\infty$ である.\\
+(ii) $I^{*}$ の右端は有限な値 $b^{*}$ である。このとき,\\
+ \ (ii-a) $\lim _{x \rightarrow b^{*}-0} y^{*}(x)=\infty$ （あるいは $\quad-\infty$ ）\\
+ \ (ii-b) 有限な極限値 $d^{*}:=\lim _{x \rightarrow b^{*}-0} y^{*}(x)$ が存在するとき,
+
+
+\begin{equation*}
+\text { 点 } \quad\left(b^{*}, d^{*}\right) \in \partial D \tag{20}
+\end{equation*}
+
+
+である.\\
+ \ (ii-c) 極限 $\lim _{x \rightarrow b^{*}-0} y^{*}(x)$ が存在しない. すなわち, $x \rightarrow b^{*}-0$ のとき, $y^{*}(x)$ の値は振動 する.\\
+（問） 上記の（ii-b）を示せ.
+\end{itembox}
+
+\noindent
+\textbf{【解答】}
+与えられた微分方程式の解 $y^* (x)$ は、初期条件のもとで最大存在区間 
+$I^*$ 上で定義され、延長不能であると仮定する. このとき, \ $I^* = [a, b^*)$の右端 $b^*$ が有限であり, \ さらに $x \to b^* - 0$のとき $y^* (x)$が有限な極限値 
+$d^*$ に収束すると仮定.
+
+このとき, \ 仮に $(b^*, d^*) \in D$ の内部にあると仮定すると, \ 連続性とリプシッツ条件から, \ 点 $(b^*, d^*)$ を含む近傍で微分方程式の解が延長可能であることが示される. すなわち, \ 解は $x = b^*$ を超えて延長できるはずである. しかし, \ これは $y^* (x)$ が延長不能であるという仮定に反する.
+
+よって, \ $y(x)$ が有限値 $d^*$ に収束する場合、その点 $(b^*, d^*)$ は $D$ の内部に存在することはなく, \ 境界 $\partial D$に属する必要がある. これにより, \ (ii-b) の条件が成り立つことが示された.
+
+
+
+\begin{itembox}[l]{[9]}
+上記の問題 [8] の設定と同じとする.このとき, 点 $\left(x_{0}, y_{0}\right)$ を通る正規型 1 階常微分方程式
+
+
+\begin{equation*}
+\frac{d y}{d x}=f(x, y) \tag{21}
+\end{equation*}
+
+
+の初期値問題の延長不能な解は唯一つしか存在しないことを示せ.\\
+  
+\end{itembox}
+
+\noindent
+\textbf{【解答】}
+
+$f(x,y)$ が $D$ 上でリプシッツ条件を満たしているため, \ 任意の初期条件 
+$y(x_0) = y_0$ に対して, \ ピカールの存在と一意性の定理を適用できる. この定理により, \ 解が局所的に一意であることが保証され, \ ある程度の範囲内で同じ初期条件を満たす解は一つしか存在しないことが示される.
+
+解を $I = [x_0, b)$ で最大限延長したとき, \ この解を延長不能とする. このとき, \ もし異なる延長不能な解があると仮定すると, \ それぞれの解が同じ初期条件 
+$y(x_0) = y_0$ を満たし, \ かつ重なる区間で一致しないことになる. しかし, \ リプシッツ条件のもとでは一意性が成立するため, \ これは矛盾となる.
+
+よって, \ 初期値問題の解は延長不能な解が唯一存在することが示された. この解は, \ 他の延長不能な解とは一致しないことから一意であることが証明された.
+
+
+
+
+
+
+\begin{itembox}[l]{[10]}
+正規型 1 階常微分方程式の初期値問題
+
+
+\begin{equation*}
+\frac{d y}{d x}=f(x, y), \quad y(a)=c \tag{22}
+\end{equation*}
+
+
+を考える. 集合
+
+
+\begin{equation*}
+D:=\{(x, y): \quad a \leqslant x \leqslant a+r=: b, \quad|y-c| \leqslant \rho\} \tag{23}
+\end{equation*}
+
+
+上で $f(x, y)$ は連続であるとする. ここで $M=\|f\|$ として
+
+
+\begin{equation*}
+M r \leqslant \rho \tag{24}
+\end{equation*}
+
+
+であるとする。このとき、区間 $I=[a, b]$ で定義された，上記微分方程式の初期値問題の解 $y=y(x)$ が唯一つしか存在しないためには，次の $(\mathrm{a}),(\mathrm{b}),(\mathrm{c})$ をみたすような関数 $\Phi(x ; y, z)$ が存在することが必要かつ十分であることを示せ.\\
+(a) $\Phi(x ; y, z)$ は
+
+
+\begin{equation*}
+G:=\{(x, y, z): \quad a \leqslant x \leqslant b, \quad|y-c| \leqslant \rho,|z-c| \leqslant \rho\} \tag{25}
+\end{equation*}
+
+
+で $C^{1}$ 級関数である。\\
+(b) $y \neq z$ なら, $\Phi(x ; y, z)>0$ かつ $\Phi(x ; y, y)=0$ 。\\
+(c) 関係式
+
+
+\begin{equation*}
+\frac{\partial \Phi}{\partial x}+\frac{\partial \Phi}{\partial y} f(x, y)+\frac{\partial \Phi}{\partial z} f(x, z) \leqslant 0 \tag{26}
+\end{equation*}
+
+
+が $G$ で常にみたされている.
+\end{itembox}
+
+\noindent
+\textbf{【解答】}
+
+関数 $\Phi(x ; y, z)$は, \ 2つの解 $y(x)$ と $z(x)$ 
+が異なるときに正の値を取り, \ 同じときにゼロとなる関数である. この性質により, \ $2$ つの異なる解が同じ初期条件から始まることがないように制約を課す役割を果たす.
+
+また, \ $y \neq z$のとき $\Phi(x ; y, z) > 0$ であることから, \ $2$ つの異なる解が存在すれば $\Phi$ が正の値を取ることになる. さらに, \ 条件 (c) は, \ 解に沿って進む際に $\Phi$ の増加が抑えられることを意味しており, \ これによって異なる解が時間とともにゼロに収束しないようになる.
+
+さらに, \ 関数 $\Phi$ に関する条件 (c) の不等式を利用し, \ 次のような微分不等式を得る：
+
+$\displaystyle \frac{d}{dx} \Phi(x ; y, z) \le 0$.
+したがって, \ $x = a$ での初期条件をもとに $\Phi(x ; y, z)$ がゼロであるならば, \ 全ての $x \in [a, b]$ でもゼロのままであることがわかる. これにより, \ $2$ つの解が等しくなることが示され, \ 一意性が保証される.
+
+
+
+
+
+
+
+
+
+\end{document}

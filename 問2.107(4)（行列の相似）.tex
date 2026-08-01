@@ -1,0 +1,51 @@
+\documentclass{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln}
+\newtheorem{answer}{解答}
+\begin{document}
+
+\begin{itembox}[l]{\textbf{問2.107 (4)}}
+次の行列$A, B$ は相似であることを示せ. \\
+$$
+A = \begin{pmatrix} 3 & 1 & 0 & 0 \\ 0 & 3 & 0 & 0 \\ 0 & 0 & 2 & 0 \\ 0 & 0 & 0 & 5
+\end{pmatrix}, \ \ B = \begin{pmatrix} 5 & 0 & 0 & 0 \\ 0 & 3 & 1 & 0 \\ 0 & 0 & 3 & 0 \\ 0 & 0 & 0 & 2 \end{pmatrix}$$
+\end{itembox}
+
+\begin{answer}
+\end{answer}
+
+$\mathbb{C}^3$ の線形変換$T$ を $T(\bm{x}) := A \bm{x} \ (\bm{x} \in \mathbb{C}^3)$ とし, $\mathbb{C}^3$ の標準基底を $\{\bm{e_1}, \bm{e_2}, \bm{e_3}, \bm{e_4}\}$ とする. このとき, 
+
+$T$ の基底$\{\bm{e_1}, \bm{e_2}, \bm{e_3}, \bm{e_4}\}$ に関する表現行列は$A$ であり, \ 
+$T$ の基底$\{\bm{e_4}, \bm{e_1}, \bm{e_2}, \bm{e_3}\}$ に関する表現行列は
+
+$\left( T(\bm{e}_4), T(\bm{e}_1), T(\bm{e}_2), T(\bm{e}_3) \right) = 
+\begin{pmatrix}
+0 & 3 & 1 & 0 \\ 0 & 0 & 3 & 0 \\ 0 & 0 & 0 & 2 \\ 5 & 0 & 0 & 0
+\end{pmatrix}
+= (\bm{e_4}, \bm{e_1}, \bm{e_2}, \bm{e_3}) B$ より$B$ となる.
+
+よって, $(\bm{e_4}, \bm{e_1}, \bm{e_2}, \bm{e_3}) = (\bm{e_1}, \bm{e_2}, \bm{e_3}, \bm{e_4}) P$ となるような基底の変換行列を$P$ とおくことで, $B = P^{-1} A P$ 
+
+となる.
+
+\bigskip
+\bigskip
+
+\begin{answer}
+\end{answer}
+
+$xE - A = \begin{pmatrix} x-3 & -1 & 0 & 0 \\ 0 & x-3 & 0 & 0 \\ 0 & 0 & x-2 & 0 \\ 0 & 0 & 0 & x-5 \end{pmatrix} \longrightarrow 
+\begin{pmatrix}
+x-5 & 0 & 0 & 0 \\ 0 & x-3 & -1 & 0 \\ 0 & 0 & x-3 & 0 \\ 0 & 0 & 0 & x-2
+\end{pmatrix}
+= xE - B$
+
+\bigskip
+
+なので $A \sim B$.
+
+
+
+
+
+\end{document}

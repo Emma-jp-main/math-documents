@@ -1,0 +1,28 @@
+\documentclass{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp}
+
+\begin{document}
+
+\begin{center}
+  数学科教育論1 \ \ \ \ 第二回課題
+\end{center}
+
+\begin{flushright}
+  6122111 三森誠真
+\end{flushright}
+
+\begin{itembox}[l]{問2.10 \ (方法3)}
+関数$f(x) = \arctan x \ (|x| < 1)$をMaclaurin展開せよ.
+\end{itembox}
+
+\underline{\textbf{解答}}
+ \ ＜方針＞ \ $f'(x) = \displaystyle \frac{1}{1+x^2}$ をMaclaurin展開せよ.
+
+無限等比級数の公式から, $f'(x) = \displaystyle \frac{1}{1+x^2} = \displaystyle \sum_{n=1}^{\infty} (-x^2)^{n-1}
+= \displaystyle \sum_{n=1}^{\infty} (-1)^{n-1} x^{2n-2} \ (|x| < 1)$ であり, べき級数の性質から収束半径内では項別積分ができるので, 
+
+$f(x) = \displaystyle \int_0^x f'(t) dt = \displaystyle \sum_{n=1}^{\infty} \int_0^x (-1)^{n-1} t^{2n-2} dt
+= \underline{\displaystyle \sum_{n=1}^{\infty} \frac{(-1)^{n-1}}{2n-1} x^{2n-1}}$
+  
+
+\end{document}

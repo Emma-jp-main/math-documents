@@ -1,0 +1,291 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{CJKutf8}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+\usepackage{bbold}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\graphicspath{ {./images/} }
+
+\title{5.5.1 部分分数分解 }
+
+\author{}
+\date{}
+
+
+%New command to display footnote whose markers will always be hidden
+\let\svthefootnote\thefootnote
+\newcommand\blfootnotetext[1]{%
+  \let\thefootnote\relax\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \let\thefootnote\svthefootnote%
+}
+
+%Overriding the \footnotetext command to hide the marker if its value is `0`
+\let\svfootnotetext\footnotetext
+\renewcommand\footnotetext[2][?]{%
+  \if\relax#1\relax%
+    \ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+  \else%
+    \if?#1\ifnum\value{footnote}=0\blfootnotetext{#2}\else\svfootnotetext{#2}\fi%
+    \else\svfootnotetext[#1]{#2}\fi%
+  \fi
+}
+
+\begin{document}
+\begin{CJK}{UTF8}{min}
+\maketitle
+以下多項式 $p(x)$ に対して, その次数を $\operatorname{deg} p(x)$ で表す. 有理関数 $Q(x)$ は, 共通の因数を持たない多項式 $f(x)$ と $g(x)$ によって, $Q(x):=\frac{f(x)}{g(x)}$ と 表される．以下では $f(x)$ の係数も $g(x)$ の係数もすべて実数であるとする $\operatorname{deg} f(x) \geqq \operatorname{deg} g(x)$ のときは，割り算を実行して
+
+$$
+\frac{f(x)}{g(x)}=h(x)+\frac{r(x)}{g(x)}
+$$
+
+ここで $h(x)$ と $r(x)$ は多項式であり, $\operatorname{deg} r(x)<\operatorname{deg} g(x)$ となっている. $\int h(x) d x$ を求めるのは高校の数学でできるので, $\int \frac{r(x)}{g(x)} d x$ を考えるこ とになる. よって $Q(x)$ において最初から $\operatorname{deg} f(x)<\operatorname{deg} g(x)$ であるときを 扱えば十分である。
+
+さて, $Q(x)$ の分母の $g(x)$ が $m$ 重の実根 $\alpha$ を持つとする ${ }^{12)}$. すなわち, 実数係数の多項式 $p(x)$ によって $g(x)=(x-\alpha)^{m} p(x)(p(\alpha) \neq 0)$ と書けてい るとする.このとき，定数 $c$ が何であっても
+
+$$
+\frac{f(x)}{g(x)}=\frac{f(x)}{(x-\alpha)^{m} p(x)}=\frac{c}{(x-\alpha)^{m}}+\frac{f(x)-c p(x)}{(x-\alpha)^{m} p(x)}
+$$
+
+が成立する. そこで $f(x)-c p(x)$ が $x-\alpha$ で割り切れるように $c$ を選ぼう.
+
+因数定理により $f(\alpha)-c p(\alpha)=0$ となればよいから， $c=\frac{f(\alpha)}{p(\alpha)} \in \mathbb{R}$ と定め ると, $f(x)-c p(x)=(x-\alpha) f_{1}(x) \quad\left(f_{1}(x)\right.$ は実数係数の多項式）と書けて，
+
+$$
+\frac{f(x)}{g(x)}=\frac{c}{(x-\alpha)^{m}}+\frac{f_{1}(x)}{(x-\alpha)^{m-1} p(x)}
+$$
+
+を得る. 同じ事を $\frac{f_{1}(x)}{(x-\alpha)^{m-1} p(x)}$ に対して行い、この手続きを繰り返し て分母にある $x-\alpha$ のべキをどんどん小さくしていくと, 実数 $c_{1}, \ldots, c_{m}$ と $\operatorname{deg} f_{m}(x)<\operatorname{deg} p(x)$ をみたす実数係数の多項式 $f_{m}(x)$ によって
+
+$$
+\frac{f(x)}{g(x)}=\frac{c_{m}}{(x-\alpha)^{m}}+\frac{c_{m-1}}{(x-\alpha)^{m-1}}+\cdots+\frac{c_{1}}{x-\alpha}+\frac{f_{m}(x)}{p(x)}
+$$
+\footnotetext{$\overline{\text { 12) 高校での言い方に従えば， } \alpha \text { は方程式 }} g(x)=0$ の $m$ 重の実数解ということ。根は「こ」と読を.
+}
+々書けることがわかる。そしてさらに $p(x)$ の実根 (それは $g(x)$ の
+
+解し手続きを繰り返して $g(x)$ のを取り
+
+引になることがわかる。すなわち， $g(x)$ の異なる実根を $\alpha_{1}, \ldots, \alpha_{r}$ とし， $\alpha_{j}$ が $m_{j}$ 重根であるとすると，実数 $c_{j 1}, \ldots, c_{j m_{j}}$, 実根を持たない実数係数の 多項式 $G(x)$, 実数係数の多項式 $F(x)$ で $\operatorname{deg} F(x)<\operatorname{deg} G(x)$ となるものが 存在して ${ }^{13)}$,
+
+
+\begin{equation*}
+\frac{f(x)}{g(x)}=\sum_{j=1}^{r}\left\{\frac{c_{j m_{j}}}{\left(x-\alpha_{j}\right)^{m_{j}}}+\cdots+\frac{c_{j 1}}{x-\alpha_{j}}\right\}+\frac{F(x)}{G(x)} \tag{1}
+\end{equation*}
+
+
+となることがわかる。
+
+次に $g(x)$ が虚根を持つとし, (1)における $G(x)$ の虚根の一つを $\beta=a+i b$ $(a, b$ は実数で $b \neq 0)$ とする.このとき $\beta$ の共役複素数 $\bar{\beta}=a-i b$ も必ず $G(x)$ の根になる. $(x-\beta)(x-\bar{\beta})=(x-a)^{2}+b^{2}$ であるから, 実数係数の多項式 $P(x)$ と自然数 $n$ により, $G(x)=\left((x-a)^{2}+b^{2}\right)^{n} P(x)$ と書けている. ただし $P(\beta) \neq 0$ である. 任意の実数 $C, D$ に対して
+
+$$
+\frac{F(x)}{G(x)}=\frac{C x+D}{\left((x-a)^{2}+b^{2}\right)^{n}}+\frac{F(x)-(C x+D) P(x)}{\left((x-a)^{2}+b^{2}\right)^{n} P(x)}
+$$
+
+が成立するから, $F(x)-(C x+D) P(x)$ が $(x-a)^{2}+b^{2}$ で割り切れるよう に，実数 $C, D$ が定まれば都合が良い。そのためには
+
+
+\begin{equation*}
+F(\beta)-(C \beta+D) P(\beta)=0 \tag{2}
+\end{equation*}
+
+
+であればよい.ここで $\gamma:=\frac{F(\beta)}{P(\beta)}$ とおくと, (2)は $\gamma=C \beta+D$
+
+となる. 以下複素数 $\delta:=c+i d(c, d \in \mathbb{R})$ に対して, $\delta$ の実部 $c$ を $\operatorname{Re} \delta$, 虚部 $d$ を $\operatorname{Im} \delta$ で表す. また $|\delta|^{2}=c^{2}+d^{2}=\bar{\delta} \delta$ である. さて(3)の両辺の虚部を比 べて, $C=\frac{\operatorname{Im} \gamma}{\operatorname{Im} \beta}$ を得る. また(3)の両辺に $\bar{\beta}$ をかけると, $\bar{\beta} \gamma=C|\beta|^{2}+\bar{\beta} D$. この両辺の虚部を比べて,
+
+$$
+D=\frac{\operatorname{Im}(\bar{\beta} \gamma)}{\operatorname{Im} \bar{\beta}}=\frac{\operatorname{Im}(\beta \bar{\gamma})}{\operatorname{Im} \beta}=\operatorname{Re} \gamma-\frac{\operatorname{Im} \gamma}{\operatorname{Im} \beta} \operatorname{Re} \beta
+$$
+
+このとき $C \beta+D=\gamma$ となって(3)が（したがって(2)が）成り立つ. よって実数係数の多項式 $F_{1}(x)$ により
+
+${ }^{13)} g(x)$ が実根しか持たないときは, 最後の $\frac{F(x)}{G(x)}$ は現れないものとする.
+
+$$
+\frac{F(x)}{G(x)}=\frac{C x+D}{\left((x-a)^{2}+b^{2}\right)^{n}}+\frac{F_{1}(x)}{\left((x-a)^{2}+b^{2}\right)^{n-1} P(x)}
+$$
+
+と書けて，右辺第 2 項の分母にある $(x-a)^{2}+b^{2}$ のべキが小さくなった これから先もこのような手続きを続けていけば，元々の分母にあった $g(x)$ の 根はすべて取り尽くされて次の定理を得る。記号は上述のものを流用し，必要なだけ添字をつける．ただし $b_{k}>0$ とする（必要ならば上の議論で $\beta$ と を交換する）。また， $C_{k 1}, \ldots, C_{k n_{k}}$ と $D_{k 1}, \ldots, D_{k n_{k}}$ はすべて実数である。
+
+定理 5.47 有理関数 $\frac{f(x)}{g(x)}$ は次のように部分分数分解ができる.
+
+$$
+\begin{aligned}
+\frac{f(x)}{g(x)}=\sum_{j=1}^{r} & \left\{\frac{c_{j m_{j}}}{\left(x-\alpha_{j}\right)^{m_{j}}}+\cdots+\frac{c_{j 1}}{x-\alpha_{j}}\right\} \\
+& +\sum_{k=1}^{s}\left(\frac{C_{k n_{k}} x+D_{k n_{k}}}{\left(\left(x-a_{k}\right)^{2}+b_{k}^{2}\right)^{n_{k}}}+\cdots+\frac{C_{k 1} x+D_{k 1}}{\left(x-a_{k}\right)^{2}+b_{k}^{2}}\right)
+\end{aligned}
+$$
+
+さて, 実際に部分分数分解を得るには，通分したり，分母を払ったりして，係数の比較や値の代入などにより, 定理 5.47 の右辺に現れる定数を未知数と する連立 1 次方程式に持ち込むことになる。ただし未知数が増えてくると， この連立方程式を解くことは結構な手間を要し14)，その分ミスも多くなる.以下ではミスを減らすための工夫例をいくつか述べよう。心は「手計算では 未知数の多い連立方程式はできるなら避けたい」という点にある ${ }^{15)}$.
+
+例 $5.48 P(x)=\frac{1}{(x+2)(x-1)}$ や $Q(x)=\frac{2 x}{(x+2)(x-1)}$ という易し い場合でも, $P(x)$ なら $x$ の項を消す, $Q(x)$ なら定数項を消すということて
+
+$$
+x+2-(x-1)=3, \quad x+2+2(x-1)=3 x
+$$
+
+を作って，それぞれの両辺を $(x+2)(x-1)$ で割れば
+
+$$
+\frac{1}{x-1}-\frac{1}{x+2}=3 P(x), \quad \frac{1}{x-1}+\frac{2}{x+2}=\frac{3}{2} Q(x) \text {. }
+$$
+
+
+ゆ兄に求める部分分数分解は次のようになる。
+
+$$
+P(x)=\frac{1}{3}\left(\frac{1}{x-1}-\frac{1}{x+2}\right), \quad Q(x)=\frac{2}{3}\left(\frac{1}{x-1}+\frac{2}{x+2}\right) \text {. }
+$$
+
+あるいは次の例 5.49 のようにしてもよいだろう。
+
+例 $5.49 a, b, c, d$ は異なる実数であるとし, $P(x)$ は 3 次以下の実数係数の 多項式とする。このとき， $A, B, C, D$ を定数として
+
+$\frac{P(x)}{(x-a)(x-b)(x-c)(x-d)}=\frac{A}{x-a}+\frac{B}{x-b}+\frac{C}{x-c}+\frac{D}{x-d} \cdots$
+
+と部分分数分解される. この場合, 分母は払わないで, まず(1)の両辺に $x-a$ をかけて
+
+$$
+\frac{P(x)}{(x-b)(x-c)(x-d)}=A+(x-a)\left(\frac{B}{x-b}+\frac{C}{x-c}+\frac{D}{x-d}\right)
+$$
+
+として $x=a$ を代入して ${ }^{16)} A$ を求め, 次に(1)の両辺に $x-b$ をかけて同様に $B$ を求めるというようにしていけば， (1)の式をほとんどそのままの形で扱え て，書き写しミスなどのつまらない間違いを犯す機会も少なくなる.
+
+分母の多項式が重根を持たない例 5.49 のような場合の一般化として, 次の 例題を考えよう。
+
+例題 $5.50 n \geqq 2$ とし, $\alpha_{1}, \ldots, \alpha_{n}$ は異なる実数として, 多項式
+
+$$
+g(x)=\left(x-\alpha_{1}\right)\left(x-\alpha_{2}\right) \cdots\left(x-\alpha_{n}\right)
+$$
+
+を考える。 $(n-1)$ 次以下の実数係数の多項式 $f(x)$ に対して, 定数 $A_{1}, \ldots, A_{n}$ を用いて
+
+
+\begin{equation*}
+\frac{f(x)}{g(x)}=\frac{A_{1}}{x-\alpha_{1}}+\cdots+\frac{A_{n}}{x-\alpha_{n}} \tag{1}
+\end{equation*}
+
+
+と部分分数分解するとき, $A_{k}=\frac{f\left(\alpha_{k}\right)}{g^{\prime}\left(\alpha_{k}\right)}(k=1, \ldots, n)$ であることを示 せ. $g^{\prime}\left(\alpha_{k}\right) \neq 0(\forall k=1, \ldots, n)$ にも言及すること.
+\footnotetext{\begin{enumerate}
+  \setcounter{enumi}{15}
+  \item 次の例題を見てもわかるように，ここは代入するというより，むしろ $x \rightarrow a$ のときの極限を考えている と思之げ上元の関数の分母が 0 になる値を代入するのが気持ち悪いという人は, このように理解するとよ いだろう，高校で部分分数分解を習うのが極限の学習よりも先であることの影響と思われるが，大学で複素関数論を習えば， こ洨で部分分数分解を習うのが極限の学習よりも先であることの誐論は，極における留数（りゅうすう）の求め方の一つに他ならないことがわかる.
+\end{enumerate}
+}
+解 記述を簡単にするため, $k=1$ のときのみ示すことにする. 多項式 $h(x)$ $\left(h\left(\alpha_{1}\right) \neq 0\right)$ を用いて $g(x)=\left(x-\alpha_{1}\right) h(x)$ と書けている. よって $g^{\prime}(x)=$ $h(x)+\left(x-\alpha_{1}\right) h^{\prime}(x)$ であるから, $g^{\prime}\left(\alpha_{1}\right)=h\left(\alpha_{1}\right) \neq 0$ である. あるいは, よ りあからさまに, $g^{\prime}\left(\alpha_{1}\right)=\left(\alpha_{1}-\alpha_{2}\right) \cdots\left(\alpha_{1}-\alpha_{n}\right)$ となっていることからも, $g^{\prime}\left(\alpha_{1}\right) \neq 0$ が検証できる. さて(1)の両辺に $x-\alpha_{1}$ をかけると
+
+$$
+f(x) \cdot \frac{x-\alpha_{1}}{g(x)-g\left(\alpha_{1}\right)}=f(x) \cdot \frac{x-\alpha_{1}}{g(x)}=A_{1}+\left(x-\alpha_{1}\right) \sum_{j=2}^{n} \frac{A_{j}}{x-\alpha_{j}}
+$$
+
+を得る.この式で $x \rightarrow \alpha_{1}$ とすれば, $\frac{f\left(\alpha_{1}\right)}{g^{\prime}\left(\alpha_{1}\right)}=A_{1}$ を得る.
+
+注意 5.51 例題 5.50 の記号を踏襲しよう. 今 $\beta_{1}, \ldots, \beta_{n}$ を与えて多項式
+
+$$
+p(x):=\sum_{k=1}^{n} \frac{\beta_{k}}{g^{\prime}\left(\alpha_{k}\right)} \frac{g(x)}{x-\alpha_{k}}
+$$
+
+を考えると, $p\left(\alpha_{k}\right)=\beta_{k}(k=1, \ldots, n)$ をみたす唯一の $(n-1)$ 次以下の多項式 $p(x)$ を得を
+
+例題 5.52 次の有理関数を部分分数分解せよ.\\
+(1)\\
+$\frac{2 x-3}{(x-1)^{2}(x+3)}$\\
+(2) $\frac{x^{3}-x+4}{\left(x^{2}+1\right)(x-1)^{2}}$
+
+解 (1) 部分分数分解は次の形になる $(A, B, C$ は定数).
+
+
+\begin{equation*}
+\frac{2 x-3}{(x-1)^{2}(x+3)}=\frac{A}{(x-1)^{2}}+\frac{B}{x-1}+\frac{C}{x+3} . \tag{1}
+\end{equation*}
+
+
+(1)において両辺に $(x-1)^{2}$ をかけると
+
+
+\begin{equation*}
+\frac{2 x-3}{x+3}=A+(x-1)\left(B+\frac{C(x-1)}{x+3}\right) \text {. } \tag{2}
+\end{equation*}
+
+
+$x=1$ とおくと $-\frac{1}{4}=A$. 同様に(1)の両辺に $x+3$ をかけて $x=-3$ と おくことにより17),$-\frac{9}{16}=C$ を得る $^{18)}$. 最後に $x=2$ を(1)に代入して， $B=\frac{1}{5}-A-\frac{1}{5} C=\frac{9}{16}$ を得る.あるいは(1)の両辺に $x$ をかけてから $x \rightarrow+\infty$ として $0=B+C$ を得ることから， $B=-C=\frac{9}{16}$ としてもよい. ゆ光に
+
+17)読者は, 分母の次数が最も高いところは, 例 5.49 のようにして係数が求まることに気ゔくてあらう。
+
+\begin{enumerate}
+  \setcounter{enumi}{17}
+  \item 計算の仕組みがわかれば, (2)のような式を書かなくてすむようになる.
+\end{enumerate}
+
+$$
+\frac{2 x-3}{(x-1)^{2}(x+3)}=-\frac{1}{4} \cdot \frac{1}{(x-1)^{2}}+\frac{9}{16} \cdot \frac{1}{x-1}-\frac{9}{16} \cdot \frac{1}{x+3} .
+$$
+
+(2) 部分分数分解は次の形になる $(A, B, C, D$ は定数).
+
+
+\begin{equation*}
+\frac{x^{3}-x+4}{\left(x^{2}+1\right)(x-1)^{2}}=\frac{A}{(x-1)^{2}}+\frac{B}{x-1}+\frac{C x+D}{x^{2}+1} . \tag{3}
+\end{equation*}
+
+
+(3)の両辺に $x^{2}+1$ をかけて $x=i$ とおくと, $1+2 i=C i+D$ を得る. ゆえに $C=2, D=1$. 今度は(3)の両辺に $(x-1)^{2}$ をかけて $x=1$ とおくと, $2=A$ を 得る. したがうて, (3)で $x=2$ とおくことにより, $B=2-A-\frac{1}{5}(2 C+D)=-1$ となる. あるいは, (3)の両辺に $x$ をかけてから $x \rightarrow+\infty$ として $1=B+C$ を得ることからも $B=-1$ が求まる。ゆえに
+
+$$
+\frac{x^{3}-x+4}{\left(x^{2}+1\right)(x-1)^{2}}=\frac{2}{(x-1)^{2}}-\frac{1}{x-1}+\frac{2 x+1}{x^{2}+1} .
+$$
+
+虚数単位を含む計算は嫌いだという人は, 次のように $A$ から決めていくの もよい. (3)の両辺に $(x-1)^{2}$ をかけて
+
+
+\begin{equation*}
+\frac{x^{3}-x+4}{x^{2}+1}=A+(x-1)\left(B+\frac{(x-1)(C x+D)}{x^{2}+1}\right) \tag{4}
+\end{equation*}
+
+
+とし, $x=1$ とおいて $A=2$ を求めるのは同じ.ここで
+
+$$
+\frac{x^{3}-x+4}{x^{2}+1}-2=\frac{x^{3}-2 x^{2}-x+2}{x^{2}+1}=\frac{(x-1)(x-2)(x+1)}{x^{2}+1}
+$$
+
+であるから ${ }^{19)}, A=2$ とした(4)の両辺を $x-1$ で割ると
+
+
+\begin{equation*}
+\frac{(x-2)(x+1)}{x^{2}+1}=B+\frac{(x-1)(C x+D)}{x^{2}+1} \text {. } \tag{5}
+\end{equation*}
+
+
+(5)で $x=1$ とおいて $-1=B$ を得る.
+
+$$
+\frac{(x-2)(x+1)}{x^{2}+1}+1=\frac{2 x^{2}-x-1}{x^{2}+1}=\frac{(2 x+1)(x-1)}{x^{2}+1}
+$$
+
+より, $B=-1$ とした(5)の両辺を $x-1$ で割ると $\frac{2 x+1}{x^{2}+1}=\frac{C x+D}{x^{2}+1}$. 両辺 を比較して $C=2, D=1$ を得る.
+
+問題 5.53 次の有理関数を部分分数分解せよ.\\
+(1) $\frac{x+1}{(x-1)^{2}(x-2)}$\\
+(2) $\frac{1}{\left(x^{2}+1\right)^{2}(x-1)^{2}}$
+\footnotetext{19)(4)で $A=2$ を左辺に移項したことになるので，分子は当然 $x-1$ という因数を持つはずである. この ようにチェックが自然に入るので，ミスを犯すことも少なくなる.
+}
+
+\begin{enumerate}
+  \setcounter{enumi}{15}
+  \item 
+\end{enumerate}
+
+
+\end{CJK}
+\end{document}

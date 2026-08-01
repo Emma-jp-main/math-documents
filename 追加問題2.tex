@@ -1,0 +1,58 @@
+\documentclass{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln}
+
+\begin{document}
+
+\begin{flushright}
+6122111 三森誠真
+\end{flushright}
+
+\begin{itembox}[l]{追加問題2}
+$0 < \theta < \pi$のとき, $\displaystyle\sum_{n=1}^{\infty} \frac{\cos n \theta}{n}$は収束することを示せ.
+\end{itembox}
+
+$S_n:=\displaystyle\sum_{k=1}^n \cos k \theta \text { とおくと, } $
+$$
+\begin{aligned}
+\sum_{k=1}^n \frac{\cos k \theta}{k}=\sum_{k=1}^n \frac{1}{k} S_k-\sum_{k=1}^n \frac{1}{k} S_{k-1} 
+=\sum_{k=1}^{n-1} \frac{1}{k} S_k+\frac{1}{n} S_n-\sum_{k=1}^{n-1} \frac{1}{k+1} S_k 
+=\frac{1}{n} S_n-\sum_{k=1}^{n-1}\left(\frac{1}{k+1}-\frac{1}{k}\right) S_k 
+\end{aligned}
+$$
+
+ここで, $S_n$の値を求めるために$1+z+z^2+\cdots \cdot+z^n = \displaystyle\frac{1-z^{n+1}}{1-z}(z \neq 1) \quad に z=\cos \theta+i \sin \theta$を代入すると,
+
+$$
+(左辺)=1+(\cos \theta+i \sin \theta)+(\cos 2 \theta+i \sin 2 \theta)+\cdots \cdot+(\cos n \theta+i \sin n \theta) \\
+=\sum_{k=0}^n \cos k \theta+i \sum_{k=0}^n \sin k \theta
+$$
+
+(右辺)=
+$\displaystyle\frac{1-\{\cos (n+1) \theta+i \sin (n+1) \theta\}}{1-(\cos \theta+i \sin \theta)}
+=\frac{2 \sin ^2 \frac{n+1}{2} \theta-2 i \sin \frac{n+1}{2} \theta \cos \frac{n+1}{2} \theta}{2 \sin ^2 \frac{\theta}{2}-2 i \sin \frac{\theta}{2} \cos \frac{\theta}{2}}$
+
+$$\hspace*{9.5zw} = \frac{\sin \frac{n+1}{2} \theta\left(\cos \frac{n+1}{2} \theta+i \sin \frac{n+1}{2} \theta\right)}{\sin \frac{\theta}{2}\left(\cos \frac{\theta}{2}+i \sin \frac{\theta}{2}\right)}
+$$
+
+$$\hspace*{7.8zw} = \frac{\sin \frac{n+1}{2} \theta}{\sin \frac{\theta}{2}}
+\left(\cos \frac{n}{2} \theta+i \sin \frac{n}{2} \theta\right)
+$$
+なので,実部と虚部を比較すると
+$S_n = \displaystyle\frac{\sin \frac{n+1}{2} \theta \cos \frac{n}{2} \theta}{\sin \frac{\theta}{2}} - 1$ となり, $|S_n| \le \displaystyle\frac{1}{\sin \frac{\theta}{2}} + 1$.
+
+よって, 
+$\displaystyle\sum_{k=1}^n \frac{\cos k \theta}{k} 
+=\displaystyle\frac{1}{n} S_n-\sum_{k=1}^{n-1}\left(\frac{1}{k+1}-\frac{1}{k}\right) S_k$
+において, 
+
+第一項は$\displaystyle\lim_{n \to \infty}\displaystyle\frac{1}{n} S_n = 0$なので収束し,  
+
+第二項は$\displaystyle\sum_{k=1}^{n-1} \ \biggl|\left(\frac{1}{k+1}-\frac{1}{k}\right) S_k \biggr| \le \left(\displaystyle\frac{1}{\sin \frac{\theta}{2}} + 1 \right) \displaystyle\sum_{k=1}^{n-1} \ \biggl| \frac{1}{k+1}-\frac{1}{k} \biggr| = 
+\left(\displaystyle\frac{1}{\sin \frac{\theta}{2}} + 1 \right) \left(\frac{1}{n}-1\right)$
+
+$\hspace*{30zw} \longrightarrow -\left(\displaystyle\frac{1}{\sin \frac{\theta}{2}} + 1 \right)
+ \ \ (n \to \infty)$ 
+
+なので絶対収束する.
+
+\end{document}

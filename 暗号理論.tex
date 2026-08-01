@@ -1,0 +1,83 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb}
+
+\begin{document}
+
+\begin{center}
+\Large \bf
+電子計算機及び実習２　課題1
+\end{center}
+
+\begin{flushright}
+創域理工学部　数理科学科　6122111　三森　誠真
+\end{flushright}
+
+\bigskip
+\bigskip
+
+\textbf{Exercise 4.1}
+
+(1) $p \equiv 1 \pmod{1000} を満たす最小の素数 p と 2 番目に小さな素数 q の積 n = pq$ を求めよ.
+
+\bigskip
+
+$1 \equiv 1 \pmod{1000}, \ 1001 \equiv 1 \pmod{1000}, \ 2001 \equiv 1 \pmod{1000}, \ 3001 \equiv 1 \pmod{1000},$
+
+$4001 \equiv 1 \pmod{1000}, \dotsb\dotsb$ であり、
+
+$1, \ 1001 = 7\cdot11\cdot13, \ 2001 = 3\cdot23\cdot29$は素数ではなく、$3001, \ 4001$は素数なので、
+
+$p = 3001, \ q =4001$である。また、$n = pq =12007001$
+
+\bigskip
+\bigskip
+
+(2) $上の n と e = 1001 に対して, \ ed ≡ 1 \pmod{\varphi(n)} となる最小の正整数 d $を求めよ.
+
+\bigskip
+
+まず、$\varphi(n) = (p-1)(q-1) = 12000000なので、1001d'≡1 \pmod{12000000}となるような最小の自然数d'$を求めればよい。上の式は、ある自然数$cを用いて1001d' - 12000000c = 1$ -------- \textcircled{\scriptsize 1} と表せるから、この不定方程式の解$d'$をユークリッドの互除法を用いて求めていく。
+
+\bigskip
+
+ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $12000000 = 1001\cdot11988 + 12$
+
+ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $1001 = 12\cdot83 + 5$
+
+ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $12 = 5\cdot2 + 2$
+
+ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ $5 = 2\cdot2 + 1$ \ \ \ \ \ \ \ \ \ \ なので、
+
+\begin{align*}
+1
+&=5-2(12-5\cdot2)\\
+&=5\cdot5-2\cdot12\\
+&=5(1001-12\cdot83)-2\cdot12\\
+&=1001\cdot5-12\cdot417\\
+&=1001\cdot5-417(12000000-1001\cdot11988)\\
+&=1001\cdot4999001+12000000\cdot(-417) ────── \ \textcircled{\scriptsize 2}
+\end{align*}
+
+\textcircled{\scriptsize 1}, \textcircled{\scriptsize 2}より $1001 (d'-4999001) = 12000000 (c-417)$
+
+$1001と12000000は互いに素なので、ある整数kを用いて d'-4999001=12000000k 即ち d'=12000000k + 4999001と表せる。よって、kが整数であることから、最小の自然数d'を考えるとd=4999001$
+
+\bigskip
+\bigskip
+
+(3) $上の (n, e) を暗号化伴, (n, d) を復号伴とした際, 平文 M_1 = 2023 の暗号化した結果 C_1$
+を求めよ. 
+
+ \ \ \ \ \ $また, 暗号文 C_2 = 5716652 を復号した結果 M_2$ を求めよ.
+
+\bigskip
+
+(計算にはWolfram Alphaを用いた)
+
+$C_1 = {M_1}^e \pmod{n} = (2023)^{1001} \pmod{12007001} = 1502353$
+
+$M_2 = {C_2}^d \pmod{n} = (5716652)^{4999001} \pmod{12007001} = 777$
+
+
+
+\end{document}

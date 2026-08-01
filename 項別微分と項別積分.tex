@@ -1,0 +1,55 @@
+\documentclass[twocolumn,fleqn]{jsarticle}
+\usepackage{ascmac,amsmath,amsthm,amssymb}
+\setlength{\columnseprule}{0.4pt}
+\setlength{\mathindent}{0mm}
+\pagestyle{empty}
+\begin{document}
+\begin{itembox}[l]{項別微分}
+関数列$\{f_n\}が区間[a,b]$上で以下の条件を満たすとき、項別微分が可能となる。
+\begin{enumerate}
+\item $\{f_n\}は[a,b]上のC^1級関数列$
+\item $\displaystyle \sum_{n=1}^{\infty} f_n(x) = S(x)$ (各点収束)
+\item $\displaystyle \sum_{n=1}^{\infty} f'_n(x)はT(x)$に一様収束
+\end{enumerate}
+\end{itembox}
+\begin{proof}
+$S_n(x):=\displaystyle \sum_{k=1}^{n} f_k(x)$とおく。このとき、
+
+$f_nがC^1級であることよりS'_n(x)は[a,b]上で連続なので、[a,b]で$Riemann積分可能となる。
+
+よって、$S_n(x)=S_n(a)+\displaystyle \int_a^x S'_n(t) dt$──(※)と表せる。
+
+また、$S'_n(x)=\displaystyle \sum_{k=1}^{n} f'_k(x)はn \to {\infty}でT(x)$に一様収束するので、
+$\displaystyle \int_a^x S'_n(t) dt はn \to {\infty}で\displaystyle \int_a^x T(t) dt$に一様収束する(示せる)
+
+よって、(※)の両辺を$n \to {\infty}$とすると、
+
+\bigskip
+
+$S(x) = S(a) + \displaystyle \int_a^x T(t) dt$
+
+\bigskip
+
+両辺を$x$で微分すると、
+
+$S'(x) = T(x)$, 即ち $(\displaystyle \sum_{n=1}^{\infty} f_n(x))'=$
+$\displaystyle \sum_{n=1}^{\infty} f'_n(x)$
+\end{proof}
+
+\begin{itembox}[l]{項別積分}
+$[a,b]上の連続関数列\{f_n\}に対して、S_n(x):=\displaystyle \sum_{k=1}^{n} f_k(x)が$
+$n \to {\infty}でS:=\displaystyle \sum_{k=1}^{\infty} f_k(x)$ に一様収束するとき、項別積分が可能となる。
+\end{itembox}
+
+\begin{proof}
+$f_n:連続 \ より、[a,b]$上でRiemann積分可能。このとき、
+$\displaystyle \sum_{k=1}^{n} \displaystyle \int_a^b f_k(x) dx=\displaystyle \int_a^b S_n(x) dx$
+において、$S_nはn \to {\infty}でSに一様収束することから\displaystyle \int_a^b S_n(x) dx$は
+$n \to {\infty}で\displaystyle \int_a^b S(x) dx$に一様収束する(示せる）ので、両辺を
+$n \to {\infty}$とすると、
+
+$\displaystyle \sum_{k=1}^{\infty} \displaystyle \int_a^b f_k(x) dx$=
+$\displaystyle \int_a^b S(x) dx$
+\end{proof}
+
+\end{document}

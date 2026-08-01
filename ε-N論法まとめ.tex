@@ -1,0 +1,134 @@
+\documentclass[10pt]{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp,wrapfig}
+
+\begin{document}
+\begin{center}
+  \begin{Huge}
+    $\varepsilon - N$ 論法について
+  \end{Huge}
+\end{center}
+
+\bigskip
+
+\begin{itembox}[l]{定義（$\varepsilon - N$ 論法）}
+  数列$\{a_n\}$ が $\alpha$ に収束する
+  %矢印の上にdefと書く
+  $\overset{\mathrm{def}}{\iff}$
+  $\forall \varepsilon > 0, \ \exists N \in \mathbb{N}$ s.t.
+  $n \ge N \Longrightarrow |a_n - \alpha| < \varepsilon$.
+\end{itembox}
+
+文章で書くと、「任意の正の実数$\varepsilon$ に対して、ある自然数$N$ が存在して、$n \ge N$ ならば$|a_n - \alpha| < \varepsilon \ \ (n \ge Nを満たす任意の自然数nに対して|a_n - \alpha| < \varepsilon)」$
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{解説（適当）}
+  $n$ を $\infty$ に飛ばしたときに$a_n$ が $\alpha$ になる.
+
+  $\Longrightarrow$ $n$ を大きくしていくほど$a_n$ が$\alpha$ に近づいていく.
+
+  $\Longrightarrow$ 任意の$\varepsilon > 0$ に対して, \ $n$ が一定以上大きくなれば $a_n$ と$\alpha$ の距離$|a_n - \alpha|$ が$\varepsilon$ 未満で表せる.
+\end{itembox}
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{疑問}
+  任意の$\varepsilon > 0$ に対して$|a_n - \alpha| < \varepsilon$ であるなら, \ $|a_n - \alpha| = 0$ i.e. $a_n = \alpha$ ではないのか
+\end{itembox}
+もう一度定義を振り返ってみよう. 気になるのは数列$\{a_n\}$ の$n$ の部分だ. まず定義では正の実数$\varepsilon$ をとり, \ そのあとにある自然数$N$ を取ってきている. これはつまり, \ $N = 1/\varepsilon, \ N = \varepsilon + 1$ などのように$N$ の形が$\varepsilon$ に依存しているケースも考えられる. そうなると, \ $n \ge N$ を満たす$n$, \ さらに数列$\{a_n\}$ というのも当然$\varepsilon$ に依存した形となる. そうなると, \ $|a_n - \alpha| < \varepsilon$ であっても左辺が$0$ とは言えない. 左辺が仮に$\varepsilon - 1$ だったとしたら, \ それはただ$\varepsilon - 1 < \varepsilon$ という式があるだけで左辺が$0$にはならないもんね.
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{定理（$\varepsilon-N$論法の同値な言い換え）}
+  以下の$1 \sim 4$ は同値.
+
+  1. $\forall \varepsilon > 0, \ \exists N \in \mathbb{N}$ s.t.
+  $n \ge N \Longrightarrow |a_n - \alpha| < \varepsilon$
+
+  2. $\forall \varepsilon > 0, \ \exists N \in \mathbb{N}$ s.t.
+  $n \ge N \Longrightarrow |a_n - \alpha| \le \varepsilon$
+
+  3. $\forall \varepsilon > 0, \ \exists N \in \mathbb{N}$ s.t.
+  $n \ge N \Longrightarrow |a_n - \alpha| < 2\varepsilon$
+
+  4. $\forall \varepsilon \in (0. 1), \ \exists N \in \mathbb{N}$ s.t.
+  $n \ge N \Longrightarrow |a_n - \alpha| < \varepsilon$
+\end{itembox}
+
+\textbf{証明.}
+こちらを参照  →\verb|https://mathlandscape.com/eps-n/#toc21|
+
+\bigskip
+\bigskip
+
+以下の練習問題を通して理解を深めよう.
+
+\begin{itembox}[l]{問}
+  $\displaystyle \lim_{n \to \infty} \frac{1}{n} = 0$ を示せ.
+\end{itembox}
+
+\bigskip
+
+$< \textbf{解法1（アルキメデスの公理の利用）}>$
+
+任意の$\varepsilon > 0$ をとる. このとき, \ アルキメデスの公理より$\dfrac{1}{N} < \varepsilon$ となるような自然数$N$ が存在する. よって, \ $n \ge N$ ならば $\left|\dfrac{1}{n} - 0 \right| \ge \dfrac{1}{N} < \varepsilon$ となるため$\displaystyle \lim_{n \to \infty} \frac{1}{n} = 0$.
+
+\bigskip
+\bigskip
+
+$< \textbf{解法2（Nを具体的に構成）}>$
+
+任意の$\varepsilon > 0$ をとる. このとき, \ 自然数$N := \left[\dfrac{1}{\varepsilon} \right] + 1$ をとると, \ $n \ge N$ ならば $\left|\dfrac{1}{n} - 0 \right| \le \dfrac{1}{N} < \varepsilon$ となるため$\displaystyle \lim_{n \to \infty} \frac{1}{n} = 0$.
+
+($\dfrac{1}{N} < \varepsilon$ となるような$N$を構成したいため, \ 式を変形して$\dfrac{1}{\varepsilon} < N$とし, \ $N$を自然数とするためにガウス記号を用いている.)
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{$\varepsilon-N$論法の否定}
+  数列$\{a_n\}$ が $\alpha$ に収束しない
+  %矢印の上にdefと書く
+  $\overset{\mathrm{def}}{\iff}$
+  $\exists \varepsilon > 0$ s.t. $\forall N \in \mathbb{N}$, \ 
+  $\exists n \ge N$ s.t. $|a_n - \alpha| \ge \varepsilon$.
+\end{itembox}
+
+「$\forall \varepsilon > 0, \ \exists N \in \mathbb{N}$ s.t.
+  $\forall n \ge N, \ |a_n - \alpha| < \varepsilon$」を否定したものである.
+
+  「$n \ge N \Longrightarrow |a_n - \alpha| < \varepsilon$」という部分を「$(n < N) \lor (|a_n - \alpha| < \varepsilon)$ と考えて, 
+  
+  その否定「$(n \ge N) \land (|a_n - \alpha| \ge \varepsilon)$ とするのもあり.
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{$\varepsilon-\delta$論法}
+  $\displaystyle \lim_{x \to a} f(x) = b$
+    $\overset{\mathrm{def}}{\iff}$
+    $\forall \varepsilon > 0, \exists \delta > 0$ s.t. $0 < |x - a| < \delta \Longrightarrow |f(x) - b| < \varepsilon$.
+\end{itembox}
+
+上の定義の$0 < |x - a|$ という部分は重要である.
+
+例として, \ $\displaystyle \lim_{x \to 0} \frac{\sin x}{x} = 1$ を考える. \ $\forall \varepsilon > 0, \ \delta = \sqrt{\varepsilon}$ と定めると $0 < |x| < \delta$ に対して$\left| \dfrac{\sin x}{x} - 1 \right| = \dfrac{|\sin x - x|}{|x|} < x^2 \ (テイラー展開) \le \delta^2 = \varepsilon$ という議論ができるが, \ $0 \le |x-a| < \delta$ として関数の極限を定義してしまうと, \ $\dfrac{|\sin x - x|}{|x|}$ がそもそも定義できないため全体として$\displaystyle \lim_{x \to 0} \frac{\sin x}{x}$ は収束しないという結果になってしまう.
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{練習問題}
+  $\displaystyle \lim_{n \to \infty} 2^{\frac{1}{n}} = 1$ を示せ.
+\end{itembox}
+
+任意の$\varepsilon > 0$ に対してある自然数$N := \left[\dfrac{1}{\varepsilon} \right] + 1$を定め, \ $n \ge N$ のとき,
+
+$b_n = 2^{\frac{1}{n}} - 1$ とすると, \ $b_n + 1 = 2^{\frac{1}{n}}$.
+よって, \ $2 = (b_n + 1)^n > 1^n + \dbinom{n}{1} 1^{n-1}b_n$ (二項定理).
+
+$b_n < \dfrac{1}{n} \le \dfrac{1}{N} < \varepsilon$ となる.
+
+
+\end{document}

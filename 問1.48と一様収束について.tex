@@ -1,0 +1,42 @@
+\documentclass{jsarticle}
+\usepackage{amsmath,amssymb}
+\begin{document}
+
+教科書に記載されている一様収束の定義は、
+
+\bigskip
+
+$f_n : I \to \mathbb{R}$ に対して$\{f_n\}がf$に一様収束
+
+$\stackrel{\mathrm{def}}{\Longleftrightarrow}$
+$\forall \varepsilon > 0, \exists N \in \mathbb{N}$ s.t. $\forall x \in I, n \ge N \Rightarrow |f_n(x) -f(x)| < \varepsilon$　であり、
+
+\bigskip
+
+阪田先生の仰った定義はおそらく
+
+$\stackrel{\mathrm{def}}{\Longleftrightarrow}$
+$\forall \varepsilon > 0, \exists N \in \mathbb{N}$ s.t. \[n \ge N \Rightarrow \sup_{x \in I}|f_n(x) -f(x)|< \varepsilon\]　だと思うのですが、
+
+教科書のほうの定義は$\forall \varepsilon > 0, \exists N \in \mathbb{N}$ s.t. $\forall x \in I, \forall n \ge N, |f_n(x) -f(x)| < \varepsilon$　とも表せて、$x$と$N$は任意に取れるため、$X$を先に取っても$N$を先に取っても取る順番はどちらでも構わないのではないかと思いました。なので、上の二つの定義は同値ではないかと思います。
+
+\bigskip
+
+また、教科書の一様収束の定義に従って問1.48の（３）が解けるかどうかという話でしたが、定義の否定命題を考えると$\exists \varepsilon > 0$ s.t. $\forall N \in \mathbb{N}, \exists x \in I$ s.t. $\exists n \ge N$ s.t. $|f_n(x) -f(x)| \ge \varepsilon$ となるため、これを示していきます。
+
+\bigskip
+
+まず、ある$\varepsilon > 0を\varepsilon = 1$とおく。次に、任意の自然数$Nをとり、このNに対してx=\frac{1}{N}ととり、さらにn=N$と定めると、
+\begin{align*}
+|f_n(x)-f(x)| &= \biggl|f_N\left(\frac{1}{N} \right)-f\left(\frac{1}{N} \right) \biggr|\\
+              &= N^2 \cdot \frac{1}{N} - 0\\
+              &= N\\
+              &\ge 1 = \varepsilon
+\end{align*}
+
+となるので、$\{f_n\}はf$に一様収束しないことがわかりました。
+              
+
+
+
+\end{document}

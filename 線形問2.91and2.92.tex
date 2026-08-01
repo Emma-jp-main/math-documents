@@ -1,0 +1,43 @@
+\documentclass{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp}
+\newtheorem*{answer*}{解答}
+\begin{document}
+
+\begin{flushright}
+6122111 三森誠真
+\end{flushright}
+
+\begin{itembox}[l]{\textbf{問2.91}}
+ベクトル空間の間の線形写像$f : U \to V$ と$U$ の部分空間$W$ に対し, $W \subset \ker f$ を満たすとする. この時, 写像$\bar{f}$ : $U/W \to V$ を
+$\bar{f}$ (cl($\bm{u}$)) = $f(\bm{u}) \ (\bm{u} \in U)$ と定めると, $\bar{f}$ はwell-defined な線形写像になることを証明せよ.
+\end{itembox}
+
+\begin{answer*}
+\end{answer*}
+cl($\bm{x}$) = cl($\bm{y}$) \ ($\bm{x}, \bm{y} \in U$) とする. このとき, $\bm{x} - \bm{y} \in W$, 即ち$\bm{x} - \bm{y} \in \ker f$ なので $f(\bm{x} - \bm{y}) = \bm{0}$. $f$ は
+
+線形写像なので, $f(\bm{x}) = f(\bm{y})$. よって$\bar{f}$ (cl($\bm{x}$)) = $\bar{f}$ (cl($\bm{y}$)) となり$\bar{f}$ の定義は代表元の取り方に依らない. 
+
+したがって$\bar{f}$ はwell-defined.
+
+さらに, $\bar{f}$ (cl($\bm{x}$) + cl($\bm{y}$)) = $\bar{f}$ (cl($\bm{x}$ + $\bm{y}$)) = $f(\bm{x} + \bm{y})$ = $f(\bm{x})$ + $f(\bm{y})$ = $\bar{f}$ (cl($\bm{x}$)) + $\bar{f}$ (cl($\bm{y}$)),
+
+$\forall c \in K$, \ $\bar{f}$ ($c \cdot$ cl($\bm{x}$)) = $\bar{f}$ (cl($c\bm{x}$)) = $f(c\bm{x})$ = $cf(\bm{x})$ = $c\bar{f}$ (cl($\bm{x}$)) となるので$\bar{f}$ は線形写像.
+
+\bigskip
+
+\begin{itembox}[l]{\textbf{問2.92}}
+問2.91 において, $W = \ker f$ とする. この時, 写像$\bar{f}$ : $U/\ker f \to V$ の値域を制限した写像$\bar{f} : U/\ker f \to f(U)$ は同型写像となることを証明せよ. 
+\end{itembox}
+
+\begin{answer*}
+\end{answer*}
+問2.91より$\bar{f}$ が線形写像であることが分かるので$\bar{f}$ が全単射であることを示せばよい.
+
+\textbf{全射性} : $\forall f(\bm{u}) \in f(U) \ (\bm{u} \in U), \ \exists$ cl($\bm{u}) \in U/\ker f$ s.t. $\bar{f}$ (cl($\bm{u}$)) = $f(\bm{u})$ なので全射.
+
+\textbf{単射性} : $\bar{f}$ は全射なので, $\bar{f}$ (cl($\bm{x}$)) = $\bm{0}$ \ (cl$(\bm{x}) \in U/\ker f$) とすると, 
+
+$\hspace{4zw} f(\bm{x}) = \bm{0} \ \Longrightarrow \ \bm{x} - \bm{0} \in \ker f \  \Longrightarrow$ \ cl($\bm{x}$) = cl($\bm{0}$) \ $\Longrightarrow \ker \bar{f}$ = cl($\bm{0}$) なので単射. ($\because$ 問2.66)
+
+\end{document}

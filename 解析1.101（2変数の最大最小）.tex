@@ -1,0 +1,40 @@
+\documentclass{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln}
+\newtheorem{answer}{解答}
+\begin{document}
+
+\begin{flushright}
+6122111 三森誠真
+\end{flushright}
+
+\begin{itembox}[l]{\textbf{解析1.101}}
+関数$f(x,y,z) = x-y+2z $の楕円面$\{(x,y,z) : x^2+y^2+2z^2=2\}$ 上での最大値・最小値を求めよ.
+\end{itembox}
+
+\begin{answer}
+\end{answer}
+Schwarzの不等式より, 
+$|x-y+2z| = \left|\left( \begin{pmatrix} x \\ y \\ \sqrt{2}z \end{pmatrix} , \begin{pmatrix} 1 \\ -1 \\ \sqrt{2} \end{pmatrix} \right)\right| \le 2\sqrt{x^2+y^2+2z^2} = 2\sqrt{2}$. \\
+等号成立条件を考えると, $(2\sqrt{x^2+y^2+2z^2})^2 - (x-y+2z)^2 = (x+y)^2 +2(y+z)^2 + 2(x-z)^2$ より, $x = z = -y$ のとき, 即ち $x^2+y^2+2z^2 = 2$ に代入して $x = z = -y = \pm \displaystyle \frac{1}{\sqrt{2}}$ となるときである. \\
+したがって, 点$\left(\displaystyle \frac{1}{\sqrt{2}}, -\displaystyle \frac{1}{\sqrt{2}}, \displaystyle \frac{1}{\sqrt{2}} \right)$ で$f$ は最大値$2\sqrt{2}$ をとり, 点$\left(-\displaystyle \frac{1}{\sqrt{2}}, \displaystyle \frac{1}{\sqrt{2}}, -\displaystyle \frac{1}{\sqrt{2}} \right)$ で最小値$-2\sqrt{2}$ をとる.
+
+\bigskip
+\bigskip
+\bigskip
+
+\begin{answer}
+\end{answer}
+
+$g(x,y,z) := x^2+y^2+2z^2-2$ とおくと, $g$:連続より$\{ (x,y,z) : g(x,y,z) = 0 \}$ は$\mathbb{R}^3$の有界閉集合. よって, 有界閉集合上の連続関数$f$は最大値と最小値をもつ. また, $\{ (x,y,z) : g(x,y,z) = 0 \}$ には特異点がないため, Lagrangeの未定乗数法によって求まる点が最大値・最小値を取る点となる. 点$(a,b,c)$で極値をとるとすると, $\exists \alpha \in \mathbb{R}$ s.t. $\nabla f (a,b,c) = \alpha \ \nabla g (a,b,c) \Longleftrightarrow 
+\begin{pmatrix} 1 \\ -1 \\ 2 \end{pmatrix} = \alpha \begin{pmatrix} 2a \\ 2b \\ 4c \end{pmatrix}$ より, $a = \displaystyle \frac{1}{2\alpha}, \ b = -\displaystyle \frac{1}{2\alpha}, \ c = \displaystyle \frac{1}{2\alpha}$ となるので,
+$ \left( \displaystyle \frac{1}{2\alpha} \right)^2 + \left( -\displaystyle \frac{1}{2\alpha} \right)^2 + 2\left( \displaystyle \frac{1}{2\alpha} \right)^2 -2 = 0 \ \Longrightarrow \ \alpha = \pm \displaystyle \frac{1}{\sqrt{2}}$.
+
+\bigskip
+
+(i) $\alpha = \displaystyle \frac{1}{\sqrt{2}}$ のとき, $(a,b,c) = \left(\displaystyle \frac{1}{\sqrt{2}}, -\displaystyle \frac{1}{\sqrt{2}}, \displaystyle \frac{1}{\sqrt{2}} \right)$ となるので $f \left(\displaystyle \frac{1}{\sqrt{2}}, -\displaystyle \frac{1}{\sqrt{2}}, \displaystyle \frac{1}{\sqrt{2}}\right) = 2\sqrt{2}$
+
+(ii) $\alpha = -\displaystyle \frac{1}{\sqrt{2}}$ のとき, $(a,b,c) = \left(-\displaystyle \frac{1}{\sqrt{2}}, \displaystyle \frac{1}{\sqrt{2}}, -\displaystyle \frac{1}{\sqrt{2}} \right)$ となるので $f \left(-\displaystyle \frac{1}{\sqrt{2}}, \displaystyle \frac{1}{\sqrt{2}}, -\displaystyle \frac{1}{\sqrt{2}} \right) = -2\sqrt{2}$ \\
+\bigskip
+(i), (ii) より, 最大値は$2\sqrt{2}$, 最小値は$-2\sqrt{2}$.
+
+\end{document}

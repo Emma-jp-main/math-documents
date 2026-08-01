@@ -1,0 +1,25 @@
+\documentclass{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp}
+
+\begin{document}
+
+\begin{center}
+  数学科教育論1 \ \ \ \ 第二回課題
+\end{center}
+
+\begin{flushright}
+  6122111 三森誠真
+\end{flushright}
+\underline{\textbf{問2.6}}
+
+被積分関数は点$\left(\displaystyle \frac{\pi}{4}, \ \frac{1}{2} \right)$ に関して点対称なので, \ $y:= \displaystyle \frac{\pi}{2} - x$ と置換すると, 
+
+$\displaystyle \int_0^\frac{\pi}{2} \frac{dx}{1+(\tan x)^{\sqrt{2}}}$
+= $\displaystyle \int_0^\frac{\pi}{2} \frac{dy}{1+\{\tan (\frac{\pi}{2} - y) \}^{\sqrt{2}}}$
+= $\displaystyle \int_0^\frac{\pi}{2} \frac{dy}{1+\frac{1}{(\tan y)^{\sqrt{2}}}}$
+= $\displaystyle \int_0^{\frac{\pi}{2}} \frac{(\tan y)^{\sqrt{2}}}{1+(\tan y)^{\sqrt{2}}} dy$
+
+よって, $\displaystyle \int_0^\frac{\pi}{2} \frac{dx}{1+(\tan x)^{\sqrt{2}}}$
+= $\displaystyle \frac{1}{2} \int_0^\frac{\pi}{2} \left(\frac{1}{1+(\tan x)^{\sqrt{2}}} + \frac{(\tan x)^{\sqrt{2}}}{1+(\tan x)^{\sqrt{2}}} \right) dx = \displaystyle \frac{\pi}{4}$.
+
+\end{document}

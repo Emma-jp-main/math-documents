@@ -1,0 +1,74 @@
+\documentclass{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln}
+\newtheorem*{answer*}{解答}
+\begin{document}
+\textbf{基礎解析学２B　レポート課題2}
+\begin{flushright}
+6122111 三森誠真
+\end{flushright}
+
+\begin{itembox}[l]{\textbf{問題1}}
+$W=[0,1]×[0,1]$とし，$W$上の関数$f(x,y)$を，$x, y$のどちらかが有理数であれば$1$，そうでなければ$0$として定める．このとき，$f(x,y)$は$W$上重積分可能か？可能であればその値も求めよ．
+\end{itembox}
+
+\begin{answer*}
+\end{answer*}
+$W = [0,1] \times [0,1]$ の任意の分割を
+$\Delta: \begin{aligned}
+& 0=x_0<x_1<\cdots \cdots < x_{k-1}<x_k=1 \\
+& 0=y_0<y_1<\cdots \cdots < y_{l-1}<y_l=1
+\end{aligned}$
+とすると, 
+
+$S(\Delta, f) = \displaystyle \sum_{j=1}^l \sum_{i=1}^k M_{ij} (x_i - x_{i-1}) (y_j - y_{j-1}) = \displaystyle \sum_{j=1}^l \sum_{i=1}^k (x_i - x_{i-1}) (y_j - y_{j-1}) \ \ (\because 有理数の稠密性)$
+
+$\hspace{20.9zw} = 1$
+
+$s(\Delta, f) = \displaystyle \sum_{j=1}^l \sum_{i=1}^k m_{ij} (x_i - x_{i-1}) (y_j - y_{j-1}) = \displaystyle \sum_{j=1}^l \sum_{i=1}^k 0 (x_i - x_{i-1}) (y_j - y_{j-1}) \ \ (\because 無理数の稠密性)$
+
+$\hspace{20.9zw} = 0$
+
+よって, $\displaystyle \inf_{\Delta} S(\Delta, f) \neq \sup_{\Delta} s(\Delta, f)$ となるので$f(x,y)$ は$W$上でRiemann重積分不可能.
+
+\bigskip
+
+\begin{itembox}[l]{\textbf{問題2}}
+$W=[0,1]×[0,1]$上の関数$f(x,y)=x$の$W$上の重積分を，重積分の定義に従って求めよ．
+\end{itembox}
+
+\begin{answer*}
+\end{answer*}
+$W = [0,1] \times [0,1]$ の分割を
+
+$\Delta_{n}: \begin{aligned}
+& 0=x_0<x_1<\cdots \cdots < x_{n-1}<x_n=1 \\
+& 0=y_0<y_1<\cdots \cdots < y_{n-1}<y_n=1
+\end{aligned}$, \ 
+$x_i = \displaystyle \frac{i}{n} \ (0 \le i \le n), \ y_j = \displaystyle \frac{j}{n} \ (0 \le j \le n)$
+と定め, 
+
+$\| \Delta_{n} \| = \max \{\sqrt{(x_i - x_{i-1})^2 + (y_j - y_{j-1})^2} \ | \ 1 \le i \le n, \ 1 \le j \le n \}$ とする.
+
+\bigskip
+
+$S(\Delta_{n}, f) = \displaystyle \sum_{j=1}^n \sum_{i=1}^n M_{ij} (x_i - x_{i-1}) (y_j - y_{j-1}) =  \displaystyle \sum_{j=1}^n \sum_{i=1}^n x_i (x_i - x_{i-1}) (y_j - y_{j-1})$
+$ = \displaystyle \sum_{j=1}^n \sum_{i=1}^n \displaystyle \frac{i}{n}\displaystyle \frac{1}{n} \displaystyle \frac{1}{n}$
+
+$\hspace{38.1zw} = \displaystyle \frac{1}{2} \left(1+\displaystyle \frac{1}{n} \right)$
+
+Darbouxの定理より, $S(f) = \displaystyle \lim_{\| \Delta_{n} \| \to 0} S(\Delta_{n}, f) = \lim _{n \rightarrow \infty } \frac{1}{2}\left(1+\frac{1}{n}\right)= \displaystyle \frac{1}{2}$
+
+$s(\Delta_{n}, f) = \displaystyle \sum_{j=1}^n \sum_{i=1}^n m_{ij} (x_i - x_{i-1}) (y_j - y_{j-1}) =  \displaystyle \sum_{j=1}^n \sum_{i=1}^n x_{i-1} (x_i - x_{i-1}) (y_j - y_{j-1}) = \displaystyle \sum_{j=1}^n \sum_{i=1}^n \displaystyle \frac{i-1}{n}\displaystyle \frac{1}{n} \displaystyle \frac{1}{n}$
+
+$\hspace{38.9zw} = \displaystyle \frac{1}{2} \left(1 - \displaystyle \frac{1}{n} \right)$
+
+Darbouxの定理より, $s(f) = \displaystyle\lim_{\| \Delta_{n} \| \to 0} s(\Delta_{n}, f) = \lim _{n \rightarrow \infty} \frac{1}{2}\left(1-\frac{1}{n}\right)= \displaystyle \frac{1}{2}$
+
+したがって, $S(f) = s(f)$ となるので$f(x,y)$ は$W$上でRiemann積分可能であり, $\displaystyle \iint_W f(x,y) dx dy = \frac{1}{2}$
+
+
+
+
+
+
+\end{document}

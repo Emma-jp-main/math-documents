@@ -1,0 +1,66 @@
+\documentclass{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp,wrapfig,geometry}
+\geometry{a4paper, left=25mm, right=25mm, top=30mm, bottom=30mm}
+
+\begin{document}
+
+\section*{可算無限集合について}
+
+可算無限集合
+
+= 濃度が card $\mathbb{N} = \aleph_{0}$
+
+= $\mathbb{N}$ の各要素と1対1で対応させられる（全単射写像を構成できる）.
+
+\bigskip
+
+\begin{itembox}[l]{\textbf{定理}}
+$\mathbb{Z}$ は可算無限集合である.
+  \end{itembox}
+
+\begin{proof}
+  全単射写像$f : \mathbb{N} \to \mathbb{Z}$ を 
+  \[f(n) = \begin{cases} \frac{n}{2} & (n : even) \\
+                        -\frac{n+1}{2} & (n : odd)
+           \end{cases}\]
+  と定義することにより
+  
+  \begin{tabular}{cccccccc}
+    $\mathbb{N}$ & : & 1 & 2 & 3 & 4 & 5 & 6 \\
+&&$\updownarrow$&$\updownarrow$&$\updownarrow$&$\updownarrow$&$\updownarrow$&$\updownarrow$ \\
+    $\mathbb{Z}$ & : & -1 & 1 & -2 & 2 & -3 & 3
+  \end{tabular}
+\end{proof}
+
+となって１対１対応できる.
+
+\vspace{5zw}
+
+
+\begin{itembox}[l]{\textbf{定理}}
+$\mathbb{Q}$ は可算無限集合である.
+\end{itembox}
+
+\begin{proof}
+
+  $\mathbb{Q} = \left\{\displaystyle \frac{b}{a} \ \middle| a, b は互いに素, a \neq 0 \right\}$ において, \ $\mathbb{Q}^+ := \{r \in \mathbb{Q} | r > 0\}$ を考えると, \ 
+  
+card $\mathbb{Q}^+ = $ card $\mathbb{Q}───\textcircled{\scriptsize 1}$ ($\because$ 絶対値関数などを用いて全単射を構成すればよい).
+
+次に, \ $\mathbb{Q}^+$ の各要素に着目すると, \ 
+
+分母分子の自然数の組は $\mathbb{N} \times \mathbb{N}$ の各要素に対応できる($f:\mathbb{N} \times \mathbb{N} \to \mathbb{Q}^+, \ (a, b) \mapsto a/b$ )
+
+$\therefore$ card $\mathbb{N} \times \mathbb{N}$ = card $\mathbb{Q}^+───\textcircled{\scriptsize 2}$.
+
+次に, \ 任意の自然数$n$は負でない整数$p$と正の奇数$q$ を用いて$n = 2^p q$ と一意に表せる($n$ が奇数の場合は$p=0$ とすればよく, \ $n$ が偶数の場合は$2$で割り切れる最大回数を$p$とすればよい)ことから, \ 
+任意の$(i, j) \in \mathbb{N} \times \mathbb{N}$ に対して
+
+$f(i, j) := 2^{i-1}(2j-1)$ とすると, \ $f: \mathbb{N} \times \mathbb{N} \to \mathbb{N}$ は全単射(上の一意性から).
+
+$\therefore$ card $\mathbb{N} \times \mathbb{N} = $ card $\mathbb{N}$───\textcircled{\scriptsize 3}.
+
+\textcircled{\scriptsize 1} $\sim$ \textcircled{\scriptsize 3} より, \ $\mathbb{Q}$ は可算集合.
+\end{proof}
+
+\end{document}

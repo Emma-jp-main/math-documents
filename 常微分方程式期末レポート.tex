@@ -1,0 +1,383 @@
+\documentclass{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp,wrapfig}
+\usepackage{geometry}
+\usepackage[inline]{enumitem} %enumerate環境で横に箇条書きをかけるようにする
+\geometry{a4paper, left=25mm, right=25mm, top=30mm, bottom=30mm}
+
+\begin{document}
+
+\textbf{「常微分方程式論 1 」 前期到達度評価試験に代える大レポート課題}
+
+\begin{flushright}
+6122111 三森誠真
+\end{flushright}
+
+
+\begin{itembox}[l]{[1]}
+区間 $[a, b]$ 上で定義された関数 $\varphi(x)$ は正値（$\varphi(x) \geq 0$）で, \ 有界であり, \ さらに次の積分不等式：
+    \[
+    \exists C > 0, \exists K > 0: \quad \varphi(x) \leq C + K \int_a^x \varphi(t) \, dt, \quad (a \leq x \leq b)
+    \]
+    をみたす. このとき, \ 
+    \[
+    \varphi(x) \leq C \cdot e^{K(x-a)} \quad (a \leq x \leq b)
+    \]
+    が成立つことを示せ.
+\end{itembox}
+
+【解答】
+
+$M(x) := \displaystyle \int_a^x \varphi(t) \ dt$ とおくと, \ $M'(x) = \varphi(x)$ なので, \ $M'(x) \leq C + KM(x)$. 
+
+この両辺を $e^{-Kx}$ 倍すると, \ $M'(x)e^{-Kx} \leq Ce^{-Kx} + Ke^{-Kx}M(x)$.
+
+よって, \ $\{M(x)e^{-Kx} \}' \leq Ce^{-Kx}$ でありこの両辺を$a$ から $x$ まで積分すると, \ 
+
+$M(x)e^{-Kx} \leq \displaystyle \frac{C}{K} (e^{-Ka} - e^{-Kx})$ となり, \ 
+両辺を $e^{Kx}$ 倍すると, 
+$M(x) \leq \displaystyle \frac{C}{K} (e^{K(x-a)} - 1)$ であるから, \ $\varphi(x) \leq C + KM(x) 
+\leq C + C(e^{K(x-a)} - 1) 
+= Ce^{K(x-a)}$
+
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[2]}
+$\mathbb{R}^2$ の点 $(x, y)$ に対し、$\mathbb{R}^2$ の点 $(\sigma(x, y), \tau(x, y))$ を対応させる写像について, \ $(\sigma(x, y), \tau(x, y))$ 共に連続微分可能で, \ $(x_0, y_0)$ において
+$\begin{vmatrix}
+\frac{\partial \sigma}{\partial x} & \frac{\partial \sigma}{\partial y} \\
+\frac{\partial \tau}{\partial x} & \frac{\partial \tau}{\partial y} \\
+\end{vmatrix} \neq 0
+$
+とする. このとき, \ $(s_0, t_0) = (\sigma(x_0, y_0), \tau(x_0, y_0))$ の近傍で定義された $(x_0, y_0)$ の近傍に値をもつ写像 $(\xi(s, t), \eta(s, t))$ で
+$$
+(\xi(\sigma(x,y), \tau(x,y)), \eta(\sigma(x,y), \tau(x,y))) = (x,y)
+$$
+\vspace{-2zw}
+$$
+(\sigma(\xi(s,t), \eta(s,t)), \tau(\xi(s,t), \eta(s,t))) = (s,t)
+$$
+を満たすものが存在することを示せ. $\xi(s,t), \ \eta(s, t)$ は連続微分可能である.
+\end{itembox}
+
+【解答】
+
+関数 $f$ を $f(x,y) := (\sigma(x, y), \tau(x, y))$ とすると,
+関数 $\sigma(x, y)$ と $\tau(x, y)$ は $(x_0, y_0)$ で連続微分可能であるため、ヤコビ行列 $J_f$ は存在し, \ 
+
+    \[
+    \det J_f (x_0, y_0) = \begin{vmatrix}
+      \frac{\partial \sigma}{\partial x}  (x_0, y_0) & \frac{\partial \sigma}{\partial y}  (x_0, y_0)\\
+        \frac{\partial \tau}{\partial x}  (x_0, y_0) & \frac{\partial \tau}{\partial y}  (x_0, y_0)
+    \end{vmatrix}  
+  \neq 0
+    \]
+
+よって, \ 逆写像定理から, \ $f(x_0, y_0) = (s_0, t_0)$ の近傍で定義されたなめらかな写像$(\xi(s, t), \eta(s, t))$ で, \ 
+
+$(\xi(\sigma(x,y), \tau(x,y)), \eta(\sigma(x,y), \tau(x,y))) = (x,y)$,
+
+$(\sigma(\xi(s,t), \eta(s,t)), \tau(\xi(s,t), \eta(s,t))) = (s,t)$ をみたすものが存在する.
+  
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[3]}
+関数空間 $C[a, b]$ はノルム $\| u \| = \sup_{a \leq x \leq b} |u(x)|$ に関して完備な距離空間であることを示せ.
+\end{itembox}
+
+【解答】
+
+ノルム
+    \[
+    \| u \| = \sup_{a \leq x \leq b} |u(x)|
+    \]
+ に関して, \ 距離を$d(u, v) := \| u - v \|$ と定めたとき, 距離空間$(C[a, b], d)$ が完備となること, \ すなわち任意の Cauchy 列 $\{u_n | \ n \in \mathbb{N} \}$ が収束することを示す.
+
+このとき, $\{u_n(x) | \ n \in \mathbb{N}, \ x \in [a, b] \}$ はEuclid空間$(\mathbb{R}, d_{\mathbb{R}})$ 上のCauchy列でもある. よって$\mathbb{R}$ の完備性より, \ $\{u_n(x) | \ n \in \mathbb{N}, \ x \in [a, b] \}$ は $(\mathbb{R}, d_\mathbb{R})$ において収束列なので, \ $u(x) = \displaystyle \lim_{n \to \infty} u_n(x)$ となるような$u : [a, b] \to \mathbb{R}$ が定まる.
+
+そこで, \ $\{u_n(x) | \ n \in \mathbb{N}, \ x \in [a, b] \}$ の $u$ への収束性を考えると, \ $\{u_n(x) | \ n \in \mathbb{N}, \ x \in [a, b]  \}$ はCauchy列
+\begin{align*}
+なので, \ \forall \varepsilon > 0, \exists N \in \mathbb{N} s.t. \forall x \in [a, b], \ n \ge N 
+&\Longrightarrow |u_n(x) - u(x)| < \displaystyle \frac{\varepsilon}{2} \hspace{15zw}\\  %hspaceは文章の左寄せ 
+&\Longrightarrow d(f_n, \ f) \le \displaystyle \frac{\varepsilon}{2} < \varepsilon.
+\end{align*}
+
+次に, \ $u$ の連続性について考える. $\{u_n(x) | \ n \in \mathbb{N}, \ x \in [a, b] \}$ はCauchy列なので, \ 
+
+\begin{align*}
+\exists N \in \mathbb{N} s.t. n \ge N
+& \Longrightarrow d(u, u_n) < \displaystyle \frac{\varepsilon}{3}\\
+& \Longrightarrow |u(x) - u_n(x)| < \displaystyle \frac{\varepsilon}{3} \ (x \in [a, b])
+\end{align*}
+
+%u \in C[a, b]であるかどうかまだ言えていない段階でd(u, u_n)を定義してよいものだろうか？
+
+さらに, \ $\exists \delta > 0$ s.t. $\forall y \in [a, b], \ |x - y| < \delta$ とすると, \ $u_n$ の連続性より, \ $|u_n(x) - u_n(y)| < \displaystyle \frac{\varepsilon}{3}$ とできるので, \ 
+
+\begin{align*}
+|u(x) - u(y)|
+& \leq |f(x) - f_n(x)| + |f_n(x) - f_n(y)| + |f_n(y) - f(y)|\\
+& < \displaystyle \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3} \\
+& = \varepsilon
+\end{align*}
+
+よって, \ $u \in C[a, b]$ であることがわかったので, \ 以上より$C[a, b]$ は完備な距離空間である.
+
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[4]}
+$X, Y$ をノルム空間とする. 線形作用素 $T : X \to Y$ に対しては, \ 連続性と有界性は同値であることを示せ.
+\end{itembox}
+
+【解答】
+
+(有界 $\Longrightarrow$ 連続)
+
+任意の$\varepsilon > 0$ をとる. 
+
+$T$ を有界と仮定すると, \ 
+ある定数 $M > 0$ が存在して、
+    \[
+    \| T(x) \|_Y \leq M \| x \|_X \ \ (\forall x \in X)
+    \]
+が成り立つ.
+
+ここで, \ $\delta := \displaystyle \frac{\varepsilon}{M + 1} > 0$ とすると, \ 任意の$x, y \in X$, \ $\| x - y \|_X < \delta$ ならば,
+\begin{align*}
+\| T(x) - T(y) \|_Y 
+&= \| T(x-y) \|_Y \\
+&\leq M \| x - y \|_X \\
+&< M \cdot \displaystyle \frac{\varepsilon}{M + 1} \\
+&< \varepsilon \hspace{8zw} よって, \ T は連続.
+\end{align*}
+
+(有界 $\Longleftarrow$ 連続)
+
+$T$ は $0 \in X$ で連続であるから, \ $\exists \delta > 0$ s.t. $\forall x \in X$, \ $\| x \|_X < \delta \Longrightarrow \|T(x)\|_Y < 1$ が成り立つ.
+
+\noindent
+(i) $x \in X - \{0\}$ のとき, \ $y := \displaystyle \frac{\delta x}{2\|x\|_X}$ とおくと, \ $\| y\|_X < \delta$ なので, \ 
+$\|T(y)\|_Y < 1$ となる. すなわち, \ 
+\begin{align*}
+\left\| T \left(\displaystyle \frac{\delta x}{2\|x\|_X} \right) \right\|_Y < 1 
+& \Longrightarrow \displaystyle \frac{\delta}{2\| x \|_X} \|T(x)\|_Y < 1\\
+& \Longrightarrow \| T(x) \|_Y < \displaystyle \frac{2}{\delta} \|x\|_X
+\end{align*}
+
+\noindent
+(ii) $x = 0$ のときは $T(x) = 0$ なので, \ $\| T(x) \|_Y = \displaystyle \frac{2}{\delta} \|x\|_X$ となっている.\\
+(i), (ii) より, \ $\forall x \in X$, \ $\| T(x) \|_Y \leq \displaystyle \frac{2}{\delta} \|x\|_X$ となり$T$ は有界.
+
+
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[5]}
+区間 $I = [a, b]$ の連続関数列 $\{f_n(x)\}_n$ が
+
+    \begin{enumerate*}[label=(\alph*)]
+        \item $I$ 上一様有界, \ かつ \ 
+        \item $I$ 上同程度連続
+    \end{enumerate*}
+    
+であるならば, \ $\{f_n(x)\}_n$ は $I$ で一様収束する部分列を含むことを示せ.
+\end{itembox}
+
+【解答】
+
+有理数を適当な順番に並べたものを \(\{x_i\}\) とする. 一様有界性より, \ 数列 \(\{f_n(x_1)\}\) は有界であるから, \ Bolzano–Weierstrassの定理より, \ 収束部分列 \(\{f^{(1)}_n\}^\infty_{n=1} \subset \{f_n(x_1)\}^\infty_{n=1}\) が存在する.
+
+同様に今度は数列 \(\{f^{(1)}_n(x_2)\}\) の有界性から, \ 収束部分列 \(\{f^{(2)}_n\}^\infty_{n=1} \subset \{f^{(1)}_n(x_2)\}^\infty_{n=1}\) が存在する.
+同様の操作を何度も繰り返すことで、\(\{f^{(k)}_n\} (k \geq 1)\) を得る.
+
+ここで, \ \(\{f^{(n)}_n\}\) を考える（\textbf{対角線論法}）. すべての有理数 \(x_i\) において \(\{f^{(n)}_n(x_i)\}^\infty_{n=1}\) は極限を持つことに注意する.
+
+\(\varepsilon > 0\) に対して, \ 同程度連続性により、
+
+\[
+|x - y| < \delta \implies |f^{(n)}_n(x) - f^{(n)}_n(y)| < \frac{\varepsilon}{3}
+\]
+
+となる \(n\) によらない \(\delta > 0\) が取れる.
+ここで, \ \(a \leq q_1 < q_2 < \cdots < q_l \leq b となる q_1, q_2, ..., q_l \in \mathbb{Q}\) を
+
+\[
+q_1 - a, q_{j+1} - q_j, b - q_l < \delta \quad (1 \leq j \leq l - 1)
+\]
+
+となるようにとる.
+
+\(\{f^{(n)}_n(q_j)\} (1 \leq j \leq l)\) は極限を持つので, \ ある \(N \geq 1\) が存在して, \ 任意の \(1 \leq j \leq l\) に対し, \ 
+
+\[
+m, n > N \implies |f^{(m)}_m(q_j) - f^{(n)}_n(q_j)| < \frac{\varepsilon}{3}
+\]
+
+\(s \in [a, b]\) とする. このとき, \ \(|s - q_j| < \delta\) となる \(q_j\) が選べる. \(m, n > N\) とするとき、
+
+\[
+|f^{(m)}_m(s) - f^{(n)}_n(s)| \leq |f^{(m)}_m(s) - f^{(m)}_m(q_j)| + |f^{(m)}_m(q_j) - f^{(n)}_n(q_j)| + |f^{(n)}_n(q_j) - f^{(n)}_n(s)| \leq \frac{\varepsilon}{3} + \frac{\varepsilon}{3} + \frac{\varepsilon}{3} = \varepsilon
+\]
+
+よって \(\{f^{(n)}_n\}\) は一様コーシー列であり, \ 一様収束する.
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[6]}
+ \begin{enumerate}[label=(\arabic*)]
+        \item 微分方程式 $\frac{dx}{dt} = \sqrt{x}$ は原点の近傍でリプシッツ条件をみたしているか調べよ.
+        \item また上述の方程式に関して, \ $t \geq 0$ に対して, \ 原点を通る解があれば, \ 具体的に求めよ.
+    \end{enumerate}  
+\end{itembox}
+
+【解答】
+
+(1)
+微分方程式 $\frac{dx}{dt} = \sqrt{x}$ \ ($x \geq 0$) において, \ 関数 $f(t, x) = \sqrt{x}$ のリプシッツ条件は, \ 
+        \[
+  　　　\exists L > 0 \ s.t. \ 
+        |\sqrt{x_1} - \sqrt{x_2}| \leq L |x_1 - x_2|
+        \]
+
+であるが, \ これは$\displaystyle \frac{1}{\sqrt{x_1} + \sqrt{x_2}} \leq L$ であり, \ $\displaystyle \lim_{(x_1, x_2) \to (0, 0)} \frac{1}{\sqrt{x_1} + \sqrt{x_2}} = \infty$ なのでこの不等式をみたす$L$ は存在しない.
+
+よって, \ 関数 $f(t, x) = \sqrt{x}$ はリプシッツ条件を満たさない.
+
+\bigskip
+
+(2)
+微分方程式 $\frac{dx}{dt} = \sqrt{x}$ を解くために、分離変数法を使用する：
+        \[
+        \frac{dx}{\sqrt{x}} = dt
+        \]
+        両辺を積分して、
+        \[
+        2\sqrt{x} = t + C
+        \]
+
+        初期条件 $x(0) = 0$ を用いて, \ $C = 0$ となる. したがって, 
+        \[
+        x(t) = \left( \frac{t}{2} \right)^2 = \frac{t^2}{4}
+        \]
+
+  
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[7]}
+微分方程式 $\displaystyle \frac{dx}{dt} = x$ の点 $(0,1)$ を通る解を逐次近似法によって求め, \ それが $x(t) = e^t$ と一致することを示せ.
+\end{itembox}
+
+【解答】
+
+微分方程式 $\frac{dx}{dt} = x$ の初期条件 $x(0) = 1$ に対する逐次近似法を用いて, \ 解を求める.
+
+$\frac{dx}{dt} = x$ の両辺を$0$ から $t$ まで積分すると, \ 
+$x(t) - x(0) = \displaystyle \int_0^t x(s) \ ds$, \ すなわち
+$x(t) = 1 + \displaystyle \int_0^t x(s) \ ds$.
+
+よって, \ 逐次近似法の初期条件として$x_0(t) = 1$, \ 逐次近似列として
+    \[
+    x_{n+1}(t) = 1 + \int_0^t x_n(s) \, ds
+    \]
+
+と定義すると
+  
+$x_1(t) = 1 + \displaystyle \int_0^1 x_0(s) \ ds
+= 1 + \displaystyle \int_0^t 1 \, ds = 1 + t$
+
+$x_2(t) = 1 + \displaystyle \int_0^1 x_1(s) \ ds
+= 1 + \displaystyle \int_0^t (1 + s) \, ds = 1 + t + \frac{t^2}{2}$
+
+$x_3(t) = 1 + \displaystyle \int_0^t x_2(s) \ ds
+= 1 + \int_0^t (1 + s + \frac{1}{2} s^2) \ ds
+= 1 + t + \displaystyle \frac{t^2}{2} + \frac{t^3}{3!}$
+
+よって, \ $x(t) = \displaystyle \lim_{n \to \infty} x_n(t)
+= \sum_{k=0}^{\infty} \frac{t^k}{k!} = e^t$ となる.
+  
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[8]}
+$(\tau, \xi) \in \mathbb{R} \times \mathbb{R}^n$ を定点とする. 
+$\Omega$ を $a > 0, b > 0$ に対して $\{(t,x) \in \mathbb{R} \times \mathbb{R}^n; \  \tau - a \leq t \leq \tau + a, \ \|x - \xi\| \leq b\} $ とする. 関数 $f$ は $\Omega$ で連続で, \ ある正定数 $M > 0$ が存在して
+    \[
+    \|f(t,x)\| \leq M, \quad (\Omega 上)
+    \]
+をみたし, \ さらに $f$ は $\Omega$ で $x$ に関してリプシッツ定数 $L$ のリプシッツ条件を満たすとする. $x(t)$ が正規型常微分方程式 $\frac{dx}{dt} = f(t, x(t))$ の解ならば, \ $x(t) = 0$ かつ $\displaystyle \frac{dx(t)}{dt} \neq 0$ をみたす $t$ を除いて
+    \[
+    \left| \frac{d\|x(t)\|}{dt} \right| \leq \|f(t, x(t))\|
+    \]
+    が成り立つことを示せ.
+\end{itembox}  
+
+【解答】
+
+ノルムの微分の定義から,
+\[
+\frac{d\|x(t)\|}{dt} = \frac{x(t) \cdot \frac{dx(t)}{dt}}{\|x(t)\|} =  \frac{x(t) \cdot f(t, x)}{\|x(t)\|}
+\]
+なので
+\[
+    \left| \frac{d\|x(t)\|}{dt} \right| 
+= \frac{|x(t) \cdot f(t, x)|}{\|x(t)\|}
+  \leq \|f(t, x(t))\| \hspace{4zw} (\because Schwarzの不等式)
+\]
+
+よって, \ 不等式は成立する.
+
+
+\bigskip
+\bigskip
+ 
+\begin{itembox}[l]{[9]}
+常微分方程式 $\frac{dx}{dt} = f(t, x)$ の 1 つの解を $x = \varphi(t)$ とする. もし任意の定数 $c$ に対して条件式
+    \[
+    f(ct, cx) = f(t, x)
+    \]
+    が成り立つならば, \ 
+    \[
+    x = c \cdot \varphi \left( \frac{t}{c} \right), \ (c \neq 0)
+    \]
+    もまた解であることを示せ.  
+\end{itembox}
+
+【解答】
+
+$y(t) := c\cdot\varphi\left(\displaystyle \frac{t}{c} \right)$ とすると,
+
+\begin{align*}
+\displaystyle \frac{dy}{dt} = \varphi'\left(\frac{t}{c} \right) 
+&= f\left(\frac{t}{c}, \ \varphi\left(\frac{t}{c} \right) \right)
+\hspace{5zw} \left(\because \frac{d\varphi(t)}{dt} = f(t, \varphi(t)) \right)\\
+&= f\left(t, \ c\cdot\varphi \left(\frac{t}{c} \right) \right) 
+\hspace{4.5zw} (\because f(ct, cx) = f(t, x)) \\
+&= f(t, y(t))
+\end{align*}
+
+となるので, \ $y(t)$ も与えられた常微分方程式の解であることがわかる.
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[10]}
+上の問題 (9) の設定に同じとする. この方程式 $x' = f(t, x)$ について解の存在と一意性が保証されているとする. このとき, \ $x = \varphi(t)$ は $t = 0$ で $x = b, (b \neq 0)$ となる解を表し, \ $x = \psi(t)$ がそれとは異なる解で $t = 0$ まで接続可能, \ かつ $\psi(0) \neq 0$ であるとすれば, \ 関係式
+    \[
+    \psi(t) = \frac{\psi(0)}{b} \cdot \varphi \left( \frac{bt}{\psi(0)} \right)
+    \]
+    が成り立つ. このとき $f(t, x) = t/x とし, \ x = \varphi(t) は t = 0 で x = 1 となる解, \ x = \psi(t) が t = 0 で x = c, \ (c > 0)$  となる解とした場合について確かめよ.
+\end{itembox}
+
+【解答】
+
+$\displaystyle \frac{dx}{dt}$ を変数分離法により $x \ dx = t \ dt$ となり, \ $\displaystyle \frac{x^2}{2} = \frac{t^2}{2} + C$ \ ($C$ は積分定数), \ すなわち$x = \pm \sqrt{t^2 + 2C}$. よって, \ $\varphi(0) = 1, \ \psi(0) = c$ を考えると $\varphi(t) = \sqrt{t^2 + 1}, \ \psi(t) = \sqrt{t^2 + c^2}$ である.
+
+
+\end{document}

@@ -1,0 +1,26 @@
+\documentclass[10pt]{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp,wrapfig}
+
+\begin{document}
+  \LARGE{単項式$0$の次数は「定義しない」、もしくは「$-\infty$」とする.}
+  \bigskip
+
+  \LARGE{なぜ$0$の次数は$0$ではないのか}
+
+  \normalsize
+  次数（degree）に関して成り立っていてほしい主張（以下）が成り立たなくなるため.
+
+  $\deg(fg) = \deg f + \deg g$
+
+  例えば, \ $f(x) = x^n, \ g = 0$ とすると $\deg(fg) = 0$ であるが, \\ $\deg f + \deg g = n + 0 = n$ となり上の主張が成立しない.
+
+  \bigskip
+  \bigskip
+
+  \LARGE{では$-\infty$ ならOKなのか?}
+
+  \normalsize
+  先ほどと同様の$f, g$ に対して $\deg(0) = -\infty$ の場合, \\
+  $\deg(fg) = \deg(0) = -\infty, \ \deg f + \deg g = n + (-\infty) = -\infty$ となるため主張が成立する.
+  
+\end{document}

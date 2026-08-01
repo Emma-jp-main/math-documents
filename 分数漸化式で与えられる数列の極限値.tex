@@ -1,0 +1,145 @@
+\documentclass[a4paper,11pt]{jsarticle}
+\usepackage{amsmath,amssymb}
+
+\begin{document}
+
+\title{分数型漸化式で与えられる数列の極限値}
+\date{}
+\maketitle
+
+\section*{問題}
+次の漸化式で定められる数列 $\{a_n\}$ の極限値を求めよ。
+\[
+a_1 = 1, \quad a_{n+1} = 1 + \frac{1}{1 + a_n} \quad (n = 1, 2, 3, \dots)
+\]
+
+\section*{解答}
+\subsection*{1. 特性方程式と漸化式の変形}
+漸化式 $a_{n+1} = f(a_n)$ における特性方程式 $\alpha = 1 + \frac{1}{1 + \alpha}$ を解く。
+両辺に $1 + \alpha$ を掛けると、
+\[
+\alpha(1 + \alpha) = (1 + \alpha) + 1 \implies \alpha^2 + \alpha = \alpha + 2 \implies \alpha^2 = 2
+\]
+よって、$\alpha = \pm\sqrt{2}$ である。
+
+ここで、漸化式の両辺から $\sqrt{2}$ を引くと、
+\begin{align*}
+a_{n+1} - \sqrt{2} &= 1 + \frac{1}{1 + a_n} - \sqrt{2} \\
+&= \frac{1 + a_n + 1 - \sqrt{2}(1 + a_n)}{1 + a_n} \\
+&= \frac{(1-\sqrt{2})a_n + 2 - \sqrt{2}}{1 + a_n} \\
+&= \frac{(1-\sqrt{2})(a_n - \sqrt{2})}{1 + a_n} \quad \cdots (1)
+\end{align*}
+同様に、両辺に $\sqrt{2}$ を足すと、
+\begin{align*}
+a_{n+1} + \sqrt{2} &= 1 + \frac{1}{1 + a_n} + \sqrt{2} \\
+&= \frac{1 + a_n + 1 + \sqrt{2}(1 + a_n)}{1 + a_n} \\
+&= \frac{(1+\sqrt{2})a_n + 2 + \sqrt{2}}{1 + a_n} \\
+&= \frac{(1+\sqrt{2})(a_n + \sqrt{2})}{1 + a_n} \quad \cdots (2)
+\end{align*}
+
+\subsection*{2. 等比数列への帰着}
+すべての自然数 $n$ において $a_n > 0$ は明らかであるため、$a_n + \sqrt{2} \neq 0$ である。(1)を(2)で割ると、
+\[
+\frac{a_{n+1} - \sqrt{2}}{a_{n+1} + \sqrt{2}} = \frac{1 - \sqrt{2}}{1 + \sqrt{2}} \cdot \frac{a_n - \sqrt{2}}{a_n + \sqrt{2}}
+\]
+ここで、数列 $\{b_n\}$ を $b_n = \frac{a_n - \sqrt{2}}{a_n + \sqrt{2}}$ とおくと、
+\[
+b_{n+1} = \frac{1 - \sqrt{2}}{1 + \sqrt{2}} b_n
+\]
+となり、$\{b_n\}$ は公比 $\frac{1 - \sqrt{2}}{1 + \sqrt{2}}$ の等比数列となる。
+初項 $b_1$ は、
+\[
+b_1 = \frac{a_1 - \sqrt{2}}{a_1 + \sqrt{2}} = \frac{1 - \sqrt{2}}{1 + \sqrt{2}}
+\]
+であるから、一般項 $b_n$ は、
+\[
+b_n = b_1 \cdot \left( \frac{1 - \sqrt{2}}{1 + \sqrt{2}} \right)^{n-1} = \left( \frac{1 - \sqrt{2}}{1 + \sqrt{2}} \right)^n
+\]
+（※ $\frac{1 - \sqrt{2}}{1 + \sqrt{2}}$ は分母を有理化すると $2\sqrt{2} - 3$ になるため、$b_n = (2\sqrt{2} - 3)^n$ と書くこともできる。）
+
+\subsection*{3. 一般項 $a_n$ の導出}
+$b_n = \frac{a_n - \sqrt{2}}{a_n + \sqrt{2}}$ を $a_n$ について解く。
+\begin{align*}
+b_n (a_n + \sqrt{2}) &= a_n - \sqrt{2} \\
+a_n(1 - b_n) &= \sqrt{2}(1 + b_n) \\
+a_n &= \sqrt{2} \frac{1 + b_n}{1 - b_n}
+\end{align*}
+これに $b_n = (2\sqrt{2} - 3)^n$ を代入して、一般項を得る。
+\[
+a_n = \sqrt{2} \frac{1 + (2\sqrt{2} - 3)^n}{1 - (2\sqrt{2} - 3)^n}
+\]
+
+\subsection*{4. 極限値の計算}
+次に、$n \to \infty$ のときの $a_n$ の極限を求める。
+ここで公比 $r = 2\sqrt{2} - 3$ について考えると、$\sqrt{8} \approx 2.828$ より $2\sqrt{2} - 3 \approx -0.172$ であるため、
+$|2\sqrt{2} - 3| < 1$ となる。
+したがって、
+\[
+\lim_{n \to \infty} (2\sqrt{2} - 3)^n = 0
+\]
+である。ゆえに、求める極限値は、
+\[
+\lim_{n \to \infty} a_n = \lim_{n \to \infty} \sqrt{2} \frac{1 + (2\sqrt{2} - 3)^n}{1 - (2\sqrt{2} - 3)^n} = \sqrt{2} \frac{1 + 0}{1 - 0} = \sqrt{2}
+\]
+
+\vspace{1em}
+\noindent\textbf{【答え】}\\
+一般項: $\displaystyle a_n = \sqrt{2} \frac{1 + (2\sqrt{2} - 3)^n}{1 - (2\sqrt{2} - 3)^n}$ \\[1em]
+極限値: $\displaystyle \lim_{n \to \infty} a_n = \sqrt{2}$
+
+
+% 以下は別解
+
+
+\newpage
+
+\section*{別解(コーシー列による解法)}
+
+\vspace{1em}
+\noindent
+$\displaystyle |a_n - a_m| \leqq \frac{|a_{m-1} - a_{n-1}|}{(1 + a_{m-1})(1 + a_{n-1})}$
+と計算できるので、$(1 + a_{m-1})(1 + a_{n-1})$ の評価をする.
+\vspace{1em}
+
+まず $1 \leqq a_n \leqq \dfrac{3}{2}$ であることを帰納法により示す.
+
+\begin{itemize}
+    \item $a_1 = 1$ である.
+    \item $1 \leqq a_{n-1} \leqq \dfrac{3}{2}$ とすると $\dfrac{2}{5} \leqq \dfrac{1}{1 + a_{n-1}} \leqq \dfrac{1}{2}$ であるため、特に $0 \leqq \dfrac{1}{1 + a_{n-1}} \leqq \dfrac{1}{2}$ である。よって
+    \[
+    1 \leqq a_n \leqq \frac{3}{2}
+    \]
+    となり示された.
+\end{itemize}
+
+これより $(1 + a_{m-1})(1 + a_{n-1}) \geqq 4$ がわかる.
+
+正の実数 $\varepsilon$ を任意に取る.
+
+$n > m$ とする.
+
+\begin{align*}
+|a_n - a_m| &= \left| \left( 1 + \frac{1}{1 + a_{n-1}} \right) - \left( 1 + \frac{1}{1 + a_{m-1}} \right) \right| \\
+&= \left| \frac{a_{m-1} - a_{n-1}}{(1 + a_{m-1})(1 + a_{n-1})} \right| \\
+&\leqq \frac{|a_{n-1} - a_{m-1}|}{4} \\
+&\leqq \frac{|a_{n-m+1} - a_1|}{4^{m-1}} \\
+&\leqq \frac{1}{2 \cdot 4^{m-1}}
+\end{align*}
+
+$m \to \infty$ で $\dfrac{1}{2 \cdot 4^{m-1}} \to 0$ であるため、$\{a_n\}$ はコーシー列である。よって、収束するのでその値を $\lim_{n\to\infty} a_n = \alpha$ とおく.
+
+\begin{align*}
+\alpha &= \lim_{n\to\infty} a_{n} \\
+&= \lim_{n\to\infty} \left( 1 + \frac{1}{1 + a_{n-1}} \right) \\
+&= 1 + \frac{1}{1 + \alpha}
+\end{align*}
+
+である。整理すると
+\[
+\alpha^2 - 2 = 0
+\]
+であるため $\alpha = \pm\sqrt{2}$ である.
+
+$a_n > 0$ であるため $\alpha > 0$ である. よって $\alpha = \sqrt{2}$ である.
+
+\end{document}

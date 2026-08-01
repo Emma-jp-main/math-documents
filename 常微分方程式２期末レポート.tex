@@ -1,0 +1,1518 @@
+\documentclass{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp,wrapfig}
+\usepackage{geometry}
+\usepackage[inline]{enumitem} %enumerate環境で横に箇条書きをかけるようにする
+\usepackage{ulem} %波線や破線、二重線などを引けるようにする
+\geometry{a4paper, left=25mm, right=25mm, top=30mm, bottom=30mm}
+
+\begin{document}
+
+\section*{後期・到達度評価試験に代える（大）レポート課題　（常微分方程式論２）}
+
+\begin{flushright}
+6122111　三森誠真
+\end{flushright}
+
+\begin{itembox}[l]{[1]}
+区間を$I = [a,b]$ とする. $p(t) \in C^2(I), \ p(t) \neq 0$ で $r(t) \in C(I)$ とする. このとき, \ 対称作用素
+$L x=p x^{\prime \prime}+p^{\prime} x^{\prime}+r x$,\\
+$A x(a)+A^{\prime} x^{\prime}(a)=B x(b)+B^{\prime} x^{\prime}(b)=0$\\
+を考えて, \ そのグリーン関数を $G(t, \tau, l)$ とするとき, \ 関係式
+$$
+\lim _{t \rightarrow \tau+0} G_{i}(t, \tau, l)-\lim _{t \rightarrow r-0} G_{t}(t, \tau, l)=\frac{1}{p(\tau)}
+$$
+が成り立つことを示せ. $A, \ A', \ B, \ B'$ は定数である.
+\end{itembox}
+
+\textbf{解答}．$L x=l x$ の解，$x_{1}(t, l), x_{2}(t, l)$ を，それそれ境界条件
+
+$$
+\begin{aligned}
+& A x_{1}(a, l)+A^{\prime} x_{1}^{\prime}(a, l)=0 \\
+& B x_{2}(b, l)+B^{\prime} x_{2}^{\prime}(b, l)=0
+\end{aligned}
+$$
+
+を満たすようにとれば, 
+
+$$
+G(t, \tau, l)=\left\{\begin{array}{l}
+\frac{x_{1}(\tau, l) x_{2}(t, l)}{p(\tau) W\left(x_{1}(\tau, l), x_{2}(\tau, l)\right)}, \tau \leq t \\
+\frac{x_{1}(t, l) x_{2}(\tau, l)}{p(\tau) W\left(x_{1}(\tau, l), x_{2}(\tau, l)\right)}, \tau \geq t,
+\end{array}\right.
+$$
+
+$W\left(x_{1}(\tau, l), x_{2}(\tau, l)\right)=x_{1}(\tau, l) x_{2}{ }^{\prime}(\tau, l)-x_{1}{ }^{\prime}(\tau, l) x_{2}(\tau, l)$.\\
+ゆえに
+
+$$
+G_{t}(t, \tau, l)= \begin{cases}\frac{x_{1}(\tau, l) x_{2}^{\prime}(t, l)}{p(\tau) W\left(x_{1}(\tau, l), x_{2}(\tau, l)\right)}, & \tau<t, \\ \frac{x_{1}^{\prime}(t, l) x_{2}(\tau, l)}{p(\tau) W\left(x_{1}(\tau, l), x_{2}(\tau, l)\right)}, & \tau>t\end{cases}
+$$
+
+ゆえに
+
+$$
+\begin{gathered}
+\lim _{t \rightarrow+0} G_{t}(t, \tau, l)-\lim _{t \rightarrow-0} G_{t}(t, \tau, l) \\
+=\frac{x_{1}(\tau, l) x_{2}^{\prime}(\tau, l)-x_{1}^{\prime}(\tau, l) x_{2}(\tau, l)}{p(\tau) W\left(x_{1}(\tau, l), x_{2}(\tau, l)\right)}=\frac{1}{p(\tau)} .
+\end{gathered}
+$$
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[2]}
+関数のある族$\Gamma$ を 
+$$
+\Gamma := \{x\equiv x(t) | x \in C^2[0,1], \ かつx(0) = x(1) = 0 \}
+$$
+と定める. 
+
+(1) \ 
+$\Gamma$ において定義された対称作用素$L x=\frac{d^{2} x}{d t^{2}}$ の固有値およびグリーン関数を求めよ.
+
+(2) \ 
+そのグリーン関数を用いて微分方程式
+$$
+\frac{d^{2} x}{d t^{2}}-l x = 1
+$$
+の解$x(t) \in \Gamma$ を求めよ. ただし, \ $l$ は$L$ の固有値ではないとする.
+\end{itembox}
+
+\textbf{解答}
+$\frac{d^{2} x}{d t^{2}} = lx$ の一般解 は
+
+$$
+x = c_{1} \cos \sqrt{-l}t+c_{\mathrm{s}} \sin \sqrt{-l}t
+$$
+
+である．$x(0)=0$ から $c_{1}=0. \ x(1)=0$ から
+$c_{2} \sin \sqrt{-1}=0$
+
+ゆえに $\sqrt{-l}=n \pi(n= \pm 1, \pm 2, \cdots)$ ，すなわち
+\underline{$l = -n^2\pi^2$ が固有値である}.\\
+グリーン関数を求めるために，まず $x(0)=0$ となるような $L x=l x$ の解を求めると
+
+$$
+x=x_{1}(t, l)=\sin \sqrt{-l} t
+$$
+
+また $x(1)=0$ となる解を求めると
+
+$$
+\begin{aligned}
+x=x_{2}(t, l) & =\sin \sqrt{-l} \cos \sqrt{-l}t -\cos \sqrt{-l} \sin \sqrt{-l}t \\
+&= \sin \sqrt{-l}(1-t) .
+\end{aligned}
+$$
+
+また
+
+$$
+\begin{aligned}
+& W\left(x_{1}(\tau, l), x_{2}(\tau, l)\right) \\
+&= \sin \sqrt{-l}\tau(-\sqrt{-l} \cos \sqrt{-l)(1-\tau)-\sqrt{-l} \cos \sqrt{-l}\tau} \times \sin \sqrt{-l}(1-\tau) \\
+&=-\sqrt{-l} \sin \sqrt{-l}(\tau+1-\tau)\\
+&=-\sqrt{-l} \sin \sqrt{-l .} .
+\end{aligned}
+$$
+
+ゆえに
+$$
+G(t, \tau, l) 
+=\begin{cases}\frac{\sin{ \sqrt{-l}} \tau \sin \sqrt{l}(1-t)}{\sqrt{-l} \sin \sqrt{-l}}, & \tau \leq t, \\ 
+\frac{\sin \sqrt{l} t \sin \sqrt{-l}(1-\tau)}{\sqrt{-l} \sin \sqrt{-l}} & \tau \geq t .\end{cases}
+$$
+
+$l>0$ のときは，関係
+$$
+\sin \sqrt{-l} t=i \sinh \sqrt{l} t
+$$
+
+を使えば，上記は次のように書き直せる.
+
+$$
+G(t, \tau, l) 
+=\begin{cases}-\frac{\sinh \sqrt{l} \tau \sinh \sqrt{l}(1-t)}{\sqrt{l} \sinh \sqrt{l}}, & \tau \leq t, \\ 
+-\frac{\sinh \sqrt{l} t \sinh \sqrt{l}(1-\tau)}{\sqrt{l} \sinh \sqrt{l}}, & \tau \geq t .\end{cases}
+$$
+
+次に
+
+$$
+\frac{d^{2} x}{d t^{2}}-l x=1
+$$
+
+の解で $x(t) \in \Gamma な る も の は, l$ が固有値でなければ
+
+$$
+\begin{aligned}
+x
+&=\int_{0}^{1} G(t, \tau, l) d \tau \\
+&= -\int_0^t \frac{\sin \sqrt{-l} \tau \sin\sqrt{-l}(1-t)}{\sqrt{-l}\sin\sqrt{-l}} d\tau
+- \int_t^1 \frac{\sin \sqrt{-l}t \sin\sqrt{-l}(1-\tau)}{\sqrt{-l}\sin\sqrt{-l}} d\tau \\
+&= \frac{1}{\sqrt{-l} \sin \sqrt{-l}} \left[\frac{1}{\sqrt{-l}} \cos\sqrt{-l}\tau\sin\sqrt{-l}(1-t) \right]_0^t
+ + \frac{1}{\sqrt{-l} \sin \sqrt{-l}} \left[-\frac{1}{\sqrt{-l}}\sin\sqrt{-l}t\cos\sqrt{-l}(1-\tau) \right]_t^1 \\
+&= \frac{1}{-l\sin\sqrt{-l}} \{\cos\sqrt{-l}t\sin\sqrt{-l}(1-t)-\sin\sqrt{-l}(1-t)-\sin\sqrt{-l}t + \sin\sqrt{-l}t\cos\sqrt{-l}(1-t) \} \\
+&=\frac{1}{-l \sin \sqrt{-l}} \{\sin \sqrt{-l}(t+1-t)-\sin \sqrt{-l} t-\sin \sqrt{-l}(1-t) \} \\
+&= \underline{-\frac{1}{l} + \frac{1}{l\sin\sqrt{-l}}(\sin\sqrt{-l}t + \sin\sqrt{-l}(1-t))}.
+\end{aligned}
+$$
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[3]}
+閉区間[a,b] 上で定義された関数の族$\Gamma$ を
+$$
+\Gamma := \{x\equiv x(t) | x \in C^2[a,b], \ かつx(a) = x(b) = 0 \}
+$$
+と定める. この$\Gamma$ において定義された対称2階線形微分作用素
+$$
+Lx = px'' + p'x' + rx
+$$
+を考える. $L$ の係数$p, r$ は上の[1] と同じとする.
+
+(1) \ 
+$p(t)>0(a \leq t \leq b)$ ならば, \ $L$ の固有値は上に有界であることを示せ.
+
+(2) \ 
+$p(t)<0(a \leq t \leq b)$ ならば, \ $L$ の固有値は下に有界であることを示せ.
+  
+\end{itembox}
+
+\textbf{解答}
+
+固有値の1つを$\lambda$ ，それに属する固有関数を $\varphi(t)$ とする。 ただし 
+$$
+\int_{a}^{b}(\varphi(t))^{2} d t=1
+$$
+
+としておく.
+
+$
+L \varphi-\lambda \varphi=0$ から
+$\int_{a}^{b} \varphi L \varphi d t-\lambda \int_{a}^{b} \varphi^{2} d t=0 .$
+
+ここで $\int_{a}^{b} \varphi^{2} d t=1$ に注意すれば
+
+$$
+\begin{aligned}
+\lambda= & \int_{a}^{b} \varphi L \varphi d t \\
+= & \int_{a}^{b} \varphi\left(p \varphi^{\prime \prime}+p^{\prime} \varphi^{\prime}+r \varphi\right) d t \\
+= & \int_{a}^{b} \varphi\left(p \varphi^{\prime}\right)^{\prime} d t+\int_{a}^{b} r \varphi^{2} d t \\
+&= \left[\varphi p \varphi^{\prime}\right]_{a}^{b}-\int_{a}^{b} p \varphi^{\prime 2} d t+\int_{a}^{b} r \varphi^{3} d t .
+\end{aligned}
+$$
+
+境界条件により $\left[\varphi p \varphi^{\prime}\right]_{a}^{b}=0$ ．ゆえに
+
+$$
+\lambda=-\int_{a}^{b} p \varphi^{\prime 2} d t+\int_{a}^{b} r \varphi^{2} d t .
+$$
+
+rは $[a, b]$ で連続だから有界である. そこで $m<r<M$とすれば $\int_{0}^{b} \varphi^{2} d t=1$ であるから
+
+$$
+m<\int_{a}^{b} r \varphi^{2} d t<M
+$$
+
+ゆえに
+
+$$
+m-\int_{a}^{b} p \varphi^{\prime 2} d t<\lambda<M-\int_{a}^{b} p \varphi^{\prime 2} d t
+$$
+
+$\varphi^{\prime 2} \geq 0$ だから，$p>0$ ならば $\lambda<M であり, \ p<0$ ならば $m<\lambda$ ．\\
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[4]}
+$C=C[a, b]$ とし，
+
+
+\begin{gather*}
+\Gamma=\left\{f(t) \in C^{2}[a, b] \mid A f(a)+A^{\prime} f^{\prime}(a)=B f(b)+B^{\prime} f^{\prime}(b)=0,\right. \\
+\left.A^{2}+A^{\prime 2} \neq 0, B^{2}+{B^{\prime}}^{2} \neq 0\right\} \tag{8}
+\end{gather*}
+
+
+とする．$L$ を $\Gamma$ 上で定義された対称微分作用素
+
+
+\begin{equation*}
+L x=p x^{\prime \prime}+p^{\prime} x^{\prime}+r x \tag{9}
+\end{equation*}
+
+
+とし，$R_{\ell}$ を $L$ のレゾルベントとする. $\left\{\mu_{k}\right\}_{k=0,1,2, \ldots}$ を $R_{\ell}$ の固有値，それに対応する規格化された固有関数を $\left\{\varphi_{k}\right\}_{k=0,1,2, \ldots}$ とする. このとき関数列 $\left\{\varphi_{k}\right\}_{k}$ は完全であること を示せ. すなわち，関係式
+
+
+\begin{equation*}
+\sum_{k=0}^{\infty}\left|\left(f, \varphi_{k}\right)\right|^{2}=\|f\|^{2}, \quad(\forall f \in C) \tag{10}
+\end{equation*}
+
+
+が成り立つことを示せ.（この関係式（10）をパーセバルの関係式ということもある．）\\
+  
+\end{itembox}
+\textbf{解答}
+
+(i) \ $f \in \Gamma,\left(f, \varphi_{k}\right)=c_{k}$ のときを考える. 級数$\sum_{k=0}^{n} c_{k} \varphi_{k}$ は $n \rightarrow \infty$ のとぎ$f$に一様収束することがわかっている. ゆえに任意の$\varepsilon > 0$ に対してある自然数$N$ が存在し, \ $n \geq N$ のとき
+$$
+|f(t) - \displaystyle\sum_{k=0}^n c_k \varphi_k (t)| < \varepsilon
+$$
+が成り立つ. 
+
+よって, \ $\displaystyle\lim_{n \to \infty} \left\| f - \sum_{k=0}^n c_k \varphi_k \right \|^2 = 0$ であり, \ 
+
+$\displaystyle \left\| f - \sum_{k=0}^n c_k \varphi_k \right\|^2 = \|f\|^2 - 2\sum_{k=0}^n c_k \varphi_k (t) + \sum_{k,l = 0}^n c_k c_l (\varphi_k, \varphi_l), \ (f, \varphi_k) = c_k$.
+
+また$\{\varphi_k\}$ は正規直交系であるから
+$$
+(\varphi_k, \varphi_l) = \begin{cases} 0 & (k \neq l)\\
+1 & (k=l) 
+\end{cases}
+$$
+
+よって, \ $\displaystyle \left\| f - \sum_{k=0}^n c_k \varphi_k \right\|^2 = \|f\|^2 - \sum_{k = 0}^n c_k^2$
+
+ここで$n \to \infty$ とすると左辺は$0$ に収束するから, \ 
+$$
+\|f\|^2 = \displaystyle\lim_{n \to \infty} \sum_{k=0}^n c_k^2 = \sum_{k=0}^{\infty} (f, \varphi_k)^2.
+$$
+
+ゆえに $f \in \Gamma$ ならば，問題の結論が成り立つ.
+
+\bigskip
+
+(ii)
+
+次に, \ $f \in C$ で必ずしも$f \in \Gamma$ ではない状況を考える. このとき, \ 任意の$\varepsilon > 0$ に対して $\|f - \bar{f}\| < \varepsilon$ であるような $\bar{f} \in \Gamma$ が存在することから, \ 
+
+$$
+\begin{aligned}
+\| f-\sum_{k=0}^{n}\left(f, \varphi_{k}\right) \varphi_{k} \|
+&= \| f- \bar{f} + \bar{f} -\sum_{k=0}^{n}\left(f, \varphi_{k}\right) \varphi_{k} +\sum_{k=0}^{n}\left(f, \varphi_{k}\right) \varphi_{k}-\sum_{k=0}^{n}\left(f, \varphi_{k}\right) \varphi_{k} \| \\
+&\leq \|f-\bar{f} \|+\left\|\bar{f}-\sum_{k=0}^{n}\left(\bar{f}, \varphi_{k}\right) \varphi_{k}\right\| + \left\|\sum_{k=0}^{n}\left(f-f, \varphi_{k}\right) \varphi_{k}\right\|
+\end{aligned}
+$$
+
+
+仮定により $\|f-\bar{f}\|<\varepsilon ───\textcircled{\scriptsize 1}$ 
+
+また， $\bar{f} \in \Gamma$ であるから, \ $n$ を十分大きくとりさえすれば
+
+$$
+\left|f-\sum_{k=0}^{n}\left(f, \varphi_{k}\right) \varphi_{k}\right|<\varepsilon ───\textcircled{\scriptsize 2}
+$$
+
+また $\left(\varphi_{k}\right)$ の正規直交性より
+
+$$
+\begin{aligned}
+\left|\sum_{k=0}^{n}\left(f-\bar{f}, \varphi_{k}\right) \varphi_{k}\right|^{2}
+&= \sum_{k=0}^{n}\left(f-\bar{f}, \varphi_{k}\right)^{2} \\
+&\leq\|f-\bar{f}\|^{2} \ （ベッセルの不等式）\\
+&< \varepsilon^{2}
+\end{aligned}
+$$
+
+
+ゆえに
+
+$$
+|\sum (f - \bar{f}, \varphi_k)\varphi_k| < \varepsilon ───\textcircled{\scriptsize 3}
+$$
+
+\textcircled{\scriptsize 1}, \textcircled{\scriptsize 2}, \textcircled{\scriptsize 3} より, \ $\| f-\sum_{k=0}^{n}\left(f, \varphi_{k}\right) \varphi_{k} \| < 3\epsilon$.
+
+よって, \ $\displaystyle\lim_{n \to \infty} \| f-\sum_{k=0}^{n}\left(f, \varphi_{k}\right) \varphi_{k} \| = 0$.
+
+したがって, \ (i) と同様にして$$
+\|f\|^{2}= \sum_{k=0}^{\infty}\left(f, \varphi_{k}\right)^{2}
+$$
+
+が得られる.\\
+
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[5]}
+$C=C[a, b]$ とする．$C$ 上で定義された線形作用素 $T$ は，（i）$\|T\|<\infty$ であるとき，有界な作用素であるとよばれ，（ii） $\lim _{n \rightarrow \infty}\left\|x_{n}-x\right\|=0,\left(x_{n} \in C, x \in C\right)$ のとき，
+
+
+\begin{equation*}
+\lim _{n \rightarrow \infty}\left\|T x_{n}-T x\right\|=0 \tag{11}
+\end{equation*}
+
+
+ならば，連続な作用素であるとよばれる. このとき，作用素 $T$ の有界性と連続性とは全く同値であることを示せ.  
+\end{itembox}
+
+\textbf{解答}
+
+（有界性$\Longrightarrow$ 連続性）
+
+$T$ が有界であると仮定すると, \ 
+$$
+\| Tx_n - Tx\| = \| T(x_n - x)\| \leq \|T\| \|x_n - x\|.
+$$
+
+$\|T\| < \infty$ だから, \ $\|x_n - x\| \to 0$ ならば $\|Tx_n - Tx\| \to 0$. よって, \ $T$ は連続である.
+
+\bigskip
+
+（連続性$\Longrightarrow$ 有界性）
+
+$T$ が連続であると仮定し, \ $\|y\| < 1 (y \in \mathbb{C})$ とする. このとき, \ $T$ の連続性から, \ $\|\delta y\| < \delta$ ならば $\|T\delta y\| = \delta\|Ty\| < 1$ となるような$\delta > 0$ が存在する. よって, \ $\|f\| < 1$ ならば $\|Ty\| < \frac{1}{\delta}$ すなわち $\|T\| < \infty$ であることが示された.
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[6]}
+関数空間 $C, \Gamma$ および $\Gamma$ 上の対称微分作用素 $L$ を問題［4］と同様に定義し，$L$ のレ ゾルベントを $R_{\ell}$ とする．$R_{\ell}$ のベキを
+
+
+\begin{equation*}
+R_{\ell}^{k} u=R_{\ell}\left(R_{\ell}^{k-1} u\right), \quad k=2,3, \ldots, \quad u \in C \tag{12}
+\end{equation*}
+
+
+で定義し，
+
+
+\begin{align*}
+G_{k}(t, \tau, \ell) & =\int_{a}^{b} G(t, s, \ell) G_{k-1}(s, \tau, \ell) d s, \quad k=2,3, \ldots  \tag{13}\\
+G_{1}(t, \tau, \ell) & =G(t, \tau, \ell) \tag{14}
+\end{align*}
+
+
+とする．このとき，
+
+
+\begin{equation*}
+R_{\ell}^{k} u(t)=\int_{a}^{b} G_{k}(t, \tau, \ell) u(\tau) d \tau \tag{15}
+\end{equation*}
+
+
+であることを示せ．ただし，$G(t, \tau, \ell)$ は作用素 $L$ のグリーン関数である．  
+\end{itembox}
+
+\textbf{解答}
+
+数学的帰納法を用いて示す.
+
+$G_{1}(t, \tau, l) = G(t, \tau, l)$ は定義から明らか.
+
+$k = n$ のとき
+$$
+R_{i}^{k} u(t)-\int_{a}^{b} G_{k}(t, \tau, l) u(\tau) d \tau,
+$$
+$$
+G_k(t, \tau, l) = \int_a^b G(t,s,l)G_{k-1}(s,\tau,l) ds
+$$
+
+であると仮定すると, \ 
+
+$$
+\begin{aligned}
+R_{l}^{a+1} u(t) & =\int_{a}^{b} G(t, s, l) R_{l}^{n} u(s) d s \\
+& =\int_{a}^{b} G(t, s, l) d s \int_{a}^{b} G_{n}(s, \tau, l) u(\tau) d \tau \\
+& =\int_{a}^{b}\left(\int_{a}^{b} G(t, s, l) G_{n}(s, \tau, l) d s\right) u(\tau) d \tau
+\end{aligned}
+$$
+
+となり, 
+
+$$
+R_{l}^{n+1} u(t)=\int_{a}^{b} G_{n+1}(t, \tau, l) u(\tau) d \tau,
+$$
+$$
+G_{n+1}(t, \tau, l) = \int_{a}^{b} G(t, s, l) G_{n}(s, \tau, t) d s
+$$
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[7]}
+上記問題［6］と同じ設定とする．このとき，展開式
+
+\begin{equation*}
+G_{k}(t, \tau, \ell)=\sum_{j=1}^{\infty} \mu_{j}^{k} \varphi_{j}(t) \varphi_{j}(\tau), \quad k=2,3, \ldots \tag{16}
+\end{equation*}
+
+
+が成り立つことを示せ．ただし $, \mu_{0}, \mu_{1}, \mu_{2}, \ldots$ は $R_{\ell}$ の固有値で，$\varphi_{0}, \varphi_{1}, \varphi_{2}, \ldots$ はそれ に対応する規格化された固有関数である.  
+\end{itembox}
+
+\textbf{解答}
+
+$$
+G_{k}(t, \tau, D)-\int_{a}^{b} G(t, s, l) G_{k-1}(s, \tau, 1) d s
+$$
+
+であるから, \ 
+
+$G_{k}$ を$t$ の関数と考えれば
+$G_k = R_l G_{k-1}$.
+
+よって$G_k \in \Gamma$ であり, \ $G_k(t,\tau,l) = \displaystyle \sum_{j=0}^{\infty} c_j \varphi_j(t)$
+$$
+\begin{aligned}
+\qquad c_{j}=\left(G_{k}, \varphi_{j}\right)
+&=\int_{a}^{b} G_{k}(t, \tau, l) \varphi_{j}(t) d t\\
+&=\int_{a}^{b} G_{k}(\tau, t, l) \varphi_{j}(t) d t\\
+&=\left(R_{l}{ }^{k} \varphi_{j}\right)(\tau)
+\end{aligned}
+$$
+
+$R_{l} \varphi_{j}=\mu_{j} \varphi_{j}, \quad R_{l}{ }^{2} \varphi_{j}=R_{l}\left(\mu_{j} \varphi_{j}\right)=\mu_{j}^{2} \varphi_{j}, \ \cdots, \ R_{l}{ }^{k} \varphi_{j}=\mu_{j}^{k} \varphi_{j}$.
+なので, \ $c_j = \mu_j^k \varphi_j (\tau)$. したがって
+
+$$
+G_{k}(t, \tau, l)=\sum_{j=0}^{\infty} \mu_{j}^{k} \varphi_j(t) \varphi_{j}(\tau)
+$$
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[8]}
+関数の族 $\Gamma$ を
+
+
+\begin{equation*}
+\Gamma:=\left\{x \equiv x(t) \mid x \in C^{2}[0,1], x(0)=x^{\prime}(1)=0\right\} \tag{17}
+\end{equation*}
+
+
+で定める．$\Gamma$ を定義域にもつ作用素 $L$ を
+
+
+\begin{equation*}
+L x=\frac{d^{2} x}{d t^{2}} \tag{18}
+\end{equation*}
+
+
+とする．境界値問題 $L x=-t$ を解け．  
+\end{itembox}
+
+\textbf{解答}
+
+
+$$
+L x=\frac{d^{2} x}{d t^{2}}=0
+$$
+
+を解くと $x=a t+b$（ $a, b$ は定数）となる. ここで境界条件$x(0)-x^{\prime}(1)=0$ を考えると$a = b = 0$，すなわち
+
+$$
+x \equiv 0 .
+$$
+
+ゆえに$0$ は固有値ではないから$Lx = -t$ はグリーン関数を用いて解くことができる.
+
+$$
+\frac{d^{2} x}{d t^{2}}=0
+$$ の解で, \ $x(0) = 0$ を満たすものとして $x_{2}(t)=1$ をとれば $W\left(x_{1}(\tau), x_{2}(\tau)\right)=-1$ たからら
+
+$$
+G(t, \tau, 0)= \begin{cases}-x_{1}(\tau) x_{2}(t)=-\tau, & \tau \leq t, \\ -x_{1}(t) x_{2}(\tau)=-t, & \tau \geqq t,\end{cases}
+$$
+
+ゆえに求める解は
+
+$$
+\begin{aligned}
+x & =\int_{0}^{1} G(t, \tau, 0) \cdot(-\tau) d \tau \\
+& =\int_{0}^{t} \tau^{2} d \tau+\int_{t}^{1} t \tau d \tau=\frac{t}{2}-\frac{t^{3}}{6}
+\end{aligned}
+$$
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[9]}
+関数の族 $\Gamma$ を
+
+
+\begin{equation*}
+\Gamma:=\left\{x \equiv x(t) \mid x \in C^{2}[0,1], x^{\prime}(0)=x^{\prime}(1)=0\right\} \tag{19}
+\end{equation*}
+
+
+とする．$u(t) \in C[0,1]$ に対して，$\Gamma$ において境界値問題
+
+
+\begin{equation*}
+L x=\frac{d^{2} x}{d t^{2}}=u(t) \tag{20}
+\end{equation*}
+
+
+を解け.  
+\end{itembox}
+
+\textbf{解答}
+
+$x=1$ は $x^{\prime}(0)=x^{\prime}(1)=0$ を満たし, \ 
+$\frac{d^{2} x}{d t^{2}}=0$
+
+の解だから， $0$ は $L$ の固有値である. ゆえにこれはグリーン関数を使って解くことができない.\\
+
+$$
+\frac{d^{2} x}{d t^{2}} = l x
+$$
+
+の一般解は
+
+$$
+x=c_{1} \cos \sqrt{-l}t + c_{2} \sin \sqrt{-l} t
+$$
+
+ゆえに
+
+$$
+x' = -\sqrt{-l}c_1\sin\sqrt{-l}t + \sqrt{-l}c_2\cos\sqrt{-l}t.
+$$
+
+$x'(0) = 0$ から $c_{2}=0$ または，$l=0, x^{\prime}(1)=0$ から $l \neq 0$ ならば $\sin \sqrt{-l} = 0$ ．\\
+ゆえに $\sqrt{-l} = n \pi$, すなわち $l=-n^{2} \pi^{2}$（ $n$ は整数）.\\
+したがって $L$ の固有値は
+
+$$
+l--n^{2} \pi^{2} \quad(n=0,1,2, \cdots)
+$$
+
+であり，それに対応する規格化された固有関数は\\
+$l=0$ に対しては $x_{0} = 1$ ，
+
+$$
+l=-n^{2} \pi^{2} \quad(n \neq 0) \text { に対しては } x_{n}=\sqrt{2} \cos n \pi t .
+$$
+
+ゆえに
+
+$$
+\frac{d^{2} x}{d t^{2}}=u(t)
+$$
+
+が $\Gamma$ の中で解をもつのは，$u(t)$ が固有値 0 に対応する固有関数 1 と直交し ているとき，すなわち
+
+$$
+\int_{0}^{1} u(t) d t=0
+$$
+
+のときに限る.\\
+そしてこの時の解は
+
+$$
+\begin{aligned}
+x & =\sum_{n=1}^{\infty} \frac{\left(x_{n}, u\right)}{-n^{2} \pi^{2}-0} x_{n}(t)+c x_{0}(t) \\
+& =\underline{-\sum_{n=1}^{\infty} \frac{2}{n^{2} \pi^{2}} \cos n \pi t \cdot \int_{0}^{1} u(\tau) \cos n \pi \tau d \tau+c}
+\end{aligned}
+$$
+
+このフーリエ数数が一様収束することに注意して答えを書き直すと,
+
+$$
+\begin{aligned}
+x & =-\int_{0}^{1} u(\tau) d \tau\left[\sum_{n=1}^{\infty} \frac{2}{n^{2} \pi^{2}} \cos n \pi t \cdot \cos {n\pi \tau} \right]+c \\
+& =-\int_{0}^{1} u(\tau) d \tau \left[\sum_{n=1}^{\infty} \frac{\cos n \pi(\tau+t)}{n^{2} \pi^{2}}+\sum_{n=1}^{\infty} \frac{\cos n\pi(\tau - t)}{n^2\pi^2} \right] + c
+\end{aligned}
+$$
+
+次に，$[-1,1]$ において $s^{2}$ に等しく，あとはそれを周期$2$ をくりかえすような周期関数を $f(s)$ とすれば，それは
+
+$$
+f(s)=\sum_{n=0}^{\infty} f_{n} \cos n \pi s
+$$
+
+のようなフーリエ級数に展開されて，
+
+$$
+f_{0}=\int_{0}^{1} s^{2} d s=\frac{1}{3},
+$$
+
+$$
+f_{n}=2 \int_{0}^{1} s^{2} \cos n \pi s d s=\frac{4(-1)^{n}}{n^{2} \pi^{2}}, \quad n=1,2, \cdots
+$$
+
+すなわち
+
+$$
+f(s)=\frac{1}{3}+4 \sum_{n=1}^{\infty} \frac{(-1)^{n}}{n^{2} \pi^{2}} \cos n \pi s
+$$
+
+また，$[-1,1]$ で $|s|$ に等しく，あとはそれを周期 $2$ をもってくりかえすような周期関数を $g(s)$ とおけば，それは
+
+$$
+g(s)=\sum_{n=0}^{\infty} g_{n} \cos n \pi s
+$$
+
+のようなフーリエ数数に展開されて
+
+$$
+g_{0}=\int_{0}^{1} s d s=\frac{1}{2}
+$$
+
+$$
+g_n = 2\int_0^1 s\cos n\pi s ds 
+= \begin{cases}
+0 & n:偶数\\
+-\frac{4}{n^2\pi^2} & n:奇数
+\end{cases}
+$$
+
+すなわち $g(s) = \frac{1}{2} - 4\sum' \frac{1}{n^2\pi^2} \cos n\pi s$
+
+ただし$\sum'$ は $n$ が奇数についてのみの和を表すものとする.
+
+これから$f(s)-2 g(s)=-\displaystyle \frac{2}{3}+4 \sum_{n=1}^{\infty} \frac{\cos n \pi s}{n^{2} \pi^{2}}$.
+
+したがって
+
+$$
+\begin{aligned}
+x &= -\int_{0}^{1} u(\tau)\left(\frac{1}{6}+\frac{1}{4} f(\tau+t)-\frac{1}{2} g(\tau+t)+\frac{1}{6}+\frac{1}{4} f(\tau-t)-\frac{1}{2} g(\tau-t)\right) d \tau+c \\
+&=-\int_{0}^{1} u(\tau)\left[\frac{1}{3}+\frac{1}{4}(f(\tau+t)-2 g(\tau+t)) + \frac{1}{4}(f(\tau-t)-2 g(\tau-t))\right] d \tau+c . \\
+& f(\tau+t)= \begin{cases}(\tau+t)^{2}, & 0 \leqq \tau \leqq 1-t, \\
+(\tau+t-2)^{2}, & 1-t \leqq \tau \leqq 1,\end{cases} \\
+& f(\tau-t)=(\tau-t)^{2}, 0 \leqq \tau \leqq 1, \\
+& g(\tau+t)= \begin{cases}\tau+t, & 0 \leqq \tau \leqq 1-t, \\
+2-\tau-t, & 1-t \leqq \tau \leqq 1,\end{cases} \\
+& g(\tau-t)= \begin{cases}-\tau+t, & 0 \leqq \tau \leqq t, \\
+\tau-t, & t \leqq \tau \leqq 1 .\end{cases}
+\end{aligned}
+$$
+
+これから
+
+$$
+\frac{1}{4}(f(\tau+t)-2 g(\tau+t))=\frac{1}{4}\left(\tau^{2}+t^{2}+2 \tau t-2 \tau-2 t\right) \ (0 \leq \tau \leq 1)
+$$
+
+$$
+\frac{1}{4}(f(\tau-t)-2 g(\tau-t))=\left\{\begin{array}{l}
+\frac{1}{4}\left(\tau^{2}+t^{2}-2 \tau t+2 \tau-2 t\right), \ 0 \leq \tau \leq t\\
+\frac{1}{4}\left(\tau^{2}+t^{2}-2 \tau t-2 \tau+2 t\right), \ t \leq \tau \leq 1
+\end{array}\right.
+$$
+
+よって,
+
+$$
+\begin{aligned}
+& \frac{1}{4}(f(\tau+t)-2 g(\tau+t))+\frac{1}{4}(f(\tau-t)-2 g(\tau-t)) \\
+& = \begin{cases}\frac{1}{2}\left(\tau^{2}+t^{2}\right)-t, & 0 \leq \tau \leq t, \\
+\frac{1}{2}\left(\tau^{2}+t^{2}\right)-\tau, & t \leq \tau \leq 1 .\end{cases}
+\end{aligned}
+$$
+
+ゆえに，解は
+
+$$
+\begin{aligned}
+x= & -\frac{1}{3} \int_{0}^{1} u(\tau) d \tau-\frac{1}{2} \int_{0}^{1} \tau^{2} u(\tau) d \tau-\frac{1}{2} t^{2} \int_{0}^{1} u(\tau) d \tau \\
+& +t \int_{0}^{t} u(\tau) d \tau+\int_{t}^{1} \tau u(\tau) d \tau+c
+\end{aligned}
+$$
+
+$\int_{0}^{1} u(\tau) d \tau=0, \int_{0}^{1} \tau^{2} u(\tau) d \tau$ は定数であることに注意すれば，
+
+$$
+\underline{x=t \int_{0}^{t} u(\tau) d \tau+\int_{t}^{1} \tau u(\tau) d \tau+c}
+$$
+
+が求める解である.\\
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[10]}
+境界値問題
+
+
+\begin{equation*}
+\frac{d^{2} x}{d t^{2}}-\ell x=1, \quad x^{\prime}(0)=x(1)=0 \tag{21}
+\end{equation*}
+
+
+を解け.  
+\end{itembox}
+
+\textbf{解答}
+
+まず
+$$
+\frac{d^{2} x}{d t^{2}}-l x=0
+$$
+
+の一般解は
+
+$$
+x=c_{1} \cos \sqrt{-l}t + c_{2} \sin \sqrt{-l}t .
+$$
+
+$x^{\prime}(0)=x(1)=0$ を満たすためには $c_{2}=0, \ \cos \sqrt{-l}=0$. ゆえに固有値は
+
+$$
+l = -\left(\frac{1}{2}+n\right)^{2} \pi^{2}, \quad n=0,1,2, \cdots
+$$
+
+それに対する規格化された固有関数は
+
+$$
+\sqrt{2} \cos \left(\frac{1}{2}+n\right) \pi t
+$$
+
+である．\\
+したがって, 
+
+(i) \ $l$ が固有値$-\left(\frac{1}{2}+n\right)^{2} \pi^{2}$ に等しいときは, \ 
+$\int_0^1 \cos\left(\frac{1}{2} + n \right) \pi t$ \ dt = $\frac{1}{(\frac{1}{2} + n)\pi} \neq 0$ なので境界値問題は解けない.
+
+(ii) \ $l \neq -\left(\frac{1}{2} + n \right)^2 n^2$ のときはグリーン関数を作ることができる.
+
+まず, \ $x'(0) = 0$ となる解は $x = \varphi_1(t) = \cos\sqrt{-l}t$.
+
+$x(1) = 0$ となる解は
+$$
+x = \varphi_2(t) = \sin\sqrt{-l}(t-1),
+$$
+$$
+W(\varphi_1(t), \varphi_2(t)) = \sqrt{-l}\cos\sqrt{-l}.
+$$
+
+ゆえに \ 
+$G(t, \tau, l) = \begin{cases}
+\frac{\varphi_1(\tau)\varphi_2(t)}{\sqrt{-l}\cos\sqrt{-l}} = \frac{\cos\sqrt{-l}\tau\sin\sqrt{-l}(t-1)}{\sqrt{-l}\cos\sqrt{-l}}, & \tau \le t \\
+\frac{\varphi_1(t)\varphi_2(\tau)}{\sqrt{-l}\cos\sqrt{-l}} = \frac{\cos\sqrt{-l}t\sin\sqrt{-l}(\tau - 1)}{\sqrt{-l}\cos\sqrt{-l}}, & \tau \ge t
+\end{cases}$
+
+したがって求める解は
+
+$$
+\begin{aligned}
+x(t)
+&= \int_0^1 G(t, \tau, l) d\tau \\
+&= \int_0^t \frac{\cos\sqrt{-l}\tau\sin\sqrt{-l}(t-1)}{\sqrt{-l}\cos\sqrt{-l}} d\tau + \int_t^1 \frac{\cos\sqrt{-l}t\sin\sqrt{-l}(\tau - 1)}{\sqrt{-l}\cos\sqrt{-l}} d\tau \\
+&=\frac{\cos\sqrt{-l}t\sin\sqrt{-l}(t - 1)}{\sqrt{-l}\cos\sqrt{-l}} \\
+&= \underline{-\frac{1}{l} + \frac{\cos\sqrt{-l}t}{l\cos\sqrt{-l}}}
+\end{aligned}
+$$
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[11]}
+$\Gamma$ を問題［8］で定義された関数の族と同じものとする．$\Gamma$ 上で定義された 2 階対称線形微分作用素 $L$ のグリーン関数を $G(t, \tau, \ell)$ とするとき，
+
+
+\begin{equation*}
+G(t, \tau, \ell)-G(t, \tau, 0)=\ell \int_{a}^{b} G(t, s, 0) G(s, \tau, \ell) d s \tag{22}
+\end{equation*}
+
+
+が成り立つことを示せ．ただし， 0 と $\ell$ は共に $L$ の固有値ではないものとする．  
+\end{itembox}
+
+\textbf{解答}
+
+$Lx = px'' + p'x' + rx$ とすれば, \ $[a, b]$ 内の任意の区間$[\alpha, \beta]$ において$2$ 回連続微分可能な関数$x(s), y(s)$ に対して
+
+$$
+\displaystyle\int_\alpha^\beta (Lx)(s)y(s) ds - \int_\alpha^\beta (Ly)(s)x(s) ds
+= [p(s)(x'(s)y(s) - x(s)y'(s))]_\alpha^\beta
+$$
+
+が成り立つ.
+
+いま, \ $x(s) = G(s,\tau, l), \ y(s) = G(s, t, 0)$ とする. まず$\tau < t, \ a < \tau_- < \tau < \tau_+ < t_- < t < t_+ < b$ とすれば, \ $x(s), y(s)$ は$[a, \tau_-], \ [\tau_+, t_-], \ [t_+, b]$ においてそれぞれ$2$ 回連続微分可能であって, \ そこで$(L-l)x(s) = 0, \ Ly(s) = 0$ が成り立つ. ゆえに, \ 上の$3$つの区間のうちの$1$ つを$[\alpha, \beta]$ と書けば
+
+$$
+\begin{aligned}
+\displaystyle \int_\alpha^\beta (Lx)(s)y(s) ds - \int_\alpha^\beta (Ly)(s)x(s) ds
+&= l\int_\alpha^\beta x(s)y(s) ds \\
+&= l\int_\alpha^\beta G(s, \tau, l)G(s, t, 0) ds
+\end{aligned}
+$$
+
+さらに
+$$
+\begin{aligned}
+\displaystyle \int_\alpha^\beta (Lx)(s)y(s) ds - \int_\alpha^\beta (Ly)(s)x(s) ds
+&= [p(s)(x'(s)y(s) - x(s)y'(s))]_\alpha^\beta \\
+&= [p(s)(G_s(s, \tau, l)G(s, t, 0) - G(s, \tau, l)G_s(s, t, 0))]_\alpha^\beta  
+\end{aligned}
+$$
+
+よって, \ 
+$l \left\{\displaystyle\int_a^{\tau_-} G(s, \tau, l)G(s, t, 0) ds + \int_{\tau_+}^{l_-} G(s, \tau, l)G(s, t, 0) ds + \int_{l_+}^b G(s, \tau, l)G(s, t, 0) ds \right\} \\
+= [p(s)(G_s(s, \tau, l)G(s, t, 0) - G(s, \tau, l)G_s(s, t, 0))]_a^{\tau_-} + [p(s)(G_s(s, \tau, l)G(s, t, 0) - G(s, \tau, l)G_s(s, t, 0))]_{\tau_+}^{t_-} + [p(s)(G_s(s, \tau, l)G(s, t, 0) - G(s, \tau, l)G_s(s, t, 0))]_{l_+}^b$.
+
+ここで, \ $\tau_- \to \tau, \ \tau_+ \to \tau, \ t_- \to t, \ t_+ \to t$ とすれば, \ 上式の左辺は$l\displaystyle\int_a^b G(s,\tau,l)G(s,t,0) ds$ に収束する.
+
+これに対して右辺は
+
+$p(b)(G_s (b, \tau, l)G(b, t, 0) - G(b, \tau, l)G_s(b,t,0)) \\
+- p(a)(G_s(a, \tau, l)G(a, t, 0) - G(a, \tau, l)G_s(a,t,0)) \\
+- \{p(\tau_+) (G_s(\tau_+, \tau, l)G(\tau_+, t, 0) - G(\tau_+, \tau, l)G_s(\tau_+, t, 0))\\
+- p(\tau_-) (G_s(\tau_-, \tau, l)G(\tau_-, t, 0) - G(\tau_-, \tau, l)G_s(\tau_-, t, 0)) \} \\
+- \{p(\tau_+)(G_s(t_+, \tau, l)G(t_+, t, 0) - G(t_+, \tau, l)G_s(t_+, t, 0)) \\
+- p(t_-) (G_s(t_-, \tau, l)G(t_-, t, 0) - G(t_-, \tau, l)G_s(t_-, t, 0)) \}$
+
+\bigskip
+
+ここで $\tau_- \to \tau, \ \tau_+ \to \tau, \ t_- \to t, \ t_+ \to t$ とすれば
+
+\bigskip
+
+$p(\tau_-) \to p(\tau), \ p(\tau_+) \to p(\tau), \ p(\tau_-) \to p(t), \ p(t_-) \to p(t),$
+
+$
+G(\tau_-, t, 0) \to G(\tau, t, 0), \ G(\tau_+, t, 0) \to G(\tau, t, 0), \\
+G(t_-, t, 0) \to G(t, t, 0), \ G(t_+, t, 0) \to G(t, t, 0), \\
+G(\tau_-, \tau, l) \to G(\tau, \tau, l), \ G(\tau_+, \tau, l) \to G(\tau, \tau, l), \\
+G(t_-, \tau, l) \to G(t, \tau, l), \ G(t_+, \tau, l) \to G(t, \tau, l), \\
+G_s(t_+, \tau, l) - G_s(\tau_-, \tau, l) \to 1/p(\tau), \\
+G_s(t_+, t, 0) - G_s(t_-, t, 0) \to 1/p(t).
+$
+
+\bigskip
+
+さらに
+
+$
+AG(a,t,0) + A'G_s(a,t,0) = 0, \\
+AG(a,\tau,l) + A'G_s(a, \tau, l) = 0, \\
+BG(b,t,0) + B'G_s(b,t,0) = 0, \\
+BG(b,\tau,l) + B'G_s(b,\tau,l) = 0
+$
+ \ から
+
+$
+G_s(a,\tau,l)G(a,t,0) - G(a,\tau,l)G_s(a,t,0) = 0, \\
+G_s(b,\tau,l)G(b,t,0) - G(b,\tau,l)G_s(b,t,0) = 0.
+$
+
+これらをまとめると, \ 右辺は$-G(\tau,t,0) + G(t, \tau,l)$ に収束する. 
+
+ゆえに $G(\tau,t,0) = G(t, \tau,0), \ G(s,t,0) = G(t,s,0)$ に注意して
+
+$$
+G(t, \tau, l)-G(t, \tau, 0)= l \int_{a}^{b} G(t, s, 0) G(s, \tau, l) d s.
+$$
+
+これは$l < \tau$ の場合でも同様にして証明できる.
+
+
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[12]}
+$G(t, \tau, \ell)$ を上記問題［11］と同様なグリーン関数とする．$t$ と $\tau$ を固定したとき，$\ell$ を複素数と考えて $(\ell \in \mathbb{C}), G(t, \tau, \ell)$ が $|\ell|<\infty$ において有理型の関数であることを仮定 して，$G(t, \tau, \ell)$ は $\ell=\lambda_{k}$ において 1 位の極をもつことを示せ. ただし，$\lambda_{k}$ は $L$ の$1$つの固有値であるとする.
+\end{itembox}
+
+\textbf{解答}
+
+$l = \lambda_k$ の近傍における$G(t,\tau,l)$ のローラン展開を
+$$
+G(t,\tau,l) = \frac{g_m(t,\tau)}{(l-\lambda_k)^m} + \frac{g_{m-1}(t,\tau)}{(l-\lambda_k)^{m-1}} + \cdots
+$$
+
+とすれば, \ 任意の連続関数$f(t)$ に対し
+
+$$
+\begin{aligned}
+\varphi(t,l) = R_l f(t) &= \int_a^b G(t,\tau,l) f(\tau) d\tau \\
+&= \frac{g_m(t)}{(l-\lambda_k)^m} + \frac{g_{m-1}(t)}{(l-\lambda_k)^{m-1}} + \cdots,
+\end{aligned}
+$$
+$$\varphi_n(t) = \displaystyle\int_a^b g_n(t,\tau) f(\tau) d\tau$$.
+
+この両辺に$L-\lambda_k$ を作用させれば, 
+
+$$
+(L-\lambda_k)R_l f = (L - l + l - \lambda_k)R_l f = f + (l-\lambda_k)R_l f
+$$
+
+に注意して
+
+$$
+\left(L-\lambda_{k}\right) \varphi =f+\left(l-\lambda_{k}\right) \varphi
+=\frac{\left(L-\lambda_{k}\right) \varphi_{m}}{\left(L-\lambda_{k}\right) m}+\frac{\left(L-\lambda_{k}\right) \varphi^{m-1}}{\left.\left(I-\lambda_{k}\right)\right)_{m-1}}+\cdots
+$$
+
+ゆえに
+
+$$
+f+\frac{\varphi_{m}}{\left(l-\lambda_{k}\right)^{m-1}}+\frac{\varphi_{m-1}}{\left(l-\lambda_{k}\right)^{m-2}}+\cdots=\frac{\left(L-\lambda_{k}\right) \varphi_{m}}{\left(l-\lambda_{k}\right){ }^{m}}+\frac{\left(L-\lambda_{k}\right) \varphi_{m-1}}{\left(l-\lambda_{k}\right)^{m-1}}+\cdots
+$$
+
+この両辺を比べて, \ $m > 1$ ならば
+
+$$
+\left(L-\lambda_{k}\right) \varphi_{m}=0, \quad\left(L-\lambda_{k}\right) \varphi_{m-1}=\varphi_{m},
+$$
+
+$m=1$ ならば
+
+$$
+\left(L-\lambda_{k}\right) \varphi_{1}=0, \quad\left(L-\lambda_{k}\right) \varphi_{0} = f+\varphi_{1}
+$$
+
+を得る. よって,
+
+$$
+\begin{aligned}
+\left\|\varphi_{m}\right\|^{2} & =\left(\varphi_{m}, \varphi_{m}\right)=\left(\varphi_{m}, \left(L-\lambda_{k}\right) \varphi_{m-1}\right) \\
+& =\left(\left(L-\lambda_{k}\right) \varphi_{m}, \varphi_{m-1}\right)=0 .
+\end{aligned}
+$$
+
+したがって $m>1$ に対して$\displaystyle\int_a^b (\varphi_m(t))^2 dt = 0$. $\varphi_m$ は連続関数であるから $\varphi_m = 0$. ゆえに, \ 任意の連続関数$f$ に対して
+
+$$
+\int_{a}^{b} g_m(t,\tau) f(\tau)\tau =0
+$$
+
+が成り立つ. 以上より$g_m = 0$ であって, \ $G(t,\tau,l)$ は$l = \lambda_k$ において$1$位の極をもつ.
+
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[13]}
+固有値問題
+
+
+\begin{equation*}
+\frac{d^{2} x}{d t^{2}}=\ell x, \quad x(-1)=x(1), \quad x^{\prime}(-1)=x^{\prime}(1) \tag{23}
+\end{equation*}
+
+
+を解け.  
+\end{itembox}
+
+\textbf{解答}
+
+一般解は $x(t) = A\cos(kt) + B\sin(kt)$.
+
+境界条件$x(-1) = x(1)$ を適用すると,
+
+$A\cos k - B\sin k = A\cos k + B\sin k$ より, \ $B\sin k = 0 ───\textcircled{\scriptsize 1}$
+
+つぎに, \ 境界条件$x'(-1) = x'(1)$ を適用すると, \ 
+
+$x'(t) = -A\sin(kt) + Bk\cos(kt)$ より $Ak\sin k + Bk\cos k = -Ak\sin k + Bk\cos k$
+
+よって, \ $Ak\sin k = 0 ───\textcircled{\scriptsize 2}$
+
+$\textcircled{\scriptsize 1}, \ \textcircled{\scriptsize 2}$ より固有値は$l = (n\pi)^2$, \ $k=n\pi$ に対応する固有関数は$\underline{x(t) = A\cos(n\pi t) + B\sin(n\pi t)}$.
+
+
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[14]}
+偏微分方程式
+
+
+\begin{equation*}
+\frac{\partial^{2}}{\partial t^{2}} u(t, x)=\frac{\partial^{2}}{\partial x^{2}} u(t, x), \quad 0<t<\infty, \quad 0<x<1 \tag{24}
+\end{equation*}
+
+
+をみたし，境界条件 $u(t, 0)=u(t, 1)=0$ をみたし，さらに条件
+
+\[
+u(0, x)=\left\{\begin{array}{rl}
+x, & 0 \leqslant x \leqslant 1 / 2,  \tag{25}\\
+1-x, & 1 / 2 \leqslant x \leqslant 1,
+\end{array} \quad \frac{\partial}{\partial t} u(0, x)=0\right.
+\]
+
+をみたす解 $u=u(t, x)$ を求めよ.  
+\end{itembox}
+
+\textbf{解答}
+
+$u=z(t)w(x)$とおくと
+
+$$
+\frac{z^{\prime \prime}}{z}=\frac{w^{\prime \prime}}{w}=l \text {, }
+$$
+$$
+w=c_{1} \cos \sqrt{-l}x + c_{2} \sin \sqrt{-l}x.
+$$
+$u(t, 0)=u(t, 1)=0$ から $w(0)=w(1)=0$ ．ゆえに
+$c_1 = 0, \ \sin\sqrt{-l} = 0$.
+
+以上より$l=-n^2\pi^2$ が得られて
+
+$$
+w_{n}=\sin n \pi x,
+$$
+$$
+z^{\prime \prime}=-n^{2} \pi^{2} z
+$$
+
+から$z_n = A_n \cos n\pi t + B_n \sin n\pi t$. そこで
+$u = \displaystyle \sum_1^{\infty} (A_n \cos n\pi t + B_n \sin n\pi t) \sin n\pi x$ とおくと
+
+$u(0, x)= \displaystyle \sum_{1}^{\infty} A_{n} \sin n \pi x, \quad u_{1}(0, x)=\sum_{1}^{\infty} n \pi B_{n} \sin n \pi x$.\\
+$u_{1}(0,x)=0$ から $B_{n}=0$ ．
+
+$u(0,x) = \begin{cases}
+x & 0 \le x \le 1/2 \\
+1-x & 1/2 \le x \le 1,
+\end{cases}$
+のフーリエ展開を求めると
+
+$$
+A_{n}=\frac{4}{n^{2} \pi^{2}} \sin \frac{n \pi}{2} .
+$$
+
+ゆえに解は
+
+$$
+u= \underline{\frac{4}{\pi^{2}} \sum_{1}^{\infty} \frac{1}{n^{2}} \sin \frac{n \pi}{2} \cos n \pi t \sin n \pi x} .
+$$
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[15]}
+$J$ を $\mathbb{R}$ のある区間とし，実数値関数 $p(x), q(x)$ はともに $p, q \in C(J)$ であるとす る．複素数値関数 $y=u(x)+i v(x)$ が微分方程式
+
+
+\begin{equation*}
+L y=y^{\prime \prime}+p(x) y^{\prime}+q(x) y=0 \tag{26}
+\end{equation*}
+
+
+の解であるならば，実数値関数 $u(x)$ および $v(x)$ はいずれも方程式 $L y=0$ の解であることを示せ.  
+\end{itembox}
+
+\textbf{解答}
+
+$y = u + iv$ を元の方程式に代入すると,
+
+$$
+(u +iv)'' + p(x)(u+iv)' + q(x)(u+iv) = 0
+$$
+
+よって, \ $\uwave{(u'' + p(x)u' + q(x)u)} + i\uwave{(v'' + p(x)v' + q(x)v)} = 0$
+
+波線部はともに実数値関数であるから, \ $u'' + p(x)u' + q(x)u = v'' + p(x)v' + q(x)v = 0$.
+
+以上より,\ $Lu = Lv = 0$ となるため,
+
+$u(x), v(x)$ が $Ly=0$ の解であることが示された.
+
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[16]}
+境界値問題
+
+
+\begin{equation*}
+y^{\prime \prime}=-f(x), \quad y(0)=0, \quad y(1)=0, \quad(f \in C[0,1]) \tag{27}
+\end{equation*}
+
+
+を考える. 対応するグリーン関数を構成し，それを用いて上記境界値問題の解 $y(x)$ を求 めよ.  
+\end{itembox}
+
+\textbf{解答}
+
+境界値問題：$y^{\prime \prime} = -f(x), y(0)=0, y(1)=0, f \in C[0,1]$ に対応するグリーン関数をまず構成して一般解$y(x)$ を求める.\\
+微分方程式 $\frac{d^2}{d x^2} G(x, \xi)=-\delta(x-\xi)$ より,
+
+$$
+G(x, \xi)= \begin{cases}A x & (x<\xi) \\ B(1-x) & (x>\xi)\end{cases}
+$$
+
+境界条件 $G(0, \xi)=0$ を適用すると，$A(0)=0$,
+$G(1, \xi)=0 \text { を適用すると, } B(1-1)=0$
+これらは明らか.
+
+
+次に，$G(x, \xi)$ の $x=\xi$ での連続性から，$A \xi=B(1-\xi)$ i．e．$A=\frac{B(1-\xi)}{\xi} ───(*)$\\
+さらに，1階微分 $\frac{\partial G}{\partial x}$ の $x=\xi$ での不連続性から，
+
+
+\begin{align*}
+& \left.\frac{\partial G}{\partial x}\right|_{x=\xi^{+}}-\left.\frac{\partial G}{\partial x}\right|_{x=\xi^{-}}=-1  \tag{*}\\
+& \therefore\left\{\begin{array}{ll}
+\frac{\partial G}{\partial x}=A & (x<\xi) \\
+\frac{\partial G}{\partial x}=-B & (x>\xi)
+\end{array} \quad \text { より, } A+B=1\right.
+\end{align*}
+
+
+これを(*)に代入して解くと，$\frac{B(1-\xi)}{\xi}+B=1 \quad$ より,
+
+$$
+B=\xi, A=1-\xi
+$$
+
+$\therefore$ グリーン関数は $G(x, \xi)= \begin{cases}(1-\xi) x & (0 \leqq x \leqq \xi) \\ \xi(1-x) & (\xi \leqq x \leqq 1)\end{cases}$
+
+以上より，一般解は
+
+$$
+\begin{aligned}
+y(x) & =\int_{0}^{1} G(x, \xi) f(\xi) d \xi \\
+& =\int_{0}^{x}(1-\xi) x f(\xi) d \xi+\int_{x}^{1} \xi(1-x) f(\xi) d \xi \\
+& =\underline{x \int_{0}^{x}(1-\xi) f(\xi) d \xi+(1-x) \int_{x}^{1} \xi f(\xi) d \xi}
+\end{aligned}
+$$
+
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[17]}
+境界値問題
+
+
+\begin{equation*}
+y^{\prime \prime}=-f(x), \quad y(0)=1, \quad y(1)=2, \quad(f \in C[0,1]) \tag{28}
+\end{equation*}
+
+
+を考える。\\
+（i），対応するグリーン関数を構成し，それを用いて上記境界値問題の解 $y(x)$ を求めよ．\\
+（ii）とくに $f(x) \equiv 1$ のとき，解 $y(x)$ を具体的に書き表せ.  
+\end{itembox}
+
+\textbf{解答}
+
+境界問題：$y^{\prime \prime}=-f(x), y(0)=1, \quad y(1)=2, f \in C[0,1]$\\
+（i）グリーン関数 $G(x, \xi)$ は，微分方程式 $\frac{\partial^{2}}{\partial x^{2}} G(x, \xi)=-\delta(x-\xi)$\\
+を満たすことから，$G(x, \xi)= \begin{cases}A x+B & (x<\xi) \\ C x+D & (x>\xi)\end{cases}$\\
+境界条件 $G(0, \xi)=0$ より，$B=0 \quad \therefore G(x, \xi)=Ax$
+
+ \ \ \ \ $G(1, \xi) = 0$ より, $D = -C \quad \therefore G(x, \xi) = C(x-1)$
+
+
+\begin{equation*}
+G(1, \xi)=0 \quad \quad p=-c \quad \therefore G(x, \xi)=c(x-1) \tag{1}
+\end{equation*}
+
+
+$G(x, \xi) の x=\xi$ での連続性より，$A \xi=C(\xi-1) ───\textcircled{\scriptsize 1}$\\
+さらに，微分の不連続性より，
+
+
+\begin{equation*}
+\left.\frac{\partial G}{\partial x}\right|_{x=\xi^{+}}-\left.\frac{\partial G}{\partial x}\right|_{x=\xi^{-}}=-1 \Leftrightarrow C-A=-1 ───\textcircled{\scriptsize 2} \tag{2}
+\end{equation*}
+
+
+\textcircled{\scriptsize 1}, \ \textcircled{\scriptsize 2}より，$A=\frac{1-\xi}{2 \xi-1}, C=\frac{\xi}{2 \xi-1}$
+
+$$
+\therefore \text { グリーン関数は } G(x, \xi)=\left\{\begin{array}{ll}
+\frac{1-\xi}{1-2 \xi} x & (0 \leqq x \leqq \xi) \\
+\frac{\xi}{1-2 \xi}(x-1) & (\xi \leqq x \leqq 1)
+\end{array} \quad\right. \text { であり, }
+$$
+
+一般解は $y(x)=(1-x)+2 x+\int_{0}^{1} G(x, \xi) f(\xi) d \xi$
+
+$$
+=1+x+\int_{0}^{x} \frac{1-\xi}{1-2 \xi} x f(\xi) d \xi+\int_{x}^{1} \frac{\xi}{1-2 \xi}(x-1) f(\xi) d \xi
+$$
+
+（ii）$f(x) \equiv 1$ のとき,\\
+$y^{\prime \prime}=-1, \ y(0)=1, \ y(1)=2$ であるから，\\
+$y^{\prime}(x)=-x+C_{1}$\\
+$y(x)=-\frac{x^{2}}{2}+c_{1} x+c_{2} \quad\left(c_{1}, c_{2}\right.$ ：定数 $)$\\
+境界条件を適用すると，$C_{1}=\frac{1}{2}, \ C_{2}=1$ となるから，
+
+$$
+y(x)=-\frac{x^{2}}{2}+\frac{x}{2}+1
+$$
+
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[18]}
+$I=[a, b]$ とする．$p(x) \in C^{1}(I), p(x)>0$ ，かつ $q(x) \in C(I)$ とする。微分作用素 $L$ を
+
+
+\begin{equation*}
+L y=\left\{p(x) y^{\prime}\right\}^{\prime}+q(x) y=0, \quad(a<x<b) \tag{29}
+\end{equation*}
+
+
+とし，境界条件を
+
+\[
+\left\{\begin{array}{l}
+B_{a}[y]=A y(a)+A^{\prime} y^{\prime}(a)=0  \tag{30}\\
+B_{b}[y]=B y(b)+B^{\prime} y^{\prime}(b)=0
+\end{array}\right.
+\]
+
+とする。ただし，$A^{2}+A^{\prime 2} \neq 0$ かつ $B^{2}+{B^{\prime}}^{2} \neq 0$ である。任意の $\xi(a \leqslant \xi \leqslant b)$ に対し て，微分方程式
+
+
+\begin{equation*}
+L y=y_{0}(x) y_{0}(\xi) \tag{31}
+\end{equation*}
+
+
+の解 $y(x) \not \equiv 0$ で，境界条件（30）を満足するものは存在しないことを示せ．  
+\end{itembox}
+
+\textbf{解答}
+
+微分作用素$L$を持つ方程式 $L y=y_{0}(x) y_{0}(\xi)$ は，左辺が$x$のみの関数，右辺が$x$ と $\xi$ に分離された形.\\
+分雖定数法より，$\frac{L\left[y_{0}(x)\right]}{y_{0}(x)}=\frac{L\left[y_{0}(\xi)\right]}{y_{0}(\xi)}=\lambda \quad(\lambda:$ 分離定数 $)$\\
+（i）$y_{0}(x) $ 関する方程式\\
+$\left\{p(x) y_{0}^{\prime}(x)\right\}^{\prime}+q(x) y_{0}(x)=\lambda y_{0}(x)$ は固有値問題\\
+境界条件：$A y_{0}(a)+A^{\prime} y_{0}^{\prime}(a)=0, \ B y(b)+B^{\prime} y_{0}^{\prime}(b)=0$\\
+（ii）$y_0(\xi)$ に関する方程式\\
+同様に, \ $y_0(\xi)$ に対しても$\{p(\xi)y_0'(\xi) \}' + q(\xi)y_0(\xi) = \lambda y_0(\xi)$
+
+分離定数法より, \ (i), (ii) の$2$ つの方程式は互いに独立して成立.
+
+$2$ つの変数$x$ と $\xi$ が独立しているため, \ 境界条件のもとで$2$ つの独立した固有値問題が一致しない. $\therefore Ly=y_{0}(x) y_{0}(\xi)$ を満たす解は存在しない.
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[19]}
+境界値問題
+
+
+\begin{equation*}
+y^{\prime \prime}+y=-f(x), \quad y(0)=y(\pi)=0, \quad(f \in C[0, \pi]) \tag{32}
+\end{equation*}
+
+
+を考える。斉次境界値問題の解 $y_{0}(x)=\sqrt{2 / \pi} \sin x, y_{0}(x)$ と 1 次独立な斉次境界値問題 の解 $y_{1}(x)$ ，非斉次境界値問題の特殊解
+
+
+\begin{equation*}
+w(x, \xi)=\frac{1}{2 \pi} \sin \xi \sin x-\frac{1}{\pi} x \cos x \sin \xi \tag{33}
+\end{equation*}
+
+
+に対して，範囲 $0 \leqslant x \leqslant \xi$ に対応するグリーン関数 $G(x, \xi)$ を具体的に求めよ．  
+\end{itembox}
+
+\textbf{解答}
+
+グリーン関数$G(x, \xi)$ は以下を満たす.
+
+$G''(x, \xi) + G(x, \xi) = \delta(x - \xi)$ \ \ 境界条件：$G(0,\xi) = G(\pi, \xi) = 0$
+
+$\underline{G(x, \xi) = \begin{cases}
+\frac{1}{2\pi} \sin\xi\sin x - \frac{1}{\pi}x\cos x\sin\xi & (0\le x\le\xi) \\
+\frac{1}{\pi}(\xi - \pi) \cos\xi\sin x & (\xi\le x \le\pi)
+\end{cases}}$
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[20]}
+条件\\
+（a）$G(x, \xi)$ は $a \leqslant x, \xi \leqslant b$ で連続で，かつ任意の $\xi$ に対して $x \neq \xi$ で 2 回連続微分可能である。\\
+（b）関係式
+
+
+\begin{equation*}
+\left.\lim _{\varepsilon \rightarrow 0} G_{x}^{\prime}(x, \xi)\right|_{\xi=x-\varepsilon} ^{\xi=x+\varepsilon}=G_{x}^{\prime}(x, x+0)-G_{x}^{\prime}(x, x-0)=\frac{1}{p(x)} \tag{34}
+\end{equation*}
+
+
+が成り立つ。\\
+（c）任意の $\xi$ に対して，$G(x, \xi)$ は $\quad x \neq \xi$ で微分方程式
+
+
+\begin{equation*}
+\frac{d}{d x}\left\{p(x) \frac{d G}{d x}(x, \xi)\right\}+q(x) G(x, \xi)=0 \tag{35}
+\end{equation*}
+
+
+をみたす。\\
+（d）任意の $\xi$ に対して，$G(x, \xi)$ は境界条件
+
+
+\begin{equation*}
+A G(a, \xi)+A^{\prime} G_{x}^{\prime}(a, \xi)=0, \quad B G(b, \xi)+B^{\prime} G_{x}^{\prime}(b, \xi)=0 \tag{36}
+\end{equation*}
+
+
+をみたす。\\
+上述のような条件（a），（b），（c），（d）を満足する関数 $G(x, \xi)$ は対称性をもつことを示せ．  
+\end{itembox}
+
+\textbf{解答}
+
+以下を証明する：
+\[
+G(x, \xi) = G(\xi, x)
+\]
+
+
+2つの関数 \( G(x, \xi) \) および \( G(\xi, x) \) に対して, \ グリーンの第二定理を適用すると,
+
+\[
+\int_a^b \left[ G(x, \xi) \frac{d}{d\xi} \left\{ p(\xi) \frac{dG}{d\xi}(x, \xi) \right\} - G(\xi, x) \frac{d}{dx} \left\{ p(x) \frac{dG}{dx}(x, \xi) \right\} \right] dx = 0
+\]
+
+積分範囲内の微分方程式を用いることで, \ 上記の積分は境界項に帰着する：
+
+\[
+\left[ p(x) \left( G(x, \xi) \frac{dG}{dx}(x, \xi) - G(\xi, x) \frac{dG}{d\xi}(x, \xi) \right) \right]_a^b = 0
+\]
+
+境界条件 (d) により, \ これらの境界項はゼロになる.
+
+次に, \ 条件(b) の微分の不連続性より
+\[
+G'_x(x, \xi+0) - G'_x(x, \xi-0) = \frac{1}{p(x)}
+\]
+
+対称的に書き換えると
+\[
+G'_x(\xi, x+0) - G'_x(\xi, x-0) = \frac{1}{p(\xi)}
+\]
+
+これにより、対称性
+\[
+G(x, \xi) = G(\xi, x)
+\]
+
+が成立する.
+
+
+
+\bigskip
+\bigskip
+
+\begin{itembox}[l]{[21]}
+グリーン関数 $G(x, \xi)$ を求めて，次の境界値問題を解け．
+
+
+\begin{equation*}
+y^{\prime \prime}+y=-f(x), \quad y(0)=y\left(\frac{\pi}{2}\right)=0, \quad\left(f \in C\left[0, \frac{\pi}{2}\right]\right) \tag{37}
+\end{equation*}  
+\end{itembox}
+
+\textbf{解答}
+
+与えられた境界値問題を解くために, \ 次の方程式を満たすようなグリーン関数 \( G(x, \xi) \) を求める.
+
+
+\[
+\frac{d^2}{dx^2} G(x, \xi) + G(x, \xi) = \delta(x - \xi),
+\]
+
+および境界条件：
+\[
+G(0, \xi) = 0, \quad G\left(\frac{\pi}{2}, \xi\right) = 0.
+\]
+
+(i) \( x < \xi \) の場合
+
+一般解は次の形になる：
+\[
+G_1(x, \xi) = A \sin(x) + B \cos(x).
+\]
+
+境界条件 \( G(0, \xi) = 0 \) より
+\[
+B = 0.
+\]
+
+したがって：
+\[
+G_1(x, \xi) = A \sin(x).
+\]
+
+(ii) \( x > \xi \) の場合
+
+同様に、一般解は次の形になる：
+\[
+G_2(x, \xi) = C \sin(x) + D \cos(x).
+\]
+
+境界条件 \( G\left(\frac{\pi}{2}, \xi\right) = 0 \) より
+\[
+C = 0.
+\]
+
+したがって
+\[
+G_2(x, \xi) = D \cos(x).
+\]
+
+
+デルタ関数の性質より, \ 不連続条件が存在する
+
+\[
+G'_x(x=\xi+0) - G'_x(x=\xi-0) = 1.
+\]
+
+それぞれの導関数を計算すると
+\[
+\frac{d}{dx} G_1(x, \xi) = A \cos(x),
+\]
+\[
+\frac{d}{dx} G_2(x, \xi) = -D \sin(x).
+\]
+
+したがって, \ 不連続性の条件は次のようになる
+\[
+-A \cos(\xi) - (-D \sin(\xi)) = 1.
+\]
+
+\[
+-A \cos(\xi) + D \sin(\xi) = 1.
+\]
+
+また, \ 連続性条件
+\[
+A \sin(\xi) = D \cos(\xi).
+\]
+
+これを連立して解くと
+\[
+A = \frac{\cos(\xi)}{\sin(\xi)}, \quad D = \frac{\sin(\xi)}{\cos(\xi)}.
+\]
+
+
+以上の結果をまとめると、グリーン関数は次のように表される：
+
+\[
+\begin{aligned}
+G(x, \xi) &=
+\begin{cases}
+\frac{\sin(x) \sin\left(\frac{\pi}{2} - \xi\right)}{\sin\left(\frac{\pi}{2}\right)}, & x < \xi, \\
+\frac{\sin(\xi) \sin\left(\frac{\pi}{2} - x\right)}{\sin\left(\frac{\pi}{2}\right)}, & x > \xi.
+\end{cases}  \\
+&= \underline{\begin{cases}
+\sin(x) \sin\left(\frac{\pi}{2} - \xi\right), & x < \xi, \\
+\sin(\xi) \sin\left(\frac{\pi}{2} - x\right), & x > \xi.
+\end{cases}}
+\end{aligned}
+\]
+
+
+これにより、与えられた境界値問題が解かれた.
+
+
+\end{document}

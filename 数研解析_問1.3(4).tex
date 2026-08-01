@@ -1,0 +1,31 @@
+\documentclass{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp}
+\newtheorem*{answer*}{解答}
+
+\begin{document}
+
+\begin{itembox}[l]{問1.3(4)}
+次は, ノルムを定義することを示せ.
+
+$X = C([a,b]), \ \ \norm{f}_1 \equiv \displaystyle \int_a^b |f(x)| dx, \ \ \ (f \in C([a,b]))$
+\end{itembox}
+
+\begin{answer*}
+\end{answer*}
+(i) $\norm{f}_1 = 0$ とすると, $\displaystyle \int_a^b |f(x)| dx = 0$ なので$|\displaystyle \int_a^b f(x) dx | \le \displaystyle \int_a^b |f(x)| dx = 0$. 
+
+よって, $\displaystyle \int_a^b |f(x)| dx = \int_a^b f(x) dx = 0$ となる. 
+
+ここで, $f^+ := \max\{f, \ 0\}, \ f^- := \max\{-f, \ 0\}$ と定めると, $f = f^+ - f^-, \ |f| = f^+ + f^-$ なので
+
+$\displaystyle \int_a^b (f^+ (x) + f^- (x)) dx = \int_a^b (f^+ (x) - f^- (x)) dx$ となり, $\displaystyle \int_a^b f^- (x) dx = 0$ が得られる. これを式$\displaystyle \int_a^b (f^+(x) + f^-(x)) dx = 0$ に代入すると $\displaystyle \int_a^b f^+ (x) dx = 0$ も得られる.
+
+終
+
+制作・著作
+
+━━━━━
+
+NHK
+
+\end{document}

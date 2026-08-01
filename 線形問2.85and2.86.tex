@@ -1,0 +1,64 @@
+\documentclass{jsarticle}
+\usepackage{ascmac,amsmath,amssymb,amsthm,bm,physics,arydshln,mathcomp}
+\newtheorem*{answer*}{解答}
+\begin{document}
+
+\begin{flushright}
+6122111 三森誠真
+\end{flushright}
+
+\begin{itembox}[l]{\textbf{線形2.85}}
+ベクトル空間$V$ とその部分空間$W$ をとる. この時, $V$ の元$\bm{x}$ と $\bm{y}$ に対し, $\bm{x} \sim \bm{y} \stackrel{\mathrm{def}}{\Longleftrightarrow} \bm{x} - \bm{y} \in W$ と定義すると $\sim$ は$V$上の同値関係となることを示せ.
+\end{itembox}
+
+\begin{answer*}
+\end{answer*}
+反射律: $W$ は$V$の部分空間なので, $\bm{x} - \bm{x} = \bm{0} \in W$. よって$\bm{x} \sim \bm{x}$.
+
+対称律: $\forall \bm{x}, \bm{y} \in V, \ \bm{x} \sim \bm{y}$ とすると, $W$ が $V$ の部分空間であることから $\bm{y} - \bm{x} = -1 \cdot (\bm{x} - \bm{y}) \in W$. 
+
+$\hspace{3.3zw}$ よって$\bm{y} \sim \bm{x}$.
+
+推移律: $\forall \bm{x}, \bm{y}, \bm{z} \in V, \ \bm{x} \sim \bm{y}, \bm{y} \sim \bm{z}$ とすると, $W$ が$V$ の部分空間であることから, 
+
+$\hspace{3.8zw} \bm{x} - \bm{z} = (\bm{x} - \bm{y}) + (\bm{y} - \bm{z}) \in W$. よって$\bm{x} \sim \bm{z}$.
+
+以上より, $\sim$ が$V$ 上の同値関係となることが示された.
+
+\bigskip
+
+\begin{itembox}[l]{\textbf{線形2.86}}
+$K$-ベクトル空間$V$ とその部分空間$W$ をとる. この時, $V$ の和とスカラー倍から誘導される$V/W$ の和とスカラー倍がwell-defined であることを示せ. すなわち, 任意の$\bm{v}, \bm{v}' \in V$ と $k \in K$ に対し, 
+
+(1) cl($\bm{v}$) + cl($\bm{v}'$) = cl($\bm{v} + \bm{v}'$), 
+
+(2) $k \cdot$ cl($\bm{v}$) = cl($k \cdot \bm{v}$)
+
+が成り立つことを示せ. 更に, この和とスカラー倍に関して, $V/W$ が$K$ - ベクトル空間になることを示せ. (以降, $V/W$ を商空間と呼ぶ.)
+\end{itembox}
+
+\begin{answer*}
+\end{answer*}
+任意の$\bm{w} \in$ cl($\bm{v}$), $\bm{w}' \in$ cl($\bm{v}'$) に対して, $\bm{v} - \bm{w} \in W, \ \bm{v}' - \bm{w}' \in W$ が成り立つ. このとき, $W$ は$V$ の部分空間なので $\bm{v} + \bm{v}' - (\bm{w} + \bm{w}') = (\bm{v} - \bm{w}) + (\bm{v}' - \bm{w}') \in W$. よって, $\bm{w} + \bm{w}' \in$ cl($\bm{v} + \bm{v}'$).  \\
+cl($\bm{v}$) + cl($\bm{v}'$) = cl($\bm{v}+\bm{v}'$) が示された.
+
+次に, 任意の$\bm{w} \in$ cl($\bm{v}$) に対して, $W$ は$V$の部分空間なので, $k\bm{w} - k\bm{v} = k \cdot (\bm{w} - \bm{v}) \in W$. \\
+よって, $k \cdot \bm{w} \in$ cl($k \cdot \bm{v}$) となるので$k \cdot$ cl($\bm{v}$) = cl($k \cdot \bm{v}$) が示された.
+
+そして, 任意のcl($\bm{x}$), cl($\bm{y}$), cl($\bm{z}$) $\in V/W \ (\bm{x}, \bm{y}, \bm{z} \in V), \ a, b \in K$ に対して \\
+\textbf{結合則} : ( cl($\bm{x}$) + cl($\bm{y}$) ) + cl($\bm{z}$) = cl($\bm{x} + \bm{y}$) + cl($\bm{z}$) = cl($\bm{x} + \bm{y} + \bm{z}$) = cl($\bm{x}$) + cl($\bm{y} + \bm{z}$) 
+
+$\hspace{32.4zw}$ = cl($\bm{x}$) +( cl($\bm{y}$) + cl($\bm{z}$) ) \\
+\textbf{交換則} : cl($\bm{x}$) + cl($\bm{y}$) = cl($\bm{x} + \bm{y}$) = cl($\bm{y} + \bm{x}$) = cl($\bm{y}$) + cl($\bm{x}$) \\
+\textbf{分配則1} : $a \cdot$ (cl($\bm{x}$) + cl($\bm{y}$)) = $a \cdot$ cl($\bm{x} + \bm{y}$) = cl($a \cdot (\bm{x} + \bm{y})$) = cl($a\bm{x} + a\bm{y}$) = cl($a\bm{x}$) + cl($a\bm{y}$) 
+
+$\hspace{34.5zw}$ = $a \cdot$ cl($\bm{x}$) + $a \cdot$ cl($\bm{y}$) \\
+\textbf{分配則2} : $(a + b) \cdot$ cl($\bm{x}$) = cl($(a + b) \cdot \bm{x}$) = cl($a\bm{x} + b\bm{x}$) = cl($a\bm{x}$) + cl($b\bm{x}$) = $a \cdot$ cl($\bm{x}$) + $b \cdot$ cl($\bm{x}$) \\
+\textbf{零元の存在} : cl($\bm{x}$) + cl($\bm{0}$) = cl($\bm{x} + \bm{0}$) = cl($\bm{x}$) なので, 零元cl($\bm{0}$) が存在.\\
+\textbf{逆元の存在} : cl($\bm{x}$) + cl($-\bm{x}$) = cl($\bm{x} + (-\bm{x})$) = cl($\bm{0}$) なので, 逆元cl($-\bm{x}$) が存在.\\
+\textbf{単位元の存在} : $1 \cdot$ cl($\bm{x}$) = cl($1 \cdot \bm{x}$) = cl($\bm{x}$) \\
+\textbf{作用} : ($ab$) $\cdot$ cl($\bm{x}$) = cl($(ab) \cdot \bm{x}$) = cl($a \cdot b\bm{x}$) = $a \cdot$ cl($b\bm{x}$)
+
+$V/W$ について和とスカラー倍の演算が定義されて, 以上の性質を満たすことから$V/W$ は $K$ - ベクトル空間となる. 
+
+\end{document}
